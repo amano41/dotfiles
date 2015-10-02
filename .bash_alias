@@ -1,0 +1,8 @@
+alias ls='ls --show-control-chars --color -F'
+alias ll='ls -l'
+alias la='ls -A'
+alias lla='ls -lA'
+
+alias apt-cyg='apt-cyg -m ftp://ftp.jaist.ac.jp/pub/cygwin/ -c /package'
+alias open='cygstart'
+alias platex='platex -kanji=euc'
