@@ -1,37 +1,37 @@
 
-## CRAN �~���[���w��
+## CRAN ミラーを指定
 options(repos=list(CRAN="https://cran.r-project.org"));
 
-## �N�����Ƀ��[�h����p�b�P�[�W��ǉ�
+## 起動時にロードするパッケージを追加
 local({
 	pkgs <- getOption("defaultPackages");
 	options(defaultPackages=c(pkgs, "lattice", "car"));
 });
 
-## ��a�Δ���f�t�H���g�ɐݒ�
-## car::Anova(type="III") �� SPSS �ƈ�v����悤�ɂȂ�
+## 零和対比をデフォルトに設定
+## car::Anova(type="III") が SPSS と一致するようになる
 options(contrasts=c("contr.sum", "contr.sum"));
 
-## Mac OS X �ł� Quartz �`��
+## Mac OS X では Quartz 描画
 if(capabilities("aqua")) {
 	options(device="quartz");
 }
 
 
-## �O���t�B�b�N�X�f�o�C�X�Ƀt�H���g�ݒ�t�b�N��ǉ�
+## グラフィックスデバイスにフォント設定フックを追加
 setHook(packageEvent("grDevices", "onLoad"), function(...) {
 	
-	## Windows ���̃t�H���g�ݒ�
+	## Windows 環境のフォント設定
 	if (.Platform$OS.type == "windows") {
 	
-		## �t�H���g�f�[�^�x�[�X�̓f�t�H���g�̂܂�
+		## フォントデータベースはデフォルトのまま
 		grDevices::windowsFonts(
 			serif = grDevices::windowsFont("TT Times New Roman"),
 			sans  = grDevices::windowsFont("TT Arial"),
 			mono  = grDevices::windowsFont("TT Courier New")
 		);
 		
-		## �t�H���g�f�[�^�x�[�X�ɖ����̂ƃS�V�b�N�̂�ǉ�
+		## フォントデータベースに明朝体とゴシック体を追加
 		grDevices::windowsFonts(
 			mincho = grDevices::windowsFont("TT MS Mincho"),
 			gothic = grDevices::windowsFont("TT MS Gothic")
@@ -46,7 +46,7 @@ setHook(packageEvent("grDevices", "onLoad"), function(...) {
 		);
 	}
 	
-	## Mac OS X ���̃t�H���g�ݒ�
+	## Mac OS X 環境のフォント設定
 	if (capabilities("aqua")) {
 		grDevices::quartzFonts(
 			serif = grDevices::quartzFont(c("Hiragino Mincho Pro W3",   ## plain
@@ -60,23 +60,23 @@ setHook(packageEvent("grDevices", "onLoad"), function(...) {
 		);
 	}
 
-	## Linux ���̃t�H���g�ݒ�
+	## Linux 環境のフォント設定
 	if (capabilities("X11")) {
 		grDevices::X11.options(fonts=c("-kochi-gothic-%s-%s-*-*-%d-*-*-*-*-*-*-*",
 		                               "-adobe-symbol-medium-r-*-*-%d-*-*-*-*-*-*-*"));
 	}
 
-	## PostScript �� PDF �̃t�H���g�ݒ�
-	## family="" �ŕ`�悵��������Ɏg����
+	## PostScript と PDF のフォント設定
+	## family="" で描画した文字列に使われる
 	grDevices::ps.options (family="Japan1GothicBBB");
 	grDevices::pdf.options(family="Japan1GothicBBB");
 
 });
 
-## ���{���ݒ肷�邽�߂̊����쐬
+## 日本語を設定するための環境を作成
 attach(NULL, name="JapanEnv");
 
-## �t�H���g��ݒ肷��t�b�N�֐����`
+## フォントを設定するフック関数を定義
 assign("familyset_hook", function() {
 	winfontdevs = c("windows", "win.metafile", "png", "bmp", "jpeg", "tiff", "RStudioGD");
 	macfontdevs = c("quartz", "quartz_off_screen", "RStudioGD");
@@ -89,7 +89,7 @@ assign("familyset_hook", function() {
 	}
 }, pos="JapanEnv");
 
-## ��}�֐��Ƀt�H���g�ݒ�t�b�N��ǉ�
+## 作図関数にフォント設定フックを追加
 setHook("plot.new", get("familyset_hook", pos="JapanEnv"));
 setHook("persp",    get("familyset_hook", pos="JapanEnv"));
 
