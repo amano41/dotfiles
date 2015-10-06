@@ -1,6 +1,6 @@
 
 ## CRAN ミラーを指定
-options(repos=list(CRAN="https://cran.r-project.org"));
+options(repos=list(CRAN="https://cran.rstudio.com/"));
 
 ## 起動時にロードするパッケージを追加
 local({
