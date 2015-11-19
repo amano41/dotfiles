@@ -4,7 +4,6 @@
   welcome:
     showOnStartup: false
   core:
-    projectHome: "D:\\Home\\amano\\Work"
     themes: [
       "atom-light-ui"
       "one-dark-syntax"
