@@ -31,3 +31,4 @@
   "markdown-preview-plus":
     enableLatexRenderingByDefault: true
     useGitHubStyle: true
+  minimap: {}
