@@ -1,33 +1,33 @@
 "*":
-  "exception-reporting":
-    userId: "f0ec3e51-2f16-5099-84b2-c6a870b108b5"
-  welcome:
-    showOnStartup: false
+  "autocomplete-plus": {}
   core:
-    themes: [
-      "atom-light-ui"
-      "one-dark-syntax"
-    ]
     disabledPackages: [
       "japanese-wrap"
       "markdown-preview"
       "mathjax-wrapper"
     ]
+    themes: [
+      "atom-light-ui"
+      "one-dark-syntax"
+    ]
   editor:
-    invisibles: {}
     fontFamily: "Ricty Diminished"
     fontSize: 16
+    invisibles: {}
     showIndentGuide: true
     showInvisibles: true
     softTabs: false
-    tabLength: 4
     softWrap: true
-  "markdown-preview":
-    useGitHubStyle: true
-  "autocomplete-plus": {}
+    tabLength: 4
+  "exception-reporting":
+    userId: "f0ec3e51-2f16-5099-84b2-c6a870b108b5"
   "japanese-wrap":
     characterWidth: {}
+  "markdown-preview":
+    useGitHubStyle: true
   "markdown-preview-plus":
     enableLatexRenderingByDefault: true
     useGitHubStyle: true
   minimap: {}
+  welcome:
+    showOnStartup: false
