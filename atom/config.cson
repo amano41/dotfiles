@@ -5,6 +5,7 @@
       "japanese-wrap"
       "markdown-preview"
       "mathjax-wrapper"
+      "spell-check"
     ]
     themes: [
       "atom-light-ui"
@@ -29,5 +30,6 @@
     enableLatexRenderingByDefault: true
     useGitHubStyle: true
   minimap: {}
+  "spell-check": {}
   welcome:
     showOnStartup: false
