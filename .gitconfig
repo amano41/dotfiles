@@ -1,0 +1,15 @@
+[include]
+	path = ~/.gitconfig.local
+[push]
+	default = simple
+[color]
+	ui = auto
+[alias]
+	ci = commit
+	co = checkout
+	st = status
+	lg = log --graph --all --oneline --decorate --date-order
+	hist = log --graph --all --oneline --decorate --date-order
+[url "github:"]
+	insteadOf = https://github.com/
+	insteadOf = git@github.com:
