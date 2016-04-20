@@ -1,7 +1,6 @@
 export LANG=ja_JP.UTF-8
 export TZ=JST-9
-export JLESSCHARSET=japanese-utf-8
-export  LESSCHARSET=dos
+export LESSCHARSET=utf-8
 
 export PATH=$HOME/bin:$PATH
 
