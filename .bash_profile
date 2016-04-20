@@ -15,5 +15,5 @@ if [ -e /etc/bash_completion.d/git-prompt.sh ]; then
 	export GIT_PS1_SHOWDIRTYSTATE=true
 	export GIT_PS1_SHOWSTASHSTATE=true
 	export GIT_PS1_SHOWUNTRACKEDFILES=true
-	export PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[31m\]$(__git_ps1)\[\e[0m\]\n\$ '
+	export PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[36m\]$(__git_ps1)\[\e[0m\]\n\$ '
 fi
