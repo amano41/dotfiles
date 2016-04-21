@@ -4,17 +4,7 @@ export LESSCHARSET=utf-8
 
 export PATH=$HOME/bin:$PATH
 
-export HISTCONTROL=ignoreboth:erasedups
-export HISTIGNORE="ls:ls *:ll:ll *:la:la *:cd:cd -:pwd"
-export HISTSIZE=10000
-export HISTFILESIZE=10000
-HISTTIMEFORMAT="%F %T  "
-
-if [ -e "${HOME}/.bashrc" ] ; then
-  source "${HOME}/.bashrc"
-fi
-
-## Display current branch name on bash prompt
+## Display current branch on bash prompt
 if [ -e /etc/bash_completion.d/git-prompt.sh ]; then
 	source /etc/bash_completion.d/git-prompt.sh
 	export GIT_PS1_SHOWDIRTYSTATE=true
@@ -23,4 +13,8 @@ if [ -e /etc/bash_completion.d/git-prompt.sh ]; then
 	export PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[36m\]$(__git_ps1)\[\e[0m\]\n\$ '
 else
 	export PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n\$ '
+fi
+
+if [ -e "${HOME}/.bashrc" ]; then
+	source "${HOME}/.bashrc"
 fi
