@@ -4,6 +4,12 @@ export LESSCHARSET=utf-8
 
 export PATH=$HOME/bin:$PATH
 
+export HISTCONTROL=ignoreboth:erasedups
+export HISTIGNORE="ls:ls *:ll:ll *:la:la *:cd:cd -:pwd"
+export HISTSIZE=10000
+export HISTFILESIZE=10000
+HISTTIMEFORMAT="%F %T  "
+
 if [ -e "${HOME}/.bashrc" ] ; then
   source "${HOME}/.bashrc"
 fi
