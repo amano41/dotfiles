@@ -7,6 +7,8 @@ HISTCONTROL=ignoreboth:erasedups
 HISTIGNORE="ls:ls *:ll:ll *:la:la *:cd:cd -:pwd:history:exit"
 HISTTIMEFORMAT="%F %T  "  ## 履歴にタイムスタンプ YYYY-MM-DD hh:mm:ss を表示する
 
+shopt -s cdspell
+
 ## 履歴関連のオプション
 shopt -s cmdhist     ## 複数行コマンドを同じ履歴エントリに保存する
 shopt -s histappend  ## 履歴ファイルを上書きせずに追加する
