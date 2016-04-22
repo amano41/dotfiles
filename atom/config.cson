@@ -33,3 +33,6 @@
   "spell-check": {}
   welcome:
     showOnStartup: false
+".ini.source":
+  editor:
+    tabLength: 4
