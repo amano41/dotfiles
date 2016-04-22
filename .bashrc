@@ -1,8 +1,9 @@
+## 履歴関連のシェル変数
 HISTSIZE=10000
 HISTFILESIZE=10000
 HISTCONTROL=ignoreboth:erasedups
 HISTIGNORE="ls:ls *:ll:ll *:la:la *:cd:cd -:pwd:history:exit"
-HISTTIMEFORMAT="%F %T  "  ## Display Timestamp (YYYY-MM-DD hh:mm:ss)
+HISTTIMEFORMAT="%F %T  "  ## 履歴にタイムスタンプ YYYY-MM-DD hh:mm:ss を表示する
 
 ## 履歴関連のオプション
 shopt -s cmdhist     ## 複数行コマンドを同じ履歴エントリに保存する
