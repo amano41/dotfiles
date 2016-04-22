@@ -1,3 +1,5 @@
+IGNOREEOF=10  ## Ctrl+D は 10 回まではシェルを終了しない
+
 ## 履歴関連のシェル変数
 HISTSIZE=10000
 HISTFILESIZE=10000
