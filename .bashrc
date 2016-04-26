@@ -22,3 +22,6 @@ shopt -s no_empty_cmd_completion  ## 未入力の状態では補完候補を出�
 if [ -e "${HOME}/.bash_alias" ]; then
 	source "${HOME}/.bash_alias"
 fi
+
+## ローカル環境に固有の設定があれば読み込む
+[ -f ~/.bashrc.local ] && source ~/.bashrc.local
