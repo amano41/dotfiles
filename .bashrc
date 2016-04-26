@@ -19,9 +19,8 @@ shopt -s histreedit  ## 履歴置換が失敗したら再編集する
 shopt -u hostcomplete             ## '@' を含む単語でホスト名を補完しない
 shopt -s no_empty_cmd_completion  ## 未入力の状態では補完候補を出さない
 
-if [ -e "${HOME}/.bash_alias" ]; then
-	source "${HOME}/.bash_alias"
-fi
+## エイリアスの設定
+[ -f ~/.bash_alias ] && source ~/.bash_alias
 
-## ローカル環境に固有の設定があれば読み込む
+## ローカル環境に固有の設定
 [ -f ~/.bashrc.local ] && source ~/.bashrc.local
