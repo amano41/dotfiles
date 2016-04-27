@@ -4,9 +4,9 @@ export LESSCHARSET=utf-8
 
 export PATH=$HOME/bin:$PATH
 
-## Display current branch on bash prompt
-if [ -e /etc/bash_completion.d/git-prompt.sh ]; then
-	source /etc/bash_completion.d/git-prompt.sh
+## プロンプトに Git ブランチの情報を表示する
+if [ -e /etc/profile.d/git-prompt.sh ]; then
+	source /etc/profile.d/git-prompt.sh
 	export GIT_PS1_SHOWDIRTYSTATE=true
 	export GIT_PS1_SHOWSTASHSTATE=true
 	export GIT_PS1_SHOWUNTRACKEDFILES=true
