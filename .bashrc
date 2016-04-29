@@ -19,6 +19,18 @@ shopt -s histreedit  ## 履歴置換が失敗したら再編集する
 shopt -u hostcomplete             ## '@' を含む単語でホスト名を補完しない
 shopt -s no_empty_cmd_completion  ## 未入力の状態では補完候補を出さない
 
+## プロンプトに Git ブランチの情報を表示する
+if [ -e /etc/profile.d/git-prompt.sh ]; then
+	source /etc/profile.d/git-prompt.sh
+	export GIT_PS1_SHOWDIRTYSTATE=true
+	export GIT_PS1_SHOWSTASHSTATE=true
+	export GIT_PS1_SHOWUNTRACKEDFILES=true
+	export GIT_PS1_SHOWUPSTREAM=auto
+	export PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[36m\]$(__git_ps1)\[\e[0m\]\n\$ '
+else
+	export PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n\$ '
+fi
+
 ## エイリアスの設定
 [ -f ~/.bash_alias ] && source ~/.bash_alias
 
