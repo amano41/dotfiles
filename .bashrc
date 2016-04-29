@@ -26,9 +26,9 @@ if [ -e /etc/profile.d/git-prompt.sh ]; then
 	export GIT_PS1_SHOWSTASHSTATE=true
 	export GIT_PS1_SHOWUNTRACKEDFILES=true
 	export GIT_PS1_SHOWUPSTREAM=auto
-	export PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[36m\]$(__git_ps1)\[\e[0m\]\n\$ '
+	export PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[36m\]$(__git_ps1)''\n\[\e[0m\]$ '
 else
-	export PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n\$ '
+	export PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\n\[\e[0m\]\$ '
 fi
 
 ## エイリアスの設定
