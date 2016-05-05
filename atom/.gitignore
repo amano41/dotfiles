@@ -1,7 +1,7 @@
 .apm/
 .npm/
 .node-gyp/
-blob-store
+blob-store/
 compile-cache/
 dev/
 packages/
