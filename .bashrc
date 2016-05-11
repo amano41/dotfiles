@@ -3,7 +3,7 @@ IGNOREEOF=10  ## Ctrl+D は 10 回まではシェルを終了しない
 ## 履歴関連のシェル変数
 HISTSIZE=10000
 HISTFILESIZE=10000
-HISTCONTROL=ignoreboth:erasedups
+HISTCONTROL=ignoreboth
 HISTIGNORE="ls:ll:la:cd:cd -:pwd:history:exit"
 HISTTIMEFORMAT="%F %T  "  ## 履歴にタイムスタンプ YYYY-MM-DD hh:mm:ss を表示する
 
