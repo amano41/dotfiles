@@ -4,7 +4,7 @@ IGNOREEOF=10  ## Ctrl+D は 10 回まではシェルを終了しない
 HISTSIZE=10000
 HISTFILESIZE=10000
 HISTCONTROL=ignoreboth:erasedups
-HISTIGNORE="ls:ls *:ll:ll *:la:la *:cd:cd -:pwd:history:exit"
+HISTIGNORE="ls:ll:la:cd:cd -:pwd:history:exit"
 HISTTIMEFORMAT="%F %T  "  ## 履歴にタイムスタンプ YYYY-MM-DD hh:mm:ss を表示する
 
 shopt -s cdspell
