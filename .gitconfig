@@ -15,7 +15,7 @@
 [difftool]
 	prompt = false
 [difftool "WinMerge"]
-	cmd = 'C:/Program Files/WinMerge/WinMergeU.exe' -e -r -u -x -wl -wr -dl \"a/$MERGED\" -dr \"b/$MERGED\" \"$(cygpath -am $LOCAL)\" \"$(cygpath -am $REMOTE)\"
+	cmd = 'C:/Program Files/WinMerge/WinMergeU.exe' -e -r -u -x -wl -wr -dl \"a/$MERGED\" -dr \"b/$MERGED\" \"$(cygpath -am \"$LOCAL\")\" \"$(cygpath -am \"$REMOTE\")\"
 	trustExitCode = false
 [merge]
 	tool = WinMerge
