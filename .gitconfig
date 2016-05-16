@@ -2,6 +2,8 @@
 	path = ~/.gitconfig.local
 [push]
 	default = simple
+[core]
+	quotepath = false
 [color]
 	ui = auto
 [alias]
