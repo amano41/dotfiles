@@ -37,6 +37,9 @@
     enableVcsColoring: true
   welcome:
     showOnStartup: false
+".diff.source":
+  editor:
+    tabLength: 4
 ".ini.source":
   editor:
     tabLength: 4
