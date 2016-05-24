@@ -6,3 +6,5 @@ compile-cache/
 dev/
 packages/
 storage/
+
+.git-history/
