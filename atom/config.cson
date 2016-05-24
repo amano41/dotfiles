@@ -31,6 +31,8 @@
     useGitHubStyle: true
   minimap: {}
   "spell-check": {}
+  tabs:
+    enableVcsColoring: true
   welcome:
     showOnStartup: false
 ".ini.source":
