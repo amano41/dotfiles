@@ -33,6 +33,8 @@
     useGitHubStyle: true
   minimap:
     plugins:
+      "find-and-replace": true
+      "find-and-replaceDecorationsZIndex": 0
       "minimap-autohide": true
       "minimap-autohideDecorationsZIndex": 0
   "spell-check": {}
