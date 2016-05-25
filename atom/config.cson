@@ -31,7 +31,10 @@
   "markdown-preview-plus":
     enableLatexRenderingByDefault: true
     useGitHubStyle: true
-  minimap: {}
+  minimap:
+    plugins:
+      "minimap-autohide": true
+      "minimap-autohideDecorationsZIndex": 0
   "spell-check": {}
   tabs:
     enableVcsColoring: true
