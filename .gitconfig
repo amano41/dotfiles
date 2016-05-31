@@ -33,3 +33,6 @@
 [url "bitbucket:"]
 	insteadOf = https://bitbucket.org/
 	insteadOf = git@bitbucket.org:
+[ghq]
+	root = ~/dev/src
+	root = ~/dev/go/src
