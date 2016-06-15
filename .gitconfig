@@ -18,7 +18,7 @@
 	d = diff
 	dc = diff --cached
 	b = branch -a
-	l = log --graph -all --oneline --decorate --date-order
+	l = log --graph --all --oneline --decorate --date-order
 	hist = log --graph --all --oneline --decorate --date-order
 [diff]
 	tool = WinMerge
