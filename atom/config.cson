@@ -7,6 +7,15 @@
       "mathjax-wrapper"
       "spell-check"
     ]
+    ignoredNames: [
+      ".git"
+      ".hg"
+      ".svn"
+      ".DS_Store"
+      "._*"
+      "Thumbs.db"
+      "desktop.ini"
+    ]
     themes: [
       "atom-light-ui"
       "one-dark-syntax"
@@ -44,6 +53,8 @@
   "spell-check": {}
   tabs:
     enableVcsColoring: true
+  "tree-view":
+    hideIgnoredNames: true
   welcome:
     showOnStartup: false
 ".diff.source":
