@@ -8,3 +8,4 @@ packages/
 storage/
 
 .git-history/
+projects.cson
