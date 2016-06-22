@@ -21,8 +21,11 @@
 	d = diff
 	dc = diff --cached
 	b = branch -a
-	l = log --graph --all --oneline --decorate --date-order
-	hist = log --graph --all --oneline --decorate --date-order
+	l = !git lg -n 20
+	la = !git lg --all
+	lg = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(magenta)[%cd]%Creset %C(green)<%an>%Creset' --date=relative
+	ls = log --stat --abbrev-commit --date=iso
+	lp = log -p --abbrev-commit --date=iso
 	alias = !git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | sort
 	ignore = !([ ! -e .gitignore ] && touch .gitignore) | echo $1 >> .gitignore
 	amend = commit --amend
