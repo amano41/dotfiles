@@ -8,9 +8,12 @@
 	ui = auto
 [alias]
 	a = add .
+	ad = add
 	au = add -u
 	aa = add -A .
+	ap = add -p
 	c = commit
+	ca = commit -a
 	cm = commit -m
 	co = checkout
 	s = status --short --branch
@@ -20,6 +23,9 @@
 	b = branch -a
 	l = log --graph --all --oneline --decorate --date-order
 	hist = log --graph --all --oneline --decorate --date-order
+	alias = !git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | sort
+	ignore = !([ ! -e .gitignore ] && touch .gitignore) | echo $1 >> .gitignore
+	amend = commit --amend
 [diff]
 	tool = WinMerge
 [difftool]
