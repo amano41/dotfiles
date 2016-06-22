@@ -9,7 +9,7 @@
 [alias]
 	a = add .
 	au = add -u
-	aa = add -A
+	aa = add -A .
 	c = commit
 	cm = commit -m
 	co = checkout
