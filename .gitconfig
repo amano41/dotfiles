@@ -22,7 +22,7 @@
 	dc = diff --cached
 	b = branch -a
 	l = !git lg -n 20
-	la = !git lg --all
+	la = !git lg -n 20 --all
 	lg = log --graph --pretty=format:'%C(yellow)%h%C(bold cyan)%d%Creset %s %C(magenta)[%cd]%Creset %C(bold blue)<%an>%Creset' --date=relative
 	ls = log --stat --pretty=format:'%C(reverse yellow)%h%Creset  %C(magenta)%cd%Creset  %C(bold blue)%an <%ae>%Creset%n%n%w(0,4,4)%B' --date=iso
 	lp = log -p --pretty=format:'%C(reverse yellow)%h%Creset  %C(magenta)%cd%Creset  %C(bold blue)%an <%ae>%Creset%n%n%w(0,4,4)%B' --date=iso
