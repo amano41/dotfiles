@@ -1,7 +1,7 @@
 alias ls='ls --show-control-chars --color -F'
-alias ll='ls -l'
 alias la='ls -A'
-alias lla='ls -lA'
+alias ll='ls -l --time-style="+%Y-%m-%d %H:%M:%S"'
+alias lla='ls -lA --time-style="+%Y-%m-%d %H:%M:%S"'
 
 alias open='cygstart'
 alias platex='platex -kanji=euc'
