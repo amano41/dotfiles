@@ -1,4 +1,4 @@
-alias ls='ls --show-control-chars --color -F --time-style="+%Y-%m-%d %H:%M:%S"'
+alias ls='ls --show-control-chars --color -F --time-style="+%Y-%m-%d %H:%M:%S" --group-directories-first'
 alias la='ls -A'
 alias ll='ls -l'
 alias lla='ls -lA'
