@@ -36,6 +36,8 @@
     showIconsInEditorGutter: true
   "japanese-wrap":
     characterWidth: {}
+  "line-ending-selector":
+    defaultLineEnding: "LF"
   "markdown-preview":
     useGitHubStyle: true
   "markdown-preview-plus":
