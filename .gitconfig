@@ -27,7 +27,7 @@
 	ls = log --stat --pretty=format:'%C(reverse yellow)%h%Creset  %C(magenta)%cd%Creset  %C(bold blue)%an <%ae>%Creset%n%n%w(0,4,4)%B' --date=iso
 	lp = log -p --pretty=format:'%C(reverse yellow)%h%Creset  %C(magenta)%cd%Creset  %C(bold blue)%an <%ae>%Creset%n%n%w(0,4,4)%B' --date=iso
 	alias = !git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | sort
-	ignore = !([ ! -e .gitignore ] && touch .gitignore) | echo $1 >> .gitignore
+	ignore = !"f() { for x in "$@"; do echo "$x" >> "${GIT_PREFIX}".gitignore; shift; done; }; f"
 	amend = commit --amend
 [diff]
 	tool = WinMerge
