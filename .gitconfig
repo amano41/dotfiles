@@ -28,6 +28,7 @@
 	lp = log -p --pretty=format:'%C(reverse yellow)%h%Creset  %C(magenta)%cd%Creset  %C(bold blue)%an <%ae>%Creset%n%n%w(0,4,4)%B' --date=iso
 	alias = !git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | sort
 	ignore = !"f() { for x in "$@"; do echo "$x" >> "${GIT_PREFIX}".gitignore; shift; done; }; f"
+	init-ignore = !"f() { local s=$1; shift; for x in "$@"; do s="$s,$x"; shift; done; curl -L -s -o .gitignore "http://www.gitignore.io/api/$s";}; f"
 	amend = commit --amend
 [diff]
 	tool = WinMerge
