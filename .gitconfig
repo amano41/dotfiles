@@ -4,6 +4,7 @@
 	default = simple
 [core]
 	quotepath = false
+	whitespace = cr-at-eol
 [color]
 	ui = auto
 [alias]
