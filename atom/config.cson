@@ -17,6 +17,7 @@
       "desktop.ini"
       ".dropbox"
     ]
+    telemetryConsent: "no"
     themes: [
       "atom-light-ui"
       "one-dark-syntax"
