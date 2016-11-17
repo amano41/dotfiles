@@ -2,9 +2,7 @@
   "autocomplete-plus": {}
   core:
     disabledPackages: [
-      "japanese-wrap"
       "markdown-preview"
-      "mathjax-wrapper"
       "spell-check"
     ]
     ignoredNames: [
@@ -37,8 +35,6 @@
     userId: "f0ec3e51-2f16-5099-84b2-c6a870b108b5"
   "git-diff":
     showIconsInEditorGutter: true
-  "japanese-wrap":
-    characterWidth: {}
   "line-ending-selector":
     defaultLineEnding: "LF"
   "markdown-preview":
@@ -56,7 +52,6 @@
       "highlight-selectedDecorationsZIndex": 0
       "minimap-autohide": true
       "minimap-autohideDecorationsZIndex": 0
-  "spell-check": {}
   tabs:
     enableVcsColoring: true
   "tree-view":
