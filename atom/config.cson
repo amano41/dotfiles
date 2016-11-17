@@ -23,7 +23,7 @@
       "one-dark-syntax"
     ]
   editor:
-    fontFamily: "Ricty Diminished"
+    fontFamily: "\"MyricaM M\", \"Ricty Diminished Discord\", \"Inconsolata\", \"Consolas\", \"MeiryoKe_Gothic\", \"Meiryo\""
     fontSize: 16
     invisibles: {}
     showIndentGuide: true
