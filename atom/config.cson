@@ -17,6 +17,8 @@
       "desktop.ini"
       ".dropbox"
     ]
+    openEmptyEditorOnStart: false
+    restorePreviousWindowsOnStart: false
     telemetryConsent: "no"
     themes: [
       "atom-light-ui"
