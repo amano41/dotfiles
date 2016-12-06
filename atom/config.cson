@@ -2,9 +2,11 @@
   "autocomplete-plus": {}
   core:
     disabledPackages: [
-      "markdown-preview"
       "spell-check"
       "whitespace"
+      "language-gfm"
+      "markdown-preview"
+      "markdown-pdf"
     ]
     ignoredNames: [
       ".git"
