@@ -29,6 +29,7 @@
     fontFamily: "\"MyricaM M\", \"Ricty Diminished Discord\", \"Inconsolata\", \"Consolas\", \"MeiryoKe_Gothic\", \"Meiryo\""
     fontSize: 16
     invisibles: {}
+    scrollPastEnd: true
     showIndentGuide: true
     showInvisibles: true
     softTabs: false
