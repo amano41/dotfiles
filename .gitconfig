@@ -32,21 +32,11 @@
 	ignore = !"f() { for x in "$@"; do echo "$x" >> "${GIT_PREFIX}".gitignore; shift; done; }; f"
 	init-ignore = !"f() { local s=$1; shift; for x in "$@"; do s="$s,$x"; shift; done; curl -L -s -o .gitignore "http://www.gitignore.io/api/$s";}; f"
 	amend = commit --amend
-[diff]
-	tool = WinMerge
 [difftool]
 	prompt = false
-[difftool "WinMerge"]
-	cmd = 'C:/Program Files/WinMerge/WinMergeU.exe' -e -r -u -x -wl -wr -dl \"a/$MERGED\" -dr \"b/$MERGED\" \"$(cygpath -am \"$LOCAL\")\" \"$(cygpath -am \"$REMOTE\")\"
-	trustExitCode = false
-[merge]
-	tool = WinMerge
 [mergetool]
 	prompt = false
 	keepBackup = false
-[mergetool "WinMerge"]
-	cmd = 'C:/Program Files/WinMerge/WinMergeU.exe' \"$MERGED\"
-	trustExitCode = false
 [url "git@github.com:"]
 	pushInsteadOf = https://github.com/
 	pushInsteadOf = git://github.com/
