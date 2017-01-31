@@ -41,10 +41,18 @@ atom-text-editor {
 	font-weight: bold; // Myrica の線が細いことの対策
 }
 
+@invisible-color: rgba(200, 200, 200, 0.5);
+
 atom-text-editor.editor {
 
 	.syntax--comment {
 		font-style: normal;
+	}
+
+	.indent-guid,
+	.invisible-character,
+	.highlight.ideographic-space .region:after {
+		color: @invisible-color;
 	}
 
 }
