@@ -41,8 +41,12 @@ atom-text-editor {
 	font-weight: bold; // Myrica の線が細いことの対策
 }
 
-atom-text-editor::shadow .comment {
-	font-style: normal;
+atom-text-editor.editor {
+
+	.syntax--comment {
+		font-style: normal;
+	}
+
 }
 
 .markdown-preview.markdown-preview {
