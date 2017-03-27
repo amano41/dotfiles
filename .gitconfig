@@ -4,6 +4,7 @@
 [push]
 	default = simple
 [core]
+	attributesfile = ~/.gitattributes
 	quotepath = false
 	whitespace = cr-at-eol
 [color]
