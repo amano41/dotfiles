@@ -11,3 +11,12 @@
 [diff "rtf"]
 	binary = true
 	textconv = xdoc2txt
+[diff "docx"]
+	binary = true
+	textconv = xdoc2txt
+[diff "xlsx"]
+	binary = true
+	textconv = xdoc2txt
+[diff "pptx"]
+	binary = true
+	textconv = xdoc2txt

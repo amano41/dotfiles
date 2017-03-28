@@ -1,1 +1,4 @@
 *.rtf diff=rtf
+*.docx diff=docx
+*.xlsx diff=xlsx
+*.pptx diff=pptx
