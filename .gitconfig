@@ -5,6 +5,7 @@
 	default = simple
 [core]
 	attributesfile = ~/.gitattributes
+	excludesfile = ~/.gitignore
 	quotepath = false
 	whitespace = cr-at-eol
 [color]

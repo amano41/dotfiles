@@ -1,0 +1,29 @@
+## Windows
+
+Thumbs.db
+Desktop.ini
+
+
+## Mac OS
+
+.DS_Store
+._*
+
+
+## Linux
+
+*~
+
+
+## MS Office
+
+~$*.doc*
+~$*.xls*
+~$*.ppt*
+
+
+## R
+
+.Rhistory
+.RData
+.Rproj.user/
