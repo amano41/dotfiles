@@ -1,8 +1,6 @@
 [include]
 	path = ~/.gitconfig.user
 	path = ~/.gitconfig.local
-[push]
-	default = simple
 [core]
 	attributesfile = ~/.gitattributes
 	excludesfile = ~/.gitignore
@@ -10,6 +8,8 @@
 	whitespace = cr-at-eol
 [color]
 	ui = auto
+[push]
+	default = current
 [alias]
 	a = add .
 	ad = add
