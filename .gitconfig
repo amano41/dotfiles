@@ -13,18 +13,18 @@
 	default = current
 [alias]
 	a = add
-	au = add -u
-	aa = add -A
-	ap = add -p
+	au = add --update
+	aa = add --all
+	ap = add --patch
 	c = commit
-	ca = commit -a
+	ca = commit --all
 	cm = commit -m
 	co = checkout
 	s = status --short --branch
 	st = status
 	d = diff
 	dc = diff --cached
-	b = branch -a
+	b = branch --all
 	l = !git lg -n 20
 	la = !git lg -n 20 --all
 	lg = log --graph --pretty=format:'%C(yellow)%h%C(bold cyan)%d%Creset %s %C(magenta)[%cd]%Creset %C(bold blue)<%an>%Creset' --date=relative
