@@ -12,10 +12,9 @@
 [push]
 	default = current
 [alias]
-	a = add .
-	ad = add
+	a = add
 	au = add -u
-	aa = add -A .
+	aa = add -A
 	ap = add -p
 	c = commit
 	ca = commit -a
