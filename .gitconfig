@@ -11,6 +11,10 @@
 	ui = auto
 [push]
 	default = current
+[merge]
+	ff = false
+[pull]
+	rebase = preserve
 [alias]
 	a = add
 	au = add --update
