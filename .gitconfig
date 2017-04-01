@@ -28,17 +28,37 @@
 	c = commit
 	ca = commit --all
 	cm = commit -m
-	co = checkout
+	cam = commit --all -m
 	s = status --short --branch
 	st = status
 	d = diff
 	dc = diff --cached
-	b = branch --all
+	dn = diff --name-only
+	dr = !"f() { local r=${1:-HEAD}; git diff $r~..$r; }; f"
+	dw = diff --word-diff=color --unified=1
+	dwc = diff --word-diff=color --unified=1 --cached
+	b = branch
+	ba = branch --all
+	co = checkout
+	cob = checkout -b
+	r = reset
+	f = fetch
+	fp = fetch --prune
+	m = merge
+	mf = merge --ff
+	rb = rebase
+	rbi = rebase --interactive
+	cp = cherry-pick
+	sl = stash list
+	ss = stash save --include-untracked
+	sa = !"f() { git stash apply stash@{${1:-0}}; }; f"
+	sd = !"f() { git stash drop stash@{${1:-0}}; }; f"
 	l = log --graph --pretty=simple --date=relative -n 20
 	la = log --graph --pretty=simple --date=relative -n 20 --all
 	ln = log --name-status --graph --pretty=subject --date=iso -n 20
 	ls = log --stat --pretty=message --date=iso
 	lp = log --patch --pretty=subject --date=iso
+	lt = log --simplify-by-decoration --pretty=message --date=iso
 	alias = !git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | sort
 	ignore = !"f() { for x in \"$@\"; do echo \"$x\" >> \"${GIT_PREFIX}.gitignore\"; shift; done; }; f"
 	init-ignore = !"f() { local s=$1; shift; for x in \"$@\"; do s=\"$s,$x\"; shift; done; curl -L -s -o .gitignore \"http://www.gitignore.io/api/$s\";}; f"
