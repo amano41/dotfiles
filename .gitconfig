@@ -64,7 +64,16 @@
 	alias = !git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | sort
 	ignore = !"f() { for x in \"$@\"; do echo \"$x\" >> \"${GIT_PREFIX}.gitignore\"; shift; done; }; f"
 	init-ignore = !"f() { local s=$1; shift; for x in \"$@\"; do s=\"$s,$x\"; shift; done; curl -L -s -o .gitignore \"http://www.gitignore.io/api/$s\";}; f"
+	discard = checkout --
+	unstage = reset -q HEAD --
+	uncommit = reset --mixed HEAD~
+	recommit = commit --amend --no-edit
 	amend = commit --amend
+	undo = !"f() { git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1:-1}}; }; f"
+	branches = branch --all
+	tags = tag
+	stashes = stash list
+	remotes = remote -v
 [difftool]
 	prompt = false
 [mergetool]
