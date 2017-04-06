@@ -40,8 +40,8 @@
 	ls = log --stat --pretty=message --date=iso
 	lp = log --patch --pretty=subject --date=iso
 	alias = !git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | sort
-	ignore = !"f() { for x in "$@"; do echo "$x" >> "${GIT_PREFIX}".gitignore; shift; done; }; f"
-	init-ignore = !"f() { local s=$1; shift; for x in "$@"; do s="$s,$x"; shift; done; curl -L -s -o .gitignore "http://www.gitignore.io/api/$s";}; f"
+	ignore = !"f() { for x in \"$@\"; do echo \"$x\" >> \"${GIT_PREFIX}.gitignore\"; shift; done; }; f"
+	init-ignore = !"f() { local s=$1; shift; for x in \"$@\"; do s=\"$s,$x\"; shift; done; curl -L -s -o .gitignore \"http://www.gitignore.io/api/$s\";}; f"
 	amend = commit --amend
 [difftool]
 	prompt = false
