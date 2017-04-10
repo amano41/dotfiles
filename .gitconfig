@@ -53,13 +53,12 @@
 	ss = stash save --include-untracked
 	sa = !"f() { git stash apply stash@{${1:-0}}; }; f"
 	sd = !"f() { git stash drop stash@{${1:-0}}; }; f"
-	l = log --pretty=simple --date=format:'%Y-%m-%d %H:%M' -n 20
+	l = log --pretty=simple --date=relative -n 20
+	la = log --graph --pretty=simple --date=relative --all -n 20
 	ll = log --pretty=simple --date=format:'%Y-%m-%d %H:%M'
-	lg = log --graph --pretty=simple --date=relative -n 20
-	la = log --graph --pretty=simple --date=relative -n 20 --all
 	ln = log --name-status --graph --pretty=subject --date=iso
-	ls = log --stat --pretty=message --date=iso
 	lp = log --patch --pretty=subject --date=iso
+	ls = log --stat --pretty=message --date=iso
 	lt = log --simplify-by-decoration --pretty=message --date=iso
 	alias = !git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | sort
 	ignore = !"f() { for x in \"$@\"; do echo \"$x\" >> \"${GIT_PREFIX}.gitignore\"; shift; done; }; f"
