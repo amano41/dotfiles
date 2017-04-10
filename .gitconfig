@@ -17,7 +17,7 @@
 [pull]
 	rebase = preserve
 [pretty]
-	simple = "tformat:%C(auto,yellow)%h%Creset %C(auto,magenta)%cd%Creset %C(dim)-%Creset%C(auto)%d%Creset %s %C(dim)-%Creset %C(auto,bold blue)%an%Creset"
+	simple = "tformat:%C(auto,yellow)%h%Creset %C(auto,magenta)%cd%Creset %C(dim white)-%Creset%C(auto)%d%Creset %s %C(dim white)-%Creset %C(auto,bold blue)%an%Creset"
 	subject = "format:%C(auto,yellow)%h%Creset %C(auto,magenta)%cd%Creset %C(auto,bold blue)%an <%ae>%Creset%n%n%w(0,4,4)%s%n"
 	message = "format:%C(auto,yellow)%h%Creset %C(auto,magenta)%cd%Creset %C(auto,bold blue)%an <%ae>%Creset%n%n%w(0,4,4)%B"
 [alias]
@@ -53,9 +53,11 @@
 	ss = stash save --include-untracked
 	sa = !"f() { git stash apply stash@{${1:-0}}; }; f"
 	sd = !"f() { git stash drop stash@{${1:-0}}; }; f"
-	l = log --graph --pretty=simple --date=relative -n 20
+	l = log --pretty=simple --date=format:'%Y-%m-%d %H:%M' -n 20
+	ll = log --pretty=simple --date=format:'%Y-%m-%d %H:%M'
+	lg = log --graph --pretty=simple --date=relative -n 20
 	la = log --graph --pretty=simple --date=relative -n 20 --all
-	ln = log --name-status --graph --pretty=subject --date=iso -n 20
+	ln = log --name-status --graph --pretty=subject --date=iso
 	ls = log --stat --pretty=message --date=iso
 	lp = log --patch --pretty=subject --date=iso
 	lt = log --simplify-by-decoration --pretty=message --date=iso
