@@ -33,12 +33,10 @@
 	st = status
 	d = diff
 	dc = diff --cached
-	dn = diff --name-only
 	dr = !"f() { local r=${1:-HEAD}; git diff $r~..$r; }; f"
 	dw = diff --word-diff=color --unified=1
 	dwc = diff --word-diff=color --unified=1 --cached
-	b = branch
-	ba = branch --all
+	b = branch --all
 	co = checkout
 	cob = checkout -b
 	r = reset
