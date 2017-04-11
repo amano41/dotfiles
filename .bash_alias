@@ -4,6 +4,3 @@ alias ll='ls -l'
 alias lla='ls -lA'
 alias lt='ls -lt'
 alias lta='ls -ltA'
-
-alias open='cygstart'
-alias platex='platex -kanji=euc'
