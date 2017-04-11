@@ -1,6 +1,39 @@
+## ls
 alias ls='ls --show-control-chars --color -F --time-style="+%Y-%m-%d %H:%M:%S" --group-directories-first'
 alias la='ls -A'
 alias ll='ls -l'
 alias lla='ls -lA'
 alias lt='ls -lt'
 alias lta='ls -ltA'
+
+## Git 関連のエイリアス
+alias g='git'
+alias ga='git add'
+alias gau='git add --update'
+alias gaa='git add --all'
+alias gap='git add --patch'
+alias gc='git commit --verbose'
+alias gca='git commit --verbose --all'
+alias gcm='git commit --verbose -m'
+alias gcam='git commit --verbose --all -m'
+alias gs='git status --short --branch'
+alias gst='git status'
+alias gd='git diff'
+alias gdc='git diff --cached'
+alias gdr='git dr'  ## diff between revisions
+alias gdw='git diff --word-diff=clor --unified=1'
+alias gdwc='git diff --word-diff=clor --unified=1 --cached'
+alias gb='git branch --all'
+alias gco='git checkout'
+alias gcob='git checkout -b'
+alias gsl='git stash list'
+alias gss='git stash save --include-untracked'
+alias gsa='git sa'  ## stash apply
+alias gsd='git sd'  ## stash drop
+alias gl='git l'    ## log -n 20
+alias gla='git la'  ## log --all -n 20
+alias gll='git ll'  ## log
+alias gln='git ln'  ## log --name-status
+alias glp='git lp'  ## log --patch
+alias gls='git ls'  ## log --stat
+alias glt='git lt'  ## log --simplify-by-decoration
