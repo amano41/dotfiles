@@ -26,8 +26,8 @@
 	au = add --update
 	aa = add --all
 	ap = add --patch
-	c = commit
-	ca = commit --all
+	c = commit --verbose
+	ca = commit --verbose --all
 	cm = commit -m
 	cam = commit --all -m
 	s = status --short --branch
@@ -38,6 +38,7 @@
 	dw = diff --word-diff=color --unified=1
 	dwc = diff --word-diff=color --unified=1 --cached
 	b = branch --all
+	bd = branch --delete
 	co = checkout
 	cob = checkout -b
 	r = reset
@@ -53,8 +54,9 @@
 	sa = !"f() { git stash apply stash@{${1:-0}}; }; f"
 	sd = !"f() { git stash drop stash@{${1:-0}}; }; f"
 	l = log --pretty=simple --date=relative -n 20
-	la = log --graph --pretty=simple --date=relative --all -n 20
+	la = log --pretty=simple --date=relative --graph --all -n 20
 	ll = log --pretty=simple --date=format:'%Y-%m-%d %H:%M'
+	lla = log --pretty=simple --date=format:'%Y-%m-%d %H:%M' --graph --all
 	ln = log --name-status --graph --pretty=subject --date=iso
 	lp = log --patch --pretty=subject --date=iso
 	ls = log --stat --pretty=message --date=iso
