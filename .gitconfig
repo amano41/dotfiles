@@ -1,5 +1,6 @@
 [include]
 	path = ~/.gitconfig.user
+	path = ~/.gitconfig.os
 	path = ~/.gitconfig.local
 [core]
 	attributesfile = ~/.gitattributes
