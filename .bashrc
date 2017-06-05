@@ -22,8 +22,14 @@ shopt -u hostcomplete             ## '@' を含む単語でホスト名を補完
 shopt -s no_empty_cmd_completion  ## 未入力の状態では補完候補を出さない
 
 
-## プロンプトに Git ブランチの情報を表示する
-if [ -e /etc/profile.d/git-prompt.sh ]; then
+## Git コマンドで補完が効くようにする
+if [ -f /usr/share/bash-completion/completions/git ]; then
+	source /usr/share/bash-completion/completions/git
+fi
+
+
+## Git ブランチの情報をプロンプトに表示する
+if [ -f /etc/profile.d/git-prompt.sh ]; then
 	source /etc/profile.d/git-prompt.sh
 	export GIT_PS1_SHOWDIRTYSTATE=true
 	export GIT_PS1_SHOWSTASHSTATE=true
