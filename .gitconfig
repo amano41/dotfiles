@@ -27,9 +27,7 @@
 	aa = add --all
 	ap = add --patch
 	c = commit --verbose
-	ca = commit --verbose --all
 	cm = commit -m
-	cam = commit --all -m
 	s = status --short --branch
 	st = status
 	d = diff
@@ -42,6 +40,8 @@
 	co = checkout
 	cob = checkout -b
 	r = reset
+	pl = pull
+	ps = push
 	f = fetch
 	fp = fetch --prune
 	m = merge

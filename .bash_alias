@@ -13,9 +13,7 @@ alias gau='git add --update'
 alias gaa='git add --all'
 alias gap='git add --patch'
 alias gc='git commit --verbose'
-alias gca='git commit --verbose --all'
 alias gcm='git commit -m'
-alias gcam='git commit --all -m'
 alias gs='git status --short --branch'
 alias gst='git status'
 alias gd='git diff'
@@ -27,6 +25,16 @@ alias gb='git branch --all'
 alias gbd='git branch --delete'
 alias gco='git checkout'
 alias gcob='git checkout -b'
+alias gr='git reset'
+alias gpl='git pull'
+alias gps='git push'
+alias gf='git fetch'
+alias gfp='git fetch --prune'
+alias gm='git merge'
+alias gmf='git merge --ff'
+alias grb='git rebase'
+alias grbi='git rebase --interactive'
+alias gcp='git cherry-pick'
 alias gsl='git stash list'
 alias gss='git stash save --include-untracked'
 alias gsa='git sa'  ## stash apply
@@ -58,3 +66,13 @@ __git_complete gb _git_branch
 __git_complete gbd _git_branch
 __git_complete gco _git_checkout
 __git_complete gcob _git_checkout
+__git_complete gr _git_reset
+__git_complete gpl _git_pull
+__git_complete gps _git_push
+__git_complete gf _git_fetch
+__git_complete gfp _git_fetch
+__git_complete gm _git_merge
+__git_complete gmf _git_merge
+__git_complete grb _git_rebase
+__git_complete grbi _git_rebase
+__git_complete gcp _git_cherry_pick
