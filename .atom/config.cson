@@ -60,6 +60,10 @@
       "highlight-selectedDecorationsZIndex": 0
       "minimap-autohide": true
       "minimap-autohideDecorationsZIndex": 0
+  "platformio-ide-terminal":
+    core:
+      shell: "C:\\Cygwin64\\bin\\bash.exe"
+      shellArguments: "--login -i"
   tabs:
     enableVcsColoring: true
   "tree-view":
