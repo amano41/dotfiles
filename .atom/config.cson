@@ -68,6 +68,9 @@
       shellArguments: "--login -i"
   tabs:
     enableVcsColoring: true
+  "tool-bar":
+    iconSize: "16px"
+    position: "Left"
   "tree-view":
     hideIgnoredNames: true
   welcome:
