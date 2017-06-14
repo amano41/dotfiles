@@ -9,77 +9,246 @@
  * http://lesscss.org
  */
 
+@import "syntax-variables";
+@import "ui-variables";
 
-/*
- * Examples
- * (To see them, uncomment and save)
- */
+@ui-fonts: "MeiryoKe_UIGothic", "Meiryo UI", monospace;
+@markdown-fonts: "Inconsolata", "Consolas", "MeiryoKe_Gothic", "Meiryo", sans-serif;
 
-// style the background color of the tree view
-.tree-view {
-  // background-color: whitesmoke;
-}
+@invisible-color: fade(@syntax-text-color, 50%);
+@selection-color: magenta;
+@highlight-color: yellow;
+@highlight-bracket-color: orange;
+@color-error: red;
+@color-folded: cyan;
 
-// style the background and foreground colors on the atom-text-editor-element itself
-atom-text-editor {
-  // color: white;
-  // background-color: hsl(180, 24%, 12%);
-}
+// カーソル行
+@cursor-line-background-color: lighten(@syntax-background-color, 10%);
+@gutter-cursor-line-text-color: lighten(@syntax-gutter-text-color, 50%);
+@gutter-cursor-line-background-color: lighten(@syntax-gutter-background-color, 10%);
 
-// To style other content in the text editor's shadow DOM, use the ::shadow expression
-atom-text-editor::shadow .cursor {
-  // border-color: red;
-}
+// 選択範囲
+@selection-background-color: fade(@selection-color, 20%);
+@gutter-selection-text-color: @gutter-cursor-line-text-color;
+@gutter-selection-background-color: fade(@selection-color, 10%);
 
-// Settings, .tab-bar, .status-bar, .tree-view
+// ハイライト
+@highlight-background-color: fade(@highlight-color, 50%);
+@highlight-border-color: @highlight-color;
+@highlight-current-background-color: fade(@selection-color, 20%);
+@highlight-current-border-color: @selection-color;
+@highlight-bracket-background-color: fade(@highlight-bracket-color, 50%);
+@highlight-bracket-border-color: @highlight-bracket-color;
+
+
+// Settings, .tree-view, .tab-bar, .status-bar
 atom-workspace {
-	font-family: "MeiryoKe_UIGothic", "Meiryo UI", monospace;
+
+	font-family: @ui-fonts;
+	font-size: 14px; // .settings-view
+
+	.tree-view,
+	.tab-bar .tab,
+	.status-bar {
+		font-size: 12px;
+	}
+
 }
 
 // Text Editor
-atom-text-editor {
-	font-weight: bold; // Myrica の線が細いことの対策
-}
-
-@invisible-color: rgba(200, 200, 200, 0.5);
-
 atom-text-editor.editor {
 
+	// コメントをイタリックにしない
 	.syntax--comment {
 		font-style: normal;
 	}
 
-	.indent-guide,
+	// 折り返しのガイド
+	.wrap-guide {
+		background-color: @invisible-color;
+	}
+
+	// インデントガイド
+	.indent-guide {
+		box-shadow: inset 1px 0 @invisible-color;
+
+		&:first-child {
+			box-shadow: none;
+		}
+
+	}
+
+	// 空白文字
 	.invisible-character,
 	.highlight.ideographic-space .region:after {
 		color: @invisible-color;
 	}
 
-	.highlights {
-
-		.highlight-selected .region {
-			border-color: yellow;
-		}
-
-		.highlight-selected.background .region {
-			background-color: rgba(255, 255, 0, 0.5);
-		}
+	// カーソル行
+	.line.cursor-line {
+		background-color: @cursor-line-background-color;
 	}
 
-}
+	// 選択範囲
+	.highlights {
 
-.markdown-preview.markdown-preview {
-	font-family: "Inconsolata", "Consolas", "MeiryoKe_Gothic", "Meiryo", sans-serif;
+		.selection .region {
+			background-color: @selection-background-color;
+		}
+
+	}
+
+	// カーソル行以外の行末にある空白文字を強調
+	.line:not(.cursor-line) .trailing-whitespace {
+		background-color: fade(@color-error, 50%);
+		color: contrast(@color-error);
+	}
+
+	// 折りたたみ箇所
+	.fold-marker {
+
+		// アンダーラインで強調
+		&::before {
+			content: "";
+			display: block;
+			position: absolute;
+			left: 0;
+			right: 0;
+			border-bottom: 1px dashed @invisible-color;
+		}
+
+		// 行末のマーカーの色を変更
+		&::after {
+			color: @color-folded;
+		}
+
+	}
+
+	// 行番号
+	.gutter .line-number {
+
+		// 選択範囲
+		&.cursor-line {
+			color: @gutter-selection-text-color;
+			background-color: @gutter-selection-background-color;
+		}
+
+		// カーソル行
+		&.cursor-line-no-selection {
+			color: @gutter-cursor-line-text-color;
+			background-color: @gutter-cursor-line-background-color;
+		}
+
+		// 折りたたみ箇所
+		&.folded {
+			color: @color-folded;
+			border-bottom: 2px solid @color-folded;
+		}
+
+	}
+
+	// 行番号の Git Diff を見やすくする
+	.gutter.git-diff-icon .line-number {
+
+			&.git-line-added:not(.cursor-line),
+			&.git-line-added.cursor-line-no-selection {
+				color: @syntax-color-added;
+				background-color: fade(@syntax-color-added, 20%);
+			}
+
+			&.git-line-modified:not(.cursor-line),
+			&.git-line-modified.cursor-line-no-selection {
+				color: @syntax-color-modified;
+				background-color: fade(@syntax-color-modified, 20%);
+			}
+
+			&.git-line-removed:not(.cursor-line),
+			&.git-line-removed.cursor-line-no-selection {
+				color: @syntax-color-removed;
+				background-color: fade(@syntax-color-removed, 20%);
+			}
+
+	}
+
+	// ハイライト箇所
+	.highlights {
+
+		// 検索結果
+		.find-result .region {
+			background-color: @highlight-background-color;
+			border: 1px solid @highlight-border-color;
+		}
+
+		// 検索結果の現在の候補
+		.current-result .region {
+			background-color: @highlight-current-background-color;
+			border: 1px solid @highlight-current-border-color;
+		}
+
+		// 選択文字列と一致する箇所の枠
+		.highlight-selected .region {
+			border-color: @highlight-border-color;
+		}
+
+		// 選択文字列と一致する箇所の背景色
+		.highlight-selected.background .region {
+			background-color: @highlight-background-color;
+		}
+
+		// 対応する括弧の強調表示
+		.bracket-matcher .region {
+			background-color: @highlight-bracket-background-color;
+			border-bottom: 2px solid @highlight-bracket-border-color;
+			z-index: 0; // カーソル行のハイライトに隠れてしまうのを防ぐ
+		}
+
+	}
+
+	atom-text-editor-minimap {
+
+		background-color: rgba(0, 0, 0, 0.5);
+		transition: opacity 1s;
+
+		.minimap-visible-area {
+			background-color: fade(@syntax-text-color, 25%);
+			cursor: default;
+		}
+
+	}
+
 }
 
 .minimap {
 
 	.cursor-line {
-		background-color: silver;
+		background-color: @syntax-text-color;
+	}
+
+	.search-result {
+		background-color: @highlight-color;
 	}
 
 	.highlight-selected {
-		background: yellow;
+		background: @highlight-color;
+	}
+
+}
+
+.markdown-preview.markdown-preview {
+	font-family: @markdown-fonts;
+}
+
+.theme-one-dark-syntax,
+.theme-one-dark-vivid-syntax {
+
+	atom-text-editor.editor:not([mini]) {
+
+		background-color: darken(@syntax-background-color, 10%);
+
+		.syntax--comment {
+			color: darken(silver, 10%);
+		}
+
 	}
 
 }

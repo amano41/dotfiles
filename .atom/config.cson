@@ -1,5 +1,4 @@
 "*":
-  "autocomplete-plus": {}
   core:
     disabledPackages: [
       "spell-check"
