@@ -18,7 +18,7 @@
       ".dropbox"
     ]
     openEmptyEditorOnStart: false
-    restorePreviousWindowsOnStart: false
+    restorePreviousWindowsOnStart: "no"
     telemetryConsent: "no"
     themes: [
       "atom-light-ui"
