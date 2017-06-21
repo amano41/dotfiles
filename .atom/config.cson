@@ -22,7 +22,7 @@
     telemetryConsent: "no"
     themes: [
       "atom-light-ui"
-      "one-dark-syntax"
+      "one-dark-vivid-syntax"
     ]
   editor:
     fontFamily: "\"MyricaM M\", \"Ricty Diminished Discord\", \"Inconsolata\", \"Consolas\", \"MeiryoKe_Gothic\", \"Meiryo\""
