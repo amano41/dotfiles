@@ -22,15 +22,25 @@
 # * https://atom.io/docs/latest/behind-atom-keymaps-in-depth
 #
 # This file uses CoffeeScript Object Notation (CSON).
-# If you are unfamiliar with CSON, you can read more about it in the 
+# If you are unfamiliar with CSON, you can read more about it in the
 # Atom Flight Manual:
 # https://atom.io/docs/latest/using-atom-basic-customization#cson
 
-# Default Keymaps for Markdown Writer
-# https://atom.io/packages/markdown-writer
-#
-# Wiki: https://github.com/zhuochun/md-writer/wiki/Settings-for-Keymaps
-#
+
+## タブ切り替えの挙動を ver.1.7 以前に戻す
+## * http://blog.atom.io/2016/04/12/atom-1-7-and-1-8-beta.html
+'body':
+  'ctrl-tab ^ctrl': 'unset!'
+  'ctrl-tab': 'pane:show-next-item'
+  'ctrl-shift-tab ^ctrl': 'unset!'
+  'ctrl-shift-tab': 'pane:show-previous-item'
+
+
+## Default Keymaps for Markdown Writer
+## https://atom.io/packages/markdown-writer
+##
+## Wiki: https://github.com/zhuochun/md-writer/wiki/Settings-for-Keymaps
+##
 ".platform-win32 atom-text-editor:not([mini])":
   "shift-ctrl-K": "markdown-writer:insert-link"
   "shift-ctrl-I": "markdown-writer:insert-image"
