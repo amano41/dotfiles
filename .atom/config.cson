@@ -66,6 +66,7 @@
       shell: "C:\\Cygwin64\\bin\\bash.exe"
       shellArguments: "--login -i"
   tabs:
+    enableMruTabSwitching: false
     enableVcsColoring: true
   "tool-bar":
     iconSize: "16px"

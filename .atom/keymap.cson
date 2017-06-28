@@ -27,15 +27,6 @@
 # https://atom.io/docs/latest/using-atom-basic-customization#cson
 
 
-## タブ切り替えの挙動を ver.1.7 以前に戻す
-## * http://blog.atom.io/2016/04/12/atom-1-7-and-1-8-beta.html
-'body':
-  'ctrl-tab ^ctrl': 'unset!'
-  'ctrl-tab': 'pane:show-next-item'
-  'ctrl-shift-tab ^ctrl': 'unset!'
-  'ctrl-shift-tab': 'pane:show-previous-item'
-
-
 ## Default Keymaps for Markdown Writer
 ## https://atom.io/packages/markdown-writer
 ##
