@@ -27,21 +27,120 @@
 # https://atom.io/docs/latest/using-atom-basic-customization#cson
 
 
-## Default Keymaps for Markdown Writer
-## https://atom.io/packages/markdown-writer
-##
-## Wiki: https://github.com/zhuochun/md-writer/wiki/Settings-for-Keymaps
-##
-".platform-win32 atom-text-editor:not([mini])":
-  "shift-ctrl-K": "markdown-writer:insert-link"
-  "shift-ctrl-I": "markdown-writer:insert-image"
-  "ctrl-i":       "markdown-writer:toggle-italic-text"
-  "ctrl-b":       "markdown-writer:toggle-bold-text"
-  "ctrl-'":       "markdown-writer:toggle-code-text"
-  'ctrl-`':       "markdown-writer:toggle-codeblock-text"
-  "ctrl-h":       "markdown-writer:toggle-strikethrough-text"
-  "ctrl-1":       "markdown-writer:toggle-h1"
-  "ctrl-2":       "markdown-writer:toggle-h2"
-  "ctrl-3":       "markdown-writer:toggle-h3"
-  "ctrl-4":       "markdown-writer:toggle-h4"
-  "ctrl-5":       "markdown-writer:toggle-h5"
+##################################################
+## Global
+##################################################
+
+'.platform-win32, .platform-linux':
+  'ctrl-y': 'core:paste'
+  'ctrl-g': 'unset!'  ## Git 関連コマンドの prefix key として使うため無効化
+
+
+##################################################
+## Workspace
+##################################################
+
+'.platform-win32 atom-workspace, .platform-linux atom-workspace':
+
+  ## ファイル操作
+  'ctrl-o': 'advanced-open-file:toggle'
+
+  ## カーソル移動
+  'ctrl-p': 'core:move-up'
+  'ctrl-n': 'core:move-down'
+  'ctrl-b': 'core:move-left'
+  'ctrl-f': 'core:move-right'
+  'alt-p': 'core:page-up'
+  'alt-n': 'core:page-down'
+  'alt-<': 'core:move-to-top'
+  'alt->': 'core:move-to-bottom'
+
+  ## ペイン操作
+  ## prefix key を 'ctrl-k' から 'ctrl-q' にして再定義
+  'ctrl-q up': 'pane:split-up-and-copy-active-item'
+  'ctrl-q down': 'pane:split-down-and-copy-active-item'
+  'ctrl-q left': 'pane:split-left-and-copy-active-item'
+  'ctrl-q right': 'pane:split-right-and-copy-active-item'
+  'ctrl-q ctrl-w': 'pane:close'
+  'ctrl-q ctrl-o': 'pane:close-other-items'
+  'ctrl-q ctrl-p': 'window:focus-previous-pane'
+  'ctrl-q ctrl-n': 'window:focus-next-pane'
+  'ctrl-q ctrl-up': 'window:focus-pane-above'
+  'ctrl-q ctrl-down': 'window:focus-pane-below'
+  'ctrl-q ctrl-left': 'window:focus-pane-on-left'
+  'ctrl-q ctrl-right': 'window:focus-pane-on-right'
+
+  ## シンボル解析
+  'ctrl-alt-r': 'symbols-tree-view:toggle'
+
+  ## Git
+  'ctrl-shift-H': 'git-plus:menu'
+  'ctrl-g a': 'git-plus:add'
+  'ctrl-g shift-A': 'git-plus:add-all'
+  'ctrl-g u': 'git-plus:add-modified'
+  'ctrl-g c': 'git-plus:commit'
+  'ctrl-g s': 'git-plus:status'
+  'ctrl-g l': 'git-log:show'
+  'ctrl-g d': 'split-diff:toggle'
+
+  ## 上書きしてしまったキーバインドの置き換え
+  'ctrl-alt-o': 'application:open-file'              ## ctrl-o
+  'ctrl-alt-n': 'application:new-file'               ## ctrl-n
+  'ctrl-alt-f': 'find-and-replace:show'              ## ctrl-f
+  'ctrl-alt-b': 'fuzzy-finder:toggle-buffer-finder'  ## ctrl-b
+  'ctrl-alt-g': 'go-to-line:toggle'                  ## ctrl-g
+  # application:add-project-folder   ## ctrl-shift-A
+  # fuzzy-finder:toggle-file-finder  ## ctrl-p
+
+
+##################################################
+## Editor
+##################################################
+
+'.platform-win32 atom-text-editor, .platform-linux atom-text-editor':
+
+  ## カーソル移動
+  'ctrl-a': 'editor:move-to-first-character-of-line'
+  'ctrl-e': 'editor:move-to-end-of-screen-line'
+  'alt-b': 'editor:move-to-beginning-of-word'
+  'alt-f': 'editor:move-to-beginning-of-next-word'
+
+  ## 削除
+  'ctrl-d': 'core:delete'
+  'ctrl-h': 'core:backspace'
+  'ctrl-k': 'editor:cut-to-end-of-line'
+  'alt-d': 'editor:delete-to-end-of-word'
+  'alt-h': 'editor:delete-to-beginning-of-word'
+
+  ## 上書きしてしまったキーバインドの置き換え
+  'ctrl-shift-A': 'core:select-all'         ## ctrl-a
+  'ctrl-3': 'find-and-replace:select-next'  ## ctrl-d
+  # find-and-replace:use-selection-as-find-pattern  ## ctrl-e
+
+
+##################################################
+## Editor - not mini
+##################################################
+
+'.platform-win32 atom-text-editor:not([mini]), .platform-linux atom-text-editor:not([mini])':
+
+  ## カーソル移動
+  'ctrl-p': 'move-cursor-improved:move-up'
+  'ctrl-n': 'move-cursor-improved:move-down'
+
+  ## カーソル位置のリンクを開く
+  'ctrl-alt-l': 'link:open'
+
+
+##################################################
+## Community Packages
+##################################################
+
+'.advanced-open-file atom-text-editor':
+  'alt-h': 'advanced-open-file:delete-path-component'
+
+'.pdf-view':
+  'ctrl-alt-g': 'pdf-view:go-to-page'
+
+'tablr-editor':
+  'ctrl-alt-g': 'tablr:go-to-line'
