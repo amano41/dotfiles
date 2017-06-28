@@ -9,5 +9,6 @@ recovery/
 storage/
 
 .git-history/
+local-history/
 split-diff/
 projects.cson
