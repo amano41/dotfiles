@@ -1,11 +1,14 @@
 "*":
   core:
     disabledPackages: [
-      "spell-check"
-      "whitespace"
       "language-gfm"
-      "markdown-preview"
       "markdown-pdf"
+      "markdown-preview"
+      "merge-conflicts"
+      "open-on-github"
+      "spell-check"
+      "welcome"
+      "whitespace"
     ]
     ignoredNames: [
       ".git"
