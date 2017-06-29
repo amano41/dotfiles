@@ -102,12 +102,6 @@ atom-text-editor.editor {
 
 	}
 
-	// カーソル行以外の行末にある空白文字を強調
-	.line:not(.cursor-line) .trailing-whitespace {
-		background-color: fade(@color-error, 50%);
-		color: contrast(@color-error);
-	}
-
 	// 折りたたみ箇所
 	.fold-marker {
 
@@ -151,7 +145,7 @@ atom-text-editor.editor {
 
 	}
 
-	// 行番号の Git Diff を見やすくする
+	// ガターの Git Diff を見やすくする
 	.gutter.git-diff-icon .line-number {
 
 			&.git-line-added:not(.cursor-line),
@@ -208,6 +202,32 @@ atom-text-editor.editor {
 
 	}
 
+	// Markdown
+	.syntax--md {
+
+		// 行末の空白文字を強調表示
+		.trailing-whitespace {
+			background-color: fade(@color-error, 50%);
+			color: contrast(@color-error);
+			display: inline;
+		}
+
+		// スペース 2 つで改行する箇所をわかりやすく
+		.syntax--line-break {
+
+			background-color: lighten(@syntax-background-color, 10%);
+			color: @invisible-color;
+			border: 1px dashed @invisible-color;
+
+			.trailing-whitespace {
+				background-color: lighten(@syntax-background-color, 10%);
+				color: @invisible-color;
+			}
+
+		}
+
+	}
+
 	atom-text-editor-minimap {
 
 		background-color: rgba(0, 0, 0, 0.5);
@@ -251,6 +271,13 @@ atom-text-editor.editor {
 
 		.syntax--comment {
 			color: darken(silver, 10%);
+		}
+
+		.syntax--md {
+			.syntax--line-break,
+			.syntax--line-break .trailing-whitespace {
+				background-color: @syntax-background-color;
+			}
 		}
 
 	}
