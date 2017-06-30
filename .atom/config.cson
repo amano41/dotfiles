@@ -1,6 +1,7 @@
 "*":
   core:
     disabledPackages: [
+      "background-tips"
       "language-gfm"
       "markdown-pdf"
       "markdown-preview"
@@ -9,6 +10,7 @@
       "spell-check"
       "welcome"
       "whitespace"
+      "wrap-guide"
     ]
     ignoredNames: [
       ".git"
@@ -98,6 +100,7 @@
     position: "Left"
   "tree-view":
     hideIgnoredNames: true
+    hideVcsIgnoredFiles: true
   welcome:
     showOnStartup: false
   wordcount:
