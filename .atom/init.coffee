@@ -38,3 +38,24 @@ for b in atom.keymaps.getKeyBindings()
     c = b.command
     b.command = 'unset!'
     console.log "Keybinding disabled: #{k}\t #{c}\t #{b.selector}\t #{b.source}"
+
+
+## 再起動
+atom.commands.add 'atom-workspace', 'custom:restart', ->
+  atom.restartApplication()
+
+
+## アクティブでないペインを閉じる
+atom.commands.add 'atom-workspace', 'custom:close-other-panes', ->
+  active = atom.workspace.getActivePane();
+  p.close() for p in atom.workspace.getPanes() when p isnt active
+
+
+## Asr で開く
+{BufferedProcess} = require 'atom'
+atom.commands.add 'atom-workspace', 'custom:open-in-asr', ->
+  editor = atom.workspace.getActiveTextEditor()
+  path = editor.getPath()
+  command = 'C:\\Asr\\AsrLoad.exe'
+  args = ['/nf', path]
+  process = new BufferedProcess({command, args})
