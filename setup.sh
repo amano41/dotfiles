@@ -4,7 +4,7 @@ set -e
 set -u
 
 
-INCLUDES=( ".??*" "bin" )
+INCLUDES=( ".??*" )
 EXCLUDES=( ".git" )
 
 
