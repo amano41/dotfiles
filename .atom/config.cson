@@ -2,6 +2,7 @@
   core:
     disabledPackages: [
       "background-tips"
+      "github"
       "language-gfm"
       "markdown-pdf"
       "markdown-preview"
