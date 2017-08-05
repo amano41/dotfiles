@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+set -e
+set -u
+
+if [ $# -ne 1 ]; then
+	echo "Usage: $(basename "$0") file" 1>&2
+	exit 1
+fi
+
+if [ ! -f "$1" ]; then
+	echo "Error: input file '$1' does not exist" 1>&2
+	exit 1
+fi
+
+src=
+case "$OSTYPE" in
+	cygwin) src=$(cygpath -am "$1");;
+	msys)   src=$(cygpath -am "$1");;
+	*)      src="$1";;
+esac
+
+pandoc -f opml -t markdown --atx-headers "$src" | tr -d '\r' | \
+sed -e '/^[[:space:]]*$/d' | \
+sed -e 's/^#\+[[:space:]]*$//g' | \
+sed -e 's/^# /* /g' | \
+sed -e 's/^## /\t* /g' | \
+sed -e 's/^### /\t\t* /g' | \
+sed -e 's/^#### /\t\t\t* /g' | \
+sed -e 's/^##### /\t\t\t\t* /g' | \
+sed -e 's/^###### /\t\t\t\t\t* /g'

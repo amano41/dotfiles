@@ -79,6 +79,8 @@
 [mergetool]
 	prompt = false
 	keepBackup = false
+[diff "opml"]
+	textconv = opml2md
 [url "git@github.com:"]
 	pushInsteadOf = https://github.com/
 	pushInsteadOf = git://github.com/
