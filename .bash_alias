@@ -1,4 +1,5 @@
 ## ls
+
 alias ls='ls --show-control-chars --color -F --time-style="+%Y-%m-%d %H:%M:%S" --group-directories-first'
 alias la='ls -A'
 alias ll='ls -l'
@@ -6,39 +7,44 @@ alias lla='ls -lA'
 alias lt='ls -lt'
 alias lta='ls -ltA'
 
-## Git
-alias g='git'
+
+## git
+
+function g() {
+	local cmd=${1:-s}
+	shift
+	git "$cmd" "$@"
+}
+
 alias ga='git add'
-alias gau='git add --update'
-alias gaa='git add --all'
-alias gap='git add --patch'
-alias gc='git commit --verbose'
+alias gau='git add -u'
+alias gaa='git add -A'
+alias gap='git add -p'
+alias gc='git commit -v'
 alias gcm='git commit -m'
-alias gs='git status --short --branch'
+alias gs='git status -sb'
 alias gst='git status'
 alias gd='git diff'
 alias gdc='git diff --cached'
 alias gdw='git diff --word-diff=color --unified=1'
 alias gdwc='git diff --word-diff=color --unified=1 --cached'
+alias gwd='gdw'
+alias gwdc='gdwc'
 alias gdr='git dr'  ## diff between revisions
-alias gb='git branch --all'
-alias gbd='git branch --delete'
+alias gb='git branch'
+alias gba='git branch -a'
+alias gbd='git branch -d'
 alias gco='git checkout'
 alias gcob='git checkout -b'
 alias gr='git reset'
-alias gpl='git pull'
+alias grs='git reset --soft'
+alias grh='git reset --hard'
+alias gpl='git pull --prune'
 alias gps='git push'
-alias gf='git fetch'
-alias gfp='git fetch --prune'
+alias gf='git fetch --prune'
 alias gm='git merge'
-alias gmf='git merge --ff'
 alias grb='git rebase'
-alias grbi='git rebase --interactive'
-alias gcp='git cherry-pick'
-alias gsl='git stash list'
-alias gss='git stash save --include-untracked'
-alias gsa='git sa'  ## stash apply
-alias gsd='git sd'  ## stash drop
+alias grbi='git rebase -i'
 alias gl='git l'      ## log -n 20
 alias gla='git la'    ## log --graph --all -n 20
 alias gll='git ll'    ## log
@@ -47,6 +53,7 @@ alias gln='git ln'    ## log --name-status
 alias glp='git lp'    ## log --patch
 alias gls='git ls'    ## log --stat
 alias glt='git lt'    ## log --simplify-by-decoration
+alias gsh='git show'
 
 ## エイリアスで短縮した Git コマンドでも補完が効くようにする
 ## あらかじめ git-completion.bash を読み込んでおく必要がある
@@ -61,18 +68,29 @@ __git_complete gd _git_diff
 __git_complete gdc _git_diff
 __git_complete gdw _git_diff
 __git_complete gdwc _git_diff
+__git_complete gwd _git_diff
+__git_complete gwdc _git_diff
 __git_complete gdr _git_diff
 __git_complete gb _git_branch
+__git_complete gba _git_branch
 __git_complete gbd _git_branch
 __git_complete gco _git_checkout
 __git_complete gcob _git_checkout
 __git_complete gr _git_reset
+__git_complete grs _git_reset
+__git_complete grh _git_reset
 __git_complete gpl _git_pull
 __git_complete gps _git_push
 __git_complete gf _git_fetch
-__git_complete gfp _git_fetch
 __git_complete gm _git_merge
-__git_complete gmf _git_merge
 __git_complete grb _git_rebase
 __git_complete grbi _git_rebase
-__git_complete gcp _git_cherry_pick
+__git_complete gl _git_log
+__git_complete gla _git_log
+__git_complete gll _git_log
+__git_complete glla _git_log
+__git_complete gln _git_log
+__git_complete glp _git_log
+__git_complete gls _git_log
+__git_complete glt _git_log
+__git_complete gsh _git_show

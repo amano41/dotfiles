@@ -22,37 +22,8 @@
 	subject = "format:%C(auto,yellow)%h%Creset %C(auto,magenta)%cd%Creset %C(auto,bold blue)%an <%ae>%Creset%n%n%w(0,4,4)%s%n"
 	message = "format:%C(auto,yellow)%h%Creset %C(auto,magenta)%cd%Creset %C(auto,bold blue)%an <%ae>%Creset%n%n%w(0,4,4)%B"
 [alias]
-	a = add
-	au = add --update
-	aa = add --all
-	ap = add --patch
-	c = commit --verbose
-	cm = commit -m
 	s = status --short --branch
-	st = status
-	d = diff
-	dc = diff --cached
 	dr = !"f() { local r=${1:-HEAD}; git diff $r~..$r; }; f"
-	dw = diff --word-diff=color --unified=1
-	dwc = diff --word-diff=color --unified=1 --cached
-	b = branch --all
-	bd = branch --delete
-	co = checkout
-	cob = checkout -b
-	r = reset
-	pl = pull
-	ps = push
-	f = fetch
-	fp = fetch --prune
-	m = merge
-	mf = merge --ff
-	rb = rebase
-	rbi = rebase --interactive
-	cp = cherry-pick
-	sl = stash list
-	ss = stash save --include-untracked
-	sa = !"f() { git stash apply stash@{${1:-0}}; }; f"
-	sd = !"f() { git stash drop stash@{${1:-0}}; }; f"
 	l = log --pretty=simple --date=relative -n 20
 	la = log --pretty=simple --date=relative --graph --all -n 20
 	ll = log --pretty=simple --date=format:'%Y-%m-%d %H:%M'
@@ -61,16 +32,19 @@
 	lp = log --patch --pretty=subject --date=iso
 	ls = log --stat --pretty=message --date=iso
 	lt = log --simplify-by-decoration --pretty=message --date=iso
-	alias = !git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | sort
+	alias = !"f () { git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | sort; }; f"
+	this = !"f() { git init; git setup \"$@\"; [ -f .gitignore ] && git add .gitignore; }; f"
+	setup = !"f() { [ $# -lt 1 ] && exit; local s=\"$1\"; shift; for x in \"$@\"; do s=\"$s,$x\"; shift; done; curl -L -s -o .gitignore \"http://www.gitignore.io/api/$s\"; }; f"
 	ignore = !"f() { for x in \"$@\"; do echo \"$x\" >> \"${GIT_PREFIX}.gitignore\"; shift; done; }; f"
-	init-ignore = !"f() { local s=$1; shift; for x in \"$@\"; do s=\"$s,$x\"; shift; done; curl -L -s -o .gitignore \"http://www.gitignore.io/api/$s\";}; f"
 	discard = checkout --
 	unstage = reset -q HEAD --
 	uncommit = reset --mixed HEAD~
 	recommit = commit --amend --no-edit
 	amend = commit --amend
+	wip = !"f() { git add -A; git commit -m \"WIP $(date '+%Y-%m-%d %H:%M')\"; }; f"
 	undo = !"f() { git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1:-1}}; }; f"
-	branches = branch --all
+	info = !"f() { git remote show ${1:-origin}; }; f"
+	branches = branch -avv
 	tags = tag
 	stashes = stash list
 	remotes = remote -v
