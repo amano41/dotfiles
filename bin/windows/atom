@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -eu
+
+argv=("$@")
+
+for ((i=0; i < $#; i++))
+do
+	v=${argv[$i]}
+	if [[ $v != -* ]]; then
+		argv[$i]=$(cygpath -am "$v")
+	fi
+done
+
+atom.cmd "${argv[@]}"
