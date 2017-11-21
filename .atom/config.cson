@@ -71,7 +71,7 @@
     enableLatexRenderingByDefault: true
     useGitHubStyle: true
   "markdown-table-editor":
-    eawAmbiguousAsWide: true
+    ambiguousAsWide: true
   minimap:
     plugins:
       cursorline: true
