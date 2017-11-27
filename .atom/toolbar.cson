@@ -12,13 +12,6 @@
   }
   {
     type: "button"
-    icon: "pencil-square-o"
-    callback: "tempfile:create"
-    tooltip: "Create Temp File"
-    iconset: "fa"
-  }
-  {
-    type: "button"
     icon: "file-text"
     callback: "application:open-file"
     tooltip: "Open File"
