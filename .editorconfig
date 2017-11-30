@@ -21,3 +21,6 @@ indent_size = 4
 [*.{js,json,coffee,cson}]
 indent_style = space
 indent_size = 2
+
+[*.{bat,ps1}]
+end_of_line = crlf
