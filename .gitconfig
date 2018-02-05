@@ -22,8 +22,42 @@
 	subject = "format:%C(auto,yellow)%h%Creset %C(auto,magenta)%cd%Creset %C(auto,bold blue)%an <%ae>%Creset%n%n%w(0,4,4)%s%n"
 	message = "format:%C(auto,yellow)%h%Creset %C(auto,magenta)%cd%Creset %C(auto,bold blue)%an <%ae>%Creset%n%n%w(0,4,4)%B"
 [alias]
-	s = status --short --branch
+	a = add
+	au = add -u
+	aa = add -A
+	ap = add -p
+	c = commit -v
+	cm = commit -vm
+	s = status -sb
+	st = status
+	d = diff
+	dc = diff --cached
+	dw = diff --word-diff=color --unified=1
+	dwc = diff --word-diff=color --unified=1 --cached
 	dr = !"f() { local r=${1:-HEAD}; git diff $r~..$r; }; f"
+	b = branch
+	ba = branch -a
+	bd = branch -d
+	co = checkout
+	cob = checkout -b
+	r = reset
+	rs = reset --soft
+	rh = reset --hard
+	pl = pull
+	ps = push
+	f = fetch
+	fp = fetch --prune
+	m = merge
+	mf = merge --ff
+	ms = merge --squash
+	rb = rebase
+	rbi = rebase -i
+	cp = cherry-pick
+	sl = stash list
+	ss = stash save --include-untracked
+	sa = !"f() { git stash apply stash@{${1:-0}}; }; f"
+	sd = !"f() { git stash drop stash@{${1:-0}}; }; f"
+	sp = !"f() { git stash pop stash@{${1:-0}}; }; f"
 	l = log --pretty=simple --date=relative -n 20
 	la = log --pretty=simple --date=relative --graph --all -n 20
 	ll = log --pretty=simple --date=format:'%Y-%m-%d %H:%M'
@@ -32,6 +66,7 @@
 	lp = log --patch --pretty=subject --date=iso
 	ls = log --stat --pretty=message --date=iso
 	lt = log --simplify-by-decoration --pretty=message --date=iso
+	sh = show
 	alias = !"f () { git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | sort; }; f"
 	this = !"f() { git init; git setup \"$@\"; [ -f .gitignore ] && git add .gitignore; }; f"
 	setup = !"f() { [ $# -lt 1 ] && exit; local s=\"$1\"; shift; for x in \"$@\"; do s=\"$s,$x\"; shift; done; curl -L -s -o .gitignore \"http://www.gitignore.io/api/$s\"; }; f"
