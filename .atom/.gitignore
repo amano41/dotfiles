@@ -12,3 +12,4 @@ storage/
 local-history/
 split-diff/
 projects.cson
+github.cson
