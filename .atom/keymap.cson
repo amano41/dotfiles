@@ -32,7 +32,6 @@
 ##################################################
 
 '.platform-win32, .platform-linux':
-  'ctrl-y': 'core:paste'
   'ctrl-g': 'unset!'  ## Git 関連コマンドの prefix key として使うため無効化
 
 
@@ -75,7 +74,7 @@
   'ctrl-alt-r': 'symbols-tree-view:toggle'
 
   ## Git
-  'ctrl-shift-H': 'git-plus:menu'
+  'ctrl-shift-G': 'git-plus:menu'
   'ctrl-g a': 'git-plus:add'
   'ctrl-g shift-A': 'git-plus:add-all'
   'ctrl-g u': 'git-plus:add-modified'
@@ -86,12 +85,12 @@
 
   ## 上書きしてしまったキーバインドの置き換え
   'ctrl-alt-o': 'application:open-file'              ## ctrl-o
+  'ctrl-alt-p': 'fuzzy-finder:toggle-file-finder'    ## ctrl-p
   'ctrl-alt-n': 'application:new-file'               ## ctrl-n
-  'ctrl-alt-f': 'find-and-replace:show'              ## ctrl-f
   'ctrl-alt-b': 'fuzzy-finder:toggle-buffer-finder'  ## ctrl-b
+  'ctrl-alt-f': 'find-and-replace:show'              ## ctrl-f
+  'ctrl-alt-shift-G': 'styleguide:show'              ## ctrl-shift-G
   'ctrl-alt-g': 'go-to-line:toggle'                  ## ctrl-g
-  # application:add-project-folder   ## ctrl-shift-A
-  # fuzzy-finder:toggle-file-finder  ## ctrl-p
 
 
 ##################################################
@@ -114,9 +113,11 @@
   'alt-h': 'editor:delete-to-beginning-of-word'
 
   ## 上書きしてしまったキーバインドの置き換え
-  'ctrl-shift-A': 'core:select-all'         ## ctrl-a
-  'ctrl-3': 'find-and-replace:select-next'  ## ctrl-d
-  # find-and-replace:use-selection-as-find-pattern  ## ctrl-e
+  'ctrl-alt-a': 'core:select-all'                                 ## ctrl-a
+  'ctrl-alt-e': 'find-and-replace:use-selection-as-find-pattern'  ## ctrl-e
+  'alt-f3': 'find-and-replace:select-next'                        ## ctrl-d
+  'alt-shift-f3': 'find-and-replace:select-undo'                  ## ctrl-u（操作の一貫性のため追加）
+  'ctrl-alt-shift-f3': 'find-and-replace:select-all'              ## alt-f3
 
 
 ##################################################
