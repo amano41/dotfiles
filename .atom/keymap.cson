@@ -145,3 +145,12 @@
 
 'tablr-editor':
   'ctrl-alt-g': 'tablr:go-to-line'
+
+'.platform-win32 ft-outline-editor':
+  'ctrl-a': 'editor:move-to-first-character-of-line'
+  'ctrl-e': 'editor:move-to-end-of-screen-line'
+  'ctrl-c': 'core:copy'
+
+'ft-outline-editor.outline-mode':
+  'a': 'editor:move-to-beginning-of-paragraph'
+  'e': 'editor:move-to-end-of-paragraph'
