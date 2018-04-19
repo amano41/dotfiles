@@ -54,7 +54,7 @@ atom.commands.add 'atom-workspace', 'custom:close-other-panes', ->
 ## Asr で開く
 {BufferedProcess} = require 'atom'
 atom.commands.add 'atom-workspace', 'custom:open-in-asr', ->
-  editor = atom.workspace.getActiveTextEditor()
+  return unless editor = atom.workspace.getActiveTextEditor()
   path = editor.getPath()
   command = 'C:\\Asr\\AsrLoad.exe'
   args = ['/nf', path]
