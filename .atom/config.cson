@@ -3,7 +3,6 @@
     disabledPackages: [
       "background-tips"
       "language-gfm"
-      "markdown-pdf"
       "markdown-preview"
       "open-on-github"
       "spell-check"
