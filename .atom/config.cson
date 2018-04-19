@@ -27,6 +27,8 @@
       "atom-light-ui"
       "one-dark-vivid-syntax"
     ]
+  "document-outline":
+    showByDefault: false
   editor:
     fontFamily: "\"MyricaM M\", Consolas, Meiryo"
     fontSize: 16
