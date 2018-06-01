@@ -2,6 +2,8 @@ export LANG=ja_JP.UTF-8
 export TZ=JST-9
 export LESSCHARSET=utf-8
 
+umask 022
+
 platform=
 case "$OSTYPE" in
 	linux*)
