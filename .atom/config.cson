@@ -67,7 +67,8 @@
   "markdown-preview":
     useGitHubStyle: true
   "markdown-preview-plus":
-    enableLatexRenderingByDefault: true
+    mathConfig:
+      enableLatexRenderingByDefault: true
     useGitHubStyle: true
   "markdown-table-editor":
     ambiguousAsWide: true
