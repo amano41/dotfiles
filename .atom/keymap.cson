@@ -133,6 +133,27 @@
   ## カーソル位置のリンクを開く
   'ctrl-alt-l': 'link:open'
 
+  ## オートコンプリート
+  'ctrl-j': 'autocomplete-plus:activate'
+
+
+##################################################
+## Editor - autocomplete
+##################################################
+
+'.platform-win32 atom-text-editor:not([mini]).autocomplete-active, .platform-linux atom-text-editor:not([mini]).autocomplete-active':
+
+  ## カーソル移動
+  'up': 'autocomplete-plus:move-up'
+  'down': 'autocomplete-plus:move-down'
+  'ctrl-p': 'autocomplete-plus:move-up'
+  'ctrl-n': 'autocomplete-plus:move-down'
+  'tab': 'autocomplete-plus:move-down'
+  'shift-tab': 'autocomplete-plus:move-up'
+
+  ## 決定
+  'enter': 'autocomplete-plus:confirm'
+
 
 ##################################################
 ## Community Packages

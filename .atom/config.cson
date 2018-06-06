@@ -1,4 +1,6 @@
 "*":
+  "autocomplete-plus":
+    useCoreMovementCommands: false
   "bracket-matcher":
     autocompleteCharacters: [
       "()"
