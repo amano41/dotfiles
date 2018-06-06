@@ -1,4 +1,28 @@
 "*":
+  "bracket-matcher":
+    autocompleteCharacters: [
+      "()"
+      "[]"
+      "{}"
+      "\"\""
+      "''"
+      "``"
+      "“”"
+      "‘’"
+      "«»"
+      "‹›"
+      "（）"
+      "［］"
+      "｛｝"
+      "《》"
+      "〈〉"
+      "「」"
+      "『』"
+      "【】"
+      "〔〕"
+      "＜＞"
+      "≪≫"
+    ]
   core:
     disabledPackages: [
       "background-tips"
@@ -33,6 +57,7 @@
     fontFamily: "\"MyricaM M\", Consolas, Meiryo"
     fontSize: 16
     invisibles: {}
+    nonWordCharacters: "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-…、。，．！？：；・／（）［］｛｝《》〈〉「」『』【】〔〕＜＞≪≫“”‘’"
     scrollPastEnd: true
     showIndentGuide: true
     showInvisibles: true
