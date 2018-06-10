@@ -7,7 +7,11 @@ umask 022
 platform=
 case "$OSTYPE" in
 	linux*)
-		platform="linux"
+		if [[ $(uname -a) =~ Microsoft ]]; then
+			platform="wsl"
+		else
+			platform="linux"
+		fi
 		;;
 	darwin*)
 		platform="macos"

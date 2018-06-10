@@ -88,7 +88,11 @@ function install() {
 	local platform=
 	case "$OSTYPE" in
 		linux*)
-			platform="linux"
+			if [[ $(uname -a) =~ Microsoft ]]; then
+				platform="wsl"
+			else
+				platform="linux"
+			fi
 			;;
 		darwin*)
 			platform="macos"
@@ -116,7 +120,7 @@ function install() {
 				continue
 				;;
 			## OS ごとの設定ファイルは該当するものの拡張子を *.os に変更してリンク
-			*.linux | *.macos | *.cygwin)
+			*.wsl | *.linux | *.macos | *.cygwin)
 				if [[ $src == *.$platform ]]; then
 					suffix=".os"
 				else
