@@ -94,7 +94,7 @@ function install() {
 			platform="macos"
 			;;
 		cygwin | msys)
-			platform="windows"
+			platform="cygwin"
 			;;
 		*)
 			echo "Unknown \$OSTYPE: '$OSTYPE'" 1>&2
@@ -116,7 +116,7 @@ function install() {
 				continue
 				;;
 			## OS ごとの設定ファイルは該当するものの拡張子を *.os に変更してリンク
-			*.linux | *.macos | *.windows)
+			*.linux | *.macos | *.cygwin)
 				if [[ $src == *.$platform ]]; then
 					suffix=".os"
 				else
@@ -132,10 +132,10 @@ function install() {
 
 	done
 
-	## Windows 環境での追加処理
+	## Cygwin 環境での追加処理
 	## - 名前がドットではじまらない設定ファイル
 	## - %USERPROFILE% に配置しなくてはならない設定ファイル
-	if [ "$platform" == "windows" ]; then
+	if [ "$platform" == "cygwin" ]; then
 
 		## R GUI で必要なファイルのシンボリックリンクを作成
 		for file in Rconsole Rdevga;

@@ -13,7 +13,7 @@ case "$OSTYPE" in
 		platform="macos"
 		;;
 	cygwin | msys)
-		platform="windows"
+		platform="cygwin"
 		;;
 	*)
 		;;
