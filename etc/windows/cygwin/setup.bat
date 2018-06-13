@@ -18,7 +18,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -Command "Import-Module BitsTransf
 start /wait setup-x86_64.exe -B -q -n -R %CYGWIN_ROOT% -l %CYGWIN_LOCAL_PACKAGE_DIR% -s %CYGWIN_MIRROR% -P %CYGWIN_PACKAGES%
 popd
 
-copy fstab %CYGWIN_ROOT%\etc\fstab > nul
+copy etc\fstab %CYGWIN_ROOT%\etc\fstab > nul
 
 setx CYGWIN "winsymlinks:nativestrict"
 setx MAKE_MODE "unix"
