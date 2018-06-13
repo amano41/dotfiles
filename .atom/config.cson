@@ -56,8 +56,8 @@
   "document-outline":
     showByDefault: false
   editor:
-    fontFamily: "\"MyricaM M\", Consolas, Meiryo"
-    fontSize: 16
+    fontFamily: "Source Han Code JP"
+    fontSize: 14
     invisibles: {}
     nonWordCharacters: "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-…、。，．！？：；・／（）［］｛｝《》〈〉「」『』【】〔〕＜＞≪≫“”‘’"
     scrollPastEnd: true
