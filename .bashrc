@@ -28,24 +28,23 @@ if [ -f /usr/share/bash-completion/completions/git ]; then
 fi
 
 
-## Git ブランチの情報をプロンプトに表示する
-if [ -f /etc/profile.d/git-prompt.sh ]; then
-	source /etc/profile.d/git-prompt.sh
-	export GIT_PS1_SHOWDIRTYSTATE=true
-	export GIT_PS1_SHOWSTASHSTATE=true
-	export GIT_PS1_SHOWUNTRACKEDFILES=true
-	export GIT_PS1_SHOWUPSTREAM=auto
-	export PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[36m\]$(__git_ps1)'$'\n\[\e[0m\]$ '
-else
-	export PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\n\[\e[0m\]\$ '
-fi
+## コマンドの存在確認
+has() {
+	type "$1" >/dev/null 2>&1
+}
 
 
 ## エイリアスの設定
 [ -f ~/.bash_alias ] && source ~/.bash_alias
+
+## プロンプトの設定
+[ -f ~/.bash_prompt ] && source ~/.bash_prompt
 
 ## OS ごとの設定
 [ -f ~/.bashrc.os ] && source ~/.bashrc.os
 
 ## ローカル環境に固有の設定
 [ -f ~/.bashrc.local ] && source ~/.bashrc.local
+
+
+unset has
