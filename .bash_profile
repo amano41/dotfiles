@@ -1,8 +1,10 @@
+umask 022
+
+
 export LANG=ja_JP.UTF-8
 export TZ=JST-9
 export LESSCHARSET=utf-8
 
-umask 022
 
 platform=
 case "$OSTYPE" in
@@ -23,9 +25,11 @@ case "$OSTYPE" in
 		;;
 esac
 
-PATH=$HOME/.dotfiles/bin:$PATH
-PATH=$HOME/.dotfiles/bin/$platform:$PATH
-PATH=$HOME/bin:$PATH
+PATH="$HOME/.local/bin:$PATH"
+PATH="$HOME/.dotfiles/bin:$PATH"
+PATH="$HOME/.dotfiles/bin/$platform:$PATH"
+PATH="$HOME/bin:$PATH"
 export PATH
+
 
 [ -f ~/.bashrc ] && source ~/.bashrc
