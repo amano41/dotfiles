@@ -1,0 +1,1 @@
+export TMPDIR=${TMP:-${TEMP:-$(cmd.exe /C 'echo %TMP%' | sed -e 's/\\/\\\\/g' | tr -d '\r' | xargs wslpath -au)}}

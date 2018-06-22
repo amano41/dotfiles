@@ -1,0 +1,5 @@
+[diff]
+	tool = WinMerge
+[difftool "WinMerge"]
+	cmd = '/mnt/c/Program Files/WinMerge/WinMergeU.exe' -e -r -u -x -wl -wr -dl \"a/$MERGED\" -dr \"b/$MERGED\" \"$(wslpath -am \"$LOCAL\")\" \"$(wslpath -am \"$REMOTE\")\"
+	trustExitCode = false
