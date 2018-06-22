@@ -8,3 +8,6 @@
 [mergetool "WinMerge"]
 	cmd = '/mnt/c/Program Files/WinMerge/WinMergeU.exe' \"$MERGED\"
 	trustExitCode = false
+[alias]
+	dd = "difftool --dir-diff --no-symlinks"
+	ddc = "difftool --dir-diff --cached --no-symlinks"
