@@ -21,7 +21,7 @@
 	aa = add -A
 	ap = add -p
 	c = commit -v
-	cm = commit -vm
+	cm = commit -m
 	s = status -sb
 	st = status
 	d = diff
@@ -71,7 +71,7 @@
 	unstage = reset -q HEAD --
 	uncommit = reset --mixed HEAD~
 	recommit = commit --amend --no-edit
-	amend = commit --amend
+	amend = commit --amend -v
 	wip = !"f() { git add -A; git commit -m \"WIP $(date '+%Y-%m-%d %H:%M')\"; }; f"
 	undo = !"f() { git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1:-1}}; }; f"
 	info = !"f() { git remote show ${1:-origin}; }; f"
