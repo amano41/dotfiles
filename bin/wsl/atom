@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -eu
+
+argv=("$@")
+
+for ((i=0; i < $#; i++))
+do
+	v=${argv[$i]}
+	if [[ $v != -* ]]; then
+		argv[$i]=$(wslpath -am $(realpath "$v"))
+	fi
+done
+
+cmd.exe /C atom.cmd "${argv[@]}"
