@@ -1,7 +1,3 @@
-[include]
-	path = ~/.gitconfig.user
-	path = ~/.gitconfig.os
-	path = ~/.gitconfig.local
 [core]
 	autocrlf = false
 	quotepath = false
@@ -97,3 +93,7 @@
 [ghq]
 	root = ~/dev/src
 	root = ~/dev/go/src
+[include]
+	path = ~/.gitconfig.user
+	path = ~/.gitconfig.os
+	path = ~/.gitconfig.local
