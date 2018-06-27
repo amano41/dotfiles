@@ -55,42 +55,50 @@ alias gls='git ls'    ## log --stat
 alias glt='git lt'    ## log --simplify-by-decoration
 alias gsh='git show'
 
+
 ## エイリアスで短縮した Git コマンドでも補完が効くようにする
 ## あらかじめ git-completion.bash を読み込んでおく必要がある
-__git_complete g __git_main
-__git_complete ga _git_add
-__git_complete gau _git_add
-__git_complete gaa _git_add
-__git_complete gap _git_add
-__git_complete gc _git_commit
-__git_complete gcm _git_commit
-__git_complete gd _git_diff
-__git_complete gdc _git_diff
-__git_complete gdw _git_diff
-__git_complete gdwc _git_diff
-__git_complete gwd _git_diff
-__git_complete gwdc _git_diff
-__git_complete gdr _git_diff
-__git_complete gb _git_branch
-__git_complete gba _git_branch
-__git_complete gbd _git_branch
-__git_complete gco _git_checkout
-__git_complete gcob _git_checkout
-__git_complete gr _git_reset
-__git_complete grs _git_reset
-__git_complete grh _git_reset
-__git_complete gpl _git_pull
-__git_complete gps _git_push
-__git_complete gf _git_fetch
-__git_complete gm _git_merge
-__git_complete grb _git_rebase
-__git_complete grbi _git_rebase
-__git_complete gl _git_log
-__git_complete gla _git_log
-__git_complete gll _git_log
-__git_complete glla _git_log
-__git_complete gln _git_log
-__git_complete glp _git_log
-__git_complete gls _git_log
-__git_complete glt _git_log
-__git_complete gsh _git_show
+
+if [ -f /usr/share/bash-completion/completions/git ]; then
+	source /usr/share/bash-completion/completions/git
+fi
+
+if has "__git_complete"; then
+	__git_complete g __git_main
+	__git_complete ga _git_add
+	__git_complete gau _git_add
+	__git_complete gaa _git_add
+	__git_complete gap _git_add
+	__git_complete gc _git_commit
+	__git_complete gcm _git_commit
+	__git_complete gd _git_diff
+	__git_complete gdc _git_diff
+	__git_complete gdw _git_diff
+	__git_complete gdwc _git_diff
+	__git_complete gwd _git_diff
+	__git_complete gwdc _git_diff
+	__git_complete gdr _git_diff
+	__git_complete gb _git_branch
+	__git_complete gba _git_branch
+	__git_complete gbd _git_branch
+	__git_complete gco _git_checkout
+	__git_complete gcob _git_checkout
+	__git_complete gr _git_reset
+	__git_complete grs _git_reset
+	__git_complete grh _git_reset
+	__git_complete gpl _git_pull
+	__git_complete gps _git_push
+	__git_complete gf _git_fetch
+	__git_complete gm _git_merge
+	__git_complete grb _git_rebase
+	__git_complete grbi _git_rebase
+	__git_complete gl _git_log
+	__git_complete gla _git_log
+	__git_complete gll _git_log
+	__git_complete glla _git_log
+	__git_complete gln _git_log
+	__git_complete glp _git_log
+	__git_complete gls _git_log
+	__git_complete glt _git_log
+	__git_complete gsh _git_show
+fi
