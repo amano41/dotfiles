@@ -11,9 +11,11 @@ alias lta='ls -ltA'
 ## git
 
 function g() {
-	local cmd=${1:-s}
-	shift
-	git "$cmd" "$@"
+	if [ $# -eq 0 ]; then
+		git status -sb
+	else
+		git "$@"
+	fi
 }
 
 alias ga='git add'
