@@ -115,7 +115,7 @@
       "split-diffDecorationsZIndex": 0
   "platformio-ide-terminal":
     core:
-      shell: "C:\\Cygwin64\\bin\\bash.exe"
+      shell: "bash.exe"
       shellArguments: "--login -i"
   tabs:
     addNewTabsAtEnd: true
