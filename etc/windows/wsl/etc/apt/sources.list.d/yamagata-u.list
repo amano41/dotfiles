@@ -1,0 +1,10 @@
+deb http://ftp.yz.yamagata-u.ac.jp/pub/linux/ubuntu/archives/ xenial main restricted
+deb http://ftp.yz.yamagata-u.ac.jp/pub/linux/ubuntu/archives/ xenial-updates main restricted
+deb http://ftp.yz.yamagata-u.ac.jp/pub/linux/ubuntu/archives/ xenial universe
+deb http://ftp.yz.yamagata-u.ac.jp/pub/linux/ubuntu/archives/ xenial-updates universe
+deb http://ftp.yz.yamagata-u.ac.jp/pub/linux/ubuntu/archives/ xenial multiverse
+deb http://ftp.yz.yamagata-u.ac.jp/pub/linux/ubuntu/archives/ xenial-updates multiverse
+deb http://ftp.yz.yamagata-u.ac.jp/pub/linux/ubuntu/archives/ xenial-backports main restricted universe multiverse
+deb http://ftp.yz.yamagata-u.ac.jp/pub/linux/ubuntu/archives/ xenial-security main restricted
+deb http://ftp.yz.yamagata-u.ac.jp/pub/linux/ubuntu/archives/ xenial-security universe
+deb http://ftp.yz.yamagata-u.ac.jp/pub/linux/ubuntu/archives/ xenial-security multiverse
