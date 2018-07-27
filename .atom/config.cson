@@ -53,6 +53,7 @@
       "atom-light-ui"
       "one-dark-vivid-syntax"
     ]
+    uriHandlerRegistration: "always"
   "document-outline":
     showByDefault: false
   editor:
