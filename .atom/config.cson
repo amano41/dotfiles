@@ -1,6 +1,8 @@
 "*":
   "autocomplete-plus":
     useCoreMovementCommands: false
+  "autocomplete-python":
+    useKite: false
   "bracket-matcher":
     autocompleteCharacters: [
       "()"
