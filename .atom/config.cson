@@ -34,7 +34,6 @@
       "spell-check"
       "welcome"
       "whitespace"
-      "wrap-guide"
     ]
     ignoredNames: [
       ".git"
@@ -134,9 +133,16 @@
     showOnStartup: false
   wordcount:
     noextension: true
+  "wrap-guide":
+    enabled: false
 ".md.text":
   editor:
     softWrap: true
 ".plain.text":
   editor:
     softWrap: true
+".python.source":
+  editor:
+    preferredLineLength: 79
+  "wrap-guide":
+    enabled: true
