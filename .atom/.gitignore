@@ -1,15 +1,2 @@
-.apm/
-.npm/
-.node-gyp/
-blob-store/
-compile-cache/
-dev/
-packages/
-recovery/
-storage/
-
-.git-history/
-local-history/
-split-diff/
+*/
 projects.cson
-github.cson
