@@ -1,4 +1,8 @@
 "*":
+  "atom-beautify":
+    python:
+      beautify_on_save: true
+      sort_imports: true
   "autocomplete-plus":
     useCoreMovementCommands: false
   "autocomplete-python":
