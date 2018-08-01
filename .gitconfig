@@ -7,10 +7,12 @@
 	ui = auto
 [push]
 	default = current
-[merge]
-	ff = false
 [pull]
 	rebase = preserve
+[merge]
+	ff = false
+[rebase]
+	autosquash = true
 [pretty]
 	simple = "tformat:%C(auto,yellow)%h%Creset %C(auto,magenta)%cd%Creset %C(dim white)-%Creset%C(auto)%d%Creset %s %C(dim white)-%Creset %C(auto,bold blue)%an%Creset"
 	subject = "format:%C(auto,yellow)%h%Creset %C(auto,magenta)%cd%Creset %C(auto,bold blue)%an <%ae>%Creset%n%n%w(0,4,4)%s%n"
@@ -72,6 +74,8 @@
 	uncommit = reset --mixed HEAD~
 	recommit = commit --amend --no-edit
 	amend = commit --amend -v
+	fixup = commit --fixup
+	squash = commit -v --squash
 	wip = !"f() { git add -A; git commit -m \"WIP $(date '+%Y-%m-%d %H:%M')\"; }; f"
 	undo = !"f() { git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1:-1}}; }; f"
 	info = !"f() { git remote show ${1:-origin}; }; f"
