@@ -3,6 +3,7 @@
 	quotepath = false
 	whitespace = cr-at-eol
 	editor = atom --wait
+	pager = less -S
 [color]
 	ui = auto
 [push]
