@@ -33,7 +33,7 @@
 	dwc = diff --word-diff=color --unified=1 --cached
 	dd = difftool --dir-diff
 	ddc = difftool --dir-diff --cached
-	dr = !"f() { local r=${1:-HEAD}; git diff $r~..$r; }; f"
+	dr = !"f() { r=${1:-HEAD}; git diff $r~..$r; }; f"
 	b = branch
 	ba = branch -a
 	bd = branch -D
