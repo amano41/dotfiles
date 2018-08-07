@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+set -eu
+
+git remote show ${1:-origin}

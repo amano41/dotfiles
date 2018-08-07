@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -eu
+
+if [ $# -eq 0 ]; then
+	exit
+fi
+
+params="$1"
+for v in "${@:2}"
+do
+	params+=",$v"
+done
+
+curl -L -s "http://www.gitignore.io/api/$params"

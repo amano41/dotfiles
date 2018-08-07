@@ -69,10 +69,6 @@
 	ls = log --stat --pretty=message --date=iso
 	lp = log --patch --pretty=message --date=iso
 	lt = log --simplify-by-decoration --pretty=message --date=iso
-	alias = !"f () { git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | sort; }; f"
-	this = !"f() { git init; git setup \"$@\"; [ -f .gitignore ] && git add .gitignore; }; f"
-	setup = !"f() { [ $# -lt 1 ] && exit; local s=\"$1\"; shift; for x in \"$@\"; do s=\"$s,$x\"; shift; done; curl -L -s -o .gitignore \"http://www.gitignore.io/api/$s\"; }; f"
-	ignore = !"f() { for x in \"$@\"; do echo \"$x\" >> \"${GIT_PREFIX}.gitignore\"; shift; done; }; f"
 	discard = checkout --
 	unstage = reset -q HEAD --
 	uncommit = reset --mixed HEAD~
@@ -81,9 +77,6 @@
 	reword = commit --amend -m
 	fixup = commit --fixup
 	squash = commit -v --squash
-	wip = !"f() { git add -A; git commit -m \"WIP $(date '+%Y-%m-%d %H:%M')\"; }; f"
-	undo = !"f() { git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1:-1}}; }; f"
-	info = !"f() { git remote show ${1:-origin}; }; f"
 	chmod = update-index --add --chmod
 	branches = branch -avv
 	tags = tag

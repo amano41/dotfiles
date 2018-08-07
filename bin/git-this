@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -eu
+
+git init
+
+if [ $# -eq 0 ]; then
+	exit
+fi
+
+gitignore "$@" > .gitignore
+grep "#!! ERROR" .gitignore
