@@ -13,10 +13,11 @@
 	ff = false
 [rebase]
 	autosquash = true
+[log]
+	date = iso
 [pretty]
-	simple = "tformat:%C(auto,yellow)%h%Creset %C(auto,magenta)%cd%Creset %C(dim white)-%Creset%C(auto)%d%Creset %s %C(dim white)-%Creset %C(auto,bold blue)%an%Creset"
-	subject = "format:%C(auto,yellow)%h%Creset %C(auto,magenta)%cd%Creset %C(auto,bold blue)%an <%ae>%Creset%n%n%w(0,4,4)%s%n"
-	message = "format:%C(auto,yellow)%h%Creset %C(auto,magenta)%cd%Creset %C(auto,bold blue)%an <%ae>%Creset%n%n%w(0,4,4)%B"
+	compact = "tformat:%C(yellow)%h%C(auto)%d%Creset %s %C(bold black)-%Creset %C(magenta)%cd%Creset %C(bold black)-%Creset %C(bold blue)%an%Creset"
+	message = "format:%C(yellow)%h%C(auto)%d%Creset %C(bold black)-%Creset %C(magenta)%cd%Creset %C(bold black)-%Creset %C(bold blue)%an <%ae>%Creset%n%n%w(0,4,4)%B"
 [alias]
 	a = add
 	au = add -u
@@ -59,13 +60,13 @@
 	sa = !"f() { git stash apply stash@{${1:-0}}; }; f"
 	sd = !"f() { git stash drop stash@{${1:-0}}; }; f"
 	sp = !"f() { git stash pop stash@{${1:-0}}; }; f"
-	l = log --pretty=simple --date=relative -n 20
-	la = log --pretty=simple --date=relative --graph --all -n 20
-	ll = log --pretty=simple --date=format:'%Y-%m-%d %H:%M'
-	lla = log --pretty=simple --date=format:'%Y-%m-%d %H:%M' --graph --all
-	ln = log --name-status --graph --pretty=subject --date=iso
-	lp = log --patch --pretty=subject --date=iso
+	l = log --oneline --decorate
+	la = log --oneline --decorate --graph --all
+	ll = log --pretty=compact --date=relative
+	lla = log --pretty=compact --date=relative --graph --all
+	ln = log --name-status --pretty=message --date=iso
 	ls = log --stat --pretty=message --date=iso
+	lp = log --patch --pretty=message --date=iso
 	lt = log --simplify-by-decoration --pretty=message --date=iso
 	alias = !"f () { git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | sort; }; f"
 	this = !"f() { git init; git setup \"$@\"; [ -f .gitignore ] && git add .gitignore; }; f"
