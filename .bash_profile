@@ -26,8 +26,8 @@ case "$OSTYPE" in
 esac
 
 PATH="$HOME/.local/bin:$PATH"
-PATH="$HOME/.dotfiles/bin:$PATH"
-PATH="$HOME/.dotfiles/bin/$platform:$PATH"
+PATH="$HOME/dotfiles/bin:$PATH"
+PATH="$HOME/dotfiles/bin/$platform:$PATH"
 PATH="$HOME/bin:$PATH"
 export PATH
 
