@@ -8,7 +8,7 @@ INCLUDES=( ".??*" )
 EXCLUDES=( ".git" )
 
 
-DOTFILES_ROOT=$(cd $(dirname "$0"); pwd -P)
+DOTFILES_ROOT=$(cd $(dirname "$0"); pwd)
 
 
 SYMLINK_CMD="ln -snf"
