@@ -44,7 +44,7 @@ function mklink() {
 }
 
 
-function list_files() {
+function find_files() {
 
 	local dir=${1:-$DOTFILES_ROOT}
 	local ext=${2:-}
@@ -110,7 +110,7 @@ function install() {
 
 	## $DOTFILES_ROOT/.* から $HOME/.* にリンク作成
 	local src=
-	for src in $(list_files "$DOTFILES_ROOT")
+	for src in $(find_files "$DOTFILES_ROOT")
 	do
 
 		local suffix=
