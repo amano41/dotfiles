@@ -1,3 +1,22 @@
+## built-in patterns
+
+*.c diff=cpp
+*.h diff=cpp
+*.cpp diff=cpp
+*.hpp diff=cpp
+*.java diff=java
+*.html diff=html
+*.css diff=css
+*.js diff=java
+*.pl diff=perl
+*.py diff=python
+*.rb diff=ruby
+*.tex diff=tex
+*.bib diff=bibtex
+
+
+## additional patterns
+
 *.rtf diff=rtf
 *.docx diff=docx
 *.xlsx diff=xlsx
