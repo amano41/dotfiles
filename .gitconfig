@@ -14,6 +14,14 @@
 	ff = false
 [rebase]
 	autosquash = true
+[diff]
+	renames = true
+	indentHeuristic = true
+[difftool]
+	prompt = false
+[mergetool]
+	prompt = false
+	keepBackup = false
 [log]
 	date = iso
 [pretty]
@@ -85,11 +93,6 @@
 	stashes = stash list
 	stashed = stash list
 	remotes = remote -v
-[difftool]
-	prompt = false
-[mergetool]
-	prompt = false
-	keepBackup = false
 [diff "opml"]
 	textconv = opml2md
 [url "git@github.com:"]
