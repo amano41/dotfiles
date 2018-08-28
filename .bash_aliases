@@ -18,17 +18,6 @@ alias lta='ls -ltA'
 alias grep='grep --color'
 
 
-## git
-
-function g() {
-	if [ $# -eq 0 ]; then
-		git status -sb
-	else
-		git "$@"
-	fi
-}
-
-
 ## Git のエイリアスからシェルのエイリアスを定義し，補完も効くようにする
 ## あらかじめ git-completion.bash を読み込んでおく必要がある
 
@@ -36,9 +25,7 @@ if [ -f /usr/share/bash-completion/completions/git ]; then
 	source /usr/share/bash-completion/completions/git
 fi
 
-if has "__git_complete"; then
-
-	__git_complete g __git_main
+if has "__git_complete" && has "__git_aliases"; then
 
 	for a in $(__git_aliases);
 	do

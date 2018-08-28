@@ -40,6 +40,9 @@ has() {
 ## エイリアス
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases
 
+## シェル関数
+[ -f ~/.bash_functions ] && source ~/.bash_functions
+
 ## OS ごとの設定
 [ -f ~/.bashrc.os ] && source ~/.bashrc.os
 
