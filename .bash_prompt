@@ -1,3 +1,14 @@
+## コマンド履歴を複数端末で共有する
+
+function share_history {
+	history -a
+	history -c
+	history -r
+}
+
+PROMPT_COMMAND='share_history'
+
+
 ## Git ブランチの情報をプロンプトに表示する
 
 [ -f ~/.git-prompt.sh ] && source ~/.git-prompt.sh
