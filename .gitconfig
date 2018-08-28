@@ -66,9 +66,11 @@
 	ll = log --pretty=compact --date=relative
 	lla = log --pretty=compact --date=relative --graph --all
 	ln = log --name-status --pretty=message --date=iso
-	ls = log --stat --pretty=message --date=iso
 	lp = log --patch --pretty=message --date=iso
 	lt = log --simplify-by-decoration --pretty=message --date=iso
+	g = grep -I
+	gi = grep -Ii
+	ls = ls-files
 	discard = checkout --
 	unstage = reset -q HEAD --
 	uncommit = reset --mixed HEAD~
