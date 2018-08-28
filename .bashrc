@@ -34,11 +34,11 @@ has() {
 }
 
 
-## エイリアスの設定
-[ -f ~/.bash_alias ] && source ~/.bash_alias
-
-## プロンプトの設定
+## プロンプト
 [ -f ~/.bash_prompt ] && source ~/.bash_prompt
+
+## エイリアス
+[ -f ~/.bash_aliases ] && source ~/.bash_aliases
 
 ## OS ごとの設定
 [ -f ~/.bashrc.os ] && source ~/.bashrc.os
