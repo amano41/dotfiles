@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 
-set -e
-set -u
+set -eu
 
 if [ $# -ne 1 ]; then
-	echo "Usage: $(basename "$0") file" 1>&2
+	echo "Usage: $(basename "$0") <opml>" 1>&2
 	exit 1
 fi
 
@@ -20,12 +19,23 @@ case "$OSTYPE" in
 	*)      src="$1";;
 esac
 
-pandoc -f opml -t markdown --atx-headers "$src" | tr -d '\r' | \
-sed -e '/^[[:space:]]*$/d' | \
-sed -e 's/^#\+[[:space:]]*$//g' | \
-sed -e 's/^# /* /g' | \
-sed -e 's/^## /\t* /g' | \
-sed -e 's/^### /\t\t* /g' | \
-sed -e 's/^#### /\t\t\t* /g' | \
-sed -e 's/^##### /\t\t\t\t* /g' | \
-sed -e 's/^###### /\t\t\t\t\t* /g'
+pandoc -f opml -t markdown --atx-headers "$src" | \
+tr -d '\r' | \
+awk '
+	NF {
+
+		if(match($0, /^#+\s*/)) {
+			for(i = 0; i < RLENGTH; i++) {
+				printf "%s", "\t"
+			}
+			sub(/^#+\s*/, "")
+		}
+
+		if($0 == "") {
+			printf "\n"
+		}
+		else {
+			printf "* %s\n", $0
+		}
+	}
+'
