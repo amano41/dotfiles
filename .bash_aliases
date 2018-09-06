@@ -25,31 +25,51 @@ if [ -f /usr/share/bash-completion/completions/git ]; then
 	source /usr/share/bash-completion/completions/git
 fi
 
+
 if has "__git_complete"; then
 
-	for a in $(git --list-cmds=alias);
-	do
+	function add_completion() {
 
-		## 長いエイリアスはスキップ
-		if [ ${#a} -gt 3 ]; then
-			continue
+		local c="$1"
+		local a="$2"
+		local f="_git_$(__git_aliased_command $a | tr '-' '_')"
+
+		if has "$f"; then
+			__git_complete "$c" "$f"
 		fi
+	}
 
-		cmd="g$a"
+else
 
-		## 定義済みの場合はスキップ
-		if has "$cmd"; then
-			continue
-		fi
-
-		## シェルのエイリアスを定義
-		alias "$cmd"="git $a"
-
-		## シェルのエイリアスでも補完が効くようにする
-		func="_git_$(__git_aliased_command $a | tr '-' '_')"
-		if has "$func"; then
-			__git_complete "$cmd" "$func"
-		fi
-	done
+	function add_completion() {
+		:
+	}
 
 fi
+
+
+for a in $(git --list-cmds=alias);
+do
+
+	## 長いエイリアスはスキップ
+	if [ ${#a} -gt 3 ]; then
+		continue
+	fi
+
+	cmd="g$a"
+
+	## 定義済みの場合はスキップ
+	if has "$cmd"; then
+		continue
+	fi
+
+	## シェルのエイリアスを定義
+	alias "$cmd"="git $a"
+
+	## シェルのエイリアスでも補完が効くようにする
+	add_completion "$cmd" "$a"
+
+done
+
+
+unset add_completion
