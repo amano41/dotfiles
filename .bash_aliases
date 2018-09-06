@@ -25,9 +25,9 @@ if [ -f /usr/share/bash-completion/completions/git ]; then
 	source /usr/share/bash-completion/completions/git
 fi
 
-if has "__git_complete" && has "__git_aliases"; then
+if has "__git_complete"; then
 
-	for a in $(__git_aliases);
+	for a in $(git --list-cmds=alias);
 	do
 
 		## 長いエイリアスはスキップ
