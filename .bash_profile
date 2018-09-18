@@ -32,4 +32,9 @@ PATH="$HOME/bin:$PATH"
 export PATH
 
 
+## less でシンタックスハイライト
+export LESS='-R'
+export LESSOPEN='| src-hilite-lesspipe.sh %s'
+
+
 [ -f ~/.bashrc ] && source ~/.bashrc
