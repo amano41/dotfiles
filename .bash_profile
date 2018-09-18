@@ -33,7 +33,7 @@ export PATH
 
 
 ## less でシンタックスハイライト
-export LESS='-R'
+export LESS='-iJMRW -z-4 -#4 -x4'
 export LESSOPEN='| src-hilite-lesspipe.sh %s'
 
 
