@@ -14,6 +14,17 @@
 	ff = false
 [rebase]
 	autosquash = true
+[pager]
+	log = diff-highlight | less -FRSX
+	show = diff-highlight | less -FRSX
+	diff = diff-highlight | less -FRSX
+[interactive]
+	diffFilter = diff-highlight | less -FRSX
+[log]
+	date = iso
+[pretty]
+	compact = "tformat:%C(yellow)%h%C(auto)%d%Creset %s %C(bold black)-%Creset %C(magenta)%cd%Creset %C(bold black)-%Creset %C(bold blue)%an%Creset"
+	message = "format:%C(yellow)%h%C(auto)%d%Creset %C(bold black)-%Creset %C(magenta)%cd%Creset %C(bold black)-%Creset %C(bold blue)%an <%ae>%Creset%n%n%w(0,4,4)%B"
 [diff]
 	renames = true
 	indentHeuristic = true
@@ -22,11 +33,6 @@
 [mergetool]
 	prompt = false
 	keepBackup = false
-[log]
-	date = iso
-[pretty]
-	compact = "tformat:%C(yellow)%h%C(auto)%d%Creset %s %C(bold black)-%Creset %C(magenta)%cd%Creset %C(bold black)-%Creset %C(bold blue)%an%Creset"
-	message = "format:%C(yellow)%h%C(auto)%d%Creset %C(bold black)-%Creset %C(magenta)%cd%Creset %C(bold black)-%Creset %C(bold blue)%an <%ae>%Creset%n%n%w(0,4,4)%B"
 [alias]
 	a = add
 	au = add -u
