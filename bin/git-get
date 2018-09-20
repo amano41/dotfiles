@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+set -eu
+
+case $# in
+	1|2) ;;
+	*)
+		echo "usage: $(basename $0) <repository> [<directory>]" 1>&2
+		exit 1
+		;;
+esac
+
+## ユーザー名とリポジトリ名だけの短縮表記も受け付ける
+if [[ $1 =~ ^[a-zA-Z0-9_-]+/[a-zA-Z0-9_-]+(\.git)?$ ]]; then
+	username=$(dirname $1)
+	reponame=$(basename $1 .git)
+	url="https://github.com/${username}/${reponame}.git"
+else
+	url="$1"
+fi
+
+## クローン先ディレクトリ
+dest="${2:-$(basename "$url" .git)}"
+
+git clone "$url" "$dest"
+
+## WSL では core.filemode=false の設定を追加する
+## ~/.gitconfig で設定しておいてもローカルの設定で上書きされてしまうため
+if [[ $OSTYPE =~ linux ]] && [[ $(uname -a) =~ Microsoft ]]; then
+	cd "$dest"
+	git config --local core.filemode false
+fi
