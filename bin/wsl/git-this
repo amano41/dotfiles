@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-set -eu
-
-"$(dirname $0)/../git-this" "$@"
-
-## ~/.gitconfig で設定しておいてもローカルの設定で上書きされてしまうため
-git config --local core.filemode false

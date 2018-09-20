@@ -4,6 +4,12 @@ set -eu
 
 git init
 
+## WSL では core.filemode=false の設定を追加する
+## ~/.gitconfig で設定しておいてもローカルの設定で上書きされてしまうため
+if [[ $OSTYPE =~ linux ]] && [[ $(uname -a) =~ Microsoft ]]; then
+	git config --local core.filemode false
+fi
+
 if [ $# -eq 0 ]; then
 	exit
 fi
