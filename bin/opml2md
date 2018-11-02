@@ -24,8 +24,8 @@ tr -d '\r' | \
 awk '
 	NF {
 
-		if(match($0, /^#+\s*/)) {
-			for(i = 0; i < RLENGTH; i++) {
+		if(match($0, /^#+/)) {
+			for(i = 0; i < RLENGTH - 1; i++) {
 				printf "%s", "\t"
 			}
 			sub(/^#+\s*/, "")
