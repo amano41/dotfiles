@@ -77,13 +77,13 @@
 	sa = !"f() { git stash apply stash@{${1:-0}}; }; f"
 	sd = !"f() { git stash drop stash@{${1:-0}}; }; f"
 	sp = !"f() { git stash pop stash@{${1:-0}}; }; f"
-	l = log --oneline --decorate
-	la = log --oneline --decorate --graph --all
-	ll = log --pretty=compact --date=relative
-	lla = log --pretty=compact --date=relative --graph --all
-	ln = log --name-status --pretty=message --date=iso
-	lp = log --patch --pretty=message --date=iso
-	lt = log --simplify-by-decoration --pretty=message --date=iso
+	l  = !"f() { git log -${1:-30} --oneline --decorate --graph; }; f"
+	la = !"f() { git log -${1:-30} --oneline --decorate --graph --all; }; f"
+	ll  = !"f() { git log -${1:-30} --pretty=compact --date=relative --graph; }; f"
+	lla = !"f() { git log -${1:-30} --pretty=compact --date=relative --graph --all; }; f"
+	ln = log --pretty=message --date=iso --name-status
+	lp = log --pretty=message --date=iso --patch
+	lt = log --pretty=message --date=iso --simplify-by-decoration
 	g = grep -I
 	gi = grep -Ii
 	ls = ls-files
