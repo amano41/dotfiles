@@ -51,6 +51,8 @@
 	b = branch
 	ba = branch -a
 	bd = branch -D
+	bdr = push --delete
+	bdo = push --delete origin
 	co = checkout
 	cob = checkout -b
 	cop = checkout -p
