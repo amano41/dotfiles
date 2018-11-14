@@ -63,7 +63,7 @@
 	ps = push
 	f = fetch
 	fp = fetch --prune
-	m = merge
+	m = merge --no-edit
 	mf = merge --ff
 	ff = merge --ff
 	rb = rebase
