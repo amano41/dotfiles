@@ -27,7 +27,8 @@ if [ -e "$1" ]; then
 		exit 1
 	fi
 
-	start "$target"
+	shift
+	start "$target" "$@"
 
 ## ターゲットが存在しない場合
 ## Windows のプログラムとみなして直接開く
