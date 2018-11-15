@@ -2,14 +2,34 @@
 
 set -eu
 
+# Git から --wait 付きで呼び出された場合に true をセット
+# このフラグによって atom.cmd か atom.exe かを振り分ける
+wait=false
+
 argv=("$@")
 
 for ((i=0; i < $#; i++))
 do
 	v=${argv[$i]}
-	if [[ $v != -* ]]; then
-		argv[$i]=$(wslpath -am $(realpath "$v"))
-	fi
+
+	case "$v" in
+		"-w" | "--wait")
+			wait=true
+			;;
+		-*)
+			;;
+		* )
+			argv[$i]=$(wslpath -am $(realpath "$v"))
+			;;
+	esac
+
 done
 
-cmd.exe /C atom.cmd "${argv[@]}"
+# atom.cmd は --wait がないと node 経由の起動になってエラーとなる
+# atom.exe に --wait を渡しても無視されてコミットが中止されてしまう
+if $wait; then
+	cmd.exe /C atom.cmd "${argv[@]}"
+else
+	atom="$(wslpath -am $(dirname $(which atom.cmd))/../atom.exe)"
+	cmd.exe /C start "" "$atom" "${argv[@]}"
+fi
