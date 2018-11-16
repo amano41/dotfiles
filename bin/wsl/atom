@@ -31,5 +31,5 @@ if $wait; then
 	cmd.exe /C atom.cmd "${argv[@]}"
 else
 	atom="$(wslpath -am $(dirname $(which atom.cmd))/../atom.exe)"
-	cmd.exe /C start "" "$atom" "${argv[@]}"
+	cmd.exe /C start "" "$atom" "${argv[0]+${argv[@]}}"
 fi
