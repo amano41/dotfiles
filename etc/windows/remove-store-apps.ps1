@@ -18,14 +18,17 @@ $store_apps = @(
     "Microsoft.Windows.Photos",
     "Microsoft.MicrosoftSolitaireCollection",
     "Microsoft.BingSports",
-#    "Microsoft.WindowsStore",
     "Microsoft.WindowsSoundRecorder",
     "Microsoft.BingWeather",
     "Microsoft.XboxApp",
+    "Microsoft.XboxGamingOverlay",
     "Microsoft.XboxIdentityProvider",
+    "Microsoft.Xbox.TCUI",
     "Microsoft.Messaging",
     "Microsoft.MicrosoftStickyNotes",
-    "Microsoft.WindowsFeedbackHub"
+    "Microsoft.WindowsFeedbackHub",
+    "Microsoft.OneConnect",
+    "Microsoft.YourPhone"
 )
 
 foreach ($app in $store_apps) {
