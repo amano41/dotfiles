@@ -1,0 +1,10 @@
+deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ bionic main restricted
+deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ bionic-updates main restricted
+deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ bionic universe
+deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ bionic-updates universe
+deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ bionic multiverse
+deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ bionic-updates multiverse
+deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ bionic-backports main restricted universe multiverse
+deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ bionic-security main restricted
+deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ bionic-security universe
+deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ bionic-security multiverse

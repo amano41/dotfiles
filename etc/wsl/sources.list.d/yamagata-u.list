@@ -1,0 +1,10 @@
+deb http://ftp.yz.yamagata-u.ac.jp/pub/linux/ubuntu/archives/ bionic main restricted
+deb http://ftp.yz.yamagata-u.ac.jp/pub/linux/ubuntu/archives/ bionic-updates main restricted
+deb http://ftp.yz.yamagata-u.ac.jp/pub/linux/ubuntu/archives/ bionic universe
+deb http://ftp.yz.yamagata-u.ac.jp/pub/linux/ubuntu/archives/ bionic-updates universe
+deb http://ftp.yz.yamagata-u.ac.jp/pub/linux/ubuntu/archives/ bionic multiverse
+deb http://ftp.yz.yamagata-u.ac.jp/pub/linux/ubuntu/archives/ bionic-updates multiverse
+deb http://ftp.yz.yamagata-u.ac.jp/pub/linux/ubuntu/archives/ bionic-backports main restricted universe multiverse
+deb http://ftp.yz.yamagata-u.ac.jp/pub/linux/ubuntu/archives/ bionic-security main restricted
+deb http://ftp.yz.yamagata-u.ac.jp/pub/linux/ubuntu/archives/ bionic-security universe
+deb http://ftp.yz.yamagata-u.ac.jp/pub/linux/ubuntu/archives/ bionic-security multiverse
