@@ -1,0 +1,63 @@
+{
+    "editor.fontFamily": "Source Han Code JP",
+    "editor.fontSize": 14,
+    "editor.tabSize": 4,
+    "editor.insertSpaces": false,
+    "editor.renderControlCharacters": true,
+    "editor.renderIndentGuides": true,
+    "editor.renderLineHighlight": "all",
+    "editor.renderWhitespace": "all",
+    "editor.showFoldingControls": "always",
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": false,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.minimap.renderCharacters": false,
+    "editor.minimap.showSlider": "always",
+
+    "files.autoGuessEncoding": true,
+    "files.encoding": "utf8",
+    "files.eol": "\n",
+    "files.defaultLanguage": "markdown",
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "files.exclude": {
+        "**/.vscode": true,
+        "**/.git": true,
+        "**/.venv": true,
+        "**/.Rproj.user": true,
+    },
+
+    "workbench.startupEditor": "none",
+    "workbench.colorTheme": "Default Dark+",
+    "workbench.colorCustomizations": {},
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.statusBar.feedback.visible": false,
+
+    "window.title": "${activeEditorLong} ${dirty}",
+    "window.restoreWindows": "folders",
+
+    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\bash.exe",
+
+    "markdown.preview.fontFamily": "IPAexゴシック",
+    "markdown.preview.fontSize": 14,
+
+    // "python.linting.enabled": false,
+    // "python.linting.pylintEnabled": false,
+    // "python.linting.pep8Enabled": true,
+    // "python.linting.flake8Enabled": true,
+
+    "[markdown]": {
+        "files.trimTrailingWhitespace": false,
+    },
+
+    "[python]": {
+        "editor.rulers": [
+            79
+        ]
+    },
+
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false,
+
+}
