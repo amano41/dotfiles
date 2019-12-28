@@ -2,7 +2,7 @@
 	autocrlf = false
 	quotepath = false
 	whitespace = cr-at-eol
-	editor = vim -c 'set fenc=utf-8' -c 'startinsert'
+	editor = vim -c 'set fenc=utf-8'
 	pager = less -FRSX
 [color]
 	ui = auto
