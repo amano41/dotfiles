@@ -52,4 +52,8 @@ export LESS_TERMCAP_us=$'\e[4;36m'  # enter underline mode
 export LESS_TERMCAP_ue=$'\e[0m'     # leave underline mode
 
 
+## Pipenv でプロジェクトディレクトリに仮想環境を作成
+export PIPENV_VENV_IN_PROJECT=true
+
+
 [ -f ~/.bashrc ] && source ~/.bashrc
