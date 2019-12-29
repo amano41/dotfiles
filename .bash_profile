@@ -1,11 +1,14 @@
+## パーミッション
 umask 022
 
 
+## ロケールとタイムゾーン
 export LANG=ja_JP.UTF-8
 export TZ=JST-9
 export LESSCHARSET=utf-8
 
 
+## 実行環境の判別
 platform=
 case "$OSTYPE" in
 	linux*)
@@ -25,6 +28,8 @@ case "$OSTYPE" in
 		;;
 esac
 
+
+## パス
 PATH="$HOME/.local/bin:$PATH"
 PATH="$HOME/dotfiles/bin:$PATH"
 PATH="$HOME/dotfiles/bin/$platform:$PATH"
@@ -35,6 +40,7 @@ export PATH
 ## less でシンタックスハイライト
 export LESS='-iJMRW -z-4 -#4 -x4'
 export LESSOPEN='| src-hilite-lesspipe.sh %s'
+
 
 ## man をカラー表示
 export LESS_TERMCAP_mb=$'\e[1;31m'  # enter blinking mode
