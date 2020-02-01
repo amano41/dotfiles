@@ -9,7 +9,7 @@
 [push]
 	default = current
 [pull]
-	rebase = preserve
+	rebase = merges
 [merge]
 	ff = false
 [rebase]
