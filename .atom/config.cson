@@ -147,6 +147,10 @@
 ".plain.text":
   editor:
     softWrap: true
+".powershell.source":
+  editor:
+    autoIndent: true
+    autoIndentOnPaste: true
 ".python.source":
   editor:
     preferredLineLength: 79
