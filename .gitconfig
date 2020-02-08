@@ -44,16 +44,15 @@
 	s = status
 	d = diff
 	dc = diff --cached
-	dw = diff --word-diff=color --unified=1
-	dwc = diff --word-diff=color --unified=1 --cached
+	wd = diff --word-diff=color --unified=1
+	wdc = diff --word-diff=color --unified=1 --cached
 	dd = difftool --dir-diff
 	ddc = difftool --dir-diff --cached
 	dr = !"f() { r=${1:-HEAD}; git diff $r~..$r; }; f"
 	b = branch
-	ba = branch -a
+	ba = branch -avv
 	bd = branch -D
 	bdr = push --delete
-	bdo = push --delete origin
 	co = checkout
 	cob = checkout -b
 	cop = checkout -p
@@ -78,16 +77,15 @@
 	sa = !"f() { git stash apply stash@{${1:-0}}; }; f"
 	sd = !"f() { git stash drop stash@{${1:-0}}; }; f"
 	sp = !"f() { git stash pop stash@{${1:-0}}; }; f"
-	l  = !"f() { git log -${1:-30} --oneline --decorate --graph; }; f"
-	la = !"f() { git log -${1:-30} --oneline --decorate --graph --all; }; f"
-	ll  = !"f() { git log -${1:-30} --pretty=compact --date=relative --graph; }; f"
-	lla = !"f() { git log -${1:-30} --pretty=compact --date=relative --graph --all; }; f"
+	l  = log --oneline --decorate --graph
+	la = log --oneline --decorate --graph --all
+	ll  = log --pretty=compact --date=relative --graph
+	lla = log --pretty=compact --date=relative --graph --all
 	ln = log --pretty=message --date=iso --name-status
 	lp = log --pretty=message --date=iso --patch
 	lt = log --pretty=message --date=iso --simplify-by-decoration
-	g = grep -I
-	gi = grep -Ii
-	ls = ls-files
+	g = grep -EI
+	gi = grep -EIi
 	discard = checkout --
 	unstage = reset -q HEAD --
 	uncommit = reset --mixed HEAD~
