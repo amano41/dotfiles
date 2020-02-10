@@ -24,7 +24,7 @@ function h() {
 
 function g() {
 	case $# in
-		0) git status -sb && echo && git log -n 10 --graph --oneline --no-decorate;;
+		0) git status -sb && echo && git log -n 10 --graph --oneline --no-decorate ;;
 		*) git "$@" ;;
 	esac
 }
