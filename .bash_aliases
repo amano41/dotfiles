@@ -18,6 +18,11 @@ alias lta='ls -ltA'
 alias grep='grep --color'
 
 
+## python
+
+alias python='python3'
+
+
 ## Git のエイリアスからシェルのエイリアスを定義し，補完も効くようにする
 ## あらかじめ git-completion.bash を読み込んでおく必要がある
 
