@@ -28,6 +28,7 @@
 [diff]
 	renames = true
 	indentHeuristic = true
+	algorithm = histogram
 [difftool]
 	prompt = false
 [mergetool]
