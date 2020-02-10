@@ -68,8 +68,9 @@
 	ff = merge --ff
 	rb = rebase
 	rbi = rebase -i
-	rba = rebase --abort
 	rbc = rebase --continue
+	rbs = rebase --skip
+	rba = rebase --abort
 	cp = cherry-pick
 	sh = show
 	sl = stash list
@@ -95,6 +96,8 @@
 	fixup = commit --fixup
 	squash = commit -v --squash
 	chmod = update-index --add --chmod
+	skip = update-index --skip-worktree
+	unskip = update-index --no-skip-worktree
 	branches = branch -avv
 	tags = tag
 	stashes = stash list
