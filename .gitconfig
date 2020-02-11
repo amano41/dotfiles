@@ -42,11 +42,13 @@
 	c = commit -v
 	cm = commit -m
 	s = status
-	d = diff
+	d  = diff
 	dc = diff --cached
-	wd = diff --word-diff=color --unified=1
+	wd  = diff --word-diff=color --unified=1
 	wdc = diff --word-diff=color --unified=1 --cached
-	dd = difftool --dir-diff
+	jd  = diff --word-diff=color --word-diff-regex='[^\\x80-\\xBF][\\x80-\\xBF]*'
+	jdc = diff --word-diff=color --word-diff-regex='[^\\x80-\\xBF][\\x80-\\xBF]*' --cached
+	dd  = difftool --dir-diff
 	ddc = difftool --dir-diff --cached
 	dr = !"f() { r=${1:-HEAD}; git diff $r~..$r; }; f"
 	b = branch
