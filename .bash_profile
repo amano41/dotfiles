@@ -9,20 +9,20 @@ export LESSCHARSET=utf-8
 
 
 ## 実行環境の判別
-platform=
+PLATFORM=
 case "$OSTYPE" in
 	linux*)
 		if [[ $(uname -a) =~ Microsoft ]]; then
-			platform="wsl"
+			PLATFORM="wsl"
 		else
-			platform="linux"
+			PLATFORM="linux"
 		fi
 		;;
 	darwin*)
-		platform="macos"
+		PLATFORM="mac"
 		;;
 	cygwin | msys)
-		platform="cygwin"
+		PLATFORM="cygwin"
 		;;
 	*)
 		;;
@@ -32,7 +32,7 @@ esac
 ## パス
 PATH="$HOME/.local/bin:$PATH"
 PATH="$HOME/dotfiles/bin:$PATH"
-PATH="$HOME/dotfiles/bin/$platform:$PATH"
+PATH="$HOME/dotfiles/bin/$PLATFORM:$PATH"
 PATH="$HOME/bin:$PATH"
 export PATH
 
