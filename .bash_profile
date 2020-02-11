@@ -37,6 +37,11 @@ PATH="$HOME/bin:$PATH"
 export PATH
 
 
+## エディタとページャー
+export EDITOR=vim
+export PAGER=less
+
+
 ## less でシンタックスハイライト
 export LESS='-iJMRW -z-4 -#4 -x4'
 export LESSOPEN='| src-hilite-lesspipe.sh %s'
