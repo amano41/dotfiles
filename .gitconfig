@@ -6,6 +6,11 @@
 	pager = less -FRSX
 [color]
 	ui = auto
+[color "diff"]
+	meta = magenta
+	frag = cyan
+	old = red
+	new = green
 [push]
 	default = current
 [pull]
