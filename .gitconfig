@@ -109,6 +109,7 @@
 	stashes = stash list
 	stashed = stash list
 	remotes = remote -v
+	worktrees = worktree list
 [diff "opml"]
 	textconv = opml2md
 [url "git@github.com:"]
