@@ -93,6 +93,7 @@
 	g = grep -EI
 	gi = grep -EIi
 	discard = checkout --
+	untrack = rm --cache --
 	unstage = reset -q HEAD --
 	uncommit = reset --mixed HEAD~
 	recommit = commit --amend --no-edit
