@@ -20,6 +20,8 @@
 	diff = diff-highlight | less -FRSX
 [interactive]
 	diffFilter = diff-highlight | less -FRSX
+[status]
+	showUntrackedFiles = all
 [log]
 	date = iso
 [pretty]
