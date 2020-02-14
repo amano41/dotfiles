@@ -26,6 +26,7 @@
 	compact = "tformat:%C(yellow)%h%C(auto)%d%Creset %s %C(bold black)-%Creset %C(magenta)%cd%Creset %C(bold black)-%Creset %C(bold blue)%an%Creset"
 	message = "format:%C(yellow)%h%C(auto)%d%Creset %C(bold black)-%Creset %C(magenta)%cd%Creset %C(bold black)-%Creset %C(bold blue)%an <%ae>%Creset%n%n%w(0,4,4)%B"
 [diff]
+	mnemonicPrefix = true
 	renames = true
 	indentHeuristic = true
 	algorithm = histogram
