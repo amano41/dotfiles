@@ -6,6 +6,11 @@
 	pager = less -FRSX
 [color]
 	ui = auto
+[color "branch"]
+	current = green
+	local = normal
+	remote = red
+	upstream = magenta
 [color "diff"]
 	meta = magenta
 	frag = cyan
