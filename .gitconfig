@@ -11,6 +11,11 @@
 	frag = cyan
 	old = red
 	new = green
+[color "status"]
+	added = green
+	changed = red
+	unmerged = red
+	untracked = magenta
 [push]
 	default = current
 [pull]
