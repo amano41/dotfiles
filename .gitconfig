@@ -29,6 +29,9 @@
 	ff = false
 [rebase]
 	autosquash = true
+[stash]
+	showStat = false
+	showPatch = true
 [pager]
 	log = diff-highlight | less -FRSX
 	show = diff-highlight | less -FRSX
