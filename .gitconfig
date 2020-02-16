@@ -102,6 +102,7 @@
 	sa = !"f() { git stash apply --index stash@{${1:-0}}; }; f"
 	sd = !"f() { git stash drop stash@{${1:-0}}; }; f"
 	ssh = !"f() { git stash show stash@{${1:-0}}; }; f"
+	sc = stash clear
 	l  = log --oneline --decorate --graph
 	la = log --oneline --decorate --graph --all
 	ll  = log --pretty=compact --date=relative --graph
