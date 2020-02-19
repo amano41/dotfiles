@@ -113,6 +113,7 @@
 	g = grep -EI
 	gi = grep -EIi
 	gm = log -E --grep
+	gh = log --patch --pickaxe-regex -S
 	discard = checkout --
 	untrack = rm --cache --
 	unstage = reset -q HEAD --
