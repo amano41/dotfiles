@@ -97,7 +97,7 @@
 	cp = cherry-pick
 	sh = show
 	sl = stash list
-	ss = stash save --include-untracked
+	ss = stash push --include-untracked
 	sp = !"f() { git stash pop --index stash@{${1:-0}}; }; f"
 	sa = !"f() { git stash apply --index stash@{${1:-0}}; }; f"
 	sd = !"f() { git stash drop stash@{${1:-0}}; }; f"
