@@ -112,6 +112,7 @@
 	lt = log --pretty=message --date=iso --simplify-by-decoration
 	g = grep -EI
 	gi = grep -EIi
+	gm = log -E --grep
 	discard = checkout --
 	untrack = rm --cache --
 	unstage = reset -q HEAD --
