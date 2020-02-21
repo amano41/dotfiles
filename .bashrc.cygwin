@@ -1,2 +1,7 @@
+##
+## ~/.bashrc.cygwin
+##
+
+
 alias open='cygstart'
 alias platex='platex -kanji=euc'

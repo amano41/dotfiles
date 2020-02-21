@@ -1,3 +1,8 @@
+##
+## ~/.bash_prompt
+##
+
+
 ## コマンド履歴を複数端末で共有する
 function share_history {
 	history -a

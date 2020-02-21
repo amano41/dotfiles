@@ -1,9 +1,16 @@
+##
+## ~/.bashrc.wsl
+##
+
+
 export TMPDIR=${TMP:-$(winenv -p TMP)}
+
 
 ## クリップボード
 alias clip='clip.exe'
 alias pbcopy='win32yank.exe -i'
 alias pbpaste='win32yank.exe -o'
+
 
 ## 「開く」コマンド
 function open() {

@@ -1,5 +1,9 @@
-## cd
+##
+## ~/.bash_functions
+##
 
+
+## cd
 function cd() {
 	command cd "$@"
 	local s=$?
@@ -11,7 +15,6 @@ function cd() {
 
 
 ## ls + less
-
 function l() {
 
 	if [[ $# -eq 0 ]]; then
@@ -32,7 +35,6 @@ function l() {
 
 
 ## history
-
 function h() {
 	case $# in
 		0) history | tac | sort -k 4 -u | sort | tail -30 ;;
@@ -42,7 +44,6 @@ function h() {
 
 
 ## git
-
 function g() {
 	case $# in
 		0) git status -sb && echo && git log -n 10 --graph --oneline --no-decorate ;;

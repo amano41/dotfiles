@@ -1,10 +1,13 @@
-## PATH
+##
+## ~/.bash_aliases
+##
 
+
+## PATH
 alias path='echo -e ${PATH//:/\\n}'
 
 
 ## ls
-
 alias ls='ls --show-control-chars --color -FH --time-style="+%Y-%m-%d %H:%M:%S" --group-directories-first'
 alias la='ls -A'
 alias ll='ls -l'
@@ -14,12 +17,10 @@ alias lta='ls -ltA'
 
 
 ## grep
-
 alias grep='grep --color'
 
 
 ## python
-
 alias python='python3'
 
 
@@ -29,7 +30,6 @@ alias python='python3'
 if [ -f /usr/share/bash-completion/completions/git ]; then
 	source /usr/share/bash-completion/completions/git
 fi
-
 
 if has "__git_complete"; then
 
@@ -51,7 +51,6 @@ else
 	}
 
 fi
-
 
 for a in $(git --list-cmds=alias);
 do
@@ -75,6 +74,5 @@ do
 	add_completion "$cmd" "$a"
 
 done
-
 
 unset add_completion
