@@ -10,6 +10,27 @@ function cd() {
 }
 
 
+## ls + less
+
+function l() {
+
+	if [[ $# -eq 0 ]]; then
+		ls
+		return
+	fi
+
+	for a in "$@"
+	do
+		if [[ -d $a ]]; then
+			ls "$@"
+			return
+		fi
+	done
+
+	less "$@"
+}
+
+
 ## history
 
 function h() {
