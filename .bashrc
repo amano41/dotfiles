@@ -14,7 +14,7 @@ shopt -s cdspell  ## cd コマンド実行時のタイプミスを自動修正�
 HISTSIZE=10000
 HISTFILESIZE=10000
 HISTCONTROL=ignoreboth
-HISTIGNORE="ls:ll:la:lla:l:cd:cd -:cd ..:g:pwd:printenv:history:h:fg:bg:exit"
+HISTIGNORE="ls:la:ll:lla:lt:lta:l:cd:cd -:cd ..:g:pwd:printenv:history:h:fg:bg:exit"
 HISTTIMEFORMAT="%F %T  "  ## 履歴にタイムスタンプ YYYY-MM-DD hh:mm:ss を表示する
 
 ## 履歴関連のシェルオプション
