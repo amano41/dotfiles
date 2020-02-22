@@ -72,6 +72,7 @@
 	dd  = difftool --dir-diff
 	ddc = difftool --dir-diff --cached
 	dr = !"f() { r=${1:-HEAD}; git diff $r~..$r; }; f"
+	ds = !"f() { git diff HEAD...stash@{${1:-0}}; }; f"
 	b = branch
 	ba = branch -avv
 	bd = branch -D
