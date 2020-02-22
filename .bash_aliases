@@ -12,8 +12,8 @@ alias ls='ls --show-control-chars --color -FH --time-style="+%Y-%m-%d %H:%M:%S" 
 alias la='ls -A'
 alias ll='ls -l'
 alias lla='ls -lA'
-alias lt='ls -lt'
-alias lta='ls -ltA'
+alias lt='ls -ltr'
+alias lta='ls -ltrA'
 
 
 ## grep
