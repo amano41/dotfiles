@@ -15,17 +15,17 @@ function cd() {
 
 
 ## ls + less
-function l() {
+function ls() {
 
 	if [[ $# -eq 0 ]]; then
-		ls
+		eval command ls $LS_OPTIONS
 		return
 	fi
 
-	for a in "$@"
+	for arg in "$@"
 	do
-		if [[ -d $a ]]; then
-			ls "$@"
+		if [[ ($arg == -*) || (-d $arg) ]]; then
+			eval command ls $LS_OPTIONS "$@"
 			return
 		fi
 	done

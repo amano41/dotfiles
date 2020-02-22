@@ -8,7 +8,6 @@ alias path='echo -e ${PATH//:/\\n}'
 
 
 ## ls
-alias ls='ls -FH --color --group-directories-first --show-control-chars --time-style="+%Y-%m-%d %H:%M:%S"'
 alias la='ls -A'
 alias ll='ls -lh'
 alias lla='ls -lhA'
