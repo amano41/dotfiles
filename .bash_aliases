@@ -10,10 +10,10 @@ alias path='echo -e ${PATH//:/\\n}'
 ## ls
 alias ls='ls --show-control-chars --color -FH --time-style="+%Y-%m-%d %H:%M:%S" --group-directories-first'
 alias la='ls -A'
-alias ll='ls -l'
-alias lla='ls -lA'
-alias lt='ls -ltr'
-alias lta='ls -ltrA'
+alias ll='ls -lh'
+alias lla='ls -lhA'
+alias lt='ls -lhtr'
+alias lta='ls -lhtrA'
 
 
 ## grep
