@@ -51,6 +51,12 @@ export PAGER=less
 export LS_OPTIONS='-FH --color --group-directories-first --show-control-chars --time-style="+%Y-%m-%d %H:%M:%S"'
 
 
+## ls のカラー設定 $LS_COLORS
+if [[ -f ~/.dircolors ]]; then
+	eval "$(dircolors -b ~/.dircolors)"
+fi
+
+
 ## less でシンタックスハイライト
 export LESS='-iJMRW -z-4 -#4 -x4'
 export LESSOPEN='| src-hilite-lesspipe.sh %s'

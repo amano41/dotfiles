@@ -29,10 +29,6 @@ shopt -u hostcomplete             ## '@' を含む単語でホスト名を補完
 shopt -s no_empty_cmd_completion  ## 未入力の状態では補完候補を出さない
 
 
-## カラー設定の読み込み
-[ -f ~/.dircolors ] && eval "$(dircolors -b ~/.dircolors)"
-
-
 ## コマンドの存在確認
 has() {
 	type "$1" >/dev/null 2>&1
