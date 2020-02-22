@@ -61,11 +61,6 @@ do
 
 	cmd="g$a"
 
-	## 定義済みの場合はスキップ
-	if has "$cmd"; then
-		continue
-	fi
-
 	## シェルのエイリアスを定義
 	alias "$cmd"="git $a"
 
