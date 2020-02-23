@@ -45,10 +45,21 @@ function h() {
 
 ## git
 function g() {
-	case $# in
-		0) git status -sb && echo && git log -n 10 --graph --oneline --no-decorate ;;
-		*) git "$@" ;;
-	esac
+
+	if [[ $# -eq 0 ]]; then
+
+		git status -sb
+
+		echo
+
+		local h=$(git symbolic-ref HEAD 2>/dev/null)
+		local u=$(git rev-parse --symbolic-full-name @{u} 2>/dev/null)
+		git log -n 10 --graph --oneline --decorate ${h:+--decorate-refs="$h"} ${u:+--decorate-refs="$u"}
+
+		return
+	fi
+
+	git "$@"
 }
 
 if has "__git_complete"; then
