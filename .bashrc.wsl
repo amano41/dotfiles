@@ -20,11 +20,12 @@ function open() {
 	## ディレクトリは As/R で開く
 	if [[ -d $target ]]; then
 
+		## local が終了ステータスを上書きするため宣言と代入を分ける
 		local dir
-		dir=$(wslpath -aw $(realpath "$target") 2>/dev/null)
+		dir=$(wslpath -aw "$(realpath "$target")" 2>/dev/null)
 
 		if [[ $? -ne 0 ]]; then
-			echo "error: can not open directory on VolFs: $(realpath $target)" 1>&2
+			echo "error: can not open directory on VolFs: $(realpath "$target")" 1>&2
 			return 1
 		fi
 

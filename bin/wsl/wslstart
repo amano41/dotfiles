@@ -19,7 +19,7 @@ if [[ -e $1 ]]; then
 
 	## パスの変換
 	## 変換失敗時に set -e で終了しないように && true をつけている
-	target=$(wslpath -am $(realpath "$1") 2>/dev/null) && true
+	target=$(wslpath -am "$(realpath "$1")" 2>/dev/null) && true
 
 	## パスの変換に失敗したら VolFs のファイル
 	if [[ $? -ne 0 ]]; then
