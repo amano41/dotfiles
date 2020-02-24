@@ -76,4 +76,6 @@ export LESS_TERMCAP_ue=$'\e[0m'     # leave underline mode
 export PIPENV_VENV_IN_PROJECT=true
 
 
-[ -f ~/.bashrc ] && source ~/.bashrc
+if [[ -f ~/.bashrc ]]; then
+	source ~/.bashrc
+fi

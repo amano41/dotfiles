@@ -35,7 +35,7 @@ function winenv_path() {
 }
 
 
-if [ $# -eq 0 ]; then
+if [[ $# -eq 0 ]]; then
 	usage
 fi
 

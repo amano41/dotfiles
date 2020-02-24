@@ -6,6 +6,7 @@
 ## シェル変数
 IGNOREEOF=10  ## Ctrl+D は 10 回まではシェルを終了しない
 
+
 ## シェルオプション
 shopt -s cdspell  ## cd コマンド実行時のタイプミスを自動修正する
 
@@ -16,6 +17,7 @@ HISTFILESIZE=10000
 HISTCONTROL=ignoreboth
 HISTIGNORE="ls:la:ll:lla:lt:lta:cd:cd -:cd ..:g:pwd:printenv:history:h:fg:bg:exit"
 HISTTIMEFORMAT="%F %T  "  ## 履歴にタイムスタンプ YYYY-MM-DD hh:mm:ss を表示する
+
 
 ## 履歴関連のシェルオプション
 shopt -s cmdhist     ## 複数行コマンドを同じ履歴エントリに保存する
@@ -35,20 +37,34 @@ has() {
 }
 
 
-## プロンプト
-[ -f ~/.bash_prompt ] && source ~/.bash_prompt
+## プロンプトの設定
+if [[ -f ~/.bash_prompt ]]; then
+	source ~/.bash_prompt
+fi
 
-## エイリアス
-[ -f ~/.bash_aliases ] && source ~/.bash_aliases
 
-## シェル関数
-[ -f ~/.bash_functions ] && source ~/.bash_functions
+## エイリアスの定義
+if [[ -f ~/.bash_aliases ]]; then
+	source ~/.bash_aliases
+fi
+
+
+## シェル関数の定義
+if [[ -f ~/.bash_functions ]]; then
+	source ~/.bash_functions
+fi
+
 
 ## OS ごとの設定
-[ -f ~/.bashrc.os ] && source ~/.bashrc.os
+if [[ -f ~/.bashrc.os ]]; then
+	source ~/.bashrc.os
+fi
+
 
 ## ローカル環境に固有の設定
-[ -f ~/.bashrc.local ] && source ~/.bashrc.local
+if [[ -f ~/.bashrc.local ]]; then
+	source ~/.bashrc.local
+fi
 
 
 unset has

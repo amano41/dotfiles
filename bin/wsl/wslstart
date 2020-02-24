@@ -2,7 +2,7 @@
 
 set -eu
 
-if [ $# -eq 0 ]; then
+if [[ $# -eq 0 ]]; then
 	echo "usage: $(basename $0) target [args]" 1>&2
 	exit 1
 fi
@@ -15,14 +15,14 @@ function start() {
 
 ## ターゲットが存在する場合
 ## パスを Windows 形式に変換してから開く
-if [ -e "$1" ]; then
+if [[ -e $1 ]]; then
 
 	## パスの変換
 	## 変換失敗時に set -e で終了しないように && true をつけている
 	target=$(wslpath -am $(realpath "$1") 2>/dev/null) && true
 
 	## パスの変換に失敗したら VolFs のファイル
-	if [ $? -ne 0 ]; then
+	if [[ $? -ne 0 ]]; then
 		echo "error: can not open file on VolFs: $1" 1>&2
 		exit 1
 	fi

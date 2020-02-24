@@ -26,7 +26,7 @@ alias python='python3'
 ## Git のエイリアスからシェルのエイリアスを定義し，補完も効くようにする
 ## あらかじめ git-completion.bash を読み込んでおく必要がある
 
-if [ -f /usr/share/bash-completion/completions/git ]; then
+if [[ -f /usr/share/bash-completion/completions/git ]]; then
 	source /usr/share/bash-completion/completions/git
 fi
 
@@ -55,7 +55,7 @@ for a in $(git --list-cmds=alias);
 do
 
 	## 長いエイリアスはスキップ
-	if [ ${#a} -gt 3 ]; then
+	if [[ ${#a} -gt 3 ]]; then
 		continue
 	fi
 

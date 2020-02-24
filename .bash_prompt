@@ -9,11 +9,15 @@ function share_history {
 	history -c
 	history -r
 }
+
 PROMPT_COMMAND='share_history'
 
 
 ## Git ブランチの情報をプロンプトに表示する
-[ -f ~/.git-prompt.sh ] && source ~/.git-prompt.sh
+if [[ -f ~/.git-prompt.sh ]]; then
+	source ~/.git-prompt.sh
+fi
+
 if has "__git_ps1"; then
 	export GIT_PS1_SHOWDIRTYSTATE=true
 	export GIT_PS1_SHOWSTASHSTATE=true
@@ -26,4 +30,6 @@ fi
 
 
 ## Pipenv のコマンド補完を有効にする
-has "pipenv" && eval "$(pipenv --completion)"
+if has "pipenv"; then
+	eval "$(pipenv --completion)"
+fi
