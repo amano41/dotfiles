@@ -22,10 +22,15 @@ function ls() {
 		return
 	fi
 
-	for arg in "$@"
+	for arg
 	do
 		if [[ ($arg == -*) || (-d $arg) ]]; then
-			eval command ls $LS_OPTIONS "$@"
+			quoted=()
+			for arg
+			do
+				quoted+=("'$arg'")
+			done
+			eval command ls $LS_OPTIONS "${quoted[@]}"
 			return
 		fi
 	done
