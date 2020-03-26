@@ -63,6 +63,7 @@
 	c = commit -v
 	cm = commit -m
 	s = status
+	sb = status -sb
 	d  = diff
 	dc = diff --cached
 	wd  = diff --word-diff=color --unified=1
