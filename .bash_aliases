@@ -3,6 +3,10 @@
 ##
 
 
+## シェルの再起動
+alias reload='exec $SHELL -l'
+
+
 ## PATH
 alias path='echo -e ${PATH//:/\\n}'
 
