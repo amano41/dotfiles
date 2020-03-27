@@ -130,11 +130,11 @@ def configure(keymap):
 
     def next_window():
         keymap.InputKeyCommand("A-Esc")()
-        keymap.delayedCall(restore_window, 200)
+        keymap.delayedCall(restore_window, 100)
 
     def prev_window():
         keymap.InputKeyCommand("A-S-Esc")()
-        keymap.delayedCall(restore_window, 200)
+        keymap.delayedCall(restore_window, 100)
 
     keymap_global["W-Space"] = next_window
     keymap_global["W-S-Space"] = prev_window
