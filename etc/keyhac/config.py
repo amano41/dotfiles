@@ -343,7 +343,24 @@ def configure(keymap):
     def launch_command(app_path, param="", directory=""):
         return keymap.ShellExecuteCommand(None, app_path, param, directory)
 
-    keymap_global["W-A"] = launch_command("C:/Asr/AsrLoad.exe", "/x")
+    def launch_asr_command():
+        def _command():
+            asr = "C:/Asr/AsrLoad.exe"
+            txt = getClipboardText().strip().strip('"')
+            if txt:
+                if os.path.isdir(txt):
+                    txt = os.path.normpath(txt)
+                    launch_command(asr, f"/x /n {txt}")()
+                    return
+                if os.path.isfile(txt):
+                    txt = os.path.normpath(txt)
+                    launch_command(asr, f"/x /nf {txt}")()
+                    return
+            home = os.environ.get("USERPROFILE")
+            launch_command(asr, f"/x /n {home}")()
+        return _command
+
+    keymap_global["W-A"] = launch_asr_command()
     keymap_global["W-E"] = launch_command(scoop_app("Mery.exe"))
     keymap_global["W-F"] = launch_command(scoop_app("Everything.exe"))
     keymap_global["W-G"] = launch_command(scoop_app("TresGrep.exe"))
