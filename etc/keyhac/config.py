@@ -432,3 +432,13 @@ def configure(keymap):
     keymap_editor["RC-K"] = "S-End", "C-X"
     keymap_editor["RC-U"] = "S-Home", "C-X"
     keymap_editor["S-Delete"] = "Home", "S-End", "Delete"
+
+    # 行を上に移動
+    keymap_editor["RC-Up"] = (
+        "Home", "S-End", "S-Right", "C-X", "Up", "C-V", "Up"
+    )
+
+    # 行を下に移動
+    keymap_editor["RC-Down"] = (
+        "Home", "S-End", "S-Right", "C-X", "Down", "C-V", "Up"
+    )
