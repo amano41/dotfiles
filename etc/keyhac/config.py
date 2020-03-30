@@ -1,5 +1,6 @@
 import datetime
 import os
+import re
 from time import sleep
 from urllib.parse import quote
 
@@ -372,8 +373,11 @@ def configure(keymap):
         sleep(0.1)
         txt = getClipboardText()
         if txt:
-            txt = quote(txt)
-            url = f"https://www.google.com/search?q={txt}"
+            if re.match("^https?://", txt):
+                url = txt
+            else:
+                txt = quote(txt)
+                url = f"https://www.google.com/search?q={txt}"
             keymap.ShellExecuteCommand(None, url, "", "")()
         else:
             setClipboardText(old)
