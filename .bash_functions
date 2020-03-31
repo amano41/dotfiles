@@ -35,7 +35,11 @@ function ls() {
 		fi
 	done
 
-	less "$@"
+	if [[ $# -eq 1 ]]; then
+		less -FX "$@"
+	else
+		less "$@"
+	fi
 }
 
 
