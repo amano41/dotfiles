@@ -442,3 +442,46 @@ def configure(keymap):
     keymap_editor["RC-Down"] = (
         "Home", "S-End", "S-Right", "C-X", "Down", "C-V", "Up"
     )
+
+    ###########################################################################
+    # Clibor 用の設定
+    ###########################################################################
+
+    keymap_clibor = keymap.defineWindowKeymap(exe_name="Clibor.exe")
+
+    # カーソル移動
+    keymap_clibor["C-N"] = "Down"
+    keymap_clibor["C-P"] = "Up"
+
+    # 検索窓にフォーカス
+    keymap_clibor["Slash"] = "Tab"
+
+    # 画面切替
+    keymap_clibor["Tab"] = "Right"
+
+    # ページ切替
+    keymap_clibor["C-Down"] = "PageDown"
+    keymap_clibor["C-Up"] = "PageUp"
+
+    # 編集
+    def clibor_menu_edit():
+        keymap.InputKeyCommand("S-F10")()
+        sleep(0.1)
+        keymap.InputKeyCommand("1", "Enter")()
+
+    # クリップボード転送（整形）
+    def clibor_menu_format():
+        keymap.InputKeyCommand("S-F10")()
+        sleep(0.1)
+        keymap.InputKeyCommand("4")()
+
+    # クリップボード転送（変換）
+    def clibor_menu_convert():
+        keymap.InputKeyCommand("S-F10")()
+        sleep(0.1)
+        keymap.InputKeyCommand("5")()
+
+    keymap_clibor["C-E"] = clibor_menu_edit
+    keymap_clibor["C-D"] = "Delete"
+    keymap_clibor["C-F"] = clibor_menu_format
+    keymap_clibor["C-C"] = clibor_menu_convert
