@@ -59,3 +59,6 @@ atom.commands.add 'atom-workspace', 'custom:open-in-asr', ->
   command = 'C:\\Asr\\AsrLoad.exe'
   args = ['/nf', path]
   process = new BufferedProcess({command, args})
+
+
+process.env.PYTHONIOENCODING = 'UTF-8'
