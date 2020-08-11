@@ -366,24 +366,27 @@ def configure(keymap):
     keymap_global["W-F"] = launch_command(scoop_app("Everything.exe"))
     keymap_global["W-G"] = launch_command(scoop_app("TresGrep.exe"))
 
-    def search_selection():
-        old = getClipboardText()
-        setClipboardText("")
-        keymap.InputKeyCommand("C-C")()
-        sleep(0.1)
-        txt = getClipboardText()
-        if txt:
-            if re.match("^https?://", txt):
-                url = txt
+    def search_selection(url):
+        def _search_selection():
+            old = getClipboardText()
+            setClipboardText("")
+            keymap.InputKeyCommand("C-C")()
+            sleep(0.1)
+            txt = getClipboardText()
+            if txt:
+                if re.match("^h?ttps?://", txt):
+                    if not txt.startswith("h"):
+                        txt = "h" + txt
+                    command = txt
+                else:
+                    command = url + quote(txt)
+                keymap.ShellExecuteCommand(None, command, "", "")()
             else:
-                txt = quote(txt)
-                url = f"https://www.google.com/search?q={txt}"
-            keymap.ShellExecuteCommand(None, url, "", "")()
-        else:
-            setClipboardText(old)
+                setClipboardText(old)
+        return _search_selection
 
-    # 選択文字列で検索
-    keymap_global["W-S"] = search_selection
+    keymap_global["W-S"] = search_selection("https://www.google.com/search?q=")
+    keymap_global["W-T"] = search_selection("https://www.deepl.com/translator#en/ja/")
 
     ###########################################################################
     # エディタ用の設定
