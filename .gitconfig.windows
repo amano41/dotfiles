@@ -6,3 +6,18 @@
 	diff = less -FRSX
 [interactive]
 	diffFilter = cat
+[diff "pdf"]
+	binary = true
+	textconv = xdoc2txt.exe -8
+[diff "rtf"]
+	binary = true
+	textconv = xdoc2txt.exe -8
+[diff "docx"]
+	binary = true
+	textconv = xdoc2txt.exe -8
+[diff "xlsx"]
+	binary = true
+	textconv = xdoc2txt.exe -8
+[diff "pptx"]
+	binary = true
+	textconv = xdoc2txt.exe -8

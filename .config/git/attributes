@@ -17,6 +17,7 @@
 
 ## additional patterns
 
+*.pdf diff=pdf
 *.rtf diff=rtf
 *.docx diff=docx
 *.xlsx diff=xlsx
