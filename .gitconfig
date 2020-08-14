@@ -145,6 +145,5 @@
 	pushInsteadOf = https://bitbucket.org/
 	pushInsteadOf = git://bitbucket.org/
 [include]
-	path = ~/.gitconfig.user
 	path = ~/.gitconfig.os
 	path = ~/.gitconfig.local
