@@ -1,0 +1,8 @@
+[core]
+	editor = Mery.exe //sp
+[pager]
+	log = less -FRSX
+	show = less -FRSX
+	diff = less -FRSX
+[interactive]
+	diffFilter = cat
