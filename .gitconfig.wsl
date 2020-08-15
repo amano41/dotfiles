@@ -10,19 +10,19 @@
 	trustExitCode = false
 [diff "pdf"]
 	binary = true
-	textconv = xdoc2txt.exe -8
+	textconv = xdoc2txt
 [diff "rtf"]
 	binary = true
-	textconv = xdoc2txt.exe -8
+	textconv = xdoc2txt
 [diff "docx"]
 	binary = true
-	textconv = xdoc2txt.exe -8
+	textconv = xdoc2txt
 [diff "xlsx"]
 	binary = true
-	textconv = xdoc2txt.exe -8
+	textconv = xdoc2txt
 [diff "pptx"]
 	binary = true
-	textconv = xdoc2txt.exe -8
+	textconv = xdoc2txt
 [alias]
 	dd = difftool --dir-diff --no-symlinks
 	ddc = difftool --dir-diff --cached --no-symlinks
