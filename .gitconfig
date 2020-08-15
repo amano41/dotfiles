@@ -41,10 +41,9 @@
 [status]
 	showUntrackedFiles = all
 [log]
-	date = iso
+	date = iso-local
 [pretty]
-	compact = "tformat:%C(yellow)%h%C(auto)%d%Creset %s %C(bold black)-%Creset %C(magenta)%cd%Creset %C(bold black)-%Creset %C(bold blue)%an%Creset"
-	message = "format:%C(yellow)%h%C(auto)%d%Creset %C(bold black)-%Creset %C(magenta)%cd%Creset %C(bold black)-%Creset %C(bold blue)%an <%ae>%Creset%n%n%w(0,4,4)%B"
+	compact = "tformat:%C(yellow)%h%Creset %C(magenta)%cd%Creset%C(auto)%d%Creset %s %C(bold black)-%Creset %C(bold blue)%an%Creset"
 [diff]
 	mnemonicPrefix = true
 	renames = true
@@ -107,11 +106,11 @@
 	sc = stash clear
 	l  = log --oneline --decorate --graph
 	la = log --oneline --decorate --graph --all
-	ll  = log --pretty=compact --date=relative --graph
-	lla = log --pretty=compact --date=relative --graph --all
-	ln = log --pretty=message --date=iso --name-status
-	lp = log --pretty=message --date=iso --patch
-	lt = log --pretty=message --date=iso --simplify-by-decoration
+	ll  = log --pretty=compact --date="format-local:'%F %T'" --graph
+	lla = log --pretty=compact --date="format-local:'%F %T'" --graph --all
+	ln = log --name-status
+	lp = log --patch
+	lt = log --simplify-by-decoration --oneline --decorate --graph
 	g = grep -EI
 	gi = grep -EIi
 	gm = log -E --grep
