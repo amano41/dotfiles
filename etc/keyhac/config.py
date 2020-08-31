@@ -87,13 +87,17 @@ def configure(keymap):
     #  クリップボードの操作
     # -------------------------------------------------------------------------
 
-    def clibor_command(param):
-        clibor = scoop_app("Clibor.exe")
-        return keymap.ShellExecuteCommand(None, clibor, param, "")
-
-    def clibor_mode_command(param):
+    def clibor_command(param, message = None):
         def _command():
-            clibor_command(param)()
+            clibor = scoop_app("Clibor.exe")
+            if message is not None:
+                keymap.popBalloon("clibor", message, 500)
+            keymap.ShellExecuteCommand(None, clibor, param, "")()
+        return _command
+
+    def clibor_mode_command(param, message = None):
+        def _command():
+            clibor_command(param, message)()
             keymap.delayedCall(keymap.InputKeyCommand("A-Esc"), 100)
         return _command
 
@@ -101,11 +105,11 @@ def configure(keymap):
     keymap_global["W-V"] = clibor_command("/vc")
 
     # 常に表示するの切り替え
-    keymap_global["W-Z"] = clibor_command("/fr")
+    keymap_global["W-A-V"] = clibor_command("/fr")
 
     # FIFO/LIFO モードの切り替え
-    keymap_global["W-C"] = clibor_mode_command("/ff")
-    keymap_global["W-X"] = clibor_mode_command("/lf")
+    keymap_global["W-C"] = clibor_mode_command("/ff", "FIFO")
+    keymap_global["W-A-C"] = clibor_mode_command("/lf", "LIFO")
 
     def paste_plain():
         txt = getClipboardText()
