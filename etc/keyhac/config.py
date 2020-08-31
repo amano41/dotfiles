@@ -441,14 +441,27 @@ def configure(keymap):
     keymap_editor["S-Delete"] = "Home", "S-End", "Delete"
 
     # 行を上に移動
-    keymap_editor["RC-Up"] = (
-        "Home", "S-End", "S-Right", "C-X", "Up", "C-V", "Up"
-    )
+    def move_line_up():
+        old = getClipboardText()
+        setClipboardText("")
+        keymap.InputKeyCommand(
+            "Home", "S-End", "S-Right", "C-X", "Up", "C-V", "Up"
+        )()
+        sleep(0.1)
+        setClipboardText(old)
 
     # 行を下に移動
-    keymap_editor["RC-Down"] = (
-        "Home", "S-End", "S-Right", "C-X", "Down", "C-V", "Up"
-    )
+    def move_line_down():
+        old = getClipboardText()
+        setClipboardText("")
+        keymap.InputKeyCommand(
+            "Home", "S-End", "S-Right", "C-X", "Down", "C-V", "Up"
+        )()
+        sleep(0.1)
+        setClipboardText(old)
+
+    keymap_editor["RC-Up"] = move_line_up
+    keymap_editor["RC-Down"] = move_line_down
 
     ###########################################################################
     # Clibor 用の設定
