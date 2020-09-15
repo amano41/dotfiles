@@ -196,16 +196,8 @@ Set-Registry "HKCU:\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessMa
 Set-Registry "HKCU:\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\broadFileSystemAccess" "Value" "Deny"
 
 
-####################  環境変数  ####################
-
-## PATH
-$path = [Environment]::GetEnvironmentVariable("PATH", "User")
-$path = "$env:OneDrive\bin;" + $path
-$path = "$env:USERPROFILE\bin;" + $path
-[Environment]::SetEnvironmentVariable("PATH", $path, "User")
-
-## WSLENV
-[Environment]::SetEnvironmentVariable("WSLENV", "TMP/p", "User")
+## 環境変数の設定
+. "./script/set-environment-variables.ps1"
 
 
 ## WSL 有効化
