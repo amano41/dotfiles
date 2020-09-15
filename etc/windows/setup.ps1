@@ -22,26 +22,8 @@ function Set-Registry($path, $key, $value) {
 }
 
 
-####################  キーボードの設定  ####################
-
-## キーボードを US 配列に変更
-$path = "HKLM:\SYSTEM\CurrentControlSet\Services\i8042prt\Parameters"
-Set-Registry $path "LayerDriver JPN" "kbd101.dll"
-Set-Registry $path "OverrideKeyboardIdentifier" "PCAT_101KEY"
-Set-Registry $path "OverrideKeyboardType" 7
-Set-Registry $path "OverrideKeyboardSubtype" 0
-
-## CapsLock を Ctrl に変更
-Set-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Control\Keyboard Layout" `
-	-Name "Scancode Map" `
-	-Type Binary `
-	-Value (`
-		0x00,0x00,0x00,0x00,`
-		0x00,0x00,0x00,0x00,`
-		0x02,0x00,0x00,0x00,`
-		0x1d,0x00,0x3a,0x00,`
-		0x00,0x00,0x00,0x00 `
-	)
+## キーボードの設定
+. "./script/setup-keyboard.ps1"
 
 
 ####################  Windows の設定  ####################
