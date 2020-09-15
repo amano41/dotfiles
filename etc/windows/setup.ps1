@@ -268,31 +268,8 @@ New-Item -ItemType SymbolicLink -Path $vscode_dir -Name User -Target $dotfiles_d
 Enable-WindowsOptionalFeature -FeatureName Microsoft-Windows-Subsystem-Linux -Online -NoRestart
 
 
-####################  Chocolatey  ####################
-
-## Chocolatey のインストール
-Set-ExecutionPolicy Bypass -Scope Process -Force
-iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-
-## Chocolatey パッケージのインストール
-cinst -y git --params "/GitOnlyOnPath /NoAutoCrlf /NoShellIntegration"
-cinst -y 7zip
-cinst -y linkshellextension
-cinst -y rapidee
-cinst -y sysinternals
-cinst -y wsltty
-cinst -y zazu
-cinst -y adobereader
-cinst -y ccleaner
-cinst -y cubepdf
-cinst -y cubepdfutility
-cinst -y gitkraken
-cinst -y mpc-be
-cinst -y python3
-cinst -y R.Project
-cinst -y R.Studio
-cinst -y winmerge
-cinst -y winscp
+## scoop のセットアップ
+. "./script/setup-scoop.ps1"
 
 
 ## ストアアプリの削除
