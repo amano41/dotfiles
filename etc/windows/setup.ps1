@@ -26,10 +26,11 @@ function Set-Registry($path, $key, $value) {
 . "./script/setup-keyboard.ps1"
 
 
-####################  Windows の設定  ####################
-
 ## Cortana を無効化
-Set-Registry "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search" "AllowCortana" 0
+. "./script/disable-cortana.ps1"
+
+
+####################  Windows の設定  ####################
 
 ## アクティビティを無効化
 Set-Registry "HKLM:\SOFTWARE\Policies\Microsoft\Windows\System" "EnableActivityFeed" 0
