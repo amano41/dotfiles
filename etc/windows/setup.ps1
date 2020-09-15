@@ -208,12 +208,6 @@ $path = "$env:USERPROFILE\bin;" + $path
 [Environment]::SetEnvironmentVariable("WSLENV", "TMP/p", "User")
 
 
-####################  ホームディレクトリ  ####################
-
-## $USERPROFILE を H: ドライブとしてマウント
-Set-Registry "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\DOS Devices" "H:" "\??\$env:USERPROFILE"
-
-
 ####################  dotfiles  ####################
 
 ## dotfiles ディレクトリのパス（＝スクリプトの実行パス）を取得
