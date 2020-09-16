@@ -26,6 +26,10 @@ function Set-Registry($path, $key, $value) {
 . "./script/setup-keyboard.ps1"
 
 
+## ロック画面を無効化
+. "./script/disable-lock-screen.ps1"
+
+
 ## Cortana を無効化
 . "./script/disable-cortana.ps1"
 
@@ -36,13 +40,6 @@ function Set-Registry($path, $key, $value) {
 
 ## クリップボード履歴を無効化
 . "./script/disable-clipboard-history.ps1"
-
-
-####################  Windows の設定  ####################
-
-
-## ロック画面を使用しない
-Set-Registry "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization" "NoLockScreen" 1
 
 
 ####################  フォルダオプション  ####################
