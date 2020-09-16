@@ -1,4 +1,4 @@
-Write-Host "Configuring Privacy Settings..."
+Write-Host "Configuring Privacy Settings..." -ForegroundColor Magenta
 
 
 try {

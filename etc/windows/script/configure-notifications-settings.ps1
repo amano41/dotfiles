@@ -1,4 +1,4 @@
-Write-Host "Configuring Notifications Settings..."
+Write-Host "Configuring Notifications Settings..." -ForegroundColor Magenta
 
 
 try {

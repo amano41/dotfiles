@@ -1,4 +1,4 @@
-Write-Host "Disabling Cortana..."
+Write-Host "Disabling Cortana..." -ForegroundColor Magenta
 
 $path = "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search"
 

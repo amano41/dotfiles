@@ -1,4 +1,4 @@
-Write-Host "Setting up Keyboard..."
+Write-Host "Setting up Keyboard..." -ForegroundColor Magenta
 
 ## US 配列に変更
 $path = "HKLM:\SYSTEM\CurrentControlSet\Services\i8042prt\Parameters"

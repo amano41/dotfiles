@@ -1,7 +1,9 @@
-Write-Host "Installing dotfiles..."
+Write-Host "Installing dotfiles..." -ForegroundColor Magenta
+
 
 ## dotfiles ディレクトリのパス（＝スクリプトの実行パス）を取得
 $dotfiles_dir = Split-Path -Parent $MyInvocation.MyCommand.Path
+
 
 ## dotfiles
 ## $USERPROFILE にシンボリックリンクを作成

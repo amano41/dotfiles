@@ -1,4 +1,4 @@
-Write-Host "Disabling Telemetry..."
+Write-Host "Disabling Telemetry..." -ForegroundColor Magenta
 
 $path = "HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection"
 

@@ -1,4 +1,4 @@
-Write-Host "Configuring Personalization Settings..."
+Write-Host "Configuring Personalization Settings..." -ForegroundColor Magenta
 
 
 try {

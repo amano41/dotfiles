@@ -1,4 +1,4 @@
-Write-Host "Disabling Clipboard History..."
+Write-Host "Disabling Clipboard History..." -ForegroundColor Magenta
 
 $path = "HKLM:\SOFTWARE\Policies\Microsoft\Windows\System"
 

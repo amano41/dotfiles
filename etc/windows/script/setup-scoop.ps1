@@ -1,4 +1,4 @@
-Write-Host "Setting up scoop..."
+Write-Host "Setting up scoop..." -ForegroundColor Magenta
 
 
 ## scoop 本体のインストール

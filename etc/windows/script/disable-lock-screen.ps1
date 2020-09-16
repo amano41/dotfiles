@@ -1,4 +1,4 @@
-Write-Host "Disabling Lock Screen..."
+Write-Host "Disabling Lock Screen..." -ForegroundColor Magenta
 
 $path = "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization"
 

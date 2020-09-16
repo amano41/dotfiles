@@ -1,4 +1,4 @@
-Write-Host "Setting Environment Variables..."
+Write-Host "Setting Environment Variables..." -ForegroundColor Magenta
 
 ## PATH
 $path = [Environment]::GetEnvironmentVariable("PATH", "User")

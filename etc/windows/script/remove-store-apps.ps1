@@ -1,4 +1,4 @@
-Write-Host "Removing Store Apps..."
+Write-Host "Removing Store Apps..." -ForegroundColor Magenta
 
 $store_apps = @(
 	"Microsoft.3DBuilder",

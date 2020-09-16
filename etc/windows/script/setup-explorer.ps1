@@ -1,4 +1,4 @@
-Write-Host "Setting up Explorer..."
+Write-Host "Setting up Explorer..." -ForegroundColor Magenta
 
 $explorer = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer"
 $advanced = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"

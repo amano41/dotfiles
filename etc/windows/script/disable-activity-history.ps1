@@ -1,4 +1,4 @@
-Write-Host "Disabling Activity History..."
+Write-Host "Disabling Activity History..." -ForegroundColor Magenta
 
 $path = "HKLM:\SOFTWARE\Policies\Microsoft\Windows\System"
 
