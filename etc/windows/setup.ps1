@@ -22,6 +22,9 @@ function Set-Registry($path, $key, $value) {
 }
 
 
+####################  システムレベルの設定  ####################
+
+
 ## キーボードの設定
 . "./script/setup-keyboard.ps1"
 
@@ -46,25 +49,14 @@ function Set-Registry($path, $key, $value) {
 . "./script/disable-telemetry.ps1"
 
 
-####################  フォルダオプション  ####################
-
-## 拡張子を表示する
-Set-Registry "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "HideFileExt" 0
-
-## 隠しファイル・隠しフォルダ・隠しドライブを表示する
-Set-Registry "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "Hidden" 1
-
-## クイックアクセスを無効化して PC を開く
-Set-Registry "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "LaunchTo" 1
-
-## 最近使ったファイルをクイックアクセスに表示する
-Set-Registry "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer" "ShowRecent" 0
-
-## よく使うフォルダをクイックアクセスに表示する
-Set-Registry "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer" "ShowFrequent" 0
+####################  ユーザーレベルの設定  ####################
 
 
-####################  個人用設定  ####################
+## フォルダオプションの設定
+. "./script/setup-explorer.ps1"
+
+
+####################  設定 → 個人用設定  ####################
 
 ## ロック画面：ロック画面にトリビアやヒントなどの情報を表示する
 Set-Registry "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" "RotatingLockScreenOverlayEnabled" 0
