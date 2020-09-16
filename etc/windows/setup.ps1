@@ -13,13 +13,8 @@ if (!([Security.Principal.WindowsPrincipal]`
 }
 
 
-## レジストリに書き込む
-function Set-Registry($path, $key, $value) {
-	if (!(Test-Path $path)) {
-		New-Item -Path $path -Force | Out-Null
-	}
-	Set-ItemProperty -Path $path -Name $key -Value $value
-}
+## レジストリ操作用のヘルパー関数を読み込む
+. "./script/registry-helper.ps1"
 
 
 ####################  システムレベルの設定  ####################
