@@ -79,6 +79,8 @@ if (!([Security.Principal.WindowsPrincipal]`
 . "./script/remove-store-apps.ps1"
 
 
-## 終了
+####################  終了  ####################
+
+
 Write-Host "Setup Completed."
 Pause
