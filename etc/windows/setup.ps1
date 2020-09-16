@@ -56,6 +56,10 @@ Set-Location (Split-Path -Parent $MyInvocation.MyCommand.Path)
 . "./script/setup-wsl.ps1"
 
 
+## ナビゲーションウィンドウの HDD を非表示
+. "./script/hide-removable-drives.ps1"
+
+
 ####################  ユーザーレベルの設定  ####################
 
 
