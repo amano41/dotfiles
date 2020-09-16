@@ -34,6 +34,10 @@ function Set-Registry($path, $key, $value) {
 . "./script/disable-activity-history.ps1"
 
 
+## クリップボード履歴を無効化
+. "./script/disable-clipboard-history.ps1"
+
+
 ####################  Windows の設定  ####################
 
 
