@@ -44,6 +44,10 @@ if (!([Security.Principal.WindowsPrincipal]`
 . "./script/disable-telemetry.ps1"
 
 
+## WSL を有効化
+. "./script/setup-wsl.ps1"
+
+
 ####################  ユーザーレベルの設定  ####################
 
 
@@ -65,10 +69,6 @@ if (!([Security.Principal.WindowsPrincipal]`
 
 ## 環境変数の設定
 . "./script/set-environment-variables.ps1"
-
-
-## WSL 有効化
-Enable-WindowsOptionalFeature -FeatureName Microsoft-Windows-Subsystem-Linux -Online -NoRestart
 
 
 ## scoop のセットアップ
