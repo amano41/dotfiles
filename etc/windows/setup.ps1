@@ -42,6 +42,10 @@ function Set-Registry($path, $key, $value) {
 . "./script/disable-clipboard-history.ps1"
 
 
+## 診断＆フィードバックを無効化
+. "./script/disable-telemetry.ps1"
+
+
 ####################  フォルダオプション  ####################
 
 ## 拡張子を表示する
@@ -111,9 +115,6 @@ Set-Registry "HKCU:\Software\Microsoft\Speech_OneCore\Settings\OnlineSpeechPriva
 
 ## 手描き入力
 Set-Registry "HKCU:\Software\Microsoft\Personalization\Settings" "AcceptedPrivacyPolicy" 0
-
-## 診断データ
-Set-Registry "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" "AllowTelemetry" 1
 
 ## フィードバックの間隔
 Set-Registry "HKCU:\Software\Microsoft\Siuf\Rules" "NumberOfSIUFInPeriod" 0
