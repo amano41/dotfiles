@@ -48,3 +48,15 @@ if (!(Test-Path $vscode_dir)) {
 }
 
 New-Item -ItemType SymbolicLink -Path $vscode_dir -Name User -Target $dotfiles_dir\.config\Code\User -Force
+
+
+## Windows Terminal の設定
+## $LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState に .settings.json のシンボリックリンクを作成
+
+$windows_terminal_dir = "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState"
+
+if (!(Test-Path $windows_terminal_dir)) {
+	New-Item $windows_terminal_dir -ItemType Directory
+}
+
+New-Item -ItemType SymbolicLink -Path $windows_terminal_dir -Name settings.json -Target $dotfiles_dir\etc\windows-terminal\settings.json -Force
