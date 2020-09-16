@@ -48,6 +48,10 @@ Set-Location (Split-Path -Parent $MyInvocation.MyCommand.Path)
 . "./script/disable-telemetry.ps1"
 
 
+## ストアアプリの削除
+. "./script/remove-store-apps.ps1"
+
+
 ## WSL を有効化
 . "./script/setup-wsl.ps1"
 
@@ -77,10 +81,6 @@ Set-Location (Split-Path -Parent $MyInvocation.MyCommand.Path)
 
 ## scoop のセットアップ
 . "./script/setup-scoop.ps1"
-
-
-## ストアアプリの削除
-. "./script/remove-store-apps.ps1"
 
 
 ####################  終了  ####################
