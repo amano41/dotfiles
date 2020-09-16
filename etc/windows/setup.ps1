@@ -30,12 +30,12 @@ function Set-Registry($path, $key, $value) {
 . "./script/disable-cortana.ps1"
 
 
+## アクティビティ履歴を無効化
+. "./script/disable-activity-history.ps1"
+
+
 ####################  Windows の設定  ####################
 
-## アクティビティを無効化
-Set-Registry "HKLM:\SOFTWARE\Policies\Microsoft\Windows\System" "EnableActivityFeed" 0
-Set-Registry "HKLM:\SOFTWARE\Policies\Microsoft\Windows\System" "PublishUserActivities" 0
-Set-Registry "HKLM:\SOFTWARE\Policies\Microsoft\Windows\System" "UploadUserActivities" 0
 
 ## ロック画面を使用しない
 Set-Registry "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization" "NoLockScreen" 1
