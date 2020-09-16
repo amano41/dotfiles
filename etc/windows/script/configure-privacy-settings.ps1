@@ -5,9 +5,7 @@ try {
 	Get-Command -Name "Set-Registry" -ErrorAction Stop | Out-Null
 }
 catch {
-	$path = Split-Path -Parent $MyInvocation.MyCommand.Path
-	$path = Join-Path $path "registry-helper.ps1"
-	. $path
+	. (Join-Path (Split-Path -Parent $MyInvocation.MyCommand.Path) "registry-helper.ps1")
 }
 
 
