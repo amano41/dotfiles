@@ -63,6 +63,10 @@ Set-Location (Split-Path -Parent $MyInvocation.MyCommand.Path)
 . "./script/setup-explorer.ps1"
 
 
+## デスクトップのアイコンを非表示
+. "./script/hide-desktop-icons.ps1"
+
+
 ## 設定 → 個人用設定
 . "./script/configure-personalization-settings.ps1"
 
