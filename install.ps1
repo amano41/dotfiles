@@ -54,3 +54,7 @@ Symlink "$dotfiles_dir\.config\Code\User" "$env:APPDATA\Code\User"
 ## Windows Terminal
 Symlink "$dotfiles_dir\etc\windows-terminal\settings.json" `
         "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
+
+## SylphyHorn
+Symlink "$dotfiles_dir\etc\sylphyhorn\Settings.xml" `
+        "$env:LOCALAPPDATA\grabacr.net\SylphyHorn\Settings.xml"
