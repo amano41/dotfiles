@@ -58,3 +58,11 @@ Symlink "$dotfiles_dir\etc\windows-terminal\settings.json" `
 ## SylphyHorn
 Symlink "$dotfiles_dir\etc\sylphyhorn\Settings.xml" `
         "$env:LOCALAPPDATA\grabacr.net\SylphyHorn\Settings.xml"
+
+
+## ~/scoop/persist にシンボリックリンクを作成
+
+$scoop_dir = "$env:USERPROFILE\scoop\persist"
+
+## keyhac
+Symlink "$dotfiles_dir\etc\keyhac\config.py" "$scoop_dir\keyhac\config.py"
