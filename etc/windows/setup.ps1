@@ -94,5 +94,5 @@ Set-Location (Split-Path -Parent $MyInvocation.MyCommand.Path)
 ####################  終了  ####################
 
 
-Write-Host "Setup Completed."
+Write-Host "Setup Completed." -ForegroundColor Magenta
 Pause
