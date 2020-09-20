@@ -7,9 +7,7 @@
 if (!([Security.Principal.WindowsPrincipal]`
       [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole(`
       [Security.Principal.WindowsBuiltInRole] "Administrator")) {
-	Write-Warning "This script need to be run with elevated privileges."
-	Read-Host "Press any key to exit..."
-	exit 1
+	Write-Error "This script need to be run with elevated privileges." -ErrorAction Stop
 }
 
 

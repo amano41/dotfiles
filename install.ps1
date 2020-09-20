@@ -1,3 +1,11 @@
+## 管理者権限のチェック
+if (!([Security.Principal.WindowsPrincipal]`
+      [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole(`
+      [Security.Principal.WindowsBuiltInRole] "Administrator")) {
+	Write-Error "This script need to be run with elevated privileges." -ErrorAction Stop
+}
+
+
 Write-Host "Installing dotfiles..." -ForegroundColor Magenta
 
 
