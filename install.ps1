@@ -16,6 +16,17 @@ $dotfiles_dir = Split-Path -Parent $MyInvocation.MyCommand.Path
 ## シンボリックリンクを作成する関数
 function Symlink($src, $dest) {
 
+	## ディレクトリが存在する場合はバックアップを作成
+	## ただし，シンボリックリンクの場合は除く
+	if (Test-Path $dest -PathType Container) {
+		$type = Get-Item $dest | Select-Object -ExpandProperty LinkType
+		if ($type -ne "SymbolicLink") {
+			Write-Warning "'$dest' already exists."
+			$backup = "$dest" + "." + (Get-Date -UFormat "%Y%m%d%H%M%S")
+			Move-Item $dest $backup
+		}
+	}
+
 	$path = Split-Path -Parent $dest
 	$name = Split-Path -Leaf $dest
 
