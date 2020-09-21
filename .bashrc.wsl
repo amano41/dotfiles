@@ -29,7 +29,8 @@ function open() {
 			return 1
 		fi
 
-		wslstart 'C:\Asr\AsrLoad.exe' '/x' '/n' "$dir"
+		local asr="$(winenv USERPROFILE)\bin\Asr\AsrLoad.exe"
+		wslstart "$asr" "/x" "/n" "$dir"
 
 	## それ以外はシェルの関連付けで開く
 	else

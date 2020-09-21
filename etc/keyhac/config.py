@@ -350,7 +350,8 @@ def configure(keymap):
 
     def launch_asr_command():
         def _command():
-            asr = "C:/Asr/AsrLoad.exe"
+            home = os.environ.get("USERPROFILE")
+            asr = os.path.join(home, "bin/Asr/AsrLoad.exe")
             txt = getClipboardText().strip().strip('"')
             if txt:
                 if os.path.isdir(txt):
