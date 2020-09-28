@@ -86,7 +86,7 @@ Set-Location (Split-Path -Parent $MyInvocation.MyCommand.Path)
 
 
 ## scoop のセットアップ
-. "./script/setup-scoop.ps1"
+. "./script/install-scoop.ps1"
 . "./script/install-scoop-packages.ps1"
 
 

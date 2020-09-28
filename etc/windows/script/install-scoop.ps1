@@ -1,4 +1,4 @@
-Write-Host "Setting up scoop..." -ForegroundColor Magenta
+Write-Host "Installing scoop..." -ForegroundColor Magenta
 
 ## scoop 本体のインストール
 if (!(Get-Command -Name "scoop" -ErrorAction SilentlyContinue)) {
