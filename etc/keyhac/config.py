@@ -506,3 +506,11 @@ def configure(keymap):
     keymap_clibor["C-D"] = "Delete"
     keymap_clibor["C-F"] = clibor_menu_format
     keymap_clibor["C-C"] = clibor_menu_convert
+
+    ###########################################################################
+    # JikagakiDesktop 用の設定
+    ###########################################################################
+
+    keymap_jikagaki = keymap.defineWindowKeymap(exe_name="JikagakiDesktop.exe")
+
+    keymap_jikagaki["Enter"] = "A-F4"  ## 終了
