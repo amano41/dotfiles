@@ -98,7 +98,7 @@ def configure(keymap):
     def clibor_mode_command(param, message = None):
         def _command():
             clibor_command(param, message)()
-            keymap.delayedCall(keymap.InputKeyCommand("A-Esc"), 100)
+            keymap.delayedCall(keymap.InputKeyCommand("A-Esc"), 150)
         return _command
 
     # クリップボード履歴
