@@ -484,20 +484,17 @@ def configure(keymap):
     # 編集
     def clibor_menu_edit():
         keymap.InputKeyCommand("S-F10")()
-        sleep(0.1)
-        keymap.InputKeyCommand("1", "Enter")()
+        keymap.delayedCall(keymap.InputKeyCommand("1", "Enter"), 100)
 
     # クリップボード転送（整形）
     def clibor_menu_format():
         keymap.InputKeyCommand("S-F10")()
-        sleep(0.1)
-        keymap.InputKeyCommand("4")()
+        keymap.delayedCall(keymap.InputKeyCommand("4"), 100)
 
     # クリップボード転送（変換）
     def clibor_menu_convert():
         keymap.InputKeyCommand("S-F10")()
-        sleep(0.1)
-        keymap.InputKeyCommand("5")()
+        keymap.delayedCall(keymap.InputKeyCommand("5"), 100)
 
     keymap_clibor["C-E"] = clibor_menu_edit
     keymap_clibor["C-D"] = "Delete"
