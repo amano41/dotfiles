@@ -276,7 +276,7 @@ def configure(keymap):
         keymap.delayedCall(keymap.InputKeyCommand("A-Esc"), 100)
 
     # 重ねて表示
-    keymap_global["W-Esc"] = cascade_windows
+    keymap_global["W-S-Home"] = cascade_windows
 
     # アクティブウィンドウ以外を最小化
     keymap_global["W-C-Down"] = "W-Home"
