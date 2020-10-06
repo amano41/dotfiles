@@ -502,9 +502,22 @@ def configure(keymap):
     keymap_clibor["C-C"] = clibor_menu_convert
 
     ###########################################################################
+    # Excel 用の設定
+    ###########################################################################
+
+    keymap_excel = keymap.defineWindowKeymap(exe_name="excel.exe", class_name="EXCEL7")
+
+    # 数式を表示
+    # 日本語 Windows で英語配列のキーボードを使っている場合
+    # Ctrl+` が Windows によって［半角／全角］と解釈されてしまう
+    keymap_excel["U-C-(243)"] = lambda: None
+    keymap_excel["D-C-(244)"] = "A-M", "H"
+
+    ###########################################################################
     # JikagakiDesktop 用の設定
     ###########################################################################
 
     keymap_jikagaki = keymap.defineWindowKeymap(exe_name="JikagakiDesktop.exe")
 
-    keymap_jikagaki["Enter"] = "A-F4"  ## 終了
+    # 終了
+    keymap_jikagaki["Enter"] = "A-F4"
