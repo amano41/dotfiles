@@ -519,5 +519,5 @@ def configure(keymap):
 
     keymap_jikagaki = keymap.defineWindowKeymap(exe_name="JikagakiDesktop.exe")
 
-    # 終了
-    keymap_jikagaki["Enter"] = "A-F4"
+    # 最小化
+    keymap_jikagaki["Enter"] = "ESC"
