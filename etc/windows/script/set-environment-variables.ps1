@@ -2,7 +2,7 @@ Write-Host "Setting Environment Variables..." -ForegroundColor Magenta
 
 ## PATH
 $path = [Environment]::GetEnvironmentVariable("PATH", "User")
-$path = "$env:APPDATA\Python\Python38\Scripts;" + $path
+$path = "$env:APPDATA\Python\Python39\Scripts;" + $path
 $path = "$env:USERPROFILE\OneDrive\bin;" + $path
 $path = "$env:USERPROFILE\bin;" + $path
 [Environment]::SetEnvironmentVariable("PATH", $path, "User")
