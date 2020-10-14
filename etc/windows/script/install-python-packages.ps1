@@ -5,12 +5,12 @@ If (!(Get-Command -Name "pip" -ErrorAction SilentlyContinue)) {
 }
 
 ## atom: linter-flake8
-pip install --user flake8
-pip install --user flake8-import-order
+pip install --user --no-warn-script-location flake8
+pip install --user --no-warn-script-location flake8-import-order
 
 ## atom: atom-beautify
-pip install --user autopep8
-pip install --user isort
+pip install --user --no-warn-script-location autopep8
+pip install --user --no-warn-script-location isort
 
 ## clibor
-pip install --user pywin32
+pip install --user --no-warn-script-location pywin32
