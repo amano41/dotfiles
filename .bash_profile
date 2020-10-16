@@ -17,7 +17,7 @@ export LESSCHARSET=utf-8
 PLATFORM=
 case "$OSTYPE" in
 	linux*)
-		if [[ $(uname -a) =~ Microsoft ]]; then
+		if [[ $(uname -a) =~ [Mm]icrosoft ]]; then
 			PLATFORM="wsl"
 		else
 			PLATFORM="linux"
