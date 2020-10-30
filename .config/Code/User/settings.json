@@ -42,11 +42,6 @@
     "markdown.preview.fontFamily": "IPAexゴシック",
     "markdown.preview.fontSize": 14,
 
-    // "python.linting.enabled": false,
-    // "python.linting.pylintEnabled": false,
-    // "python.linting.pep8Enabled": true,
-    // "python.linting.flake8Enabled": true,
-
     "[markdown]": {
         "files.trimTrailingWhitespace": false,
     },
@@ -62,5 +57,8 @@
 
     "gitlens.defaultDateFormat": "YYYY-MM-DD hh:mm",
     "gitlens.defaultDateShortFormat": "YYYY-MM-DD",
+
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true
 
 }
