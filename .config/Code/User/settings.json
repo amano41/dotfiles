@@ -37,7 +37,7 @@
     "window.title": "${activeEditorLong} ${dirty}",
     "window.restoreWindows": "folders",
 
-    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\bash.exe",
+    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\wsl.exe",
 
     "markdown.preview.fontFamily": "IPAexゴシック",
     "markdown.preview.fontSize": 14,
