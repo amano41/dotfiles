@@ -60,4 +60,7 @@
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
 
+    "gitlens.defaultDateFormat": "YYYY-MM-DD hh:mm",
+    "gitlens.defaultDateShortFormat": "YYYY-MM-DD",
+
 }
