@@ -29,7 +29,7 @@
     },
 
     "workbench.startupEditor": "none",
-    "workbench.colorTheme": "Default Dark+",
+    "workbench.colorTheme": "One Dark Pro",
     "workbench.colorCustomizations": {},
     "workbench.iconTheme": "vscode-icons",
     "workbench.statusBar.feedback.visible": false,
