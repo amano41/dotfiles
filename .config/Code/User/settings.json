@@ -1,66 +1,55 @@
 {
-    "editor.fontFamily": "Source Han Code JP",
-    "editor.fontSize": 14,
-    "editor.tabSize": 4,
-    "editor.insertSpaces": false,
-    "editor.renderControlCharacters": true,
-    "editor.renderIndentGuides": true,
-    "editor.renderLineHighlight": "all",
-    "editor.renderWhitespace": "all",
-    "editor.showFoldingControls": "always",
-    "editor.formatOnPaste": true,
-    "editor.formatOnSave": false,
-    "editor.multiCursorModifier": "ctrlCmd",
-    "editor.minimap.renderCharacters": false,
-    "editor.minimap.showSlider": "always",
-
-    "files.autoGuessEncoding": true,
-    "files.encoding": "utf8",
-    "files.eol": "\n",
-    "files.defaultLanguage": "markdown",
-    "files.insertFinalNewline": true,
-    "files.trimFinalNewlines": true,
-    "files.trimTrailingWhitespace": true,
-    "files.exclude": {
-        "**/.vscode": true,
-        "**/.git": true,
-        "**/.venv": true,
-        "**/.Rproj.user": true,
-    },
-
-    "workbench.startupEditor": "none",
-    "workbench.colorTheme": "One Dark Pro",
-    "workbench.colorCustomizations": {
-      "editorWhitespace.foreground": "#a9a9a960"
-    },
-    "workbench.iconTheme": "vscode-icons",
-    "workbench.statusBar.feedback.visible": false,
-
-    "window.title": "${activeEditorLong} ${dirty}",
-    "window.restoreWindows": "folders",
-
-    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\wsl.exe",
-
-    "markdown.preview.fontFamily": "IPAexゴシック",
-    "markdown.preview.fontSize": 14,
-
-    "[markdown]": {
-        "files.trimTrailingWhitespace": false,
-    },
-
-    "[python]": {
-        "editor.rulers": [
-            79
-        ]
-    },
-
-    "telemetry.enableCrashReporter": false,
-    "telemetry.enableTelemetry": false,
-
-    "gitlens.defaultDateFormat": "YYYY-MM-DD hh:mm",
-    "gitlens.defaultDateShortFormat": "YYYY-MM-DD",
-
-    "python.linting.pylintEnabled": false,
-    "python.linting.flake8Enabled": true
-
+  "editor.fontFamily": "Source Han Code JP",
+  "editor.fontSize": 14,
+  "editor.tabSize": 4,
+  "editor.insertSpaces": false,
+  "editor.renderControlCharacters": true,
+  "editor.renderIndentGuides": true,
+  "editor.renderLineHighlight": "all",
+  "editor.renderWhitespace": "all",
+  "editor.showFoldingControls": "always",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": false,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.minimap.renderCharacters": false,
+  "editor.minimap.showSlider": "always",
+  "files.autoGuessEncoding": true,
+  "files.encoding": "utf8",
+  "files.eol": "\n",
+  "files.defaultLanguage": "markdown",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "files.exclude": {
+    "**/.vscode": true,
+    "**/.git": true,
+    "**/.venv": true,
+    "**/.Rproj.user": true,
+  },
+  "workbench.startupEditor": "none",
+  "workbench.colorTheme": "One Dark Pro",
+  "workbench.colorCustomizations": {
+    "editorWhitespace.foreground": "#a9a9a960"
+  },
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.statusBar.feedback.visible": false,
+  "window.title": "${activeEditorLong} ${dirty}",
+  "window.restoreWindows": "folders",
+  "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\wsl.exe",
+  "telemetry.enableCrashReporter": false,
+  "telemetry.enableTelemetry": false,
+  "[markdown]": {
+    "files.trimTrailingWhitespace": false,
+  },
+  "[python]": {
+    "editor.rulers": [
+      79
+    ]
+  },
+  "gitlens.defaultDateFormat": "YYYY-MM-DD hh:mm",
+  "gitlens.defaultDateShortFormat": "YYYY-MM-DD",
+  "markdown.preview.fontFamily": "IPAexゴシック",
+  "markdown.preview.fontSize": 14,
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Enabled": true
 }
