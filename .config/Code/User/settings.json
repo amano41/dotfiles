@@ -24,7 +24,7 @@
     "**/.vscode": true,
     "**/.git": true,
     "**/.venv": true,
-    "**/.Rproj.user": true,
+    "**/.Rproj.user": true
   },
   "workbench.startupEditor": "none",
   "workbench.colorTheme": "One Dark Pro",
@@ -39,7 +39,7 @@
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
   "[markdown]": {
-    "files.trimTrailingWhitespace": false,
+    "files.trimTrailingWhitespace": false
   },
   "[python]": {
     "editor.rulers": [
