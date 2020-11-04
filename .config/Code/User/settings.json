@@ -48,7 +48,7 @@
   },
   "gitlens.defaultDateFormat": "YYYY-MM-DD hh:mm",
   "gitlens.defaultDateShortFormat": "YYYY-MM-DD",
-  "markdown.preview.fontFamily": "IPAexゴシック",
+  "markdown.preview.fontFamily": "Source Han Code JP",
   "markdown.preview.fontSize": 14,
   "python.linting.pylintEnabled": false,
   "python.linting.flake8Enabled": true
