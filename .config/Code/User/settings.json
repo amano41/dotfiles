@@ -50,6 +50,7 @@
   "gitlens.defaultDateShortFormat": "YYYY-MM-DD",
   "markdown.preview.fontFamily": "Source Han Code JP",
   "markdown.preview.fontSize": 14,
+  "oneDarkPro.markdownStyle": false,
   "python.linting.pylintEnabled": false,
   "python.linting.flake8Enabled": true
 }
