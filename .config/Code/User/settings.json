@@ -31,6 +31,11 @@
   "workbench.colorCustomizations": {
     "editorWhitespace.foreground": "#a9a9a960"
   },
+  "editor.tokenColorCustomizations": {
+    "comments": {
+      "fontStyle": ""
+    }
+  },
   "workbench.iconTheme": "vscode-icons",
   "workbench.statusBar.feedback.visible": false,
   "window.title": "${activeEditorLong} ${dirty}",
