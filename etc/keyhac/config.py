@@ -19,7 +19,7 @@ def configure(keymap):
     keymap.editor = scoop_app("Mery.exe")
 
     # コンソール画面の設定
-    keymap.setFont("Cica", 18)
+    keymap.setFont("HackGen Console", 14)
     keymap.setTheme("black")
 
     # クリップボード履歴を無効化

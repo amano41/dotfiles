@@ -41,6 +41,8 @@
   "window.title": "${activeEditorLong} ${dirty}",
   "window.restoreWindows": "folders",
   "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\wsl.exe",
+  "terminal.integrated.fontFamily": "HackGen Console",
+  "terminal.integrated.fontSize": 14,
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
   "[markdown]": {

@@ -28,7 +28,7 @@
         "defaults":
         {
             // Put settings here that you want to apply to all profiles.
-            "fontFace": "Cica",
+            "fontFace": "HackGen Console",
             "fontSize": 12,
             "padding": 12,
             "cursorShape": "vintage"
