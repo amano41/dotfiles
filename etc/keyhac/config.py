@@ -465,7 +465,7 @@ def configure(keymap):
     # Clibor 用の設定
     ###########################################################################
 
-    keymap_clibor = keymap.defineWindowKeymap(exe_name="Clibor.exe")
+    keymap_clibor = keymap.defineWindowKeymap(exe_name="Clibor.exe", class_name="TFrm_Clibor")
 
     # カーソル移動
     keymap_clibor["C-N"] = "Down"
