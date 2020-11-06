@@ -235,16 +235,50 @@ def configure(keymap):
             return
 
         # 現在のサイズ
-        rect = w.getRect()
+        curr = w.getRect()
+        is_max = w.isMaximized()
+
+        w.restore()
+        w.maximize()
+
+        # 縦置きディスプレイで Y 座標が狂う対策
+        keymap.MoveWindowToMonitorEdgeCommand(1)()
+
+        # 最大化したときのサイズ
+        full = w.getRect()
 
         # 上半分にスナップしたときのサイズ
-        w.maximize()
-        half = list(w.getRect())
+        half = list(full)
         half[3] = (half[1] + half[3]) // 2
         half = tuple(half)
 
-        if rect != half:
-            w.restore()
+        # Chrom は最大化状態ではサイズ変更が効かない
+        if w.getClassName() == "Chrome_WidgetWin_1":
+            if is_max:
+                x1 = full[0] + 100
+                y1 = full[1] + 100
+                x2 = min(x1 + 1600, full[2] - 100)
+                y2 = min(y1 + 1200, full[3] - 100)
+                w.restore()
+                sleep(0.1)
+                w.setRect((x1, y1, x2, y2))
+            else:
+                if curr != half:
+                    w.restore()
+                    sleep(0.1)
+                    w.setRect(half)
+                else:
+                    pass
+            return
+
+        if is_max:
+            if curr == full:
+                w.restore()
+            elif curr == half:
+                w.setRect(full)
+            else:
+                w.setRect(half)
+        else:
             w.setRect(half)
 
     def lower_half_window():
@@ -254,16 +288,42 @@ def configure(keymap):
             return
 
         # 現在のサイズ
-        rect = w.getRect()
+        curr = w.getRect()
+        is_max = w.isMaximized()
+
+        w.restore()
+        w.maximize()
+
+        # 縦置きディスプレイで Y 座標が狂う対策
+        keymap.MoveWindowToMonitorEdgeCommand(1)()
+
+        # 最大化したときのサイズ
+        full = w.getRect()
 
         # 下半分にスナップしたときのサイズ
-        w.maximize()
         half = list(w.getRect())
         half[1] = (half[1] + half[3]) // 2
         half = tuple(half)
 
-        if rect != half:
+        # Chrom は最大化状態ではサイズ変更が効かない
+        if w.getClassName() == "Chrome_WidgetWin_1":
+            if is_max or curr == half:
+                x1 = full[0] + 100
+                y1 = full[1] + 100
+                x2 = min(x1 + 1600, full[2] - 100)
+                y2 = min(y1 + 1200, full[3] - 100)
+                w.restore()
+                sleep(0.1)
+                w.setRect((x1, y1, x2, y2))
+            else:
+                w.restore()
+                sleep(0.1)
+                w.setRect(half)
+            return
+
+        if is_max and curr == half:
             w.restore()
+        else:
             w.setRect(half)
 
     # 上下のエアロスナップ
