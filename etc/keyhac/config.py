@@ -126,7 +126,7 @@ def configure(keymap):
     #  ウィンドウの切り替え
     # -------------------------------------------------------------------------
 
-    def restore_window():
+    def restore_minimized_window():
         w = keymap.getTopLevelWindow()
         if w is None:
             return
@@ -137,11 +137,11 @@ def configure(keymap):
 
     def next_window():
         keymap.InputKeyCommand("A-Esc")()
-        keymap.delayedCall(restore_window, 100)
+        keymap.delayedCall(restore_minimized_window, 100)
 
     def prev_window():
         keymap.InputKeyCommand("A-S-Esc")()
-        keymap.delayedCall(restore_window, 100)
+        keymap.delayedCall(restore_minimized_window, 100)
 
     keymap_global["W-Space"] = next_window
     keymap_global["W-S-Space"] = prev_window
@@ -328,9 +328,38 @@ def configure(keymap):
         else:
             w.setRect(half)
 
-    # 上下のエアロスナップ
-    keymap_global["W-S-Up"] = upper_half_window
-    keymap_global["W-S-Down"] = lower_half_window
+    def maximize_window():
+        w = keymap.getTopLevelWindow()
+        if w is None:
+            return
+        if w.isMaximized():
+            w.restore()
+        w.maximize()
+
+    def minimize_window():
+        w = keymap.getTopLevelWindow()
+        if w is None:
+            return
+        if w.isMaximized():
+            w.restore()
+        else:
+            w.minimize()
+
+    def restore_window():
+        w = keymap.getTopLevelWindow()
+        if w is not None and w.isMaximized():
+            w.restore()
+
+    # 縦方向のスナップ
+    keymap_global["W-Up"] = upper_half_window
+    keymap_global["W-Down"] = lower_half_window
+
+    # 最大化・最小化
+    keymap_global["W-S-Up"] = maximize_window
+    keymap_global["W-S-Down"] = minimize_window
+
+    # 元に戻す
+    keymap_global["W-End"] = restore_window
 
     def cascade_windows():
         # タスクバーの右クリックメニューで「重ねて表示」を実行
