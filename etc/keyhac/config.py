@@ -188,10 +188,11 @@ def configure(keymap):
 
         return _move_window
 
-    keymap_global["W-A-Left"] = move_window_command(-16, 0)
-    keymap_global["W-A-Right"] = move_window_command(16, 0)
-    keymap_global["W-A-Up"] = move_window_command(0, -16)
-    keymap_global["W-A-Down"] = move_window_command(0, 16)
+    # Win+Alt+Shift+LRUD でウィンドウを移動
+    keymap_global["W-A-S-Left"] = move_window_command(-16, 0)
+    keymap_global["W-A-S-Right"] = move_window_command(16, 0)
+    keymap_global["W-A-S-Up"] = move_window_command(0, -16)
+    keymap_global["W-A-S-Down"] = move_window_command(0, 16)
 
     # -------------------------------------------------------------------------
     #  ウィンドウのリサイズ
@@ -219,10 +220,11 @@ def configure(keymap):
 
         return _resize_window
 
-    keymap_global["W-A-S-Left"] = resize_window_command(-16, 0)
-    keymap_global["W-A-S-Right"] = resize_window_command(16, 0)
-    keymap_global["W-A-S-Up"] = resize_window_command(0, -16)
-    keymap_global["W-A-S-Down"] = resize_window_command(0, 16)
+    # Win+Alt+LRUD でウィンドウのサイズを変更
+    keymap_global["W-A-Left"] = resize_window_command(-16, 0)
+    keymap_global["W-A-Right"] = resize_window_command(16, 0)
+    keymap_global["W-A-Up"] = resize_window_command(0, -16)
+    keymap_global["W-A-Down"] = resize_window_command(0, 16)
 
     # -------------------------------------------------------------------------
     #  ウィンドウの整列
