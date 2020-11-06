@@ -97,8 +97,10 @@ def configure(keymap):
 
     def clibor_mode_command(param, message = None):
         def _command():
+            w = keymap.getTopLevelWindow()
+            c = keymap.ActivateWindowCommand(check_func=lambda x: x is w)
             clibor_command(param, message)()
-            keymap.delayedCall(keymap.InputKeyCommand("A-Esc"), 150)
+            keymap.delayedCall(c, 100)
         return _command
 
     # クリップボード履歴
