@@ -4,7 +4,7 @@ import re
 from time import sleep
 from urllib.parse import quote
 
-from keyhac import getClipboardText, setClipboardText
+from keyhac import Window, getClipboardText, setClipboardText
 
 
 def configure(keymap):
@@ -145,8 +145,6 @@ def configure(keymap):
 
     keymap_global["W-Space"] = next_window
     keymap_global["W-S-Space"] = prev_window
-    keymap_global["W-N"] = next_window
-    keymap_global["W-P"] = prev_window
 
     # -------------------------------------------------------------------------
     #  ウィンドウの移動
@@ -425,10 +423,45 @@ def configure(keymap):
             launch_command(asr, f"/x /n {home}")()
         return _command
 
+    def launch_pen_command():
+
+        def _command():
+
+            names = []
+
+            # すでに起動しているか検索する
+            # クラス名が毎回変わるので Window.find() は使えない
+            w = Window.getDesktop()
+            w = w.getFirstChild()
+            while w:
+                c = w.getClassName()
+                t = w.getText()
+                if "JikagakiDesktop.exe" in c and "直書きデスクトップ" in t:
+                    names.append(c)
+                w = w.getNext()
+
+            # 見つかった場合はウィンドウを元に戻す
+            if names:
+                for c in names:
+                    w = Window.find(c, None)
+                    if w:
+                        w.restore()
+                        w.setForeground()
+
+            # 見つからなかった場合は新たに起動する
+            else:
+                home = os.environ.get("USERPROFILE")
+                app_path = "bin/JikagakiDesktop/JikagakiDesktop.exe"
+                app_path = os.path.join(home, app_path)
+                launch_command(app_path)()
+
+        return _command
+
     keymap_global["W-A"] = launch_asr_command()
     keymap_global["W-E"] = launch_command(scoop_app("Mery.exe"))
     keymap_global["W-F"] = launch_command(scoop_app("Everything.exe"))
     keymap_global["W-G"] = launch_command(scoop_app("TresGrep.exe"))
+    keymap_global["W-J"] = launch_pen_command()
 
     def search_selection(url):
         def _search_selection():
