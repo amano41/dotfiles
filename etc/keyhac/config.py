@@ -87,7 +87,7 @@ def configure(keymap):
     #  クリップボードの操作
     # -------------------------------------------------------------------------
 
-    def clibor_command(param, message = None):
+    def clibor_command(param, message=None):
         def _command():
             clibor = scoop_app("Clibor.exe")
             if message is not None:
@@ -95,7 +95,7 @@ def configure(keymap):
             keymap.ShellExecuteCommand(None, clibor, param, "")()
         return _command
 
-    def clibor_mode_command(param, message = None):
+    def clibor_mode_command(param, message=None):
         def _command():
             w = keymap.getTopLevelWindow()
             c = keymap.ActivateWindowCommand(check_func=lambda x: x is w)
@@ -449,8 +449,11 @@ def configure(keymap):
                 setClipboardText(old)
         return _search_selection
 
-    keymap_global["W-S"] = search_selection("https://www.google.com/search?q=")
-    keymap_global["W-T"] = search_selection("https://www.deepl.com/translator#en/ja/")
+    google = "https://www.google.com/search?q="
+    deepl = "https://www.deepl.com/translator#en/ja/"
+
+    keymap_global["W-S"] = search_selection(google)
+    keymap_global["W-T"] = search_selection(deepl)
 
     ###########################################################################
     # エディタ用の設定
@@ -527,7 +530,8 @@ def configure(keymap):
     # Clibor 用の設定
     ###########################################################################
 
-    keymap_clibor = keymap.defineWindowKeymap(exe_name="Clibor.exe", class_name="TFrm_Clibor")
+    keymap_clibor = keymap.defineWindowKeymap(exe_name="Clibor.exe",
+                                              class_name="TFrm_Clibor")
 
     # カーソル移動
     keymap_clibor["C-N"] = "Down"
@@ -567,7 +571,8 @@ def configure(keymap):
     # Excel 用の設定
     ###########################################################################
 
-    keymap_excel = keymap.defineWindowKeymap(exe_name="excel.exe", class_name="EXCEL7")
+    keymap_excel = keymap.defineWindowKeymap(exe_name="excel.exe",
+                                             class_name="EXCEL7")
 
     # 数式を表示
     # 日本語 Windows で英語配列のキーボードを使っている場合
