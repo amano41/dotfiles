@@ -638,6 +638,29 @@ def configure(keymap):
     keymap_excel = keymap.defineWindowKeymap(exe_name="excel.exe",
                                              class_name="EXCEL7")
 
+    # 編集モード
+    keymap_excel["C-Enter"] = "F2"
+
+    # 選択範囲追加モード
+    keymap_excel["C-Space"] = "S-F8"
+
+    # 名前を付けて保存
+    keymap_excel["C-S-S"] = "F12"
+
+    # シートの切り替え
+    keymap_excel["C-Tab"] = "C-PageDown"
+    keymap_excel["C-S-Tab"] = "C-PageUp"
+
+    # ズーム
+    # C-A-Plus で +15%，C-A-Minus で -15%
+    keymap_excel["C-A-Z"] = "A-W", "Q"
+    keymap_excel["C-A-0"] = "A-W", "J", "A-H", "Esc", "Esc"  # 100%
+    keymap_excel["C-A-9"] = "A-W", "G", "A-H", "Esc", "Esc"  # 選択範囲に合わせる
+
+    # 列の再表示
+    # Windows 10 でショートカットキーが効かない場合がある
+    keymap_excel["C-S-0"] = "A-H", "O", "U", "L"
+
     # 数式を表示
     # 日本語 Windows で英語配列のキーボードを使っている場合
     # Ctrl+` が Windows によって［半角／全角］と解釈されてしまう
