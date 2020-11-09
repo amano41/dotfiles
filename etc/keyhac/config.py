@@ -642,7 +642,7 @@ def configure(keymap):
     # 日本語 Windows で英語配列のキーボードを使っている場合
     # Ctrl+` が Windows によって［半角／全角］と解釈されてしまう
     keymap_excel["U-C-(243)"] = lambda: None
-    keymap_excel["D-C-(244)"] = "A-M", "H"
+    keymap_excel["D-C-(244)"] = "A-M", "H", "A-H", "Esc", "Esc"
 
     ###########################################################################
     # JikagakiDesktop 用の設定
