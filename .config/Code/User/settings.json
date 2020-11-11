@@ -13,6 +13,7 @@
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.minimap.renderCharacters": false,
   "editor.minimap.showSlider": "always",
+  "editor.suggestSelection": "first",
   "files.autoGuessEncoding": true,
   "files.encoding": "utf8",
   "files.eol": "\n",
@@ -62,4 +63,5 @@
   "python.linting.pylintEnabled": false,
   "python.linting.flake8Enabled": true,
   "python.languageServer": "Microsoft",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
 }
