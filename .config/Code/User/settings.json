@@ -36,10 +36,11 @@
       "fontStyle": ""
     }
   },
-  "workbench.iconTheme": "vscode-icons",
+  "workbench.iconTheme": "material-icon-theme",
   "workbench.statusBar.feedback.visible": false,
-  "window.title": "${activeEditorLong} ${dirty}",
   "window.restoreWindows": "folders",
+  "window.title": "${dirty}${activeEditorMedium}${separator}${rootName}",
+  "window.zoomLevel": 0,
   "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\wsl.exe",
   "terminal.integrated.fontFamily": "HackGen Console",
   "terminal.integrated.fontSize": 14,
