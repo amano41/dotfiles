@@ -41,7 +41,7 @@
                 "name": "Ubuntu",
                 "source": "Windows.Terminal.Wsl",
                 "startingDirectory": "//wsl$/Ubuntu/home/%USERNAME%",
-                "colorScheme": "One Half Dark"
+                "colorScheme": "One Dark"
             },
             {
                 "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
@@ -75,7 +75,29 @@
 
     // Add custom color schemes to this array.
     // To learn more about color schemes, visit https://aka.ms/terminal-color-schemes
-    "schemes": [],
+    "schemes": [
+        {
+          "name": "One Dark",
+          "black": "#1e2127",
+          "red": "#e06c75",
+          "green": "#98c379",
+          "yellow": "#d19a66",
+          "blue": "#61afef",
+          "purple": "#c678dd",
+          "cyan": "#56b6c2",
+          "white": "#abb2bf",
+          "brightBlack": "#5c6370",
+          "brightRed": "#e06c75",
+          "brightGreen": "#98c379",
+          "brightYellow": "#d19a66",
+          "brightBlue": "#61afef",
+          "brightPurple": "#c678dd",
+          "brightCyan": "#56b6c2",
+          "brightWhite": "#ffffff",
+          "background": "#1e2127",
+          "foreground": "#abb2bf"
+        }
+    ],
 
     // Add custom keybindings to this array.
     // To unbind a key combination from your defaults.json, set the command to "unbound".
