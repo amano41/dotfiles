@@ -642,7 +642,14 @@ def configure(keymap):
     keymap_excel["C-Enter"] = "F2"
 
     # 選択範囲追加モード
-    keymap_excel["C-Space"] = "S-F8"
+    keymap_excel["C-S-Space"] = "S-F8"
+
+    # 列の選択
+    # Global Keymap で IME 切り替えに設定したのを戻す
+    keymap_excel["C-Space"] = "C-Space"
+
+    # 選択範囲の解除
+    keymap_excel["Esc"] = "S-Back"
 
     # 名前を付けて保存
     keymap_excel["C-S-S"] = "F12"
