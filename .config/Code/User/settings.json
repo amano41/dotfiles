@@ -7,10 +7,12 @@
   "editor.renderIndentGuides": true,
   "editor.renderLineHighlight": "all",
   "editor.renderWhitespace": "all",
+  "editor.occurrencesHighlight": false,
   "editor.showFoldingControls": "always",
   "editor.formatOnPaste": true,
   "editor.formatOnSave": false,
   "editor.multiCursorModifier": "ctrlCmd",
+  "editor.hideCursorInOverviewRuler": true,
   "editor.minimap.renderCharacters": false,
   "editor.minimap.showSlider": "always",
   "editor.suggestSelection": "first",
@@ -27,6 +29,7 @@
     "**/.venv": true,
     "**/.Rproj.user": true
   },
+  "breadcrumbs.enabled": false,
   "workbench.startupEditor": "none",
   "workbench.colorTheme": "One Dark Pro",
   "workbench.colorCustomizations": {
