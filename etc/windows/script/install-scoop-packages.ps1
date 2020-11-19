@@ -30,6 +30,7 @@ scoop install $packages
 Write-Host "'extras' bucket..." -ForegroundColor Yellow
 
 $packages = @(
+	"altdrag",
 	"ccleaner",
 	"everything",
 	"fastcopy",
