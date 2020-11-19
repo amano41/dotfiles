@@ -81,6 +81,10 @@ Set-Location (Split-Path -Parent $MyInvocation.MyCommand.Path)
 . "./script/configure-privacy-settings.ps1"
 
 
+## キーリピートを高速化
+. "./script/configure-keyboard-response.ps1"
+
+
 ## 環境変数の設定
 . "./script/set-environment-variables.ps1"
 
