@@ -89,6 +89,7 @@ Set-Location (Split-Path -Parent $MyInvocation.MyCommand.Path)
 . "./script/install-scoop.ps1"
 . "./script/install-scoop-packages.ps1"
 . "./script/setup-jre.ps1"
+. "./script/setup-everything-service.ps1"
 
 
 ## Python パッケージのインストール
