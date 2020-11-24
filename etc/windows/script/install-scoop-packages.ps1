@@ -31,6 +31,7 @@ Write-Host "'extras' bucket..." -ForegroundColor Yellow
 
 $packages = @(
 	"altdrag",
+	"bitwarden",
 	"ccleaner",
 	"everything",
 	"fastcopy",
