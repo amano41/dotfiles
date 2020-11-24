@@ -648,9 +648,6 @@ def configure(keymap):
     # Global Keymap で IME 切り替えに設定したのを戻す
     keymap_excel["C-Space"] = "C-Space"
 
-    # 選択範囲の解除
-    keymap_excel["Esc"] = "S-Back"
-
     # 名前を付けて保存
     keymap_excel["C-S-S"] = "F12"
 
@@ -660,9 +657,9 @@ def configure(keymap):
 
     # ズーム
     # C-A-Plus で +15%，C-A-Minus で -15%
-    keymap_excel["C-A-Z"] = "A-W", "Q"
     keymap_excel["C-A-0"] = "A-W", "J", "A-H", "Esc", "Esc"  # 100%
     keymap_excel["C-A-9"] = "A-W", "G", "A-H", "Esc", "Esc"  # 選択範囲に合わせる
+    keymap_excel["C-A-8"] = "A-W", "Q"                       # ズーム
 
     # 列の再表示
     # Windows 10 でショートカットキーが効かない場合がある
