@@ -19,6 +19,7 @@ $packages = @(
 	"pwsh",
 	"python",
 	"r",
+	"starship",
 	"sudo",
 	"which"
 )

@@ -29,6 +29,13 @@ else
 fi
 
 
+## Starship があれば有効にする
+## 上で行った Git 用の設定は上書きされる
+if has "starship"; then
+	eval "$(starship init bash)"
+fi
+
+
 ## Pipenv のコマンド補完を有効にする
 if has "pipenv"; then
 	eval "$(pipenv --completion)"
