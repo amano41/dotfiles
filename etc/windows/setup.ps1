@@ -30,8 +30,9 @@ Set-Location (Split-Path -Parent $MyInvocation.MyCommand.Path)
 . "./script/disable-lock-screen.ps1"
 
 
-## Cortana を無効化
+## Cortana を無効化・削除
 . "./script/disable-cortana.ps1"
+. "./script/remove-cortana.ps1"
 
 
 ## アクティビティ履歴を無効化
