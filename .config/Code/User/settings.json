@@ -67,5 +67,14 @@
   "python.linting.pylintEnabled": false,
   "python.linting.flake8Enabled": true,
   "python.languageServer": "Microsoft",
+  "r.rterm.windows": "${env:APPDATA}\\Python\\Python39\\Scripts\\radian.exe",
+  "r.rterm.option": [
+    "--quiet",
+    "--no-save",
+    "--no-restore"
+  ],
+  "r.bracketedPaste": true,
+  "r.sessionWatcher": true,
+  "r.lsp.debug": true,
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
 }

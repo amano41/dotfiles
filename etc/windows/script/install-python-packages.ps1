@@ -12,5 +12,8 @@ pip install --user --no-warn-script-location flake8-import-order
 pip install --user --no-warn-script-location autopep8
 pip install --user --no-warn-script-location isort
 
+## vscode: r
+pip install --user --no-warn-script-location radian
+
 ## clibor
 pip install --user --no-warn-script-location pywin32
