@@ -1,4 +1,7 @@
 add_newline = true
 
+[battery]
+disabled = true
+
 [cmd_duration]
 disabled = true
