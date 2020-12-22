@@ -5,7 +5,7 @@ options(repos=list(CRAN="https://cran.rstudio.com/"));
 ## 起動時にロードするパッケージを追加
 local({
 	pkgs <- getOption("defaultPackages");
-	options(defaultPackages=c(pkgs, "lattice", "car"));
+	options(defaultPackages=c(pkgs, "tidyverse", "lattice", "car"));
 });
 
 ## 零和対比をデフォルトに設定
