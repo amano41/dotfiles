@@ -6,7 +6,7 @@ git init
 
 ## WSL では core.filemode=false の設定を追加する
 ## ~/.gitconfig で設定しておいてもローカルの設定で上書きされてしまうため
-if [[ $OSTYPE =~ linux ]] && [[ $(uname -a) =~ Microsoft ]]; then
+if [[ $OSTYPE =~ linux ]] && [[ $(uname -a) =~ [Mm]icrosoft ]]; then
 	git config --local core.filemode false
 fi
 

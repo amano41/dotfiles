@@ -88,7 +88,7 @@ function install() {
 	local platform=
 	case "$OSTYPE" in
 		linux*)
-			if [[ $(uname -a) =~ Microsoft ]]; then
+			if [[ $(uname -a) =~ [Mm]icrosoft ]]; then
 				platform="wsl"
 			else
 				platform="linux"
