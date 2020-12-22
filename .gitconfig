@@ -21,6 +21,8 @@
 	changed = red
 	unmerged = red
 	untracked = magenta
+[init]
+	defaultBranch = main
 [push]
 	default = current
 [pull]
