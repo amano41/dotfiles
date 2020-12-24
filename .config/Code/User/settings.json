@@ -9,6 +9,7 @@
   "editor.renderWhitespace": "all",
   "editor.occurrencesHighlight": false,
   "editor.showFoldingControls": "always",
+  "editor.accessibilitySupport": "off",
   "editor.formatOnPaste": true,
   "editor.formatOnSave": false,
   "editor.multiCursorModifier": "ctrlCmd",
