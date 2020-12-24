@@ -13,6 +13,7 @@ ms-vscode-remote.remote-wsl
 ms-vscode.atom-keybindings
 ms-vscode.powershell
 PKief.material-icon-theme
+shuworks.vscode-table-formatter
 VisualStudioExptTeam.vscodeintellicode
 vscode-icons-team.vscode-icons
 yzhang.markdown-all-in-one
