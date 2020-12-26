@@ -39,7 +39,6 @@ function Symlink($src, $dest) {
 
 
 ## dotfiles
-## $USERPROFILE にシンボリックリンクを作成
 
 $dotfiles = @(
 	".atom",
@@ -59,7 +58,7 @@ foreach ($name in $dotfiles) {
 Symlink "$dotfiles_dir\.gitconfig.windows" "$env:USERPROFILE\.gitconfig.os"
 
 
-## ~/Documents/PowerShell にシンボリックリンクを作成
+## $USERPROFILE にシンボリックリンクを作成
 
 ## PowerShell Core
 Symlink "$dotfiles_dir\etc\powershell\Microsoft.PowerShell_profile.ps1" `
@@ -68,6 +67,9 @@ Symlink "$dotfiles_dir\etc\powershell\Microsoft.PowerShell_profile.ps1" `
 ## Windows PowerShell
 Symlink "$dotfiles_dir\etc\powershell\Microsoft.PowerShell_profile.ps1" `
         "$env:USERPROFILE\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1"
+
+## Crevice4
+Symlink "$dotfiles_dir\etc\crevice\default.csx" "$env:USERPROFILE\Crevice4\default.csx"
 
 
 ## $APPDATA にシンボリックリンクを作成
