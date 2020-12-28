@@ -16,6 +16,7 @@ $packages = @(
 	"7zip",
 	"ffmpeg",
 	"ln",
+	"pandoc",
 	"pwsh",
 	"python",
 	"r",
