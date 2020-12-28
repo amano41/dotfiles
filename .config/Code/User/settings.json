@@ -37,9 +37,30 @@
     "editorWhitespace.foreground": "#a9a9a960"
   },
   "editor.tokenColorCustomizations": {
-    "comments": {
-      "fontStyle": ""
-    }
+    "textMateRules": [
+      {
+        "scope": [
+          "comment",
+          "comment.block",
+          "comment.block.documentation",
+          "comment.line",
+          "punctuation.definition.comment",
+          "keyword",
+          "keyword.control",
+          "keyword.control.flow.python",
+          "keyword.control.import.python",
+          "keyword.operator",
+          "keyowrd.other",
+          "variable",
+          "variable.language",
+          "variable.parameter",
+          "variable.other"
+        ],
+        "settings": {
+          "fontStyle": ""
+        }
+      }
+    ]
   },
   "workbench.iconTheme": "material-icon-theme",
   "workbench.statusBar.feedback.visible": false,
