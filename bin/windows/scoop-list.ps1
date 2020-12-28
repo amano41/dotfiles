@@ -4,4 +4,4 @@ Param(
 	$bucket = ".*"
 )
 
-scoop export | Select-String ("\[" + $bucket + "\]$") | % { $_ -Replace " .+$", "" }
+scoop export | Select-String ("\[" + $bucket + "\]$") | ForEach-Object { $_ -Replace " .+$", "" }
