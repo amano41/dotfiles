@@ -520,6 +520,28 @@ def configure(keymap):
     keymap_global["W-T"] = search_selection(deepl)
 
     ###########################################################################
+    # ターミナル用の設定
+    ###########################################################################
+
+    def is_terminal(window):
+
+        terminals = (
+            "WindowsTerminal.exe"
+        )
+
+        return window.getProcessName() in terminals
+
+    keymap_terminal = keymap.defineWindowKeymap(check_func=is_terminal)
+
+    # カーソル移動
+    keymap_terminal["RC-P"] = "Up"
+    keymap_terminal["RC-N"] = "Down"
+    keymap_terminal["RC-B"] = "Left"
+    keymap_terminal["RC-F"] = "Right"
+    keymap_terminal["RC-A"] = "Home"
+    keymap_terminal["RC-E"] = "End"
+
+    ###########################################################################
     # エディタ用の設定
     ###########################################################################
 
