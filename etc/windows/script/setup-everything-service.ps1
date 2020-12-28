@@ -12,7 +12,7 @@ $version = scoop info everything | Select-String "Version" | % { $_.Line.Replace
 $app = $env:USERPROFILE + '/scoop/apps/everything/' + $version + '/Everything.exe'
 
 
-Stop-Process -Force -Name "Everything" | Out-Null
-Start-Process $app -ArgumentList "-stop-service" -Wait
+Stop-Service -Name "Everything"
+Stop-Process -Name "Everything" -Force 2> Out-Null
 Start-Process $app -ArgumentList "-install-service" -Wait
 Start-Process $app -ArgumentList "-start-service" -Wait
