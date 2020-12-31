@@ -55,6 +55,10 @@ Set-Location (Split-Path -Parent $MyInvocation.MyCommand.Path)
 . "./script/setup-wsl.ps1"
 
 
+## 3D Objects を非表示
+. "./script/hide-3d-objects.ps1"
+
+
 ## ナビゲーションウィンドウの HDD を非表示
 . "./script/hide-removable-drives.ps1"
 
