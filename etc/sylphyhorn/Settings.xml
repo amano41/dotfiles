@@ -5,6 +5,23 @@
     <Value i:nil="true" />
   </KeyValueOfstringanyType>
   <KeyValueOfstringanyType>
+    <Key>GeneralSettings.DesktopNames</Key>
+    <Value xmlns:d3p1="http://schemas.datacontract.org/2004/07/SylphyHorn.Serialization" i:type="d3p1:ArrayOfStringHolder">
+      <d3p1:StringHolder>
+        <d3p1:Value i:nil="true" />
+      </d3p1:StringHolder>
+      <d3p1:StringHolder>
+        <d3p1:Value i:nil="true" />
+      </d3p1:StringHolder>
+      <d3p1:StringHolder>
+        <d3p1:Value i:nil="true" />
+      </d3p1:StringHolder>
+      <d3p1:StringHolder>
+        <d3p1:Value i:nil="true" />
+      </d3p1:StringHolder>
+    </Value>
+  </KeyValueOfstringanyType>
+  <KeyValueOfstringanyType>
     <Key>GeneralSettings.FirstTime</Key>
     <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:boolean">false</Value>
   </KeyValueOfstringanyType>
@@ -21,6 +38,10 @@
     <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:boolean">true</Value>
   </KeyValueOfstringanyType>
   <KeyValueOfstringanyType>
+    <Key>GeneralSettings.SkipDefaultAnimation</Key>
+    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:boolean">true</Value>
+  </KeyValueOfstringanyType>
+  <KeyValueOfstringanyType>
     <Key>GeneralSettings.TrayShowDesktop</Key>
     <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:boolean">true</Value>
   </KeyValueOfstringanyType>
@@ -33,8 +54,12 @@
     <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">(none)</Value>
   </KeyValueOfstringanyType>
   <KeyValueOfstringanyType>
-    <Key>ShortcutKeySettings.MoveNewAndSwitch</Key>
+    <Key>ShortcutKeySettings.MoveNew</Key>
     <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">68,91,162,160</Value>
+  </KeyValueOfstringanyType>
+  <KeyValueOfstringanyType>
+    <Key>ShortcutKeySettings.MoveNewAndSwitch</Key>
+    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">(none)</Value>
   </KeyValueOfstringanyType>
   <KeyValueOfstringanyType>
     <Key>ShortcutKeySettings.MoveRight</Key>
@@ -45,7 +70,23 @@
     <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">(none)</Value>
   </KeyValueOfstringanyType>
   <KeyValueOfstringanyType>
+    <Key>ShortcutKeySettings.RenameCurrent</Key>
+    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">82,162,91</Value>
+  </KeyValueOfstringanyType>
+  <KeyValueOfstringanyType>
+    <Key>ShortcutKeySettings.SwapDesktopLeft</Key>
+    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">37,162,164,91</Value>
+  </KeyValueOfstringanyType>
+  <KeyValueOfstringanyType>
+    <Key>ShortcutKeySettings.SwapDesktopRight</Key>
+    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">39,164,91,162</Value>
+  </KeyValueOfstringanyType>
+  <KeyValueOfstringanyType>
     <Key>ShortcutKeySettings.TogglePin</Key>
     <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">80,91,162</Value>
+  </KeyValueOfstringanyType>
+  <KeyValueOfstringanyType>
+    <Key>ShortcutKeySettings.TogglePinApp</Key>
+    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">80,91,164,162</Value>
   </KeyValueOfstringanyType>
 </ArrayOfKeyValueOfstringanyType>

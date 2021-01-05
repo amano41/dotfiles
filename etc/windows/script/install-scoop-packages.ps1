@@ -83,7 +83,7 @@ $packages = @(
 	"rapture",
 	"registry-finder",
 	"sizer",
-	"sylphyhorn",
+	"sylphyhorn-ex",
 	"tomighty",
 	"trayvolume",
 	"tresgrep",
