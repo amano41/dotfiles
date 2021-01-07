@@ -13,6 +13,6 @@ $app = $env:USERPROFILE + '/scoop/apps/everything/' + $version + '/Everything.ex
 
 
 Stop-Service -Name "Everything"
-Stop-Process -Name "Everything" -Force 2> Out-Null
+Stop-Process -Name "Everything" -Force 2> $null
 Start-Process $app -ArgumentList "-install-service" -Wait
 Start-Process $app -ArgumentList "-start-service" -Wait
