@@ -68,9 +68,6 @@ Symlink "$dotfiles_dir\etc\powershell\Microsoft.PowerShell_profile.ps1" `
 Symlink "$dotfiles_dir\etc\powershell\Microsoft.PowerShell_profile.ps1" `
         "$env:USERPROFILE\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1"
 
-## Crevice4
-Symlink "$dotfiles_dir\etc\crevice\default.csx" "$env:USERPROFILE\Crevice4\default.csx"
-
 
 ## $APPDATA にシンボリックリンクを作成
 
