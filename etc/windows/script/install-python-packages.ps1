@@ -4,16 +4,20 @@ If (!(Get-Command -Name "pip" -ErrorAction SilentlyContinue)) {
 	Write-Error "pip not found." -ErrorAction Stop
 }
 
+function install($package) {
+	pip --disable-pip-version-check install --user --no-warn-script-location $package | Select-String 'Requirement already satisfied' -NotMatch
+}
+
 ## atom: linter-flake8
-pip install --user --no-warn-script-location flake8
-pip install --user --no-warn-script-location flake8-import-order
+install flake8
+install flake8-import-order
 
 ## atom: atom-beautify
-pip install --user --no-warn-script-location autopep8
-pip install --user --no-warn-script-location isort
+install autopep8
+install isort
 
 ## vscode: r
-pip install --user --no-warn-script-location radian
+install radian
 
 ## clibor
-pip install --user --no-warn-script-location pywin32
+install pywin32

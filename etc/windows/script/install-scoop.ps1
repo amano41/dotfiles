@@ -6,11 +6,22 @@ if (!(Get-Command -Name "scoop" -ErrorAction SilentlyContinue)) {
 }
 
 ## scoop の動作に必要な git をインストール
-scoop install git
+if (!(scoop export | Select-String "\bgit\b")) {
+	scoop install git
+}
+
+$buckets = scoop bucket list
 
 ## 公式 bucket を追加
-scoop bucket add extras
-scoop bucket add java
+if (!$buckets.Contains('extras')) {
+	scoop bucket add extras
+}
+
+if (!$buckets.Contains('java')) {
+	scoop bucket add java
+}
 
 ## 個人 bucket を追加
-scoop bucket add my https://github.com/amano41/scoop-bucket
+if (!$buckets.Contains('my')) {
+	scoop bucket add my https://github.com/amano41/scoop-bucket
+}
