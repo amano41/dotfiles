@@ -6,6 +6,16 @@
 	diff = less -FRSX
 [interactive]
 	diffFilter = cat
+[diff]
+	tool = WinMerge
+[difftool "WinMerge"]
+	cmd = WinMergeU.exe -e -r -u -x -wl -wr -dl \"a/$MERGED\" -dr \"b/$MERGED\" \"$LOCAL\" \"$REMOTE\"
+	trustExitCode = false
+[merge]
+	tool = WinMerge
+[mergetool "WinMerge"]
+	cmd = WinMergeU.exe \"$MERGED\"
+	trustExitCode = false
 [diff "pdf"]
 	binary = true
 	textconv = xdoc2txt.exe -8
