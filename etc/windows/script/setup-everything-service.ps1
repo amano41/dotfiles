@@ -8,7 +8,7 @@ if (!([Security.Principal.WindowsPrincipal]`
 Write-Host "Setting up everything service..." -ForegroundColor Magenta
 
 
-$version = scoop info everything | Select-String "Version" | % { $_.Line.Replace("Version: ", "") }
+$version = scoop info everything | Select-String "Version" | % { $_.Line.Replace("Version: ", "") -replace "\(Update to .+", "" }
 $app = $env:USERPROFILE + '/scoop/apps/everything/' + $version + '/Everything.exe'
 
 
