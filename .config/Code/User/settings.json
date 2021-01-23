@@ -108,9 +108,10 @@
   "markdown.preview.fontSize": 14,
   "material-icon-theme.saturation": 0,
   "oneDarkPro.markdownStyle": false,
+  "python.analysis.typeCheckingMode": "basic",
   "python.linting.pylintEnabled": false,
   "python.linting.flake8Enabled": true,
-  "python.languageServer": "Microsoft",
+  "python.languageServer": "Pylance",
   "r.rterm.windows": "${env:APPDATA}\\Python\\Python39\\Scripts\\radian.exe",
   "r.rterm.option": [
     "--quiet",
