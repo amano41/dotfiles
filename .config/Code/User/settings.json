@@ -35,7 +35,19 @@
   "workbench.startupEditor": "none",
   "workbench.colorTheme": "One Dark Pro",
   "workbench.colorCustomizations": {
-    "editorWhitespace.foreground": "#a9a9a960"
+    "editorWhitespace.foreground": "#a9a9a960",
+    "editor.lineHighlightBackground": "#70707020",
+    "editor.selectionBackground": "#5472d3",
+    "editor.selectionHighlightBackground": "#0d47a180",
+    "editor.selectionHighlightBorder": "#5472d3",
+    "editor.findMatchBackground": "#ffd95a",
+    "editor.findMatchBorder": "#ffd95a",
+    "editor.findMatchHighlightBackground": "#f9a82580",
+    "editor.findMatchHighlightBorder": "#ffd95a",
+    "editor.findRangeHighlightBackground": "#5472d320",
+    "minimapSlider.background": "#70707040",
+    "minimapSlider.hoverBackground": "#70707080",
+    "minimapSlider.activeBackground": "#70707080"
   },
   "editor.tokenColorCustomizations": {
     "textMateRules": [
