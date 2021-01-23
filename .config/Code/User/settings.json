@@ -8,6 +8,7 @@
   "editor.renderLineHighlight": "all",
   "editor.renderWhitespace": "all",
   "editor.occurrencesHighlight": false,
+  "editor.matchBrackets": "never",
   "editor.showFoldingControls": "always",
   "editor.accessibilitySupport": "off",
   "editor.formatOnPaste": true,
@@ -93,6 +94,14 @@
       79
     ]
   },
+  "bracket-pair-colorizer-2.highlightActiveScope": true,
+  "bracket-pair-colorizer-2.activeScopeCSS": [
+    "borderStyle : solid",
+    "borderWidth : 1px",
+    "borderColor : {color}",
+    "backgroundColor: {color}",
+    "opacity: 0.5"
+  ],
   "gitlens.defaultDateFormat": "YYYY-MM-DD hh:mm",
   "gitlens.defaultDateShortFormat": "YYYY-MM-DD",
   "markdown.preview.fontFamily": "Source Han Code JP",
