@@ -82,6 +82,10 @@
     <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">(none)</Value>
   </KeyValueOfstringanyType>
   <KeyValueOfstringanyType>
+    <Key>ShortcutKeySettings.SwitchToPrevious</Key>
+    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">40,91,162</Value>
+  </KeyValueOfstringanyType>
+  <KeyValueOfstringanyType>
     <Key>ShortcutKeySettings.TogglePin</Key>
     <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">80,91,162</Value>
   </KeyValueOfstringanyType>
