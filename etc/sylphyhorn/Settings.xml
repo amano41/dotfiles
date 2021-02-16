@@ -39,7 +39,7 @@
   </KeyValueOfstringanyType>
   <KeyValueOfstringanyType>
     <Key>GeneralSettings.SkipDefaultAnimation</Key>
-    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:boolean">true</Value>
+    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:boolean">false</Value>
   </KeyValueOfstringanyType>
   <KeyValueOfstringanyType>
     <Key>GeneralSettings.TrayShowDesktop</Key>
