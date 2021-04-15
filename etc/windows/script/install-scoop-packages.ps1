@@ -14,6 +14,9 @@ Write-Host "'main' bucket..." -ForegroundColor Yellow
 $packages = @(
 	"git",
 	"7zip",
+	"dark",
+	"innounp",
+	"lessmsi",
 	"ln",
 	"pandoc",
 	"pwsh",
@@ -24,7 +27,9 @@ $packages = @(
 	"which"
 )
 
-scoop install $packages
+foreach ($pkg in $packages) {
+	scoop install $pkg
+}
 
 
 ## extras
@@ -50,7 +55,9 @@ $packages = @(
 	"wsltty"
 )
 
-scoop install $packages
+foreach ($pkg in $packages) {
+	scoop install $pkg
+}
 
 
 ## java
@@ -61,7 +68,9 @@ $packages = @(
 	"openjdk"      ## 後からインストールした方が %JAVA_HOME% を上書きするため
 )
 
-scoop install $packages
+foreach ($pkg in $packages) {
+	scoop install $pkg
+}
 
 
 ## my
@@ -89,4 +98,6 @@ $packages = @(
 	"xdoc2txt"
 )
 
-scoop install $packages
+foreach ($pkg in $packages) {
+	scoop install $pkg
+}
