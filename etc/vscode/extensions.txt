@@ -7,7 +7,6 @@ EditorConfig.EditorConfig
 Ikuyadeu.r
 janisdd.vscode-edit-csv
 mechatroner.rainbow-csv
-mosapride.zenkaku
 ms-python.python
 ms-python.vscode-pylance
 ms-toolsai.jupyter
