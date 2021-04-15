@@ -14,7 +14,6 @@ Write-Host "'main' bucket..." -ForegroundColor Yellow
 $packages = @(
 	"git",
 	"7zip",
-	"ffmpeg",
 	"ln",
 	"pandoc",
 	"pwsh",
@@ -32,18 +31,16 @@ scoop install $packages
 Write-Host "'extras' bucket..." -ForegroundColor Yellow
 
 $packages = @(
-	"altdrag",
 	"bitwarden",
 	"ccleaner",
 	"everything",
 	"fastcopy",
-	"foxit-reader",
 	"gitkraken",
 	"greenshot",
 	"imageglass",
 	"keypirinha",
 	"mpc-be",
-	"netbeans",
+	"obsidian",
 	"quicklook",
 	"rapidee",
 	"rstudio",
