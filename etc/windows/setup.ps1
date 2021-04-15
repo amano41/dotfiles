@@ -12,7 +12,7 @@ if (!([Security.Principal.WindowsPrincipal]`
 
 
 ## カレントディレクトリを変更
-Set-Location (Split-Path -Parent $MyInvocation.MyCommand.Path)
+Push-Location (Split-Path -Parent $MyInvocation.MyCommand.Path)
 
 
 ## レジストリ操作用のヘルパー関数を読み込む
@@ -108,5 +108,5 @@ Set-Location (Split-Path -Parent $MyInvocation.MyCommand.Path)
 ####################  終了  ####################
 
 
+Pop-Location
 Write-Host "Setup Completed." -ForegroundColor Magenta
-Pause
