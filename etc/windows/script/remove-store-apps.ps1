@@ -1,5 +1,9 @@
 Write-Host "Removing Store Apps..." -ForegroundColor Magenta
 
+if ($PSVersionTable.PSVersion.Major -ge 7) {
+	Import-Module -Name Appx -UseWindowsPowerShell
+}
+
 $store_apps = @(
 	"Microsoft.3DBuilder",
 	"Microsoft.BingFinance",
