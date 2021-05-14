@@ -8,6 +8,13 @@ if (!(Get-Command -Name "scoop" -ErrorAction SilentlyContinue)) {
 scoop update
 
 
+## インストール済みのパッケージ
+$installed = @()
+foreach ($pkg in (scoop export)) {
+	$installed += ($pkg -split " ")[0]
+}
+
+
 ## main
 Write-Host "'main' bucket..." -ForegroundColor Yellow
 
@@ -28,7 +35,9 @@ $packages = @(
 )
 
 foreach ($pkg in $packages) {
-	scoop install $pkg
+	if (!($installed -contains $pkg)) {
+		scoop install $pkg
+	}
 }
 
 
@@ -56,7 +65,9 @@ $packages = @(
 )
 
 foreach ($pkg in $packages) {
-	scoop install $pkg
+	if (!($installed -contains $pkg)) {
+		scoop install $pkg
+	}
 }
 
 
@@ -69,7 +80,9 @@ $packages = @(
 )
 
 foreach ($pkg in $packages) {
-	scoop install $pkg
+	if (!($installed -contains $pkg)) {
+		scoop install $pkg
+	}
 }
 
 
@@ -99,5 +112,7 @@ $packages = @(
 )
 
 foreach ($pkg in $packages) {
-	scoop install $pkg
+	if (!($installed -contains $pkg)) {
+		scoop install $pkg
+	}
 }
