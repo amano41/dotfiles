@@ -1,3 +1,4 @@
+## 管理者権限のチェック
 if (!([Security.Principal.WindowsPrincipal]`
       [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole(`
       [Security.Principal.WindowsBuiltInRole] "Administrator")) {
@@ -5,33 +6,64 @@ if (!([Security.Principal.WindowsPrincipal]`
 }
 
 
-$url = "https://github.com/amano41/dotfiles/archive/refs/heads/master.zip"
-$downloads = Join-Path $env:USERPROFILE "Downloads"
-$zip = Join-Path $downloads "dotfiles.zip"
+$dotfiles = Join-Path $env:USERPROFILE "dotfiles"
 
-Write-Host "Downloading $url to $zip"
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-Invoke-WebRequest -Uri $url -OutFile $zip
-
-
-$unzip = Join-Path $downloads "dotfiles"
-
-if (Test-Path $unzip) {
-	Remove-Item -Recurse -Path $unzip
+if (Test-Path $dotfiles) {
+	Remove-Item -Recurse -Path $dotfiles
 }
 
-Write-Host "Expanding $zip"
-Expand-Archive -Path $zip
+
+if (Get-Command -Name "git" -ErrorAction SilentlyContinue) {
+
+	$url = "https://github.com/amano41/dotfiles.git"
+	git clone -c core.autocrlf=false $url $dotfiles
+
+}
+else {
+
+	$downloads = Join-Path $env:USERPROFILE "Downloads"
 
 
-$src = Join-Path $unzip "dotfiles-master"
-$dest = Join-Path $env:USERPROFILE "dotfiles"
+	## ダウンロード
 
-Write-Host "Coping $src to $dest"
-Copy-Item -Recurse -Path $src -Destination $dest
+	$url = "https://github.com/amano41/dotfiles/archive/refs/heads/master.zip"
+	$zip = Join-Path $downloads "dotfiles.zip"
+
+	Write-Host "Downloading $url to $zip" -ForegroundColor Magenta
+	[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+	Invoke-WebRequest -Uri $url -OutFile $zip
 
 
-Push-Location $dest
+	## 展開
+
+	$unzip = Join-Path $downloads "dotfiles"
+
+	if (Test-Path $unzip) {
+		Remove-Item -Recurse -Path $unzip
+	}
+
+	Write-Host "Expanding $zip" -ForegroundColor Magenta
+	Expand-Archive -Path $zip
+
+
+	## USERPROFILE にコピー
+
+	$src = Join-Path $unzip "dotfiles-master"
+
+	Write-Host "Coping $src to $dotfiles" -ForegroundColor Magenta
+	Copy-Item -Recurse -Path $src -Destination $dotfiles
+
+
+	## 後片付け
+
+	Remove-Item -Recurse -Path $unzip
+	Remove-Item -Path $zip
+}
+
+
+Push-Location $dotfiles
+
 . ".\etc\windows\setup.ps1"
 . ".\install.ps1"
+
 Pop-Location
