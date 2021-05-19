@@ -4,12 +4,22 @@ Write-Host "Setting Environment Variables..." -ForegroundColor Magenta
 [Environment]::SetEnvironmentVariable("HOME", $env:USERPROFILE, "User")
 
 ## PATH
-$path = [Environment]::GetEnvironmentVariable("PATH", "User")
-$path = "$env:APPDATA\Python\Python39\Scripts;" + $path
-$path = "$env:USERPROFILE\OneDrive\bin;" + $path
-$path = "$env:USERPROFILE\dotfiles\bin;" + $path
-$path = "$env:USERPROFILE\dotfiles\bin\windows;" + $path
-$path = "$env:USERPROFILE\bin;" + $path
+$path = @()
+$path += "$env:USERPROFILE\bin"
+$path += "$env:USERPROFILE\dotfiles\bin\windows"
+$path += "$env:USERPROFILE\dotfiles\bin"
+$path += "$env:USERPROFILE\OneDrive\bin"
+$path += "$env:APPDATA\Python\Python39\Scripts"
+
+$path_user = [Environment]::GetEnvironmentVariable("PATH", "User")
+$path_user -split ';' | ForEach-Object {
+	$_ = $_.trim()
+	if (!($path -contains $_)) {
+		$path += $_
+	}
+}
+
+$path = $path -join ";"
 [Environment]::SetEnvironmentVariable("PATH", $path, "User")
 
 ## TEMP
