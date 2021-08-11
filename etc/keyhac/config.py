@@ -188,11 +188,11 @@ def configure(keymap):
 
         return _move_window
 
-    # Win+Alt+Shift+LRUD でウィンドウを移動
-    keymap_global["W-A-S-Left"] = move_window_command(-16, 0)
-    keymap_global["W-A-S-Right"] = move_window_command(16, 0)
-    keymap_global["W-A-S-Up"] = move_window_command(0, -16)
-    keymap_global["W-A-S-Down"] = move_window_command(0, 16)
+    # Win+Alt+LRUD でウィンドウを移動
+    keymap_global["W-A-Left"] = move_window_command(-16, 0)
+    keymap_global["W-A-Right"] = move_window_command(16, 0)
+    keymap_global["W-A-Up"] = move_window_command(0, -16)
+    keymap_global["W-A-Down"] = move_window_command(0, 16)
 
     # -------------------------------------------------------------------------
     #  ウィンドウのリサイズ
@@ -220,11 +220,11 @@ def configure(keymap):
 
         return _resize_window
 
-    # Win+Alt+LRUD でウィンドウのサイズを変更
-    keymap_global["W-A-Left"] = resize_window_command(-16, 0)
-    keymap_global["W-A-Right"] = resize_window_command(16, 0)
-    keymap_global["W-A-Up"] = resize_window_command(0, -16)
-    keymap_global["W-A-Down"] = resize_window_command(0, 16)
+    # Win+Alt+Shift+LRUD でウィンドウのサイズを変更
+    keymap_global["W-A-S-Left"] = resize_window_command(-16, 0)
+    keymap_global["W-A-S-Right"] = resize_window_command(16, 0)
+    keymap_global["W-A-S-Up"] = resize_window_command(0, -16)
+    keymap_global["W-A-S-Down"] = resize_window_command(0, 16)
 
     # -------------------------------------------------------------------------
     #  ウィンドウの整列
@@ -350,6 +350,11 @@ def configure(keymap):
         if w is not None and w.isMaximized():
             w.restore()
 
+    def cascade_windows():
+        # タスクバーの右クリックメニューで「重ねて表示」を実行
+        keymap.InputKeyCommand("W-B", "S-F10", "D")()
+        keymap.delayedCall(keymap.InputKeyCommand("A-Esc"), 100)
+
     # 縦方向のスナップ
     keymap_global["W-Up"] = upper_half_window
     keymap_global["W-Down"] = lower_half_window
@@ -360,17 +365,6 @@ def configure(keymap):
 
     # 元に戻す
     keymap_global["W-End"] = restore_window
-
-    def cascade_windows():
-        # タスクバーの右クリックメニューで「重ねて表示」を実行
-        keymap.InputKeyCommand("W-B", "S-F10", "D")()
-        keymap.delayedCall(keymap.InputKeyCommand("A-Esc"), 100)
-
-    # 重ねて表示
-    keymap_global["W-S-Home"] = cascade_windows
-
-    # アクティブウィンドウ以外を最小化
-    keymap_global["W-C-Down"] = "W-Home"
 
     # -------------------------------------------------------------------------
     #  仮想デスクトップ
