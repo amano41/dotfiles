@@ -92,7 +92,7 @@ Write-Host "'my' bucket..." -ForegroundColor Yellow
 $packages = @(
 	"bunbackup",
 	"cassava",
-	"clibor",
+	"clipboard-history",
 	"hiddex",
 	"keyhac",
 	"massigra",
