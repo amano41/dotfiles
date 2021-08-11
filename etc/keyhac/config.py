@@ -87,32 +87,6 @@ def configure(keymap):
     #  クリップボードの操作
     # -------------------------------------------------------------------------
 
-    def clibor_command(param, message=None):
-        def _command():
-            clibor = scoop_app("Clibor.exe")
-            if message is not None:
-                keymap.popBalloon("clibor", message, 500)
-            keymap.ShellExecuteCommand(None, clibor, param, "")()
-        return _command
-
-    def clibor_mode_command(param, message=None):
-        def _command():
-            w = keymap.getTopLevelWindow()
-            c = keymap.ActivateWindowCommand(check_func=lambda x: x is w)
-            clibor_command(param, message)()
-            keymap.delayedCall(c, 100)
-        return _command
-
-    # クリップボード履歴
-    keymap_global["W-V"] = clibor_command("/vc")
-
-    # 常に表示するの切り替え
-    keymap_global["W-A-V"] = clibor_command("/fr")
-
-    # FIFO/LIFO モードの切り替え
-    keymap_global["W-C"] = clibor_mode_command("/ff", "FIFO")
-    keymap_global["W-A-C"] = clibor_mode_command("/lf", "LIFO")
-
     def paste_plain():
         txt = getClipboardText()
         if txt:
@@ -121,6 +95,34 @@ def configure(keymap):
 
     # 書式なしで貼り付け
     keymap_global["C-S-V"] = paste_plain
+
+    if 0:
+
+        def clibor_command(param, message=None):
+            def _command():
+                clibor = scoop_app("Clibor.exe")
+                if message is not None:
+                    keymap.popBalloon("clibor", message, 500)
+                keymap.ShellExecuteCommand(None, clibor, param, "")()
+            return _command
+
+        def clibor_mode_command(param, message=None):
+            def _command():
+                w = keymap.getTopLevelWindow()
+                c = keymap.ActivateWindowCommand(check_func=lambda x: x is w)
+                clibor_command(param, message)()
+                keymap.delayedCall(c, 100)
+            return _command
+
+        # クリップボード履歴
+        keymap_global["W-V"] = clibor_command("/vc")
+
+        # 常に表示するの切り替え
+        keymap_global["W-A-V"] = clibor_command("/fr")
+
+        # FIFO/LIFO モードの切り替え
+        keymap_global["W-C"] = clibor_mode_command("/ff", "FIFO")
+        keymap_global["W-A-C"] = clibor_mode_command("/lf", "LIFO")
 
     # -------------------------------------------------------------------------
     #  ウィンドウの切り替え
