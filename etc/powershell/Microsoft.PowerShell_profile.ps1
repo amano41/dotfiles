@@ -1,5 +1,36 @@
 Invoke-Expression (&starship init powershell)
 
+# Emacs モード
+Set-PSReadLineOption -EditMode Emacs
+
+# 履歴を重複させない
+Set-PSReadlineOption -HistoryNoDuplicates
+
+# 履歴に残さないコマンドを指定
+Set-PSReadlineOption -AddToHistoryHandler {
+	param ([string]$command)
+
+	# 3 文字未満のコマンドは履歴に残さない
+	if ($command.length -lt 3) {
+		return $False
+	}
+
+	# 再利用しないコマンドは履歴に残さない
+	$disabled = "exit|help|history|cd|ls|dir"
+	return ($command -notmatch "^($disabled)$")
+}
+
+# 履歴からサジェストを表示
+Set-PSReadLineOption -PredictionSource History
+
+# 履歴の検索を有効化
+Set-PSReadLineOption -HistorySearchCursorMovesToEnd
+Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
+Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
+
+# 単語境界を日本語に対応させる
+Set-PSReadLineOption -WordDelimiters ";:,.[]{}()/\|^&*-=+'`" !?@#$%&_<>「」（）『』『』［］、，。：；／"
+
 # 管理者権限があるかチェックする関数
 function Test-Privilege {
 	return ([Security.Principal.WindowsPrincipal]`
