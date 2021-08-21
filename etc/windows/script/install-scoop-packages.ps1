@@ -19,9 +19,10 @@ foreach ($pkg in (scoop export)) {
 Write-Host "'main' bucket..." -ForegroundColor Yellow
 
 $packages = @(
-	"git",
 	"7zip",
 	"dark",
+	"git",
+	"gsudo",
 	"innounp",
 	"lessmsi",
 	"ln",
@@ -30,7 +31,6 @@ $packages = @(
 	"python",
 	"r",
 	"starship",
-	"sudo",
 	"which"
 )
 
