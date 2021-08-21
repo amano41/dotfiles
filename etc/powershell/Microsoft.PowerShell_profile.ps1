@@ -1,4 +1,6 @@
-Invoke-Expression (&starship init powershell)
+##################################################
+# PSReadLine
+##################################################
 
 # Emacs モード
 Set-PSReadLineOption -EditMode Emacs
@@ -30,6 +32,11 @@ Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
 
 # 単語境界を日本語に対応させる
 Set-PSReadLineOption -WordDelimiters ";:,.[]{}()/\|^&*-=+'`" !?@#$%&_<>「」（）『』『』［］、，。：；／"
+
+
+##################################################
+# ヘルパー関数
+##################################################
 
 # 管理者権限があるかチェックする関数
 function Test-Privilege {
@@ -87,3 +94,10 @@ function Create-Shortcut($src, $dest, $opts="") {
 	$lnk.Arguments = $opts
 	$lnk.Save()
 }
+
+
+##################################################
+# Starship
+##################################################
+
+Invoke-Expression (&starship init powershell)
