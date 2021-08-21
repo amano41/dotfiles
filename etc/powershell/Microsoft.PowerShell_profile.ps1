@@ -97,6 +97,14 @@ function Create-Shortcut($src, $dest, $opts="") {
 
 
 ##################################################
+# エイリアス
+##################################################
+
+Set-Alias -Name pbcopy -Value Set-Clipboard
+Set-Alias -Name pbpaste -Value Get-Clipboard
+
+
+##################################################
 # WslInterop
 ##################################################
 
