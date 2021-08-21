@@ -109,7 +109,7 @@ Import-WslCommand "apt", "awk", "grep", "head", "less", "ls", "man", "sed", "seq
 $WslDefaultParameterValues = @{}
 $WslDefaultParameterValues["grep"] = "--color"
 $WslDefaultParameterValues["less"] = "-iJMRW -z-4 -#4 -x4"
-$WslDefaultParameterValues["ls"] = "-FH --color --group-directories-first --show-control-chars --time-style=`"+%Y-%m-%d %H:%M:%S`""
+$WslDefaultParameterValues["ls"] = "-FH --color=auto --group-directories-first --show-control-chars --time-style=`"+%Y-%m-%d %H:%M:%S`""
 
 # 環境変数
 $WslEnvironmentVariables = @{}
