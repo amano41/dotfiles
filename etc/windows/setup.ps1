@@ -94,6 +94,10 @@ Push-Location (Split-Path -Parent $MyInvocation.MyCommand.Path)
 . "./script/set-environment-variables.ps1"
 
 
+## PowerShell モジュールのインストール
+. "./script/install-powershell-modules.ps1"
+
+
 ## scoop のセットアップ
 . "./script/install-scoop.ps1"
 . "./script/install-scoop-packages.ps1"
