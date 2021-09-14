@@ -10,3 +10,6 @@ style = "bold yellow"
 
 [cmd_duration]
 disabled = true
+
+[rlang]
+detect_files = []
