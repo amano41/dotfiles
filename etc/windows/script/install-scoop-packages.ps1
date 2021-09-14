@@ -62,6 +62,7 @@ $packages = @(
 	"rstudio",
 	"shiba",
 	"sumatrapdf",
+	"windows-terminal",
 	"winscp",
 	"wsltty"
 )

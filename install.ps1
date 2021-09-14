@@ -80,7 +80,8 @@ Symlink "$dotfiles_dir\.config\Code\User" "$env:APPDATA\Code\User"
 
 ## Windows Terminal
 Symlink "$dotfiles_dir\etc\windows-terminal\settings.json" `
-        "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
+        "$env:LOCALAPPDATA\Microsoft\Windows Terminal\"
+
 
 ## SylphyHorn
 Symlink "$dotfiles_dir\etc\sylphyhorn\Settings.xml" `
