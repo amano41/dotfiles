@@ -135,6 +135,13 @@
   "markdown.preview.fontSize": 14,
   "material-icon-theme.saturation": 0,
   "oneDarkPro.markdownStyle": false,
+  "powershell.powerShellDefaultVersion": "PowerShell Core",
+  "powershell.powerShellAdditionalExePaths": [
+    {
+      "exePath": "${env:USERPROFILE}\\scoop\\apps\\pwsh\\current\\pwsh.exe",
+      "versionName": "PowerShell Core"
+    }
+  ],
   "python.analysis.typeCheckingMode": "basic",
   "python.linting.pylintEnabled": false,
   "python.linting.flake8Enabled": true,
