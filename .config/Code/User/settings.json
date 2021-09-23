@@ -83,7 +83,32 @@
   "window.restoreWindows": "none",
   "window.title": "${dirty}${activeEditorMedium}${separator}${rootName}",
   "window.zoomLevel": 1,
-  "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\wsl.exe",
+  "terminal.integrated.defaultProfile.windows": "PowerShell Core",
+  "terminal.integrated.profiles.windows": {
+    "PowerShell Core": {
+      "path": "${env:USERPROFILE}\\scoop\\apps\\pwsh\\current\\pwsh.exe",
+      "args": [
+        "-NoLogo"
+      ],
+      "overrideName": true,
+      "icon": "terminal-powershell"
+    },
+    "PowerShell": {
+      "source": "PowerShell",
+      "icon": "terminal-powershell"
+    },
+    "Command Prompt": {
+      "path": [
+        "${env:windir}\\Sysnative\\cmd.exe",
+        "${env:windir}\\System32\\cmd.exe"
+      ],
+      "args": [],
+      "icon": "terminal-cmd"
+    },
+    "Git Bash": {
+      "source": "Git Bash"
+    }
+  },
   "terminal.integrated.fontFamily": "HackGenNerd Console",
   "terminal.integrated.fontSize": 14,
   "telemetry.enableCrashReporter": false,
