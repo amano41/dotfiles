@@ -135,6 +135,9 @@
     "backgroundColor: {color}",
     "opacity: 0.5"
   ],
+  "code-eol.newlineCharacter": "↓",
+  "code-eol.returnCharacter": "←",
+  "code-eol.crlfCharacter": "↵",
   "gitlens.defaultDateFormat": "YYYY-MM-DD hh:mm",
   "gitlens.defaultDateShortFormat": "YYYY-MM-DD",
   "markdown.preview.fontFamily": "HackGen",
