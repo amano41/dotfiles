@@ -56,7 +56,11 @@ foreach ($name in $dotfiles) {
 }
 
 ## OS ごとの .gitconfig
-Symlink "$dotfiles_dir\.gitconfig.windows" "$env:USERPROFILE\.gitconfig.os"
+Symlink "$dotfiles_dir\.gitconfig.windows"
+        "$env:USERPROFILE\.gitconfig.os"
+
+
+## $USERPROFILE/Documents にシンボリックリンクを作成
 
 ## PowerShell Core
 Symlink "$dotfiles_dir\etc\powershell\Microsoft.PowerShell_profile.ps1" `
@@ -82,7 +86,6 @@ Symlink "$dotfiles_dir\.config\Code\User" "$env:APPDATA\Code\User"
 Symlink "$dotfiles_dir\etc\windows-terminal\settings.json" `
         "$env:LOCALAPPDATA\Microsoft\Windows Terminal\"
 
-
 ## SylphyHorn
 Symlink "$dotfiles_dir\etc\sylphyhorn\Settings.xml" `
         "$env:LOCALAPPDATA\grabacr.net\SylphyHorn\Settings.xml"
@@ -93,7 +96,9 @@ Symlink "$dotfiles_dir\etc\sylphyhorn\Settings.xml" `
 $scoop_dir = "$env:USERPROFILE\scoop\persist"
 
 ## keyhac
-Symlink "$dotfiles_dir\etc\keyhac\config.py" "$scoop_dir\keyhac\config.py"
+Symlink "$dotfiles_dir\etc\keyhac\config.py"
+        "$scoop_dir\keyhac\config.py"
 
 ## keypirinha
-Symlink "$dotfiles_dir\etc\keypirinha\User" "$scoop_dir\keypirinha\portable\Profile\User"
+Symlink "$dotfiles_dir\etc\keypirinha\User"
+        "$scoop_dir\keypirinha\portable\Profile\User"
