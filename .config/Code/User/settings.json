@@ -30,29 +30,28 @@
   "files.trimTrailingWhitespace": true,
   "files.exclude": {
     "**/.vscode": true,
-    "**/.git": true,
     "**/.venv": true,
     "**/.Rproj.user": true
   },
-  "breadcrumbs.enabled": false,
+  "breadcrumbs.enabled": true,
   "workbench.startupEditor": "none",
   "workbench.colorTheme": "Night Owl",
   "workbench.colorCustomizations": {
     "[One Dark Pro]": {
-    "editorWhitespace.foreground": "#a9a9a960",
-    "editor.lineHighlightBackground": "#70707020",
-    "editor.selectionBackground": "#5472d3",
-    "editor.selectionHighlightBackground": "#0d47a180",
-    "editor.selectionHighlightBorder": "#5472d3",
-    "editor.findMatchBackground": "#ffd95a",
-    "editor.findMatchBorder": "#ffd95a",
-    "editor.findMatchHighlightBackground": "#f9a82580",
-    "editor.findMatchHighlightBorder": "#ffd95a",
-    "editor.findRangeHighlightBackground": "#5472d320",
-    "minimapSlider.background": "#70707040",
-    "minimapSlider.hoverBackground": "#70707080",
-    "minimapSlider.activeBackground": "#70707080"
-  },
+      "editorWhitespace.foreground": "#a9a9a960",
+      "editor.lineHighlightBackground": "#70707020",
+      "editor.selectionBackground": "#5472d3",
+      "editor.selectionHighlightBackground": "#0d47a180",
+      "editor.selectionHighlightBorder": "#5472d3",
+      "editor.findMatchBackground": "#ffd95a",
+      "editor.findMatchBorder": "#ffd95a",
+      "editor.findMatchHighlightBackground": "#f9a82580",
+      "editor.findMatchHighlightBorder": "#ffd95a",
+      "editor.findRangeHighlightBackground": "#5472d320",
+      "minimapSlider.background": "#70707040",
+      "minimapSlider.hoverBackground": "#70707080",
+      "minimapSlider.activeBackground": "#70707080"
+    },
   },
   "editor.tokenColorCustomizations": {
     "textMateRules": [
@@ -81,7 +80,6 @@
     ]
   },
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.statusBar.feedback.visible": false,
   "window.restoreWindows": "none",
   "window.title": "${dirty}${activeEditorMedium}${separator}${rootName}",
   "window.zoomLevel": 1,
@@ -138,6 +136,7 @@
   "code-eol.newlineCharacter": "↓",
   "code-eol.returnCharacter": "←",
   "code-eol.crlfCharacter": "↵",
+  "git.autofetch": true,
   "gitlens.defaultDateFormat": "YYYY-MM-DD hh:mm",
   "gitlens.defaultDateShortFormat": "YYYY-MM-DD",
   "markdown.preview.fontFamily": "HackGen",
@@ -174,5 +173,5 @@
   "r.bracketedPaste": true,
   "r.sessionWatcher": true,
   "r.lsp.debug": true,
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue"
 }
