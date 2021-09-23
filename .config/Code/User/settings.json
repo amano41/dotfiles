@@ -34,8 +34,9 @@
   },
   "breadcrumbs.enabled": false,
   "workbench.startupEditor": "none",
-  "workbench.colorTheme": "One Dark Pro",
+  "workbench.colorTheme": "Night Owl",
   "workbench.colorCustomizations": {
+    "[One Dark Pro]": {
     "editorWhitespace.foreground": "#a9a9a960",
     "editor.lineHighlightBackground": "#70707020",
     "editor.selectionBackground": "#5472d3",
@@ -49,6 +50,7 @@
     "minimapSlider.background": "#70707040",
     "minimapSlider.hoverBackground": "#70707080",
     "minimapSlider.activeBackground": "#70707080"
+  },
   },
   "editor.tokenColorCustomizations": {
     "textMateRules": [
