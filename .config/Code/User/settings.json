@@ -118,8 +118,12 @@
   },
   "[python]": {
     "editor.rulers": [
-      79
-    ]
+      79,
+      119
+    ],
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    }
   },
   "bracket-pair-colorizer-2.highlightActiveScope": true,
   "bracket-pair-colorizer-2.activeScopeCSS": [
@@ -142,10 +146,20 @@
       "versionName": "PowerShell Core"
     }
   ],
+  "python.languageServer": "Pylance",
   "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.completeFunctionParens": true,
+  "python.autoComplete.addBrackets": true,
   "python.linting.pylintEnabled": false,
   "python.linting.flake8Enabled": true,
-  "python.languageServer": "Pylance",
+  "python.linting.flake8Args": [
+    "--max-line-length=119"
+  ],
+  "python.formatting.autopep8Args": [
+    "--max-line-length=119",
+    "--aggressive",
+    "--aggressive"
+  ],
   "r.rterm.windows": "${env:APPDATA}\\Python\\Python39\\Scripts\\radian.exe",
   "r.rterm.option": [
     "--quiet",
