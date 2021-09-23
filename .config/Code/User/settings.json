@@ -8,7 +8,7 @@
   "editor.renderLineHighlight": "all",
   "editor.renderWhitespace": "all",
   "editor.occurrencesHighlight": false,
-  "editor.matchBrackets": "never",
+  "editor.bracketPairColorization.enabled": true,
   "editor.showFoldingControls": "always",
   "editor.accessibilitySupport": "off",
   "editor.formatOnPaste": true,
