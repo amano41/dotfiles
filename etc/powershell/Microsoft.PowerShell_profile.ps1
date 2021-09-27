@@ -109,13 +109,29 @@ Set-Alias -Name pbpaste -Value Get-Clipboard
 
 
 ##################################################
+# uutils/coreutils
+##################################################
+
+@(
+	"cat", "cp", "cut", "date", "echo", "head", "mkdir", "mktemp", "mv", "printenv",
+	"pwd", "rm", "rmdir", "seq", "tac",	"tail", "touch", "tr", "uniq", "wc"
+) | ForEach-Object {
+	$cmd = $_
+	if (Test-Path -Path Alias:$cmd) {
+		Remove-Item -Path Alias:$cmd
+	}
+	Invoke-Expression "function global:$cmd() { `$input | uutils $cmd `$args }"
+}
+
+
+##################################################
 # WslInterop
 ##################################################
 
 Import-Module WslInterop
 
 # コマンドの読み込み
-Import-WslCommand "apt", "awk", "grep", "head", "less", "ls", "man", "sed", "seq", "ssh", "sudo", "tail"
+Import-WslCommand "apt", "awk", "grep", "less", "ls", "man", "sed", "ssh", "sudo"
 
 # コマンドのデフォルト引数
 $WslDefaultParameterValues = @{}

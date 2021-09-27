@@ -31,6 +31,7 @@ $packages = @(
 	"python",
 	"r",
 	"starship",
+	"uutils-coreutils",
 	"which"
 )
 
