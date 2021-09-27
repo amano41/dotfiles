@@ -19,6 +19,9 @@ $env:LS_OPTIONS = "-FH --color=auto --group-directories-first --show-control-cha
 # Emacs モード
 Set-PSReadLineOption -EditMode Emacs
 
+# ベル音を鳴らさない
+Set-PSReadLineOption -BellStyle Visual
+
 # 履歴を重複させない
 Set-PSReadlineOption -HistoryNoDuplicates
 
