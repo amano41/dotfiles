@@ -45,6 +45,7 @@
 	renames = true
 	indentHeuristic = true
 	algorithm = histogram
+	colorMoved = dimmed-zebra
 [difftool]
 	prompt = false
 [mergetool]
