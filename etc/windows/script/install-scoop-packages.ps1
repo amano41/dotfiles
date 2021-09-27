@@ -20,19 +20,29 @@ Write-Host "'main' bucket..." -ForegroundColor Yellow
 
 $packages = @(
 	"7zip",
+	"bat",
 	"dark",
+	"delta",
+	"fd",
+	"fzf",
 	"git",
 	"gsudo",
 	"innounp",
+	"less",
 	"lessmsi",
 	"ln",
+	"lsd",
 	"pandoc",
 	"pwsh",
 	"python",
 	"r",
+	"ripgrep",
+	"sd",
 	"starship",
+	"tldr",
 	"uutils-coreutils",
-	"which"
+	"which",
+	"zoxide"
 )
 
 foreach ($pkg in $packages) {
