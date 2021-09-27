@@ -11,6 +11,10 @@ $env:LESS = "-iMR -z-4 -#4 -x4"
 
 $env:LS_OPTIONS = "-FH --color=auto --group-directories-first --show-control-chars --time-style=`"+%Y-%m-%d %H:%M:%S`""
 
+$env:PYTHONUTF8 = 1
+$env:PYTHONDONTWRITEBYTECODE = 1
+$env:PIPENV_VENV_IN_PROJECT = 1
+
 
 ##################################################
 # PSReadLine
