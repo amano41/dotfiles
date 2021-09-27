@@ -1,11 +1,17 @@
 [core]
 	editor = Mery.exe //sp
-[pager]
-	log = less -FRSX
-	show = less -FRSX
-	diff = less -FRSX
+	pager = delta --pager='less -FRX'
 [interactive]
-	diffFilter = cat
+	diffFilter = delta --color-only
+[delta]
+	keep-plus-minus-markers = true
+	line-numbers = true
+	navigate = true
+	plus-style = syntax auto
+	plus-emph-style = syntax auto
+	minus-style = syntax auto
+	minus-emph-style = syntax auto
+	syntax-theme = Monokai Extended
 [diff]
 	tool = WinMerge
 [difftool "WinMerge"]

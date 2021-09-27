@@ -1,3 +1,7 @@
+[core]
+	pager = diff-highlight | less -FRX
+[interactive]
+	diffFilter = diff-highlight
 [diff]
 	tool = WinMerge
 [difftool "WinMerge"]
