@@ -152,6 +152,7 @@
       "versionName": "PowerShell Core"
     }
   ],
+  "powershell.integratedConsole.showOnStartup": false,
   "python.languageServer": "Pylance",
   "python.analysis.typeCheckingMode": "basic",
   "python.analysis.completeFunctionParens": true,
