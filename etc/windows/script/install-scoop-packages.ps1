@@ -68,6 +68,7 @@ $packages = @(
 	"mpc-be",
 	"obs-studio",
 	"obsidian",
+	"posh-git",
 	"quicklook",
 	"rapidee",
 	"rstudio",
