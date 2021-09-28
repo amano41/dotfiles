@@ -179,6 +179,15 @@ function global:tree() { lsd --tree $args }
 Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t'
 Set-PsFzfOption -PSReadlineChordReverseHistory 'Ctrl+r'
 
+$env:FZF_DEFAULT_COMMAND = "fd --type f"
+$env:FZF_DEFAULT_OPTS = "--height 40% --reverse --border"
+
+$env:FZF_CTRL_T_COMMAND = "fd --type f --hidden --follow --exclude .git"
+$env:FZF_CTRL_T_OPTS = "--preview `"bat --color=always --style=numbers --line-range=:100 {}`""
+
+$env:FZF_ALT_C_COMMAND = "fd --type d"
+$env:FZF_ALT_C_OPTS = "--preview `"lsd -A --icon=never --color=always --group-dirs=first {}`""
+
 
 ##################################################
 # zoxide
