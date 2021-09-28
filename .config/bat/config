@@ -1,0 +1,4 @@
+--theme="Monokai Extended"
+--map-syntax=".bashrc.*:Bourne Again Shell (bash)"
+--map-syntax=".gitconfig.*:Git Config"
+--map-syntax="*.Rmd:Markdown"

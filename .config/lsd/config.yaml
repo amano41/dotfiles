@@ -1,0 +1,15 @@
+blocks:
+  - permission
+  - size
+  - date
+  - name
+date: "+%Y-%m-%d %H:%M:%S"
+icons:
+  when: never
+ignore-globs:
+  - .git
+  - .venv
+  - .Rproj.user
+indicators: true
+sorting:
+  dir-grouping: first

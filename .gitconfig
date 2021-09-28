@@ -3,7 +3,7 @@
 	quotepath = false
 	whitespace = cr-at-eol
 	editor = vim -c 'set fenc=utf-8'
-	pager = less -FRSX
+	pager = less -FRX
 [color]
 	ui = auto
 [color "branch"]
@@ -34,12 +34,6 @@
 [stash]
 	showStat = false
 	showPatch = true
-[pager]
-	log = diff-highlight | less -FRSX
-	show = diff-highlight | less -FRSX
-	diff = diff-highlight | less -FRSX
-[interactive]
-	diffFilter = diff-highlight
 [status]
 	showUntrackedFiles = all
 [log]
@@ -51,6 +45,7 @@
 	renames = true
 	indentHeuristic = true
 	algorithm = histogram
+	colorMoved = dimmed-zebra
 [difftool]
 	prompt = false
 [mergetool]

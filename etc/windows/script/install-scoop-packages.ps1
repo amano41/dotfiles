@@ -20,18 +20,29 @@ Write-Host "'main' bucket..." -ForegroundColor Yellow
 
 $packages = @(
 	"7zip",
+	"bat",
 	"dark",
+	"delta",
+	"fd",
+	"fzf",
 	"git",
 	"gsudo",
 	"innounp",
+	"less",
 	"lessmsi",
 	"ln",
+	"lsd",
 	"pandoc",
 	"pwsh",
 	"python",
 	"r",
+	"ripgrep",
+	"sd",
 	"starship",
-	"which"
+	"tldr",
+	"uutils-coreutils",
+	"which",
+	"zoxide"
 )
 
 foreach ($pkg in $packages) {
@@ -57,6 +68,7 @@ $packages = @(
 	"mpc-be",
 	"obs-studio",
 	"obsidian",
+	"posh-git",
 	"quicklook",
 	"rapidee",
 	"rstudio",

@@ -79,6 +79,12 @@ Symlink "$dotfiles_dir\.minttyrc" "$env:APPDATA\wsltty\config"
 ## VSCode
 Symlink "$dotfiles_dir\.config\Code\User" "$env:APPDATA\Code\User"
 
+## bat
+Symlink "$dotfiles_dir\.config\bat\config" "$env:APPDATA\bat\config"
+
+## lsd
+Symlink "$dotfiles_dir\.config\lsd\config.yaml" "$env:APPDATA\lsd\config.yaml"
+
 
 ## $LOCALAPPDATA にシンボリックリンクを作成
 

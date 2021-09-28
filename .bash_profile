@@ -58,7 +58,7 @@ fi
 
 
 ## less でシンタックスハイライト
-export LESS='-iJMRW -z-4 -#4 -x4'
+export LESS='-iMR -z-4 -#4 -x4'
 export LESSOPEN='| src-hilite-lesspipe.sh %s'
 
 
