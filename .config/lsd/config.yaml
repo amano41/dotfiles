@@ -9,6 +9,7 @@ icons:
 ignore-globs:
   - .git
   - .venv
+  - .vscode
   - .Rproj.user
 indicators: true
 sorting:
