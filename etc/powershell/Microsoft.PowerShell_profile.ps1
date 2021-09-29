@@ -106,7 +106,7 @@ function SafeCopy($src, $dest) {
 }
 
 # ショートカットを作成する関数
-function Create-Shortcut($src, $dest, $opts = "") {
+function New-Shortcut($src, $dest, $opts = "") {
 	$wsh = New-Object -ComObject WScript.Shell
 	$lnk = $wsh.CreateShortcut($dest)
 	$lnk.TargetPath = $src
