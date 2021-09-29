@@ -128,8 +128,9 @@ Set-Alias -Name pbpaste -Value Get-Clipboard
 ##################################################
 
 @(
-	"cat", "cp", "cut", "date", "echo", "head", "mkdir", "mktemp", "mv", "printenv",
-	"pwd", "rm", "rmdir", "seq", "tac",	"tail", "touch", "tr", "uniq", "wc"
+	"cat", "cp", "cut", "date", "echo", "head", "join", "mkdir", "mktemp", "mv",
+	"paste", "printenv", "pwd", "rm", "rmdir", "seq", "tac", "tail", "touch", "tr",
+	"uniq", "wc"
 ) | ForEach-Object {
 	$cmd = $_
 	if (Test-Path -Path Alias:$cmd) {
