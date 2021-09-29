@@ -136,7 +136,7 @@ Set-Alias -Name pbpaste -Value Get-Clipboard
 	if (Test-Path -Path Alias:$cmd) {
 		Remove-Item -Path Alias:$cmd
 	}
-	Invoke-Expression "function global:$cmd() { `$input | uutils $cmd `$args }"
+	Invoke-Expression "function $cmd() { `$input | uutils $cmd `$args }"
 }
 
 
@@ -164,12 +164,12 @@ $WslEnvironmentVariables["LS_COLORS"] = "rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:s
 
 Set-Alias -Name cat -Value bat -Force
 
-function global:ls() { lsd $args }
-function global:la() { lsd -A $args }
-function global:ll() { lsd -l $args }
-function global:lla() { lsd -lA $args }
+function ls() { lsd $args }
+function la() { lsd -A $args }
+function ll() { lsd -l $args }
+function lla() { lsd -lA $args }
 
-function global:tree() { lsd --tree $args }
+function tree() { lsd --tree $args }
 
 @( "ls", "la", "ll", "lla", "tree" ) | ForEach-Object {
 	$cmd = $_
