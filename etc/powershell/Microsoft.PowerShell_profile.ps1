@@ -181,7 +181,8 @@ Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t'
 Set-PsFzfOption -PSReadlineChordReverseHistory 'Ctrl+r'
 
 $env:FZF_DEFAULT_COMMAND = "fd --type f"
-$env:FZF_DEFAULT_OPTS = "--height 40% --reverse --border"
+$env:FZF_DEFAULT_OPTS = "--height 80% --reverse --border --ansi --no-sort --cycle --sync " + `
+                        "--bind=ctrl-/:toggle-preview,shift-left:preview-page-up,shift-right:preview-page-down"
 
 $env:FZF_CTRL_T_COMMAND = "fd --type f --hidden --follow --exclude .git"
 $env:FZF_CTRL_T_OPTS = "--preview `"bat --color=always --style=numbers --line-range=:100 {}`""
