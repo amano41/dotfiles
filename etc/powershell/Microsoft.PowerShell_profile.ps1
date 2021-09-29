@@ -164,13 +164,19 @@ $WslEnvironmentVariables["LS_COLORS"] = "rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:s
 
 Set-Alias -Name cat -Value bat -Force
 
-Remove-Alias ls
 function global:ls() { lsd $args }
 function global:la() { lsd -A $args }
 function global:ll() { lsd -l $args }
 function global:lla() { lsd -lA $args }
 
 function global:tree() { lsd --tree $args }
+
+@( "ls", "la", "ll", "lla", "tree" ) | ForEach-Object {
+	$cmd = $_
+	If (Test-Path -Path Alias:$cmd) {
+		Remove-Item -Path Alias:$cmd
+	}
+}
 
 
 ##################################################
