@@ -203,7 +203,7 @@ $env:FZF_ALT_C_OPTS = "--preview `"lsd -A --icon=never --color=always --group-di
 
 Invoke-Expression (& {
 	$hook = if ($PSVersionTable.PSVersion.Major -lt 6) { 'prompt' } else { 'pwd' }
-	(zoxide init --hook $hook powershell) -join "`n"
+	(zoxide init --hook $hook powershell --cmd j) -join "`n"
 })
 
 
