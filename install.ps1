@@ -90,7 +90,7 @@ Symlink "$dotfiles_dir\.config\lsd\config.yaml" "$env:APPDATA\lsd\config.yaml"
 
 ## Windows Terminal
 Symlink "$dotfiles_dir\etc\windows-terminal\settings.json" `
-        "$env:LOCALAPPDATA\Microsoft\Windows Terminal\"
+        "$env:LOCALAPPDATA\Microsoft\Windows Terminal\settings.json"
 
 ## SylphyHorn
 Symlink "$dotfiles_dir\etc\sylphyhorn\Settings.xml" `
