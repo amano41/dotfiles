@@ -56,7 +56,7 @@ foreach ($name in $dotfiles) {
 }
 
 ## OS ごとの .gitconfig
-Symlink "$dotfiles_dir\.gitconfig.windows"
+Symlink "$dotfiles_dir\.gitconfig.windows" `
         "$env:USERPROFILE\.gitconfig.os"
 
 
@@ -102,9 +102,9 @@ Symlink "$dotfiles_dir\etc\sylphyhorn\Settings.xml" `
 $scoop_dir = "$env:USERPROFILE\scoop\persist"
 
 ## keyhac
-Symlink "$dotfiles_dir\etc\keyhac\config.py"
+Symlink "$dotfiles_dir\etc\keyhac\config.py" `
         "$scoop_dir\keyhac\config.py"
 
 ## keypirinha
-Symlink "$dotfiles_dir\etc\keypirinha\User"
+Symlink "$dotfiles_dir\etc\keypirinha\User" `
         "$scoop_dir\keypirinha\portable\Profile\User"
