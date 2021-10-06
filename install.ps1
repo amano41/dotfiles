@@ -46,9 +46,7 @@ $dotfiles = @(
 	".editorconfig",
 	".gitconfig",
 	".Renviron",
-	".Rprofile",
-	"Rconsole",
-	"Rdevga"
+	".Rprofile"
 )
 
 foreach ($name in $dotfiles) {
@@ -58,6 +56,13 @@ foreach ($name in $dotfiles) {
 ## OS ごとの .gitconfig
 Symlink "$dotfiles_dir\.gitconfig.windows" `
         "$env:USERPROFILE\.gitconfig.os"
+
+## R
+Symlink "$dotfiles_dir\etc\r\Rconsole" `
+        "$env:USERPROFILE\Rconsole"
+
+Symlink "$dotfiles_dir\etc\r\Rdevga" `
+        "$env:USERPROFILE\Rdevga"
 
 
 ## $USERPROFILE/Documents にシンボリックリンクを作成
