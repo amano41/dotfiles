@@ -24,6 +24,3 @@ install mypy
 
 ## vscode: r
 install radian
-
-## clibor
-install pywin32
