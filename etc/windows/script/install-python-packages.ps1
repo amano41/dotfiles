@@ -17,12 +17,8 @@ function install($package) {
 }
 
 
-## atom: linter-flake8
 install flake8
-install flake8-import-order
-
-## atom: atom-beautify
-install autopep8
+install black
 install isort
 
 ## vscode: r
