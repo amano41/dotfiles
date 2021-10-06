@@ -20,6 +20,7 @@ function install($package) {
 install flake8
 install black
 install isort
+install mypy
 
 ## vscode: r
 install radian
