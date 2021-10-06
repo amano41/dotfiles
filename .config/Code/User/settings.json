@@ -53,7 +53,7 @@
       "minimapSlider.background": "#70707040",
       "minimapSlider.hoverBackground": "#70707080",
       "minimapSlider.activeBackground": "#70707080"
-    },
+    }
   },
   "editor.tokenColorCustomizations": {
     "textMateRules": [
