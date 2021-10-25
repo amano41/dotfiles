@@ -1,3 +1,8 @@
+##################################################
+##  Windows 10 Bootstrap
+##################################################
+
+
 ## 管理者権限のチェック
 if (!([Security.Principal.WindowsPrincipal]`
       [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole(`
@@ -61,9 +66,6 @@ else {
 }
 
 
-Push-Location $dotfiles
+& "$dotfiles\etc\windows\setup.ps1"
 
-. ".\etc\windows\setup.ps1"
-. ".\install.ps1"
-
-Pop-Location
+& "$dotfiles\install.ps1"
