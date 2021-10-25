@@ -2,18 +2,16 @@
 ##  Windows 10 Setup
 ##################################################
 
+Push-Location (Split-Path -Parent $MyInvocation.MyCommand.Path)
 
-. "$env:USERPROFILE\dotfiles\etc\powershell\utils.ps1"
-
+## ヘルパー関数の読み込み
+. "..\powershell\utils.ps1"
 
 ## 管理者権限のチェック
 if (!(Test-Privilege)) {
+	Pop-Location
 	Write-Error "This script need to be run with elevated privileges." -ErrorAction Stop
 }
-
-
-## カレントディレクトリを変更
-Push-Location (Split-Path -Parent $MyInvocation.MyCommand.Path)
 
 
 ####################  システムレベルの設定  ####################
@@ -110,4 +108,5 @@ Push-Location (Split-Path -Parent $MyInvocation.MyCommand.Path)
 
 
 Pop-Location
+
 Write-Host "Setup Completed." -ForegroundColor Magenta
