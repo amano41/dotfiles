@@ -105,6 +105,7 @@ foreach ($pkg in $packages) {
 Write-Host "'my' bucket..." -ForegroundColor Yellow
 
 $packages = @(
+	"allrename",
 	"bunbackup",
 	"cassava",
 	"clipboard-history",
