@@ -51,3 +51,12 @@ function New-Shortcut($src, $dest, $opts = "") {
 	$lnk.Arguments = $opts
 	$lnk.Save()
 }
+
+
+## レジストリに書き込む関数
+function Set-Registry($path, $key, $value) {
+	if (!(Test-Path $path)) {
+		New-Item -Path $path -Force | Out-Null
+	}
+	Set-ItemProperty -Path $path -Name $key -Value $value | Out-Null
+}

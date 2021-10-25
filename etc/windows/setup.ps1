@@ -3,20 +3,17 @@
 ##################################################
 
 
+. "$env:USERPROFILE\dotfiles\etc\powershell\utils.ps1"
+
+
 ## 管理者権限のチェック
-if (!([Security.Principal.WindowsPrincipal]`
-      [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole(`
-      [Security.Principal.WindowsBuiltInRole] "Administrator")) {
+if (!(Test-Privilege)) {
 	Write-Error "This script need to be run with elevated privileges." -ErrorAction Stop
 }
 
 
 ## カレントディレクトリを変更
 Push-Location (Split-Path -Parent $MyInvocation.MyCommand.Path)
-
-
-## レジストリ操作用のヘルパー関数を読み込む
-. "./script/registry-helper.ps1"
 
 
 ####################  システムレベルの設定  ####################

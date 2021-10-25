@@ -5,7 +5,7 @@ try {
 	Get-Command -Name "Set-Registry" -ErrorAction Stop | Out-Null
 }
 catch {
-	. (Join-Path (Split-Path -Parent $MyInvocation.MyCommand.Path) "registry-helper.ps1")
+	. "$env:USERPROFILE\dotfiles\etc\powershell\utils.ps1"
 }
 
 
