@@ -36,7 +36,7 @@ function New-Symlink($src, $dest) {
 	}
 
 	if (!(Test-Path $path)) {
-		New-Item -Path $path -ItemType Directory
+		New-Item -Path $path -ItemType Directory | Out-Null
 	}
 
 	New-Item -ItemType SymbolicLink -Path $path -Name $name -Target $src -Force | Out-Null
