@@ -1,115 +1,84 @@
+$dotfiles = Split-Path -Parent $MyInvocation.MyCommand.Path
+
+## ヘルパー関数の読み込み
+. "$dotfiles\etc\powershell\utils.ps1"
+
 ## 管理者権限のチェック
-if (!([Security.Principal.WindowsPrincipal]`
-      [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole(`
-      [Security.Principal.WindowsBuiltInRole] "Administrator")) {
+if (!(Test-Privilege)) {
 	Write-Error "This script need to be run with elevated privileges." -ErrorAction Stop
 }
-
 
 Write-Host "Installing dotfiles..." -ForegroundColor Magenta
 
 
-## dotfiles ディレクトリのパス（＝スクリプトの実行パス）を取得
-$dotfiles_dir = Split-Path -Parent $MyInvocation.MyCommand.Path
+## $USERPROFILE
 
-
-## シンボリックリンクを作成する関数
-function Symlink($src, $dest) {
-
-	## ディレクトリが存在する場合はバックアップを作成
-	## ただし，シンボリックリンクの場合は除く
-	if (Test-Path $dest -PathType Container) {
-		$type = Get-Item $dest | Select-Object -ExpandProperty LinkType
-		if ($type -ne "SymbolicLink") {
-			Write-Warning "'$dest' already exists."
-			$backup = "$dest" + "." + (Get-Date -UFormat "%Y%m%d%H%M%S")
-			Move-Item $dest $backup
-		}
-	}
-
-	$path = Split-Path -Parent $dest
-	$name = Split-Path -Leaf $dest
-
-	if (!(Test-Path $path)) {
-		New-Item $path -ItemType Directory
-	}
-
-	New-Item -ItemType SymbolicLink -Path $path -Name $name -Target $src -Force
-}
-
-
-## $USERPROFILE にシンボリックリンクを作成
-
-$dotfiles = @(
+@(
 	".atom",
 	".config",
 	".editorconfig",
 	".gitconfig",
 	".Renviron",
 	".Rprofile"
-)
-
-foreach ($name in $dotfiles) {
-	Symlink "$dotfiles_dir\$name" "$env:USERPROFILE\$name"
+) | ForEach-Object {
+	$name = $_
+	New-Symlink "$dotfiles\$name" "$env:USERPROFILE\$name"
 }
 
-## OS ごとの .gitconfig
-Symlink "$dotfiles_dir\.gitconfig.windows" `
-        "$env:USERPROFILE\.gitconfig.os"
+New-Symlink "$dotfiles\.gitconfig.windows" "$env:USERPROFILE\.gitconfig.os"
 
 ## R
-Symlink "$dotfiles_dir\etc\r\Rconsole" `
-        "$env:USERPROFILE\Rconsole"
-
-Symlink "$dotfiles_dir\etc\r\Rdevga" `
-        "$env:USERPROFILE\Rdevga"
+New-Symlink "$dotfiles\etc\r\Rconsole" "$env:USERPROFILE\Rconsole"
+New-Symlink "$dotfiles\etc\r\Rdevga"   "$env:USERPROFILE\Rdevga"
 
 
-## $USERPROFILE/Documents にシンボリックリンクを作成
+## $USERPROFILE/Documents
 
 ## PowerShell Core
-Symlink "$dotfiles_dir\etc\powershell\Microsoft.PowerShell_profile.ps1" `
-        "$env:USERPROFILE\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
+New-Symlink `
+	"$dotfiles\etc\powershell\Microsoft.PowerShell_profile.ps1" `
+	"$env:USERPROFILE\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
 
 ## Windows PowerShell
-Symlink "$dotfiles_dir\etc\powershell\Microsoft.PowerShell_profile.ps1" `
-        "$env:USERPROFILE\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1"
+New-Symlink `
+	"$dotfiles\etc\powershell\Microsoft.PowerShell_profile.ps1" `
+	"$env:USERPROFILE\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1"
 
 
-## $APPDATA にシンボリックリンクを作成
+## $APPDATA
 
 ## WSLtty
-Symlink "$dotfiles_dir\.minttyrc" "$env:APPDATA\wsltty\config"
+New-Symlink "$dotfiles\.minttyrc" "$env:APPDATA\wsltty\config"
 
 ## VSCode
-Symlink "$dotfiles_dir\.config\Code\User" "$env:APPDATA\Code\User"
+New-Symlink "$dotfiles\.config\Code\User" "$env:APPDATA\Code\User"
 
 ## bat
-Symlink "$dotfiles_dir\.config\bat\config" "$env:APPDATA\bat\config"
+New-Symlink "$dotfiles\.config\bat\config" "$env:APPDATA\bat\config"
 
 ## lsd
-Symlink "$dotfiles_dir\.config\lsd\config.yaml" "$env:APPDATA\lsd\config.yaml"
+New-Symlink "$dotfiles\.config\lsd\config.yaml" "$env:APPDATA\lsd\config.yaml"
 
 
-## $LOCALAPPDATA にシンボリックリンクを作成
+## $LOCALAPPDATA
 
 ## Windows Terminal
-Symlink "$dotfiles_dir\etc\windows-terminal\settings.json" `
-        "$env:LOCALAPPDATA\Microsoft\Windows Terminal\settings.json"
+New-Symlink `
+	"$dotfiles\etc\windows-terminal\settings.json" `
+	"$env:LOCALAPPDATA\Microsoft\Windows Terminal\settings.json"
 
 ## SylphyHorn
-Symlink "$dotfiles_dir\etc\sylphyhorn\Settings.xml" `
-        "$env:LOCALAPPDATA\grabacr.net\SylphyHorn\Settings.xml"
+New-Symlink `
+	"$dotfiles\etc\sylphyhorn\Settings.xml" `
+	"$env:LOCALAPPDATA\grabacr.net\SylphyHorn\Settings.xml"
 
 
-## ~/scoop/persist にシンボリックリンクを作成
+## Scoop
 
-$scoop_dir = "$env:USERPROFILE\scoop\persist"
+$scoop = "$env:USERPROFILE\scoop\persist"
 
 ## keyhac
-Symlink "$dotfiles_dir\etc\keyhac\config.py" `
-        "$scoop_dir\keyhac\config.py"
+New-Symlink "$dotfiles\etc\keyhac\config.py" "$scoop\keyhac\config.py"
 
 ## keypirinha
-Symlink "$dotfiles_dir\etc\keypirinha\User" `
-        "$scoop_dir\keypirinha\portable\Profile\User"
+New-Symlink "$dotfiles\etc\keypirinha\User" "$scoop\keypirinha\portable\Profile\User"
