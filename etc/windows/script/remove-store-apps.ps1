@@ -4,7 +4,10 @@ if ($PSVersionTable.PSVersion.Major -ge 7) {
 	Import-Module -Name Appx -UseWindowsPowerShell
 }
 
-$store_apps = @(
+$OldProgressPreference = $ProgressPreference
+$ProgressPreference = "SilentlyContinue"
+
+@(
 	"Microsoft.3DBuilder",
 	"Microsoft.BingFinance",
 	"Microsoft.BingNews"
@@ -64,8 +67,8 @@ $store_apps = @(
 	"46928bounde.EclipseManager",
 	"PandoraMediaInc.29680B314EFC2",
 	"D5EA27B7.Duolingo-LearnLanguagesforFree"
-)
-
-foreach ($app in $store_apps) {
-	Get-AppxPackage -Name $app -AllUsers | Remove-AppxPackage
+) | ForEach-Object {
+	Get-AppxPackage -Name $_ -AllUsers | Remove-AppxPackage | Out-Null
 }
+
+$ProgressPreference = $OldProgressPreference
