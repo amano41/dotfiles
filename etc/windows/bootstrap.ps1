@@ -41,22 +41,20 @@ else {
 
 	## 展開
 
-	$unzip = Join-Path $downloads "dotfiles"
+	$unzip = Join-Path $downloads "dotfiles-master"
 
 	if (Test-Path $unzip) {
 		Remove-Item -Recurse -Path $unzip
 	}
 
-	Write-Host "Expanding $zip" -ForegroundColor Magenta
-	Expand-Archive -Path $zip
+	Write-Host "Expanding $zip to $unzip" -ForegroundColor Magenta
+	Expand-Archive -Path $zip -DestinationPath $downloads
 
 
 	## USERPROFILE にコピー
 
-	$src = Join-Path $unzip "dotfiles-master"
-
-	Write-Host "Coping $src to $dotfiles" -ForegroundColor Magenta
-	Copy-Item -Recurse -Path $src -Destination $dotfiles
+	Write-Host "Coping $unzip to $dotfiles" -ForegroundColor Magenta
+	Copy-Item -Recurse -Path $unzip -Destination $dotfiles
 
 
 	## 後片付け
