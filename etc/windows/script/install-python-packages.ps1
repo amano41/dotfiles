@@ -13,7 +13,7 @@ else {
 
 
 function install($package) {
-	& $pip --disable-pip-version-check install --user --no-warn-script-location $package | Select-String 'Requirement already satisfied' -NotMatch
+	& $pip --disable-pip-version-check install --user --no-warn-script-location $package | Out-Null
 }
 
 
