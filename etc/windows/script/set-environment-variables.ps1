@@ -9,7 +9,7 @@ $path += "$env:USERPROFILE\bin"
 $path += "$env:USERPROFILE\dotfiles\bin\windows"
 $path += "$env:USERPROFILE\dotfiles\bin"
 $path += "$env:USERPROFILE\OneDrive\bin"
-$path += "$env:APPDATA\Python\Python39\Scripts"
+$path += "$env:APPDATA\Python\Python310\Scripts"
 
 $path_user = [Environment]::GetEnvironmentVariable("PATH", "User")
 $path_user -split ';' | ForEach-Object {
