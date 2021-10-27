@@ -85,3 +85,6 @@ New-Symlink "$dotfiles\etc\keyhac\config.py" "$scoop\keyhac\config.py"
 
 ## keypirinha
 New-Symlink "$dotfiles\etc\keypirinha\User" "$scoop\keypirinha\portable\Profile\User"
+
+## strokesplus.net
+New-Symlink "$dotfiles\etc\strokesplus.net\StrokesPlus.net.json" "$scoop\strokesplus.net\StrokesPlus.net.json"
