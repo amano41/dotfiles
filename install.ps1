@@ -77,6 +77,9 @@ New-Symlink `
 
 $scoop = "$env:USERPROFILE\scoop\persist"
 
+## everything
+New-Symlink "$dotfiles\etc\everything\Everything.ini" "$scoop\everything\Everything.ini"
+
 ## keyhac
 New-Symlink "$dotfiles\etc\keyhac\config.py" "$scoop\keyhac\config.py"
 
