@@ -13,6 +13,7 @@ else {
 
 
 function install($package) {
+	Write-Host $package
 	& $pip --disable-pip-version-check install --user --no-warn-script-location $package | Out-Null
 }
 

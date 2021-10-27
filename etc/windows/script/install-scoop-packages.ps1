@@ -5,7 +5,7 @@ if (!(Get-Command -Name "scoop" -ErrorAction SilentlyContinue)) {
 }
 
 
-scoop update
+scoop update 6>&1 | Out-Null
 
 
 ## インストール済みのパッケージ
@@ -47,7 +47,8 @@ $packages = @(
 
 foreach ($pkg in $packages) {
 	if (!($installed -contains $pkg)) {
-		scoop install $pkg
+		Write-Host $pkg
+		scoop install $pkg 6>&1 | Out-Null
 	}
 }
 
@@ -81,7 +82,8 @@ $packages = @(
 
 foreach ($pkg in $packages) {
 	if (!($installed -contains $pkg)) {
-		scoop install $pkg
+		Write-Host $pkg
+		scoop install $pkg 6>&1 | Out-Null
 	}
 }
 
@@ -90,13 +92,14 @@ foreach ($pkg in $packages) {
 Write-Host "'java' bucket..." -ForegroundColor Yellow
 
 $packages = @(
-	"oraclejre8",  ## インストールは JRE を先にすること
+	"oraclejre8", ## インストールは JRE を先にすること
 	"openjdk"      ## 後からインストールした方が %JAVA_HOME% を上書きするため
 )
 
 foreach ($pkg in $packages) {
 	if (!($installed -contains $pkg)) {
-		scoop install $pkg
+		Write-Host $pkg
+		scoop install $pkg 6>&1 | Out-Null
 	}
 }
 
@@ -129,6 +132,7 @@ $packages = @(
 
 foreach ($pkg in $packages) {
 	if (!($installed -contains $pkg)) {
-		scoop install $pkg
+		Write-Host $pkg
+		scoop install $pkg 6>&1 | Out-Null
 	}
 }
