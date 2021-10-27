@@ -21,8 +21,15 @@ Write-Host "Installing dotfiles..." -ForegroundColor Magenta
 	".Renviron",
 	".Rprofile"
 ) | ForEach-Object {
-	$name = $_
-	New-Symlink "$dotfiles\$name" "$env:USERPROFILE\$name"
+	$src = "$dotfiles\$_"
+	$dest = "$env:USERPROFILE\$_"
+	if (Test-Path $dest -PathType Container) {
+		$type = Get-Item $dest | Select-Object -ExpandProperty LinkType
+		if ($type -ne "SymbolicLink") {
+			Remove-Item -Recurse -Path $dest
+		}
+	}
+	New-Symlink "$src" "$dest"
 }
 
 New-Symlink "$dotfiles\.gitconfig.windows" "$env:USERPROFILE\.gitconfig.os"
