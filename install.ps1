@@ -84,6 +84,9 @@ New-Symlink `
 
 $scoop = "$env:USERPROFILE\scoop\persist"
 
+## allrename
+New-Symlink "$dotfiles\etc\allrename\allrename.ini" "$scoop\allrename\allrename.ini"
+
 ## everything
 New-Symlink "$dotfiles\etc\everything\Everything.ini" "$scoop\everything\Everything.ini"
 
