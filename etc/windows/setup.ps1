@@ -21,6 +21,10 @@ if (!(Test-Privilege)) {
 . "./script/setup-keyboard.ps1"
 
 
+## マウスの設定
+. "./script/setup-mouse.ps1"
+
+
 ## ロック画面を無効化
 . "./script/disable-lock-screen.ps1"
 
