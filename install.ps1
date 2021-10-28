@@ -101,3 +101,6 @@ New-Symlink "$dotfiles\etc\keypirinha\User" "$scoop\keypirinha\portable\Profile\
 
 ## strokesplus.net
 New-Symlink "$dotfiles\etc\strokesplus.net\StrokesPlus.net.json" "$scoop\strokesplus.net\StrokesPlus.net.json"
+
+## trayvolume
+New-Symlink "$dotfiles\etc\trayvolume\TrayVolume.ini" "$scoop\trayvolume\TrayVolume.ini"
