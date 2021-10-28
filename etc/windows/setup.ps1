@@ -73,6 +73,10 @@ if (!(Test-Privilege)) {
 . "./script/hide-desktop-icons.ps1"
 
 
+## タスクバーのボタンを非表示
+. "./script/hide-taskbar-buttons.ps1"
+
+
 ## 設定 → 個人用設定
 . "./script/configure-personalization-settings.ps1"
 

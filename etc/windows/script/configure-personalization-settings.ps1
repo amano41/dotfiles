@@ -21,5 +21,14 @@ Set-Registry "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryMan
 ## スタート：スタートメニューまたはタスクバーのジャンプリストに最近開いた項目を表示する
 Set-Registry "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "Start_TrackDocs" 0
 
+## タスクバー：タスクバーをロックする
+Set-Registry "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "TaskbarSizeMove" 0
+
+## タスクバー：デスクトップをプレビューする
+Set-Registry "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "DisablePreviewDesktop" 1
+
+## タスクバー：タスクバーボタンを結合する
+Set-Registry "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "TaskbarGlomLevel" 2
+
 ## タスクバー：タスクバーをすべてのディスプレイに表示する
 Set-Registry "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "MMTaskbarEnabled" 0
