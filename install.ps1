@@ -90,6 +90,9 @@ New-Symlink "$dotfiles\etc\allrename\allrename.ini" "$scoop\allrename\allrename.
 ## everything
 New-Symlink "$dotfiles\etc\everything\Everything.ini" "$scoop\everything\Everything.ini"
 
+## hiddex
+New-Symlink "$dotfiles\etc\hiddex\hiddex.ini" "$scoop\hiddex\hiddex.ini"
+
 ## keyhac
 New-Symlink "$dotfiles\etc\keyhac\config.py" "$scoop\keyhac\config.py"
 
