@@ -1,0 +1,65 @@
+{
+    "use_spaces_for_tab": false,
+    "num_spaces_for_tab": 4,
+    "show_margin": false,
+    "show_invisibles": true,
+    "show_indent_guides": true,
+    "auto_append_newline": true,
+    "strip_trailing_whitespace": true,
+    "syntax_color_console": true,
+    "scroll_past_end_of_document": true,
+    "highlight_r_function_calls": true,
+    "default_encoding": "UTF-8",
+    "default_project_location": "~",
+    "show_doc_outline_rmd": true,
+    "line_ending_conversion": "posix",
+    "reuse_sessions_for_project_links": true,
+    "panes": {
+        "quadrants": [
+            "Source",
+            "Console",
+            "TabSet1",
+            "TabSet2"
+        ],
+        "tabSet1": [
+            "Environment",
+            "History",
+            "Connections",
+            "Build",
+            "VCS",
+            "Tutorial",
+            "Presentation"
+        ],
+        "tabSet2": [
+            "Files",
+            "Plots",
+            "Packages",
+            "Help",
+            "Viewer"
+        ],
+        "console_left_on_top": false,
+        "console_right_on_top": true
+    },
+    "restore_source_documents": false,
+    "check_for_updates": false,
+    "save_workspace": "never",
+    "remove_history_duplicates": true,
+    "restore_last_project": false,
+    "windows_terminal_shell": "win-wsl-bash",
+    "full_project_path_in_window_title": true,
+    "jobs_tab_visibility": "shown",
+    "initial_working_directory": "~",
+    "font_size_points": 12,
+    "help_font_size_points": 12,
+    "rainbow_parentheses": true,
+    "editor_keybindings": "emacs",
+    "cran_mirror": {
+        "name": "Japan (Tokyo) [https]",
+        "host": "The Institute of Statistical Mathematics, Tokyo",
+        "url": "https://cran.ism.ac.jp/",
+        "country": "jp",
+        "ok": 1,
+        "secondary": ""
+    },
+    "show_terminal_tab": false
+}

@@ -60,6 +60,9 @@ New-Symlink "$dotfiles\.minttyrc" "$env:APPDATA\wsltty\config"
 ## VSCode
 New-Symlink "$dotfiles\.config\Code\User" "$env:APPDATA\Code\User"
 
+## RStudio
+New-Symlink "$dotfiles\.config\rstudio" "$env:APPDATA\RStudio"
+
 ## bat
 New-Symlink "$dotfiles\.config\bat\config" "$env:APPDATA\bat\config"
 
