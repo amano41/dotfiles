@@ -27,6 +27,16 @@ Set-Registry "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced"
 ## タスクバー：デスクトップをプレビューする
 Set-Registry "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "DisablePreviewDesktop" 1
 
+## タスクバー：画面上のタスクバーの位置　⇒　左
+$path = "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\StuckRects3"
+$name = "Settings"
+$value = (Get-ItemProperty -Path $path -Name $name).Settings
+$value[12] = 0
+Set-ItemProperty -Path $path -Name $name -Value $value
+
+Write-Host "Restarting Explorer..." -ForegroundColor Yellow
+Stop-Process -Name Explorer -Force
+
 ## タスクバー：タスクバーボタンを結合する
 Set-Registry "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "TaskbarGlomLevel" 2
 
