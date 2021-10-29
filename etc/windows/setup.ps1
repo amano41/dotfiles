@@ -77,6 +77,10 @@ if (!(Test-Privilege)) {
 . "./script/hide-taskbar-buttons.ps1"
 
 
+## タスクバーからピン留めを削除
+. "./script/remove-taskbar-pinned-items.ps1"
+
+
 ## スタートメニューからピン留めを削除
 . "./script/remove-pinned-tiles.ps1"
 
