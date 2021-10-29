@@ -16,24 +16,12 @@ $file = "LayoutModification.xml"
 Move-Item -Path "$dest\$file" -Destination "$dest\$file.bak" -Force
 Copy-Item -Path "$src\$file" -Destination "$dest\$file" -Force
 
-## グループポリシー「スタート画面のレイアウト」のレジストリを設定
-## 一時的にユーザーがカスタマイズできないようにする
-$reg = "HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer"
-if (!(Test-Path $reg)) {
-	New-Item -Path $reg -Force | Out-Null
-}
-Set-ItemProperty -Path $reg -Name "LockedStartLayout" -Type DWord -Value 1
-Set-ItemProperty -Path $reg -Name "StartLayoutFile" -Type String -Value "$src\$file"
 
-Write-Host "Restarting Explorer..." -ForegroundColor Yellow
-Stop-Process -Name Explorer -Force
+## タイル情報のキャッシュを削除して初期状態にリセット
+$path = "HKCU:\Software\Microsoft\Windows\CurrentVersion\CloudStore\Store\Cache\DefaultAccount\*`$start.tilegrid`$windows.data.curatedtilecollection.tilecollection"
+Remove-Item -Path $path -Recurse -Force
 
-Write-Host "Waiting 10s for Explorer to Complete Restarting..." -ForegroundColor Yellow
-Start-Sleep -Seconds 10
 
-## グループポリシーを削除
-Remove-ItemProperty -Path $reg -Name "LockedStartLayout" -Force
-Remove-ItemProperty -Path $reg -Name "StartLayoutFile" -Force
-
+## エクスプローラーの再起動で反映
 Write-Host "Restarting Explorer..." -ForegroundColor Yellow
 Stop-Process -Name Explorer -Force
