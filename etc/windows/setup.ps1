@@ -77,6 +77,10 @@ if (!(Test-Privilege)) {
 . "./script/hide-taskbar-buttons.ps1"
 
 
+## スタートメニューからピン留めを削除
+. "./script/remove-pinned-tiles.ps1"
+
+
 ## 設定 → 個人用設定
 . "./script/configure-personalization-settings.ps1"
 
