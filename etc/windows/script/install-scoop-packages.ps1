@@ -26,11 +26,10 @@ $packages = @(
 	"fd",
 	"fzf",
 	"git",
+	"gow",
 	"gsudo",
 	"innounp",
-	"less",
 	"lessmsi",
-	"ln",
 	"lsd",
 	"pandoc",
 	"pwsh",
@@ -41,7 +40,6 @@ $packages = @(
 	"starship",
 	"tldr",
 	"uutils-coreutils",
-	"which",
 	"zoxide"
 )
 
