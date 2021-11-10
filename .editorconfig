@@ -22,5 +22,5 @@ indent_size = 4
 indent_style = space
 indent_size = 2
 
-[*.{bat,ps1}]
+[*.{bat,cmd,ini,ps1}]
 end_of_line = crlf
