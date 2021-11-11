@@ -18,7 +18,7 @@
 	new = green
 [color "status"]
 	added = green
-	changed = red
+	changed = yellow
 	unmerged = red
 	untracked = magenta
 [init]
