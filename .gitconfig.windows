@@ -12,14 +12,10 @@
 	minus-style = syntax auto
 	minus-emph-style = syntax auto
 	syntax-theme = Monokai Extended
-[diff]
-	tool = WinMerge
-[difftool "WinMerge"]
+[difftool "winmerge"]
 	cmd = WinMergeU.exe -e -r -u -x -wl -wr -dl \"a/$MERGED\" -dr \"b/$MERGED\" \"$LOCAL\" \"$REMOTE\"
 	trustExitCode = false
-[merge]
-	tool = WinMerge
-[mergetool "WinMerge"]
+[mergetool "winmerge"]
 	cmd = WinMergeU.exe \"$MERGED\"
 	trustExitCode = false
 [diff "pdf"]

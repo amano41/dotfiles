@@ -46,11 +46,19 @@
 	indentHeuristic = true
 	algorithm = histogram
 	colorMoved = dimmed-zebra
+[diff]
+	tool = vscode
 [difftool]
 	prompt = false
+[difftool "vscode"]
+	cmd = code --wait --new-window --diff $LOCAL $REMOTE
+[merge]
+	tool = vscode
 [mergetool]
 	prompt = false
 	keepBackup = false
+[mergetool "vscode"]
+	cmd = code --wait --new-window $MERGED
 [alias]
 	a = add
 	au = add -u
