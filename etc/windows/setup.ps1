@@ -50,6 +50,10 @@ if (!(Test-Privilege)) {
 . "./script/disable-telemetry.ps1"
 
 
+## 設定画面上部のヘッダーを無効化
+. "./script/disable-settings-banner.ps1"
+
+
 ## ストアアプリの削除
 . "./script/remove-store-apps.ps1"
 
