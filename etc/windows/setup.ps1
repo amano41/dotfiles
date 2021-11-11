@@ -34,6 +34,10 @@ if (!(Test-Privilege)) {
 . "./script/remove-cortana.ps1"
 
 
+## Web 検索を無効化
+. "./script/disable-websearch.ps1"
+
+
 ## アクティビティ履歴を無効化
 . "./script/disable-activity-history.ps1"
 
