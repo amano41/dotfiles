@@ -22,8 +22,19 @@ Desktop.ini
 ~$*.ppt*
 
 
+## Python
+
+__pycache__/
+.venv/
+
+
 ## R
 
 .Rhistory
 .RData
 .Rproj.user/
+
+
+## VSCode
+
+.vscode/
