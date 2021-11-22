@@ -1,18 +1,35 @@
 add_newline = true
 
 [battery]
-disabled = true
-
-[[battery.display]]
-threshold = 10
-style = "bold red"
+disabled = false
 
 [[battery.display]]
 threshold = 30
 style = "bold yellow"
 
+[[battery.display]]
+threshold = 10
+style = "bold red"
+
 [cmd_duration]
-disabled = true
+disabled = false
+min_time = 1000
+
+[directory]
+disabled = false
+truncation_length = 10
+truncation_symbol = ".../"
+truncate_to_repo = false
+style = "blue bold"
+
+[git_status]
+conflicted = "⇔"
+deleted = "-"
+
+[time]
+disabled = false
+format = "[$time](black bold) "
+time_format = "%H:%M"
 
 [rlang]
 detect_files = []
