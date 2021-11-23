@@ -71,4 +71,5 @@ $ProgressPreference = "SilentlyContinue"
 	Get-AppxPackage -Name $_ -AllUsers | Remove-AppxPackage | Out-Null
 }
 
+Clear-Host
 $ProgressPreference = $OldProgressPreference
