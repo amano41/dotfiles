@@ -1,7 +1,7 @@
 Write-Host "Removing Store Apps..." -ForegroundColor Magenta
 
 if ($PSVersionTable.PSVersion.Major -ge 7) {
-	Import-Module -Name Appx -UseWindowsPowerShell
+	Import-Module -Name Appx -UseWindowsPowerShell -WarningAction SilentlyContinue
 }
 
 $OldProgressPreference = $ProgressPreference
