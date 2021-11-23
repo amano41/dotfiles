@@ -1,4 +1,4 @@
-$dotfiles = Split-Path -Parent $MyInvocation.MyCommand.Path
+$dotfiles = $PSScriptRoot
 
 ## ヘルパー関数の読み込み
 . "$dotfiles\etc\powershell\utils.ps1"
@@ -13,26 +13,30 @@ Write-Host "Installing dotfiles..." -ForegroundColor Magenta
 
 ## $USERPROFILE
 
-@(
-	".atom",
-	".config",
-	".editorconfig",
-	".gitconfig",
-	".Renviron",
-	".Rprofile"
-) | ForEach-Object {
-	$src = "$dotfiles\$_"
-	$dest = "$env:USERPROFILE\$_"
+Get-ChildItem $dotfiles\.* -Exclude .git -Name |
+Where-Object {
+	$_ -notmatch "\.(linux|macos|cygwin|wsl)$"
+} |
+ForEach-Object {
+
+	$src = Join-Path $dotfiles $_
+
+	if ($_.EndsWith(".windows")) {
+		$dest = Join-Path $env:USERPROFILE ($_ -Replace ".windows", ".os")
+	}
+	else {
+		$dest = Join-Path $env:USERPROFILE $_
+	}
+
 	if (Test-Path $dest -PathType Container) {
 		$type = Get-Item $dest | Select-Object -ExpandProperty LinkType
 		if ($type -ne "SymbolicLink") {
 			Remove-Item -Recurse -Path $dest
 		}
 	}
-	New-Symlink "$src" "$dest"
-}
 
-New-Symlink "$dotfiles\.gitconfig.windows" "$env:USERPROFILE\.gitconfig.os"
+	New-Symlink $src $dest
+}
 
 ## R
 New-Symlink "$dotfiles\etc\r\Rconsole" "$env:USERPROFILE\Rconsole"
