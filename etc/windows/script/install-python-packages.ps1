@@ -5,7 +5,7 @@ If (Get-Command -Name "pip" -ErrorAction SilentlyContinue) {
 	$pip = "pip"
 }
 else {
-	$pip = Join-Path $env:USERPROFILE "scoop/apps/python/current/Scripts/pip"
+	$pip = Join-Path $env:USERPROFILE "scoop/apps/python/current/Scripts/pip.exe"
 	if (!(Test-Path $pip)) {
 		Write-Error "pip not found." -ErrorAction Stop
 	}
@@ -22,6 +22,7 @@ install flake8
 install black
 install isort
 install mypy
+install pipenv
 
 ## vscode: r
 install radian
