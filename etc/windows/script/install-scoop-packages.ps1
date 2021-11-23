@@ -1,7 +1,8 @@
 Write-Host "Installing scoop packages..." -ForegroundColor Magenta
 
 if (!(Get-Command -Name "scoop" -ErrorAction SilentlyContinue)) {
-	Write-Error "scoop not found." -ErrorAction Stop
+	Write-Warning "Scoop not found. Installing scoop first..."
+	Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
 }
 
 

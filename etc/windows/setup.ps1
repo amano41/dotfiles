@@ -2,7 +2,7 @@
 ##  Windows 10 Setup
 ##################################################
 
-Push-Location (Split-Path -Parent $MyInvocation.MyCommand.Path)
+Push-Location $PSScriptRoot
 
 ## ヘルパー関数の読み込み
 . "..\powershell\utils.ps1"

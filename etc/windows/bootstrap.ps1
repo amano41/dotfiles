@@ -2,21 +2,24 @@
 ##  Windows 10 Bootstrap
 ##################################################
 
+Push-Location $PSScriptRoot
+
+## ヘルパー関数の読み込み
+. "..\powershell\utils.ps1"
 
 ## 管理者権限のチェック
-if (!([Security.Principal.WindowsPrincipal]`
-      [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole(`
-      [Security.Principal.WindowsBuiltInRole] "Administrator")) {
+if (!(Test-Privilege)) {
+	Pop-Location
 	Write-Error "This script need to be run with elevated privileges." -ErrorAction Stop
 }
 
 
+## dotfiles のダウンロード
 $dotfiles = Join-Path $env:USERPROFILE "dotfiles"
 
 if (Test-Path $dotfiles) {
 	Remove-Item -Recurse -Path $dotfiles
 }
-
 
 if (Get-Command -Name "git" -ErrorAction SilentlyContinue) {
 
@@ -64,6 +67,12 @@ else {
 }
 
 
+## Windows の初期設定
 & "$dotfiles\etc\windows\setup.ps1"
 
+
+## dotfiles のインストール
 & "$dotfiles\install.ps1"
+
+
+Pop-Location

@@ -13,9 +13,9 @@ $path += "$env:APPDATA\Python\Python310\Scripts"
 
 $path_user = [Environment]::GetEnvironmentVariable("PATH", "User")
 $path_user -split ';' | ForEach-Object {
-	$_ = $_.trim()
-	if (!($path -contains $_)) {
-		$path += $_
+	$p = $_.trim()
+	if (!($path -contains $p)) {
+		$path += $p
 	}
 }
 
