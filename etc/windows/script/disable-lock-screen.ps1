@@ -1,9 +1,7 @@
 Write-Host "Disabling Lock Screen..." -ForegroundColor Magenta
 
-$path = "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization"
-
-if (!(Test-Path $path)) {
-	New-Item -Path $path -Force | Out-Null
+if (!(Get-Command "Set-Registry" -ErrorAction SilentlyContinue)) {
+	. (Join-Path (Split-Path (Split-Path $PSScriptRoot)) "powershell\utils.ps1")
 }
 
-Set-ItemProperty -Path $path -Name "NoLockScreen" -Type DWord -Value 1
+Set-Registry "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization" "NoLockScreen" 1

@@ -1,13 +1,8 @@
 Write-Host "Configuring Notifications Settings..." -ForegroundColor Magenta
 
-
-try {
-	Get-Command -Name "Set-Registry" -ErrorAction Stop | Out-Null
+if (!(Get-Command "Set-Registry" -ErrorAction SilentlyContinue)) {
+	. (Join-Path (Split-Path (Split-Path $PSScriptRoot)) "powershell\utils.ps1")
 }
-catch {
-	. "$env:USERPROFILE\dotfiles\etc\powershell\utils.ps1"
-}
-
 
 ## ロック画面に通知を表示する
 Set-Registry "HKCU:\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings" "NOC_GLOBAL_SETTING_ALLOW_TOASTS_ABOVE_LOCK" 0

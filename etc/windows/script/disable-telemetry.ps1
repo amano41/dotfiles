@@ -1,10 +1,8 @@
 Write-Host "Disabling Telemetry..." -ForegroundColor Magenta
 
-$path = "HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection"
-
-if (!(Test-Path $path)) {
-	New-Item -Path $path -Force | Out-Null
+if (!(Get-Command "Set-Registry" -ErrorAction SilentlyContinue)) {
+	. (Join-Path (Split-Path (Split-Path $PSScriptRoot)) "powershell\utils.ps1")
 }
 
-Set-ItemProperty -Path $path -Name "AllowTelemetry" -Type DWord -Value 0
-Set-ItemProperty -Path $path -Name "DoNotShowFeedbackNotifications" -Type DWord -Value 1
+Set-Registry "HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection" "AllowTelemetry" 0
+Set-Registry "HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection" "DoNotShowFeedbackNotifications" 1

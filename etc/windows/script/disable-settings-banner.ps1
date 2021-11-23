@@ -1,16 +1,11 @@
 Write-Host "Disabling Settings Header Banner..." -ForegroundColor Magenta
 
-$base = "HKLM:\SYSTEM\CurrentControlSet\Control\FeatureManagement\Overrides\4"
-$keys = @("4095660171", "2674077835")
-
-$keys | ForEach-Object {
-
-	$path = Join-Path $base $_
-
-	if (!(Test-Path $path)) {
-		New-Item -Path $path -Force | Out-Null
-	}
-
-	Set-ItemProperty -Path $path -Name "EnabledState" -Type DWord -Value 1
-	Set-ItemProperty -Path $path -Name "EnabledStateOptions" -Type DWord -Value 1
+if (!(Get-Command "Set-Registry" -ErrorAction SilentlyContinue)) {
+	. (Join-Path (Split-Path (Split-Path $PSScriptRoot)) "powershell\utils.ps1")
 }
+
+Set-Registry "HKLM:\SYSTEM\CurrentControlSet\Control\FeatureManagement\Overrides\4\4095660171" "EnabledState" 1
+Set-Registry "HKLM:\SYSTEM\CurrentControlSet\Control\FeatureManagement\Overrides\4\4095660171" "EnabledStateOptions" 1
+
+Set-Registry "HKLM:\SYSTEM\CurrentControlSet\Control\FeatureManagement\Overrides\4\2674077835" "EnabledState" 1
+Set-Registry "HKLM:\SYSTEM\CurrentControlSet\Control\FeatureManagement\Overrides\4\2674077835" "EnabledStateOptions" 1

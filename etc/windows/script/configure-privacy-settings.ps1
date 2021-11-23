@@ -1,11 +1,7 @@
 Write-Host "Configuring Privacy Settings..." -ForegroundColor Magenta
 
-
-try {
-	Get-Command -Name "Set-Registry" -ErrorAction Stop | Out-Null
-}
-catch {
-	. "$env:USERPROFILE\dotfiles\etc\powershell\utils.ps1"
+if (!(Get-Command "Set-Registry" -ErrorAction SilentlyContinue)) {
+	. (Join-Path (Split-Path (Split-Path $PSScriptRoot)) "powershell\utils.ps1")
 }
 
 

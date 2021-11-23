@@ -1,10 +1,7 @@
 Write-Host "Disabling Cortana..." -ForegroundColor Magenta
 
-$path = "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search"
-$name = "AllowCortana"
-
-if (!(Test-Path $path)) {
-	New-Item -Path $path -Force | Out-Null
+if (!(Get-Command "Set-Registry" -ErrorAction SilentlyContinue)) {
+	. (Join-Path (Split-Path (Split-Path $PSScriptRoot)) "powershell\utils.ps1")
 }
 
-Set-ItemProperty -Path $path -Name $name -Type DWord -Value 0
+Set-Registry "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search" "AllowCortana" 0

@@ -1,13 +1,8 @@
 Write-Host "Hiding Taskbar Buttons..." -ForegroundColor Magenta
 
-
-try {
-	Get-Command -Name "Set-Registry" -ErrorAction Stop | Out-Null
+if (!(Get-Command "Set-Registry" -ErrorAction SilentlyContinue)) {
+	. (Join-Path (Split-Path (Split-Path $PSScriptRoot)) "powershell\utils.ps1")
 }
-catch {
-	. "$env:USERPROFILE\dotfiles\etc\powershell\utils.ps1"
-}
-
 
 ## 検索ボックス
 Set-Registry "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" "SearchboxTaskbarMode" 0

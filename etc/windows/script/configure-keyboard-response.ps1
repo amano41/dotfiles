@@ -1,9 +1,11 @@
 Write-Host "Configuring Keyboard Response..." -ForegroundColor Magenta
 
-$path = "HKCU:\Control Panel\Accessibility\Keyboard Response"
+if (!(Get-Command "Set-Registry" -ErrorAction SilentlyContinue)) {
+	. (Join-Path (Split-Path (Split-Path $PSScriptRoot)) "powershell\utils.ps1")
+}
 
-Set-ItemProperty $path -Name "AutoRepeatDelay" -Type String -Value "300"
-Set-ItemProperty $path -Name "AutoRepeatRate" -Type String -Value "50"
-Set-ItemProperty $path -Name "BounceTime" -Type String -Value "0"
-Set-ItemProperty $path -Name "DelayBeforeAcceptance" -Type String -Value "0"
-Set-ItemProperty $path -Name "Flags" -Type String -Value "3"
+Set-Registry "HKCU:\Control Panel\Accessibility\Keyboard Response" "AutoRepeatDelay" "300"
+Set-Registry "HKCU:\Control Panel\Accessibility\Keyboard Response" "AutoRepeatRate" "50"
+Set-Registry "HKCU:\Control Panel\Accessibility\Keyboard Response" "BounceTime" "0"
+Set-Registry "HKCU:\Control Panel\Accessibility\Keyboard Response" "DelayBeforeAcceptance" "0"
+Set-Registry "HKCU:\Control Panel\Accessibility\Keyboard Response" "Flags" "3"

@@ -1,14 +1,7 @@
-if (!([Security.Principal.WindowsPrincipal]`
-			[Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole(`
-			[Security.Principal.WindowsBuiltInRole] "Administrator")) {
-	Write-Error "This script need to be run with elevated privileges." -ErrorAction Stop
-}
-
-
 Write-Host "Setting up everything service..." -ForegroundColor Magenta
 
 
-$version = scoop info everything | Select-String "Version" | % { $_.Line.Replace("Version: ", "") -replace "\(Update to .+", "" }
+$version = scoop info everything | Select-String "Version" | ForEach-Object { $_.Line.Replace("Version: ", "") -Replace "\(Update to .+", "" }
 $app = $env:USERPROFILE + '/scoop/apps/everything/' + $version + '/Everything.exe'
 
 

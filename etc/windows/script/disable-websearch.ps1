@@ -1,10 +1,7 @@
 Write-Host "Disabling Web Search..." -ForegroundColor Magenta
 
-$path = "HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer"
-$name = "DisableSearchBoxSuggestions"
-
-if (!(Test-Path $path)) {
-	New-Item -Path $path -Force | Out-Null
+if (!(Get-Command "Set-Registry" -ErrorAction SilentlyContinue)) {
+	. (Join-Path (Split-Path (Split-Path $PSScriptRoot)) "powershell\utils.ps1")
 }
 
-Set-ItemProperty -Path $path -Name $name -Type DWord -Value 1
+Set-Registry "HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer" "DisableSearchBoxSuggestions" 1

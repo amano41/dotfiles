@@ -1,11 +1,5 @@
 Write-Host "Removing Pinned Tiles from Start Menu..." -ForegroundColor Magenta
 
-. "$env:USERPROFILE\dotfiles\etc\powershell\utils.ps1"
-
-if (!(Test-Privilege)) {
-	Write-Error "This script need to run with administrator privilege." -ErrorAction Stop
-}
-
 
 $src = "$env:USERPROFILE\dotfiles\etc\windows"
 $dest = "$env:LOCALAPPDATA\Microsoft\Windows\Shell"
