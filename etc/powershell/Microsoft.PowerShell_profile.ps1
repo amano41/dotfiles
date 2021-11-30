@@ -107,6 +107,36 @@ function tree() { lsd --tree $args }
 
 
 ##################################################
+# open
+##################################################
+
+function open() {
+
+	Param(
+		[String]$Path = "."
+	)
+
+	If (!(Test-Path -Path $Path)) {
+		Write-Error "No such file or directory: $Path" -ErrorAction Stop
+	}
+
+	$Path = Resolve-Path -Path $Path
+
+	# ディレクトリの場合は As/R で開く
+	If (Test-Path -Path $Path -PathType Container) {
+		$Asr = Join-Path $env:USERPROFILE "bin/asr/AsrLoad.exe"
+		Start-Process -FilePath $Asr -ArgumentList "/x", "/n", $Path
+	}
+
+	# ファイルの場合は関連づけで開く
+	Else {
+		Start-Process -FilePath $Path
+	}
+
+}
+
+
+##################################################
 # fzf / PSFzf
 ##################################################
 
