@@ -1,22 +1,23 @@
 import datetime
 import os
 import re
+from pathlib import Path
 from time import sleep
 from urllib.parse import quote
 
+import pyauto
 from keyhac import Window, getClipboardText, setClipboardText
 
 
 def configure(keymap):
 
-    def scoop_app(exe_name):
-        home = os.environ.get("USERPROFILE")
-        dir_name = exe_name[:-4].lower()
-        app_path = f"scoop/apps/{dir_name}/current"
-        return os.path.join(home, app_path, exe_name)
+    ###########################################################################
+    # 基本設定
+    ###########################################################################
 
     # エディタ
-    keymap.editor = scoop_app("Mery.exe")
+    localappdata = os.getenv("LOCALAPPDATA")
+    keymap.editor = f"{localappdata}/Programs/Microsoft VS Code/Code.exe"
 
     # コンソール画面の設定
     keymap.setFont("HackGen Console", 14)
@@ -39,14 +40,35 @@ def configure(keymap):
     keymap_global["D-LWin"] = "D-LWin", "LCtrl"
 
     # デフォルトショートカットの無効化
-    keymap_global["W-Space"] = lambda: None    # 入力言語の切り替え
+    keymap_global["W-C"] = lambda: None  # Cortana
+    keymap_global["W-D"] = lambda: None  # デスクトップ
+    keymap_global["W-F"] = lambda: None  # フィードバック Hub
+    keymap_global["W-G"] = lambda: None  # ゲームバー
+    keymap_global["W-H"] = lambda: None  # ディクテーション
+    keymap_global["W-J"] = lambda: None  # ヒント
+    keymap_global["W-M"] = lambda: None  # すべて最小化
+    keymap_global["W-S-M"] = lambda: None  # 最小化したウインドウを復元
+    keymap_global["W-O"] = lambda: None  # デバイスの向きをロック
+    keymap_global["W-P"] = lambda: None  # プレゼンテーション表示モード
+    keymap_global["W-C-Q"] = lambda: None  # クイックアシスト
+    keymap_global["W-Q"] = lambda: None  # 検索
+    keymap_global["W-S"] = lambda: None  # 検索
+    keymap_global["W-U"] = lambda: None  # コンピュータの簡単操作
+    keymap_global["W-S-V"] = lambda: None  # 通知の切り替え
+    keymap_global["W-Period"] = lambda: None  # 絵文字
+    keymap_global["W-Semicolon"] = lambda: None  # 絵文字
+    keymap_global["W-Comma"] = lambda: None  # デスクトップのプレビュー
+    keymap_global["W-Space"] = lambda: None  # 入力言語の切り替え
     keymap_global["W-C-Enter"] = lambda: None  # ナレーター
 
     # Win+Q でプログラムを終了する
     keymap_global["W-Q"] = "Alt-F4"
 
+    # Win+W でドキュメントを閉じる
+    keymap_global["W-W"] = "Ctrl-F4"
+
     # -------------------------------------------------------------------------
-    #  IME 制御
+    #  IME
     # -------------------------------------------------------------------------
 
     def ime_off():
@@ -84,45 +106,91 @@ def configure(keymap):
     keymap_global["D-RAlt"] = "D-RAlt", "RCtrl"
 
     # -------------------------------------------------------------------------
-    #  クリップボードの操作
+    #  クリップボード
     # -------------------------------------------------------------------------
+
+    def set_clipboard(text):
+        old = getClipboardText()
+        setClipboardText(text)
+        return old
+
+    def get_selection(delete=False):
+        old = set_clipboard("")
+        sleep(0.05)
+        if delete:
+            keymap.InputKeyCommand("C-X")()
+        else:
+            keymap.InputKeyCommand("C-C")()
+        sleep(0.05)
+        return set_clipboard(old)
+
+    def copy_append(sep=""):
+        old = getClipboardText()
+        if not old:
+            keymap.InputKeyCommand("C-C")()
+            return
+        txt = get_selection()
+        if txt:
+            setClipboardText(old + sep + txt)
+
+    def cut_append(sep=""):
+        old = getClipboardText()
+        if not old:
+            keymap.InputKeyCommand("C-X")()
+            return
+        txt = get_selection(True)
+        if txt:
+            setClipboardText(old + sep + txt)
 
     def paste_plain():
         txt = getClipboardText()
         if txt:
             setClipboardText(txt)
+            sleep(0.05)
             keymap.InputKeyCommand("C-V")()
+
+    # 追加コピー・追加切り取り
+    keymap_global["C-S-C"] = copy_append
+    keymap_global["C-S-X"] = cut_append
 
     # 書式なしで貼り付け
     keymap_global["C-S-V"] = paste_plain
 
-    if 0:
+    # -------------------------------------------------------------------------
+    #  日付・時刻の挿入
+    # -------------------------------------------------------------------------
 
-        def clibor_command(param, message=None):
-            def _command():
-                clibor = scoop_app("Clibor.exe")
-                if message is not None:
-                    keymap.popBalloon("clibor", message, 500)
-                keymap.ShellExecuteCommand(None, clibor, param, "")()
-            return _command
+    def input_datetime(format):
+        is_ime_on = keymap.getWindow().getImeStatus()
+        dt = datetime.datetime.now().strftime(format)
+        if is_ime_on:
+            ime_off()
+            sleep(0.1)
+            keymap.InputTextCommand(dt)()
+            sleep(0.1)
+            ime_on()
+        else:
+            keymap.InputTextCommand(dt)()
 
-        def clibor_mode_command(param, message=None):
-            def _command():
-                w = keymap.getTopLevelWindow()
-                c = keymap.ActivateWindowCommand(check_func=lambda x: x is w)
-                clibor_command(param, message)()
-                keymap.delayedCall(c, 100)
-            return _command
+    def current_date_iso():
+        input_datetime("%Y-%m-%d")
 
-        # クリップボード履歴
-        keymap_global["W-V"] = clibor_command("/vc")
+    def current_time_iso():
+        input_datetime("%H:%M:%S")
 
-        # 常に表示するの切り替え
-        keymap_global["W-A-V"] = clibor_command("/fr")
+    def current_date():
+        input_datetime("%Y%m%d")
 
-        # FIFO/LIFO モードの切り替え
-        keymap_global["W-C"] = clibor_mode_command("/ff", "FIFO")
-        keymap_global["W-A-C"] = clibor_mode_command("/lf", "LIFO")
+    def current_time():
+        input_datetime("%H%M%S")
+
+    # Excel と同じ Ctrl-; で日付，Ctrl-: で時刻を挿入
+    keymap_global["C-Semicolon"] = current_date_iso
+    keymap_global["C-S-Semicolon"] = current_time_iso
+
+    # Alt キーを同時に押すと区切り記号なしで挿入
+    keymap_global["C-A-Semicolon"] = current_date
+    keymap_global["C-A-S-Semicolon"] = current_time
 
     # -------------------------------------------------------------------------
     #  ウィンドウの切り替え
@@ -149,10 +217,10 @@ def configure(keymap):
     keymap_global["W-S-Space"] = prev_window
 
     # -------------------------------------------------------------------------
-    #  ウィンドウの移動
+    #  ウィンドウの移動・サイズ変更
     # -------------------------------------------------------------------------
 
-    def _grid_alignment(pos, delta):
+    def grid_alignment(pos, delta):
 
         if delta == 0:
             return 0
@@ -169,7 +237,6 @@ def configure(keymap):
             return -r + delta
 
     def move_window_command(dx, dy):
-
         def _move_window():
 
             w = keymap.getTopLevelWindow()
@@ -178,11 +245,11 @@ def configure(keymap):
 
             rect = list(w.getRect())
 
-            d = _grid_alignment(rect[0], dx)
+            d = grid_alignment(rect[0], dx)
             rect[0] += d
             rect[2] += d
 
-            d = _grid_alignment(rect[1], dy)
+            d = grid_alignment(rect[1], dy)
             rect[1] += d
             rect[3] += d
 
@@ -190,18 +257,7 @@ def configure(keymap):
 
         return _move_window
 
-    # Win+Alt+LRUD でウィンドウを移動
-    keymap_global["W-A-Left"] = move_window_command(-16, 0)
-    keymap_global["W-A-Right"] = move_window_command(16, 0)
-    keymap_global["W-A-Up"] = move_window_command(0, -16)
-    keymap_global["W-A-Down"] = move_window_command(0, 16)
-
-    # -------------------------------------------------------------------------
-    #  ウィンドウのリサイズ
-    # -------------------------------------------------------------------------
-
     def resize_window_command(dw, dh):
-
         def _resize_window():
 
             w = keymap.getTopLevelWindow()
@@ -210,11 +266,11 @@ def configure(keymap):
 
             rect = list(w.getRect())
 
-            d = _grid_alignment(rect[2] - rect[0], dw)
+            d = grid_alignment(rect[2] - rect[0], dw)
             if rect[0] < rect[2] + d:
                 rect[2] += d
 
-            d = _grid_alignment(rect[3] - rect[1], dh)
+            d = grid_alignment(rect[3] - rect[1], dh)
             if rect[1] < rect[3] + d:
                 rect[3] += d
 
@@ -222,11 +278,17 @@ def configure(keymap):
 
         return _resize_window
 
+    # Win+Alt+LRUD でウィンドウを移動
+    keymap_global["W-A-Left"] = move_window_command(-64, 0)
+    keymap_global["W-A-Right"] = move_window_command(64, 0)
+    keymap_global["W-A-Up"] = move_window_command(0, -64)
+    keymap_global["W-A-Down"] = move_window_command(0, 64)
+
     # Win+Alt+Shift+LRUD でウィンドウのサイズを変更
-    keymap_global["W-A-S-Left"] = resize_window_command(-16, 0)
-    keymap_global["W-A-S-Right"] = resize_window_command(16, 0)
-    keymap_global["W-A-S-Up"] = resize_window_command(0, -16)
-    keymap_global["W-A-S-Down"] = resize_window_command(0, 16)
+    keymap_global["W-A-S-Left"] = resize_window_command(-64, 0)
+    keymap_global["W-A-S-Right"] = resize_window_command(64, 0)
+    keymap_global["W-A-S-Up"] = resize_window_command(0, -64)
+    keymap_global["W-A-S-Down"] = resize_window_command(0, 64)
 
     # -------------------------------------------------------------------------
     #  ウィンドウの整列
@@ -238,52 +300,27 @@ def configure(keymap):
         if w is None:
             return
 
-        # 現在のサイズ
-        curr = w.getRect()
-        is_max = w.isMaximized()
+        wl, wt, wr, wb = w.getRect()
+        x = (wl + wr) // 2
+        y = (wt + wb) // 2
 
-        w.restore()
-        w.maximize()
-
-        # 縦置きディスプレイで Y 座標が狂う対策
-        keymap.MoveWindowToMonitorEdgeCommand(1)()
-
-        # 最大化したときのサイズ
-        full = w.getRect()
-
-        # 上半分にスナップしたときのサイズ
-        half = list(full)
-        half[3] = (half[1] + half[3]) // 2
-        half = tuple(half)
+        for info in pyauto.Window.getMonitorInfo():
+            ml, mt, mr, mb = info[1]
+            if (ml <= x <= mr) and (mt <= y <= mb):
+                wl, wt, wr, wb = ml, mt, mr, (mt + mb) // 2
+                break
+        else:
+            w.maximize()
+            return
 
         # Chrom は最大化状態ではサイズ変更が効かない
         if w.getClassName() == "Chrome_WidgetWin_1":
-            if is_max:
-                x1 = full[0] + 100
-                y1 = full[1] + 100
-                x2 = min(x1 + 1600, full[2] - 100)
-                y2 = min(y1 + 1200, full[3] - 100)
+            if w.isMaximized():
                 w.restore()
-                sleep(0.1)
-                w.setRect((x1, y1, x2, y2))
-            else:
-                if curr != half:
-                    w.restore()
-                    sleep(0.1)
-                    w.setRect(half)
-                else:
-                    pass
-            return
-
-        if is_max:
-            if curr == full:
-                w.restore()
-            elif curr == half:
-                w.setRect(full)
-            else:
-                w.setRect(half)
         else:
-            w.setRect(half)
+            w.maximize()
+
+        w.setRect((wl, wt, wr, wb))
 
     def lower_half_window():
 
@@ -291,44 +328,27 @@ def configure(keymap):
         if w is None:
             return
 
-        # 現在のサイズ
-        curr = w.getRect()
-        is_max = w.isMaximized()
+        wl, wt, wr, wb = w.getRect()
+        x = (wl + wr) // 2
+        y = (wt + wb) // 2
 
-        w.restore()
-        w.maximize()
-
-        # 縦置きディスプレイで Y 座標が狂う対策
-        keymap.MoveWindowToMonitorEdgeCommand(1)()
-
-        # 最大化したときのサイズ
-        full = w.getRect()
-
-        # 下半分にスナップしたときのサイズ
-        half = list(w.getRect())
-        half[1] = (half[1] + half[3]) // 2
-        half = tuple(half)
+        for info in pyauto.Window.getMonitorInfo():
+            ml, mt, mr, mb = info[1]
+            if (ml <= x <= mr) and (mt <= y <= mb):
+                wl, wt, wr, wb = ml, (mt + mb) // 2, mr, mb
+                break
+        else:
+            w.maximize()
+            return
 
         # Chrom は最大化状態ではサイズ変更が効かない
         if w.getClassName() == "Chrome_WidgetWin_1":
-            if is_max or curr == half:
-                x1 = full[0] + 100
-                y1 = full[1] + 100
-                x2 = min(x1 + 1600, full[2] - 100)
-                y2 = min(y1 + 1200, full[3] - 100)
+            if w.isMaximized():
                 w.restore()
-                sleep(0.1)
-                w.setRect((x1, y1, x2, y2))
-            else:
-                w.restore()
-                sleep(0.1)
-                w.setRect(half)
-            return
-
-        if is_max and curr == half:
-            w.restore()
         else:
-            w.setRect(half)
+            w.maximize()
+
+        w.setRect((wl, wt, wr, wb))
 
     def maximize_window():
         w = keymap.getTopLevelWindow()
@@ -340,7 +360,7 @@ def configure(keymap):
 
     def minimize_window():
         w = keymap.getTopLevelWindow()
-        if w is None:
+        if w is None or w.isMinimized():
             return
         if w.isMaximized():
             w.restore()
@@ -349,8 +369,9 @@ def configure(keymap):
 
     def restore_window():
         w = keymap.getTopLevelWindow()
-        if w is not None and w.isMaximized():
-            w.restore()
+        if w is None:
+            return
+        w.restore()
 
     def cascade_windows():
         # タスクバーの右クリックメニューで「重ねて表示」を実行
@@ -375,83 +396,55 @@ def configure(keymap):
     # タスクビュー
     keymap_global["W-C-Up"] = "W-Tab"
 
+    # アプリの切り替え
+    keymap_global["W-C-Down"] = "C-A-Tab", "U-Alt"
+
     # -------------------------------------------------------------------------
     #  マウスの操作
     # -------------------------------------------------------------------------
 
-    # Ctrl+Alt+LRUD でマウスカーソルを移動
-    keymap_global["C-A-Left"] = keymap.MouseMoveCommand(-10, 0)
-    keymap_global["C-A-Right"] = keymap.MouseMoveCommand(10, 0)
-    keymap_global["C-A-Up"] = keymap.MouseMoveCommand(0, -10)
-    keymap_global["C-A-Down"] = keymap.MouseMoveCommand(0, 10)
+    # Win+Ctrl+Alt+LRUD でマウスカーソルを移動
+    keymap_global["W-C-A-Left"] = keymap.MouseMoveCommand(-10, 0)
+    keymap_global["W-C-A-Right"] = keymap.MouseMoveCommand(10, 0)
+    keymap_global["W-C-A-Up"] = keymap.MouseMoveCommand(0, -10)
+    keymap_global["W-C-A-Down"] = keymap.MouseMoveCommand(0, 10)
 
-    # Ctrl+Alt+Space でマウスクリック
-    keymap_global["D-C-A-Space"] = keymap.MouseButtonDownCommand("left")
-    keymap_global["U-C-A-Space"] = keymap.MouseButtonUpCommand("left")
-
-    # -------------------------------------------------------------------------
-    #  日付・時刻の挿入
-    # -------------------------------------------------------------------------
-
-    def _input_datetime(format):
-        is_ime_on = keymap.getWindow().getImeStatus()
-        dt = datetime.datetime.now().strftime(format)
-        if is_ime_on:
-            ime_off()
-            sleep(0.1)
-            keymap.InputTextCommand(dt)()
-            sleep(0.1)
-            ime_on()
-        else:
-            keymap.InputTextCommand(dt)()
-
-    def current_date_iso():
-        _input_datetime("%Y-%m-%d")
-
-    def current_time_iso():
-        _input_datetime("%H:%M:%S")
-
-    def current_date():
-        _input_datetime("%Y%m%d")
-
-    def current_time():
-        _input_datetime("%H%M%S")
-
-    # Excel と同じ Ctrl-; で日付，Ctrl-: で時刻を挿入
-    keymap_global["C-Semicolon"] = current_date_iso
-    keymap_global["C-S-Semicolon"] = current_time_iso
-
-    # Alt キーを同時に押すと区切り記号なしで挿入
-    keymap_global["C-A-Semicolon"] = current_date
-    keymap_global["C-A-S-Semicolon"] = current_time
+    # Win+Ctrl+Alt+Enter でマウスクリック
+    keymap_global["D-W-C-A-Enter"] = keymap.MouseButtonDownCommand("left")
+    keymap_global["U-W-C-A-Enter"] = keymap.MouseButtonUpCommand("left")
 
     # -------------------------------------------------------------------------
     #  ランチャー
     # -------------------------------------------------------------------------
 
+    def scoop_app(exe_name, dir_name=None):
+        if not dir_name:
+            dir_name = Path(exe_name).stem.lower()
+        home = Path.home()
+        app = home.joinpath("scoop", "apps", dir_name, "current", exe_name)
+        return str(app)
+
     def launch_command(app_path, param="", directory=""):
-        return keymap.ShellExecuteCommand(None, app_path, param, directory)
+        return keymap.ShellExecuteCommand(None, str(app_path), param, directory)
 
     def launch_asr_command():
         def _command():
-            home = os.environ.get("USERPROFILE")
-            asr = os.path.join(home, "bin/Asr/AsrLoad.exe")
+            home = Path.home()
+            asr = home.joinpath("bin", "asr", "AsrLoad.exe")
             txt = getClipboardText().strip().strip('"')
             if txt:
-                if os.path.isdir(txt):
-                    txt = os.path.normpath(txt)
-                    launch_command(asr, f"/x /n {txt}")()
+                path = Path(txt).resolve()
+                if path.is_dir():
+                    launch_command(asr, f"/x /n {path}")()
                     return
-                if os.path.isfile(txt):
-                    txt = os.path.normpath(txt)
-                    launch_command(asr, f"/x /nf {txt}")()
+                if path.is_file():
+                    launch_command(asr, f"/x /nf {path}")()
                     return
-            home = os.environ.get("USERPROFILE")
             launch_command(asr, f"/x /n {home}")()
+
         return _command
 
     def launch_pen_command():
-
         def _command():
 
             names = []
@@ -477,26 +470,23 @@ def configure(keymap):
 
             # 見つからなかった場合は新たに起動する
             else:
-                home = os.environ.get("USERPROFILE")
-                app_path = "bin/JikagakiDesktop/JikagakiDesktop.exe"
-                app_path = os.path.join(home, app_path)
-                launch_command(app_path)()
+                launch_command(scoop_app("JikagakiDesktop.exe", "jikagaki-desktop"))()
 
         return _command
 
     keymap_global["W-A"] = launch_asr_command()
-    keymap_global["W-E"] = launch_command(scoop_app("Mery.exe"))
     keymap_global["W-F"] = launch_command(scoop_app("Everything.exe"))
     keymap_global["W-G"] = launch_command(scoop_app("TresGrep.exe"))
-    keymap_global["W-J"] = launch_pen_command()
+    keymap_global["W-Insert"] = launch_pen_command()
+    keymap_global["PrintScreen"] = launch_command(scoop_app("Rapture.exe"))
+
+    # -------------------------------------------------------------------------
+    #  選択テキストで検索
+    # -------------------------------------------------------------------------
 
     def search_selection(url):
         def _search_selection():
-            old = getClipboardText()
-            setClipboardText("")
-            keymap.InputKeyCommand("C-C")()
-            sleep(0.1)
-            txt = getClipboardText()
+            txt = get_selection()
             if txt:
                 if re.match("^h?ttps?://", txt):
                     if not txt.startswith("h"):
@@ -504,160 +494,181 @@ def configure(keymap):
                     command = txt
                 else:
                     command = url + quote(txt)
-                keymap.ShellExecuteCommand(None, command, "", "")()
-            else:
-                setClipboardText(old)
+                launch_command(command)()
+
         return _search_selection
 
-    google = "https://www.google.com/search?q="
-    deepl = "https://www.deepl.com/translator#en/ja/"
-
-    keymap_global["W-S"] = search_selection(google)
-    keymap_global["W-T"] = search_selection(deepl)
+    keymap_global["W-S"] = search_selection("https://www.google.com/search?q=")
+    keymap_global["W-D"] = search_selection("https://eow.alc.co.jp/search?q=")
+    keymap_global["W-T"] = search_selection("https://www.deepl.com/translator#en/ja/")
 
     ###########################################################################
-    # ターミナル用の設定
+    # Emacs キーバインドの設定
     ###########################################################################
 
-    def is_terminal(window):
+    def is_emacs_target(window):
+        return True
 
-        terminals = (
-            "WindowsTerminal.exe"
-        )
-
-        return window.getProcessName() in terminals
-
-    keymap_terminal = keymap.defineWindowKeymap(check_func=is_terminal)
-
-    # カーソル移動
-    keymap_terminal["RC-P"] = "Up"
-    keymap_terminal["RC-N"] = "Down"
-    keymap_terminal["RC-B"] = "Left"
-    keymap_terminal["RC-F"] = "Right"
-    keymap_terminal["RC-A"] = "Home"
-    keymap_terminal["RC-E"] = "End"
-
-    ###########################################################################
-    # エディタ用の設定
-    ###########################################################################
-
-    def is_editor(window):
-
-        editors = (
-            "notepad.exe",
-            "Mery.exe",
-            "WINWORD.EXE",
-            "Evernote.exe",
-            "rstudio.exe"
-        )
-
-        pn = window.getProcessName()
-        if pn in editors:
-            return True
-
-        cn = window.getClassName()
-        if "Edit" in cn:
-            return True
-
-        if cn == "Chrome_WidgetWin_1":
-            return True
-
-        return False
-
-    # エディタ用キーマップ
-    keymap_editor = keymap.defineWindowKeymap(check_func=is_editor)
+    keymap_emacs = keymap.defineWindowKeymap(check_func=is_emacs_target)
 
     # CapsLock を RCtrl に置き換えた上で Emacs キーバインドを割り当てる
     # LCtrl は通常の Windows ショートカットが使えるようにそのまま残しておく
 
-    # カーソル移動
-    keymap_editor["RC-P"] = "Up"
-    keymap_editor["RC-N"] = "Down"
-    keymap_editor["RC-B"] = "Left"
-    keymap_editor["RC-F"] = "Right"
-    keymap_editor["RC-A"] = "Home"
-    keymap_editor["RC-E"] = "End"
+    # カーソルの移動と範囲選択
+    for modifier in ("", "S-"):
 
-    # 編集
-    keymap_editor["RC-D"] = "Delete"
-    keymap_editor["RC-H"] = "Back"
-    keymap_editor["RC-K"] = "S-End", "C-X"
-    keymap_editor["RC-U"] = "S-Home", "C-X"
-    keymap_editor["S-Delete"] = "Home", "S-End", "Delete"
+        keymap_emacs[modifier + "RC-P"] = modifier + "Up"
+        keymap_emacs[modifier + "RC-N"] = modifier + "Down"
+        keymap_emacs[modifier + "RC-B"] = modifier + "Left"
+        keymap_emacs[modifier + "RC-F"] = modifier + "Right"
+        keymap_emacs[modifier + "RC-A"] = modifier + "Home"
+        keymap_emacs[modifier + "RC-E"] = modifier + "End"
 
-    # 行を上に移動
+        # 本来 Meta キーを使うものは RC-A との組み合わせに変更する
+        keymap_emacs[modifier + "RC-A-P"] = modifier + "PageUp"
+        keymap_emacs[modifier + "RC-A-N"] = modifier + "PageDown"
+        keymap_emacs[modifier + "RC-A-B"] = modifier + "C-Left"
+        keymap_emacs[modifier + "RC-A-F"] = modifier + "C-Right"
+        keymap_emacs[modifier + "RC-A-A"] = modifier + "C-Home"
+        keymap_emacs[modifier + "RC-A-E"] = modifier + "C-End"
+
+        # 単語単位の移動はよく使うので RC-Bracket を割り当てる
+        keymap_emacs[modifier + "RC-OpenBracket"] = modifier + "C-Left"
+        keymap_emacs[modifier + "RC-CloseBracket"] = modifier + "C-Right"
+
+    # 削除
+    keymap_emacs["RC-D"] = "Delete"
+    keymap_emacs["RC-H"] = "Back"
+    keymap_emacs["RC-K"] = "S-End", "C-X"
+    keymap_emacs["RC-U"] = "S-Home", "C-X"
+
+    # 検索
+    keymap_emacs["RC-Slash"] = "F3"
+    keymap_emacs["RC-BackSlash"] = "S-F3"
+
+    ###########################################################################
+    # エディタ全般の設定
+    ###########################################################################
+
+    def is_editor(window):
+
+        editors = ("notepad.exe", "Mery.exe", "WINWORD.EXE", "Evernote.exe", "rstudio.exe")
+
+        proc_name = window.getProcessName()
+        if proc_name in editors:
+            return True
+
+        class_name = window.getClassName()
+        if "Edit" in class_name:
+            return True
+
+        if "Chrome_WidgetWin_1" == class_name:
+            return proc_name not in ("Code.exe",)
+
+        return False
+
+    keymap_editor = keymap.defineWindowKeymap(check_func=is_editor)
+
+    # -------------------------------------------------------------------------
+    #  単語単位の編集
+    # -------------------------------------------------------------------------
+
+    def delete_word():
+        keymap.InputKeyCommand("C-S-Right", "Delete")()
+
+    def delete_word_backward():
+        keymap.InputKeyCommand("C-S-Left", "Delete")()
+
+    keymap_editor["C-Delete"] = delete_word
+
+    # -------------------------------------------------------------------------
+    #  行単位の編集
+    # -------------------------------------------------------------------------
+
+    def select_line(newline=True):
+        if newline:
+            keymap.InputKeyCommand("End", "Home", "Home", "Home", "S-Down")()
+        else:
+            keymap.InputKeyCommand("End", "Home", "Home", "Home", "S-End")()
+
+    def delete_line():
+        select_line()
+        keymap.InputKeyCommand("Delete")()
+
+    def copy_line():
+        select_line()
+        keymap.InputKeyCommand("C-C", "Left", "Home", "Home", "Home")()
+
+    def paste_line():
+        txt = getClipboardText()
+        if not txt:
+            return
+        if txt.endswith("\n"):
+            keymap.InputKeyCommand("End", "Home", "Home", "Home")()
+        else:
+            keymap.InputKeyCommand("End", "Home", "Home", "Home", "Enter", "Up")()
+        paste_plain()  # 書式付きのままだと Word で改行が追加されてしまう
+
+    def insert_line_below():
+        keymap.InputKeyCommand("End", "Enter")()
+
+    def insert_line_above():
+        keymap.InputKeyCommand("End", "Home", "Home", "Home", "Enter", "Up")()
+
     def move_line_up():
-        old = getClipboardText()
-        setClipboardText("")
-        keymap.InputKeyCommand(
-            "Home", "S-End", "S-Right", "C-X", "Up", "C-V", "Up"
-        )()
-        sleep(0.1)
+        old = set_clipboard("")
+        select_line()
+        keymap.InputKeyCommand("C-X", "Up", "C-V", "Up")()
+        sleep(0.05)
         setClipboardText(old)
 
-    # 行を下に移動
     def move_line_down():
         old = getClipboardText()
-        setClipboardText("")
-        keymap.InputKeyCommand(
-            "Home", "S-End", "S-Right", "C-X", "Down", "C-V", "Up"
-        )()
-        sleep(0.1)
+        select_line()
+        keymap.InputKeyCommand("C-X", "End", "Enter", "Home", "S-Down", "C-V", "Up")()
+        sleep(0.05)
         setClipboardText(old)
 
-    keymap_editor["RC-Up"] = move_line_up
-    keymap_editor["RC-Down"] = move_line_down
+    def copy_line_up():
+        old = getClipboardText()
+        select_line()
+        keymap.InputKeyCommand("C-C", "Left", "Home", "Home", "Home", "C-V", "Up")()
+        sleep(0.05)
+        setClipboardText(old)
 
-    ###########################################################################
-    # Clibor 用の設定
-    ###########################################################################
+    def copy_line_down():
+        old = getClipboardText()
+        select_line()
+        keymap.InputKeyCommand("C-C", "Left", "End", "Enter", "Home", "S-Down", "C-V", "Up")()
+        sleep(0.05)
+        setClipboardText(old)
 
-    keymap_clibor = keymap.defineWindowKeymap(exe_name="Clibor.exe",
-                                              class_name="TFrm_Clibor")
+    keymap_editor["C-S-Space"] = select_line
+    keymap_editor["S-Delete"] = delete_line
+    keymap_editor["S-Insert"] = paste_line
 
-    # カーソル移動
-    keymap_clibor["C-N"] = "Down"
-    keymap_clibor["C-P"] = "Up"
+    keymap_editor["C-Enter"] = insert_line_below
+    keymap_editor["C-S-Enter"] = insert_line_above
 
-    # 検索窓にフォーカス
-    keymap_clibor["Slash"] = "Tab"
-
-    # 画面切替
-    keymap_clibor["Tab"] = "Right"
-
-    # ページ切替
-    keymap_clibor["C-Down"] = "PageDown"
-    keymap_clibor["C-Up"] = "PageUp"
-
-    # 編集
-    def clibor_menu_edit():
-        keymap.InputKeyCommand("S-F10")()
-        keymap.delayedCall(keymap.InputKeyCommand("1", "Enter"), 100)
-
-    # クリップボード転送（整形）
-    def clibor_menu_format():
-        keymap.InputKeyCommand("S-F10")()
-        keymap.delayedCall(keymap.InputKeyCommand("4"), 100)
-
-    # クリップボード転送（変換）
-    def clibor_menu_convert():
-        keymap.InputKeyCommand("S-F10")()
-        keymap.delayedCall(keymap.InputKeyCommand("5"), 100)
-
-    keymap_clibor["C-E"] = clibor_menu_edit
-    keymap_clibor["C-D"] = "Delete"
-    keymap_clibor["C-F"] = clibor_menu_format
-    keymap_clibor["C-C"] = clibor_menu_convert
+    keymap_editor["A-Up"] = move_line_up
+    keymap_editor["A-Down"] = move_line_down
+    keymap_editor["A-S-Up"] = copy_line_up
+    keymap_editor["A-S-Down"] = copy_line_down
 
     ###########################################################################
     # Excel 用の設定
     ###########################################################################
 
-    keymap_excel = keymap.defineWindowKeymap(exe_name="excel.exe",
-                                             class_name="EXCEL7")
+    keymap_excel = keymap.defineWindowKeymap(exe_name="excel.exe", class_name="EXCEL7")
 
     # 編集モード
     keymap_excel["C-Enter"] = "F2"
+
+    # 行・列の追加・削除
+    keymap_excel["S-Insert"] = "A-I", "R"
+    keymap_excel["A-S-Insert"] = "A-I", "C"
+    keymap_excel["S-Delete"] = "A-H", "D", "R"
+    keymap_excel["A-S-Delete"] = "A-H", "D", "C"
 
     # 選択範囲追加モード
     keymap_excel["C-S-Space"] = "S-F8"
@@ -677,7 +688,7 @@ def configure(keymap):
     # C-A-Plus で +15%，C-A-Minus で -15%
     keymap_excel["C-A-0"] = "A-W", "J", "A-H", "Esc", "Esc"  # 100%
     keymap_excel["C-A-9"] = "A-W", "G", "A-H", "Esc", "Esc"  # 選択範囲に合わせる
-    keymap_excel["C-A-8"] = "A-W", "Q"                       # ズーム
+    keymap_excel["C-A-8"] = "A-W", "Q"  # ズーム
 
     # 列の再表示
     # Windows 10 でショートカットキーが効かない場合がある
@@ -688,6 +699,15 @@ def configure(keymap):
     # Ctrl+` が Windows によって［半角／全角］と解釈されてしまう
     keymap_excel["U-C-(243)"] = lambda: None
     keymap_excel["D-C-(244)"] = "A-M", "H", "A-H", "Esc", "Esc"
+
+    ###########################################################################
+    # AllRename 用の設定
+    ###########################################################################
+
+    keymap_allrename = keymap.defineWindowKeymap(exe_name="allrename.exe")
+
+    # 終了
+    keymap_allrename["ESC"] = "A-F4"
 
     ###########################################################################
     # JikagakiDesktop 用の設定

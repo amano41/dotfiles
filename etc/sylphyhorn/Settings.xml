@@ -31,7 +31,7 @@
   </KeyValueOfstringanyType>
   <KeyValueOfstringanyType>
     <Key>GeneralSettings.NotificationDuration</Key>
-    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:int">2500</Value>
+    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:int">1500</Value>
   </KeyValueOfstringanyType>
   <KeyValueOfstringanyType>
     <Key>GeneralSettings.OverrideWindowsDefaultKeyCombination</Key>
@@ -151,7 +151,7 @@
   </KeyValueOfstringanyType>
   <KeyValueOfstringanyType>
     <Key>ShortcutKeySettings.RenameCurrent</Key>
-    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">82,162,91</Value>
+    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">(none)</Value>
   </KeyValueOfstringanyType>
   <KeyValueOfstringanyType>
     <Key>ShortcutKeySettings.SwapDesktopLeft</Key>
@@ -163,7 +163,7 @@
   </KeyValueOfstringanyType>
   <KeyValueOfstringanyType>
     <Key>ShortcutKeySettings.SwitchToPrevious</Key>
-    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">40,91,162</Value>
+    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">(none)</Value>
   </KeyValueOfstringanyType>
   <KeyValueOfstringanyType>
     <Key>ShortcutKeySettings.TogglePin</Key>
