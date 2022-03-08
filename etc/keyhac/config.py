@@ -40,25 +40,29 @@ def configure(keymap):
     keymap_global["D-LWin"] = "D-LWin", "LCtrl"
 
     # デフォルトショートカットの無効化
-    keymap_global["W-C"] = lambda: None  # Cortana
-    keymap_global["W-D"] = lambda: None  # デスクトップ
+    keymap_global["W-C"] = lambda: None  # Microsoft Teams チャット
     keymap_global["W-F"] = lambda: None  # フィードバック Hub
-    keymap_global["W-G"] = lambda: None  # ゲームバー
-    keymap_global["W-H"] = lambda: None  # ディクテーション
+    keymap_global["W-G"] = lambda: None  # Xbox Game Bar
+    keymap_global["W-A-B"] = lambda: None  # Xbox Game Bar: HDR 切り替え
+    keymap_global["W-A-R"] = lambda: None  # Xbox Game Bar: 録画
+    keymap_global["W-H"] = lambda: None  # 音声入力
     keymap_global["W-J"] = lambda: None  # ヒント
-    keymap_global["W-M"] = lambda: None  # すべて最小化
-    keymap_global["W-S-M"] = lambda: None  # 最小化したウインドウを復元
+    keymap_global["W-K"] = lambda: None  # キャスト
     keymap_global["W-O"] = lambda: None  # デバイスの向きをロック
     keymap_global["W-P"] = lambda: None  # プレゼンテーション表示モード
     keymap_global["W-C-Q"] = lambda: None  # クイックアシスト
     keymap_global["W-Q"] = lambda: None  # 検索
     keymap_global["W-S"] = lambda: None  # 検索
-    keymap_global["W-U"] = lambda: None  # コンピュータの簡単操作
-    keymap_global["W-S-V"] = lambda: None  # 通知の切り替え
+    keymap_global["W-U"] = lambda: None  # アクセシビリティの設定
+    keymap_global["W-S-V"] = lambda: None  # 通知
+    keymap_global["W-W"] = lambda: None  # ウィジェット
+    keymap_global["W-Y"] = lambda: None  # Windows Mixed Reality
     keymap_global["W-Period"] = lambda: None  # 絵文字
     keymap_global["W-Semicolon"] = lambda: None  # 絵文字
     keymap_global["W-Comma"] = lambda: None  # デスクトップのプレビュー
     keymap_global["W-Space"] = lambda: None  # 入力言語の切り替え
+    keymap_global["W-S-Space"] = lambda: None  # 入力言語の切り替え
+    keymap_global["W-C-Space"] = lambda: None  # 入力言語の切り替え
     keymap_global["W-C-Enter"] = lambda: None  # ナレーター
 
     # Win+Q でプログラムを終了する
