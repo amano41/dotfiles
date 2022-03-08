@@ -507,6 +507,11 @@ def configure(keymap):
     ###########################################################################
 
     def is_emacs_target(window):
+
+        proc_name = window.getProcessName()
+        if proc_name in ("WindowsTerminal.exe",):
+            return False
+
         return True
 
     keymap_emacs = keymap.defineWindowKeymap(check_func=is_emacs_target)
