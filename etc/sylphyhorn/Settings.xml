@@ -5,23 +5,6 @@
     <Value i:nil="true" />
   </KeyValueOfstringanyType>
   <KeyValueOfstringanyType>
-    <Key>GeneralSettings.DesktopNames</Key>
-    <Value xmlns:d3p1="http://schemas.datacontract.org/2004/07/SylphyHorn.Serialization" i:type="d3p1:ArrayOfStringHolder">
-      <d3p1:StringHolder>
-        <d3p1:Value i:nil="true" />
-      </d3p1:StringHolder>
-      <d3p1:StringHolder>
-        <d3p1:Value i:nil="true" />
-      </d3p1:StringHolder>
-      <d3p1:StringHolder>
-        <d3p1:Value i:nil="true" />
-      </d3p1:StringHolder>
-      <d3p1:StringHolder>
-        <d3p1:Value i:nil="true" />
-      </d3p1:StringHolder>
-    </Value>
-  </KeyValueOfstringanyType>
-  <KeyValueOfstringanyType>
     <Key>GeneralSettings.FirstTime</Key>
     <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:boolean">false</Value>
   </KeyValueOfstringanyType>
@@ -30,59 +13,31 @@
     <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:boolean">true</Value>
   </KeyValueOfstringanyType>
   <KeyValueOfstringanyType>
-    <Key>GeneralSettings.NotificationDuration</Key>
-    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:int">1500</Value>
-  </KeyValueOfstringanyType>
-  <KeyValueOfstringanyType>
-    <Key>GeneralSettings.OverrideWindowsDefaultKeyCombination</Key>
-    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:boolean">true</Value>
-  </KeyValueOfstringanyType>
-  <KeyValueOfstringanyType>
-    <Key>GeneralSettings.SkipDefaultAnimation</Key>
-    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:boolean">false</Value>
+    <Key>GeneralSettings.NotificationFontFamily</Key>
+    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">Meiryo UI</Value>
   </KeyValueOfstringanyType>
   <KeyValueOfstringanyType>
     <Key>GeneralSettings.TrayShowDesktop</Key>
     <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:boolean">true</Value>
   </KeyValueOfstringanyType>
   <KeyValueOfstringanyType>
-    <Key>ShortcutKeySettings.MoveAndSwitchTo1</Key>
+    <Key>GeneralSettings.UseDesktopName</Key>
+    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:boolean">true</Value>
+  </KeyValueOfstringanyType>
+  <KeyValueOfstringanyType>
+    <Key>MouseShortcutSettings.MoveLeftAndSwitch</Key>
     <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">(none)</Value>
   </KeyValueOfstringanyType>
   <KeyValueOfstringanyType>
-    <Key>ShortcutKeySettings.MoveAndSwitchTo10</Key>
+    <Key>MouseShortcutSettings.MoveNewAndSwitch</Key>
     <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">(none)</Value>
   </KeyValueOfstringanyType>
   <KeyValueOfstringanyType>
-    <Key>ShortcutKeySettings.MoveAndSwitchTo2</Key>
+    <Key>MouseShortcutSettings.MoveRightAndSwitch</Key>
     <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">(none)</Value>
   </KeyValueOfstringanyType>
   <KeyValueOfstringanyType>
-    <Key>ShortcutKeySettings.MoveAndSwitchTo3</Key>
-    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">(none)</Value>
-  </KeyValueOfstringanyType>
-  <KeyValueOfstringanyType>
-    <Key>ShortcutKeySettings.MoveAndSwitchTo4</Key>
-    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">(none)</Value>
-  </KeyValueOfstringanyType>
-  <KeyValueOfstringanyType>
-    <Key>ShortcutKeySettings.MoveAndSwitchTo5</Key>
-    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">(none)</Value>
-  </KeyValueOfstringanyType>
-  <KeyValueOfstringanyType>
-    <Key>ShortcutKeySettings.MoveAndSwitchTo6</Key>
-    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">(none)</Value>
-  </KeyValueOfstringanyType>
-  <KeyValueOfstringanyType>
-    <Key>ShortcutKeySettings.MoveAndSwitchTo7</Key>
-    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">(none)</Value>
-  </KeyValueOfstringanyType>
-  <KeyValueOfstringanyType>
-    <Key>ShortcutKeySettings.MoveAndSwitchTo8</Key>
-    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">(none)</Value>
-  </KeyValueOfstringanyType>
-  <KeyValueOfstringanyType>
-    <Key>ShortcutKeySettings.MoveAndSwitchTo9</Key>
+    <Key>MouseShortcutSettings.TogglePin</Key>
     <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">(none)</Value>
   </KeyValueOfstringanyType>
   <KeyValueOfstringanyType>
@@ -110,67 +65,7 @@
     <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">(none)</Value>
   </KeyValueOfstringanyType>
   <KeyValueOfstringanyType>
-    <Key>ShortcutKeySettings.MoveTo1</Key>
-    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">49,91,162,160</Value>
-  </KeyValueOfstringanyType>
-  <KeyValueOfstringanyType>
-    <Key>ShortcutKeySettings.MoveTo10</Key>
-    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">48,91,162,160</Value>
-  </KeyValueOfstringanyType>
-  <KeyValueOfstringanyType>
-    <Key>ShortcutKeySettings.MoveTo2</Key>
-    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">50,91,162,160</Value>
-  </KeyValueOfstringanyType>
-  <KeyValueOfstringanyType>
-    <Key>ShortcutKeySettings.MoveTo3</Key>
-    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">51,91,162,160</Value>
-  </KeyValueOfstringanyType>
-  <KeyValueOfstringanyType>
-    <Key>ShortcutKeySettings.MoveTo4</Key>
-    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">52,91,162,160</Value>
-  </KeyValueOfstringanyType>
-  <KeyValueOfstringanyType>
-    <Key>ShortcutKeySettings.MoveTo5</Key>
-    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">53,91,162,160</Value>
-  </KeyValueOfstringanyType>
-  <KeyValueOfstringanyType>
-    <Key>ShortcutKeySettings.MoveTo6</Key>
-    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">54,91,162,160</Value>
-  </KeyValueOfstringanyType>
-  <KeyValueOfstringanyType>
-    <Key>ShortcutKeySettings.MoveTo7</Key>
-    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">55,91,162,160</Value>
-  </KeyValueOfstringanyType>
-  <KeyValueOfstringanyType>
-    <Key>ShortcutKeySettings.MoveTo8</Key>
-    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">56,91,162,160</Value>
-  </KeyValueOfstringanyType>
-  <KeyValueOfstringanyType>
-    <Key>ShortcutKeySettings.MoveTo9</Key>
-    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">57,91,162,160</Value>
-  </KeyValueOfstringanyType>
-  <KeyValueOfstringanyType>
-    <Key>ShortcutKeySettings.RenameCurrent</Key>
-    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">(none)</Value>
-  </KeyValueOfstringanyType>
-  <KeyValueOfstringanyType>
-    <Key>ShortcutKeySettings.SwapDesktopLeft</Key>
-    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">(none)</Value>
-  </KeyValueOfstringanyType>
-  <KeyValueOfstringanyType>
-    <Key>ShortcutKeySettings.SwapDesktopRight</Key>
-    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">(none)</Value>
-  </KeyValueOfstringanyType>
-  <KeyValueOfstringanyType>
-    <Key>ShortcutKeySettings.SwitchToPrevious</Key>
-    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">(none)</Value>
-  </KeyValueOfstringanyType>
-  <KeyValueOfstringanyType>
     <Key>ShortcutKeySettings.TogglePin</Key>
     <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">80,91,162</Value>
-  </KeyValueOfstringanyType>
-  <KeyValueOfstringanyType>
-    <Key>ShortcutKeySettings.TogglePinApp</Key>
-    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">80,91,164,162</Value>
   </KeyValueOfstringanyType>
 </ArrayOfKeyValueOfstringanyType>
