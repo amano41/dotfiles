@@ -206,8 +206,8 @@ def configure(keymap):
             return
         if w.isMinimized():
             w.restore()
-        w = w.getLastActivePopup()
-        w.setForeground()
+            w = w.getLastActivePopup()
+            w.setForeground()
 
     def next_window():
         keymap.InputKeyCommand("A-Esc")()
@@ -217,8 +217,8 @@ def configure(keymap):
         keymap.InputKeyCommand("A-S-Esc")()
         keymap.delayedCall(restore_minimized_window, 100)
 
-    keymap_global["W-Space"] = next_window
-    keymap_global["W-S-Space"] = prev_window
+    keymap_global["W-PageUp"] = prev_window
+    keymap_global["W-PageDown"] = next_window
 
     # -------------------------------------------------------------------------
     #  ウィンドウの移動・サイズ変更
@@ -376,6 +376,8 @@ def configure(keymap):
         if w is None:
             return
         w.restore()
+        w = w.getLastActivePopup()
+        w.setForeground()
 
     def cascade_windows():
         # タスクバーの右クリックメニューで「重ねて表示」を実行
@@ -391,7 +393,10 @@ def configure(keymap):
     keymap_global["W-S-Down"] = minimize_window
 
     # 元に戻す
-    keymap_global["W-End"] = restore_window
+    keymap_global["W-Esc"] = restore_window
+
+    # すべて最小化・元に戻す
+    keymap_global["W-End"] = "W-D"
 
     # -------------------------------------------------------------------------
     #  仮想デスクトップ
