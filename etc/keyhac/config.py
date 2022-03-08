@@ -537,9 +537,9 @@ def configure(keymap):
         keymap_emacs[modifier + "RC-A-A"] = modifier + "C-Home"
         keymap_emacs[modifier + "RC-A-E"] = modifier + "C-End"
 
-        # 単語単位の移動はよく使うので RC-Bracket を割り当てる
-        keymap_emacs[modifier + "RC-OpenBracket"] = modifier + "C-Left"
-        keymap_emacs[modifier + "RC-CloseBracket"] = modifier + "C-Right"
+        # 単語単位の移動はよく使うので RC-Comma/Period を割り当てる
+        keymap_emacs[modifier + "RC-Comma"] = modifier + "C-Left"
+        keymap_emacs[modifier + "RC-Period"] = modifier + "C-Right"
 
     # 削除
     keymap_emacs["RC-D"] = "Delete"
