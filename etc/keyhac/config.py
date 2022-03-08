@@ -556,10 +556,6 @@ def configure(keymap):
     keymap_emacs["RC-K"] = "S-End", "C-X"
     keymap_emacs["RC-U"] = "S-Home", "C-X"
 
-    # 検索
-    keymap_emacs["RC-Slash"] = "F3"
-    keymap_emacs["RC-BackSlash"] = "S-F3"
-
     ###########################################################################
     # エディタ全般の設定
     ###########################################################################
