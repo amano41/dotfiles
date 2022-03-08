@@ -557,7 +557,7 @@ def configure(keymap):
 
     def is_editor(window):
 
-        editors = ("notepad.exe", "Mery.exe", "WINWORD.EXE", "Evernote.exe", "rstudio.exe")
+        editors = ("notepad.exe", "Mery.exe", "WINWORD.EXE")
 
         proc_name = window.getProcessName()
         if proc_name in editors:
@@ -566,9 +566,6 @@ def configure(keymap):
         class_name = window.getClassName()
         if "Edit" in class_name:
             return True
-
-        if "Chrome_WidgetWin_1" == class_name:
-            return proc_name not in ("Code.exe",)
 
         return False
 
