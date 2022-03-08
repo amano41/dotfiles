@@ -688,9 +688,9 @@ def configure(keymap):
 
     # ズーム
     # C-A-Plus で +15%，C-A-Minus で -15%
+    keymap_excel["C-A-Z"] = "A-W", "Q"  # ズーム
     keymap_excel["C-A-0"] = "A-W", "J", "A-H", "Esc", "Esc"  # 100%
     keymap_excel["C-A-9"] = "A-W", "G", "A-H", "Esc", "Esc"  # 選択範囲に合わせる
-    keymap_excel["C-A-8"] = "A-W", "Q"  # ズーム
 
     # 列の再表示
     # Windows 10 でショートカットキーが効かない場合がある
