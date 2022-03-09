@@ -58,10 +58,9 @@ Write-Host "'extras' bucket..." -ForegroundColor Yellow
 $packages = @(
 	"bitwarden",
 	"ccleaner",
+	"eartrumpet",
 	"everything",
 	"fastcopy",
-	"fork",
-	"gitkraken",
 	"greenshot",
 	"imageglass",
 	"keypirinha",
@@ -75,8 +74,7 @@ $packages = @(
 	"shiba",
 	"sumatrapdf",
 	"windows-terminal",
-	"winscp",
-	"wsltty"
+	"winscp"
 )
 
 foreach ($pkg in $packages) {
@@ -121,7 +119,7 @@ $packages = @(
 	"registry-finder",
 	"sizer",
 	"strokesplus.net",
-	"sylphyhorn-ex",
+	"sylphyhorn-plus",
 	"trayvolume",
 	"tresgrep",
 	"win32yank",
