@@ -484,6 +484,7 @@ def configure(keymap):
         return _command
 
     keymap_global["W-A"] = launch_asr_command()
+    keymap_global["W-B"] = launch_command(scoop_app("Bitwarden.exe"))
     keymap_global["W-F"] = launch_command(scoop_app("Everything.exe"))
     keymap_global["W-G"] = launch_command(scoop_app("TresGrep.exe"))
     keymap_global["W-Insert"] = launch_pen_command()
@@ -661,6 +662,15 @@ def configure(keymap):
     keymap_editor["A-Down"] = move_line_down
     keymap_editor["A-S-Up"] = copy_line_up
     keymap_editor["A-S-Down"] = copy_line_down
+
+    ###########################################################################
+    # Bitwarden 用の設定
+    ###########################################################################
+
+    keymap_bitwarden = keymap.defineWindowKeymap(exe_name="Bitwarden.exe")
+
+    # タスクトレイに最小化
+    keymap_bitwarden["Esc"] = "C-S-M"
 
     ###########################################################################
     # Excel 用の設定
