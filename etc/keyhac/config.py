@@ -356,11 +356,14 @@ def configure(keymap):
 
     def maximize_window():
         w = keymap.getTopLevelWindow()
-        if w is None:
+        if w is None or w.isMaximized():
             return
-        if w.isMaximized():
+        if w.isMinimized():
             w.restore()
-        w.maximize()
+        else:
+            w.maximize()
+        w = w.getLastActivePopup()
+        w.setForeground()
 
     def minimize_window():
         w = keymap.getTopLevelWindow()
@@ -370,23 +373,22 @@ def configure(keymap):
             w.restore()
         else:
             w.minimize()
+        w = w.getLastActivePopup()
+        w.setForeground()
 
     def restore_window():
         w = keymap.getTopLevelWindow()
         if w is None:
             return
-        w.restore()
-        w = w.getLastActivePopup()
-        w.setForeground()
+        if w.isMaximized() or w.isMinimized():
+            w.restore()
+            w = w.getLastActivePopup()
+            w.setForeground()
 
     def cascade_windows():
         # タスクバーの右クリックメニューで「重ねて表示」を実行
         keymap.InputKeyCommand("W-B", "S-F10", "D")()
         keymap.delayedCall(keymap.InputKeyCommand("A-Esc"), 100)
-
-    # 縦方向のスナップ
-    keymap_global["W-Up"] = upper_half_window
-    keymap_global["W-Down"] = lower_half_window
 
     # 最大化・最小化
     keymap_global["W-S-Up"] = maximize_window
