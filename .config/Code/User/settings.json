@@ -156,6 +156,9 @@
   "gitlens.defaultDateShortFormat": "YYYY-MM-DD",
   "markdown.preview.fontFamily": "HackGen",
   "markdown.preview.fontSize": 14,
+  "markdownlint.config": {
+    "commands-show-output": false
+  },
   "material-icon-theme.saturation": 0,
   "oneDarkPro.markdownStyle": false,
   "powershell.powerShellDefaultVersion": "PowerShell Core",
