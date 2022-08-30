@@ -162,12 +162,9 @@
   "material-icon-theme.saturation": 0,
   "oneDarkPro.markdownStyle": false,
   "powershell.powerShellDefaultVersion": "PowerShell Core",
-  "powershell.powerShellAdditionalExePaths": [
-    {
-      "exePath": "${env:USERPROFILE}\\scoop\\apps\\pwsh\\current\\pwsh.exe",
-      "versionName": "PowerShell Core"
-    }
-  ],
+  "powershell.powerShellAdditionalExePaths": {
+    "PowerShell Core": "${env:USERPROFILE}\\scoop\\apps\\pwsh\\current\\pwsh.exe",
+  },
   "powershell.integratedConsole.showOnStartup": false,
   "python.languageServer": "Pylance",
   "python.analysis.typeCheckingMode": "basic",
