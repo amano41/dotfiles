@@ -52,7 +52,6 @@
     "font_size_points": 12,
     "help_font_size_points": 12,
     "rainbow_parentheses": true,
-    "editor_keybindings": "emacs",
     "cran_mirror": {
         "name": "Japan (Tokyo) [https]",
         "host": "The Institute of Statistical Mathematics, Tokyo",
