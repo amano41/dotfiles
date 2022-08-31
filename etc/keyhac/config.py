@@ -35,9 +35,9 @@ def configure(keymap):
     keymap_global = keymap.defineWindowKeymap()
 
     # LWin でスタートメニューが開かないようにする
-    # 実際には U-LWin の時点でスタートメニューが開くが
-    # U-LWin を上書きすると他のショートカットに影響してしまう
-    keymap_global["D-LWin"] = "D-LWin", "LCtrl"
+    # U-LWin の時点でスタートメニューが開くため
+    # O-LWin を lambda: None で無効化しても効果はない
+    keymap_global["U-LWin"] = "LWin-LShift"
 
     # デフォルトショートカットの無効化
     keymap_global["W-C"] = lambda: None  # Microsoft Teams チャット
@@ -106,8 +106,8 @@ def configure(keymap):
     keymap_global["O-RAlt"] = ime_on
 
     # Alt キー空打ちでメニューにフォーカスが移動するのを防ぐ
-    keymap_global["D-LAlt"] = "D-LAlt", "LCtrl"
-    keymap_global["D-RAlt"] = "D-RAlt", "RCtrl"
+    keymap_global["D-LAlt"] = "D-LAlt", "LShift"
+    keymap_global["D-RAlt"] = "D-RAlt", "RShift"
 
     # -------------------------------------------------------------------------
     #  クリップボード
