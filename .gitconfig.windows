@@ -18,6 +18,9 @@
 [mergetool "winmerge"]
 	cmd = WinMergeU.exe \"$MERGED\"
 	trustExitCode = false
+[alias]
+	windiff = difftool --dir-diff --tool=winmerge
+	winmerge = mergetool --tool=winmerge
 [diff "pdf"]
 	binary = true
 	textconv = xdoc2txt.exe -8

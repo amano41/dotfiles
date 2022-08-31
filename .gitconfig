@@ -36,10 +36,10 @@
 	showPatch = true
 [status]
 	showUntrackedFiles = all
-[log]
-	date = iso-local
 [pretty]
 	compact = "tformat:%C(yellow)%h%Creset %C(magenta)%cd%Creset%C(auto)%d%Creset %s %C(bold black)-%Creset %C(bold blue)%an%Creset"
+[log]
+	date = iso-local
 [diff]
 	mnemonicPrefix = true
 	renames = true
@@ -70,10 +70,8 @@
 	sb = status -sb
 	d  = diff
 	dc = diff --cached
-	wd  = diff --word-diff=color --unified=1
-	wdc = diff --word-diff=color --unified=1 --cached
-	jd  = diff --word-diff=color --word-diff-regex='[^\\x80-\\xBF][\\x80-\\xBF]*'
-	jdc = diff --word-diff=color --word-diff-regex='[^\\x80-\\xBF][\\x80-\\xBF]*' --cached
+	dp = diff --no-textconv
+	dpc = diff --no-textconv --cached
 	dd  = difftool --dir-diff
 	ddc = difftool --dir-diff --cached
 	dr = !"f() { r=${1:-HEAD}; git diff $r~..$r; }; f"
@@ -81,7 +79,6 @@
 	b = branch
 	ba = branch -avv
 	bd = branch -D
-	bdr = push --delete
 	co = checkout
 	cob = checkout -b
 	cop = checkout -p
@@ -89,6 +86,7 @@
 	rs = reset --soft
 	rh = reset --hard
 	pl = pull
+	pp = pull --prune
 	ps = push
 	f = fetch
 	fp = fetch --prune
@@ -109,17 +107,16 @@
 	sd = !"f() { git stash drop stash@{${1:-0}}; }; f"
 	ssh = !"f() { git stash show stash@{${1:-0}}; }; f"
 	sc = stash clear
-	l  = log --oneline --decorate --graph
-	la = log --oneline --decorate --graph --all
-	ll  = log --pretty=compact --date="format-local:'%F %T'" --graph
-	lla = log --pretty=compact --date="format-local:'%F %T'" --graph --all
+	l  = log --graph --oneline --decorate
+	la = log --graph --oneline --decorate --all
+	ll  = log --graph --pretty=compact --date="format-local:'%F %T'"
+	lla = log --graph --pretty=compact --date="format-local:'%F %T'" --all
+	lt = log --graph --oneline --decorate --simplify-by-decoration
+	lta = log --graph --oneline --decorate --simplify-by-decoration --all
 	ln = log --name-status
 	lp = log --patch
-	lt = log --simplify-by-decoration --oneline --decorate --graph
 	g = grep -EI
 	gi = grep -EIi
-	gm = log -E --grep
-	gh = log --patch --pickaxe-regex -S
 	discard = checkout --
 	untrack = rm --cache --
 	unstage = reset -q HEAD --
@@ -129,9 +126,14 @@
 	reword = commit --amend -m
 	fixup = commit --fixup
 	squash = commit -v --squash
+	word-diff = diff --word-diff=color --unified=1
+	char-diff = diff --word-diff=color --word-diff-regex="[^\\x80-\\xBF][\\x80-\\xBF]*"
+	delete-remote-branch = !"f() { u=${2:+${1}}; b=${2:-${1}}; git push --delete ${u:-origin} $b; }; f"
 	chmod = update-index --add --chmod
 	skip = update-index --skip-worktree
 	unskip = update-index --no-skip-worktree
+	search-log = log -E --grep
+	search-diff = log --patch --pickaxe-regex -S
 	branches = branch -avv
 	tags = tag
 	stashes = stash list
