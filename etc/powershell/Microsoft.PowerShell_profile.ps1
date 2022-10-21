@@ -173,6 +173,24 @@ Set-Alias -Name h -Value history -Force
 
 
 ##################################################
+# git
+##################################################
+
+function _git() {
+	if ($Args.Length -eq 0) {
+		git status -sb
+		Write-Host
+		git log -n 15 --oneline --graph --decorate
+	}
+	else {
+		git $Args
+	}
+}
+
+Set-Alias -Name g -Value _git -Force
+
+
+##################################################
 # fzf / PSFzf
 ##################################################
 
