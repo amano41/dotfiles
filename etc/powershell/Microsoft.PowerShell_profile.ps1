@@ -98,7 +98,7 @@ function lla() { lsd -lA $args }
 
 function tree() { lsd --tree $args }
 
-@( "ls", "la", "ll", "lla", "tree" ) | ForEach-Object {
+@( "history", "h", "ls", "la", "ll", "lla", "tree" ) | ForEach-Object {
 	$cmd = $_
 	If (Test-Path -Path Alias:$cmd) {
 		Remove-Item -Path Alias:$cmd
@@ -134,6 +134,42 @@ function open() {
 	}
 
 }
+
+
+##################################################
+# history
+##################################################
+
+function history() {
+
+	Param(
+		[String] $Keyword = "",
+		[Int] $Count = 30
+	)
+
+	$Path = (Get-PSReadLineOption).HistorySavePath
+	$Data = Get-Content -Path $Path -Tail 1000 | ForEach-Object { "$($_.ReadCount)`t$_" }
+
+	if ([string]::IsNullOrEmpty($Keyword)) {
+		if ($Count -gt 0) {
+			$Data[($Data.Length - $Count)..$Data.Length]
+		}
+		else {
+			$Data
+		}
+	}
+	else {
+		$Data[$Data.Length..0] | `
+			ConvertFrom-String -Delimiter "`t" -PropertyNames "Number", "Command" | `
+			Sort-Object -Property "Command" -Unique | `
+			Where-Object -Property "Command" -Match $Keyword | `
+			Sort-Object -Property "Number" | `
+			Select-Object "Number", "Command" | `
+			rg $Keyword
+	}
+}
+
+Set-Alias -Name h -Value history -Force
 
 
 ##################################################
