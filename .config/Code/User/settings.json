@@ -37,7 +37,7 @@
   },
   "breadcrumbs.enabled": true,
   "workbench.startupEditor": "none",
-  "workbench.colorTheme": "Night Owl",
+  "workbench.colorTheme": "Panda Syntax",
   "workbench.colorCustomizations": {
     "[One Dark Pro]": {
       "editorWhitespace.foreground": "#a9a9a960",
@@ -123,10 +123,12 @@
       "source": "Git Bash"
     }
   },
+  "terminal.integrated.defaultProfile.osx": "zsh",
   "terminal.integrated.fontFamily": "HackGenNerd Console",
   "terminal.integrated.fontSize": 14,
   "telemetry.telemetryLevel": "off",
   "[markdown]": {
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
     "files.trimTrailingWhitespace": false
   },
   "[python]": {
@@ -134,19 +136,21 @@
       79,
       119
     ],
+    "editor.defaultFormatter": "ms-python.black-formatter",
     "editor.formatOnPaste": false,
     "editor.formatOnSaveMode": "file",
     "editor.codeActionsOnSave": {
       "source.organizeImports": true
     }
   },
-  "bracket-pair-colorizer-2.highlightActiveScope": true,
-  "bracket-pair-colorizer-2.activeScopeCSS": [
-    "borderStyle : solid",
-    "borderWidth : 1px",
-    "borderColor : {color}",
-    "backgroundColor: {color}",
-    "opacity: 0.5"
+  "black-formatter.args": [
+    "--line-length=119"
+  ],
+  "isort.args": [
+    "--profile",
+    "black",
+    "--line-length",
+    "119"
   ],
   "code-eol.newlineCharacter": "↓",
   "code-eol.returnCharacter": "←",
@@ -159,11 +163,15 @@
   "markdownlint.config": {
     "commands-show-output": false
   },
+  "markdown-pdf.styles": [
+    "style/markdown-pdf.css"
+  ],
+  "markdown-pdf.displayHeaderFooter": false,
   "material-icon-theme.saturation": 0,
   "oneDarkPro.markdownStyle": false,
   "powershell.powerShellDefaultVersion": "PowerShell Core",
   "powershell.powerShellAdditionalExePaths": {
-    "PowerShell Core": "${env:USERPROFILE}\\scoop\\apps\\pwsh\\current\\pwsh.exe",
+    "PowerShell Core": "${env:USERPROFILE}\\scoop\\apps\\pwsh\\current\\pwsh.exe"
   },
   "powershell.integratedConsole.showOnStartup": false,
   "python.languageServer": "Pylance",
@@ -176,7 +184,7 @@
     "--max-line-length=119",
     "--extend-ignore=E203"
   ],
-  "python.formatting.provider": "black",
+  "python.formatting.provider": "none",
   "python.formatting.blackArgs": [
     "--line-length=119"
   ],
@@ -198,5 +206,5 @@
   "r.bracketedPaste": true,
   "r.sessionWatcher": true,
   "r.lsp.debug": true,
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue"
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
 }
