@@ -22,6 +22,7 @@ path=(
 	~/bin(N-/)
 	~/dotfiles/bin/macos(N-/)
 	~/dotfiles/bin(N-/)
+	~/.local/bin(N-/)
 	/opt/homebrew/opt/coreutils/libexec/gnubin(N-/)
 	/opt/homebrew/opt/findutils/libexec/gnubin(N-/)
 	/opt/homebrew/opt/gnu-sed/libexec/gnubin(N-/)
