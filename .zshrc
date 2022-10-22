@@ -35,4 +35,22 @@ source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # zsh-syntax-highlighting
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# エイリアス
+alias "l"="ls"
+alias "la"="ls -A"
+alias "ll"="ls -lh"
+alias "lla"="ls -lhA"
+alias "lt"="ls -lhtr"
+alias "lta"="ls -lhtrA"
+
+## grep
+alias "grep"="grep --color"
+
+## python
+alias "python"="python3"
+alias "pip"="python3 -m pip"
+
+## git
+alias "g"="git"
+
 eval "$(starship init zsh)"
