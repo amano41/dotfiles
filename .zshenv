@@ -8,6 +8,9 @@ export MANPATH
 # パスを重複させない
 typeset -U PATH path MANPATH manpath
 
+# zsh-syntax-highlighting
+export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/opt/homebrew/share/zsh-syntax-highlighting/highlighters
+
 # /etc/zprofile からコピー
 # システムレベルの設定を読み込む
 if [ -x /usr/libexec/path_helper ]; then
