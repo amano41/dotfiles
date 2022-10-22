@@ -161,6 +161,7 @@
   "code-eol.crlfCharacter": "↵",
   "git.autofetch": true,
   "git.confirmSync": false,
+  "gitlens.keymap": "none",
   "gitlens.defaultDateFormat": "YYYY-MM-DD hh:mm",
   "gitlens.defaultDateShortFormat": "YYYY-MM-DD",
   "markdown.preview.fontFamily": "HackGen",
