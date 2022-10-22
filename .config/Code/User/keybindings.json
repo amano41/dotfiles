@@ -1,3 +1,145 @@
 // Place your key bindings in this file to override the defaults
 [
+  // --------------------------------------------------
+  //  リストのカーソル移動
+  // --------------------------------------------------
+  {
+    "key": "Ctrl+N",
+    "command": "list.focusDown",
+    "when": "listFocus && !inputFocus"
+  },
+  {
+    "key": "Ctrl+P",
+    "command": "list.focusUp",
+    "when": "listFocus && !inputFocus"
+  },
+  {
+    "key": "Ctrl+A",
+    "command": "list.focusFirst",
+    "when": "listFocus && !inputFocus"
+  },
+  {
+    "key": "Ctrl+E",
+    "command": "list.focusLast",
+    "when": "listFocus && !inputFocus"
+  },
+  // --------------------------------------------------
+  //  Explorer
+  // --------------------------------------------------
+  {
+    "key": "J",
+    "command": "list.focusDown",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "K",
+    "command": "list.focusUp",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "Shift+K",
+    "command": "list.focusFirst",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "Shift+J",
+    "command": "list.focusLast",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "A",
+    "command": "explorer.newFile",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "Shift+A",
+    "command": "explorer.newFolder",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "R",
+    "command": "renameFile",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "D",
+    "command": "moveFileToTrash",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+  // --------------------------------------------------
+  //  Git
+  // --------------------------------------------------
+  {
+    "key": "Space",
+    "command": "list.selectAndPreserveFocus",
+    "when": "listFocus && sideBarFocus && activeViewlet == 'workbench.view.scm'"
+  },
+  {
+    "key": "Ctrl+G S",
+    "command": "git.stage",
+    "when": "listFocus && sideBarFocus && activeViewlet == 'workbench.view.scm'"
+  },
+  {
+    "key": "Ctrl+G U",
+    "command": "git.unstage",
+    "when": "listFocus && sideBarFocus && activeViewlet == 'workbench.view.scm'"
+  },
+  {
+    "key": "Ctrl+G R",
+    "command": "git.clean",
+    "when": "listFocus && sideBarFocus && activeViewlet == 'workbench.view.scm'"
+  },
+  {
+    "key": "Ctrl+G C",
+    "command": "git.commitStaged",
+    "when": "listFocus && sideBarFocus && activeViewlet == 'workbench.view.scm'"
+  },
+  {
+    "key": "Ctrl+G S",
+    "command": "git.stage",
+    "when": "isInDiffEditor"
+  },
+  {
+    "key": "Ctrl+G U",
+    "command": "git.unstage",
+    "when": "isInDiffEditor"
+  },
+  {
+    "key": "Ctrl+G R",
+    "command": "git.clean",
+    "when": "isInDiffEditor"
+  },
+  {
+    "key": "Ctrl+G Shift+S",
+    "command": "git.stageSelectedRanges",
+    "when": "isInDiffEditor"
+  },
+  {
+    "key": "Ctrl+G Shift+U",
+    "command": "git.unstageSelectedRanges",
+    "when": "isInDiffEditor"
+  },
+  {
+    "key": "Ctrl+G Shift+R",
+    "command": "git.revertSelectedRanges",
+    "when": "isInDiffEditor"
+  },
+  {
+    "key": "Ctrl+G C",
+    "command": "git.commitStaged",
+    "when": "isInDiffEditor"
+  },
+  // --------------------------------------------------
+  //  Terminal
+  // --------------------------------------------------
+  {
+    "key": "Ctrl+Shift+/",
+    "command": "workbench.action.terminal.toggleTerminal",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "Ctrl+Shift+/",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "terminalFocus"
+  },
 ]
