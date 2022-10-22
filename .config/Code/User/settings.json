@@ -123,6 +123,7 @@
       "source": "Git Bash"
     }
   },
+  "terminal.external.osxExec": "iTerm.app",
   "terminal.integrated.defaultProfile.osx": "zsh",
   "terminal.integrated.fontFamily": "HackGen Console",
   "terminal.integrated.fontSize": 14,
