@@ -25,6 +25,7 @@ alias grep='grep --color'
 
 ## python
 alias python='python3'
+alias pip='python3 -m pip'
 
 
 ## Git のエイリアスからシェルのエイリアスを定義し，補完も効くようにする
