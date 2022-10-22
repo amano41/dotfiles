@@ -124,7 +124,7 @@
     }
   },
   "terminal.integrated.defaultProfile.osx": "zsh",
-  "terminal.integrated.fontFamily": "HackGenNerd Console",
+  "terminal.integrated.fontFamily": "HackGen Console",
   "terminal.integrated.fontSize": 14,
   "telemetry.telemetryLevel": "off",
   "[markdown]": {
