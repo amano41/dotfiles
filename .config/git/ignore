@@ -37,4 +37,5 @@ __pycache__/
 
 ## VSCode
 
-.vscode/
+.vscode/*
+!.vscode/settings.json
