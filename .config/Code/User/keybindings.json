@@ -95,32 +95,37 @@
     "when": "listFocus && sideBarFocus && activeViewlet == 'workbench.view.scm'"
   },
   {
-    "key": "Ctrl+G S",
+    "key": "Ctrl+G Shift+S",
     "command": "git.stage",
     "when": "isInDiffEditor"
   },
   {
-    "key": "Ctrl+G U",
+    "key": "Ctrl+G Shift+U",
     "command": "git.unstage",
     "when": "isInDiffEditor"
   },
   {
-    "key": "Ctrl+G R",
+    "key": "Ctrl+G Shift+R",
     "command": "git.clean",
     "when": "isInDiffEditor"
   },
   {
-    "key": "Ctrl+G Shift+S",
+    "key": "Ctrl+G Shift+C",
+    "command": "git.commit",
+    "when": "isInDiffEditor"
+  },
+  {
+    "key": "Ctrl+G S",
     "command": "git.stageSelectedRanges",
     "when": "isInDiffEditor"
   },
   {
-    "key": "Ctrl+G Shift+U",
+    "key": "Ctrl+G U",
     "command": "git.unstageSelectedRanges",
     "when": "isInDiffEditor"
   },
   {
-    "key": "Ctrl+G Shift+R",
+    "key": "Ctrl+G R",
     "command": "git.revertSelectedRanges",
     "when": "isInDiffEditor"
   },
