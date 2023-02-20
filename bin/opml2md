@@ -19,7 +19,7 @@ case "$OSTYPE" in
 	*)      src="$1";;
 esac
 
-pandoc -f opml -t markdown --atx-headers "$src" | \
+pandoc -f opml -t markdown "$src" | \
 tr -d '\r' | \
 awk '
 	NF {
