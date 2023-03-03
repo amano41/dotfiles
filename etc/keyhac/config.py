@@ -662,8 +662,8 @@ def configure(keymap):
     keymap_editor["S-Delete"] = delete_line
     keymap_editor["S-Insert"] = paste_line
 
-    keymap_editor["C-Enter"] = insert_line_below
-    keymap_editor["C-S-Enter"] = insert_line_above
+    keymap_editor["A-Enter"] = insert_line_below
+    keymap_editor["A-S-Enter"] = insert_line_above
 
     keymap_editor["A-Up"] = move_line_up
     keymap_editor["A-Down"] = move_line_down
