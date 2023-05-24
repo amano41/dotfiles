@@ -37,13 +37,13 @@
     "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
   },
   {
-    "key": "Shift+K",
-    "command": "list.focusFirst",
+    "key": "Shift+J",
+    "command": "list.focusLast",
     "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
   },
   {
-    "key": "Shift+J",
-    "command": "list.focusLast",
+    "key": "Shift+K",
+    "command": "list.focusFirst",
     "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
   },
   {
@@ -75,44 +75,24 @@
     "when": "listFocus && sideBarFocus && activeViewlet == 'workbench.view.scm'"
   },
   {
-    "key": "Ctrl+G S",
+    "key": "S",
     "command": "git.stage",
     "when": "listFocus && sideBarFocus && activeViewlet == 'workbench.view.scm'"
   },
   {
-    "key": "Ctrl+G U",
+    "key": "U",
     "command": "git.unstage",
     "when": "listFocus && sideBarFocus && activeViewlet == 'workbench.view.scm'"
   },
   {
-    "key": "Ctrl+G R",
+    "key": "R",
     "command": "git.clean",
     "when": "listFocus && sideBarFocus && activeViewlet == 'workbench.view.scm'"
   },
   {
-    "key": "Ctrl+G C",
+    "key": "C",
     "command": "git.commitStaged",
     "when": "listFocus && sideBarFocus && activeViewlet == 'workbench.view.scm'"
-  },
-  {
-    "key": "Ctrl+G Shift+S",
-    "command": "git.stage",
-    "when": "isInDiffEditor"
-  },
-  {
-    "key": "Ctrl+G Shift+U",
-    "command": "git.unstage",
-    "when": "isInDiffEditor"
-  },
-  {
-    "key": "Ctrl+G Shift+R",
-    "command": "git.clean",
-    "when": "isInDiffEditor"
-  },
-  {
-    "key": "Ctrl+G Shift+C",
-    "command": "git.commit",
-    "when": "isInDiffEditor"
   },
   {
     "key": "Ctrl+G S",
@@ -132,6 +112,26 @@
   {
     "key": "Ctrl+G C",
     "command": "git.commitStaged",
+    "when": "isInDiffEditor"
+  },
+  {
+    "key": "Ctrl+G Shift+S",
+    "command": "git.stage",
+    "when": "isInDiffEditor"
+  },
+  {
+    "key": "Ctrl+G Shift+U",
+    "command": "git.unstage",
+    "when": "isInDiffEditor"
+  },
+  {
+    "key": "Ctrl+G Shift+R",
+    "command": "git.clean",
+    "when": "isInDiffEditor"
+  },
+  {
+    "key": "Ctrl+G Shift+C",
+    "command": "git.commit",
     "when": "isInDiffEditor"
   },
   // --------------------------------------------------
