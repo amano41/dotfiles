@@ -531,10 +531,10 @@ def configure(keymap):
     # CapsLock を RCtrl に置き換えた上で Emacs キーバインドを割り当てる
     # LCtrl は通常の Windows ショートカットが使えるようにそのまま残しておく
 
-    # RCtrl を単独で押した場合は LCtrl を押したことにする
-    # Ctrl 2 回押しで起動するクリップボード履歴ソフトで暴発を防ぐための設定
-    # LCtrl をホットキーに指定して暴発を防ぎつつ RCtrl でも起動できるようにする
-    keymap_global["O-RCtrl"] = "D-LCtrl", "U-LCtrl"
+    # LCtrl, RCtrl を単独で押した場合は F13 を押したことにする
+    # クリップボード履歴ソフトで F13 をホットキーに指定して暴発を防ぐ
+    keymap_global["O-LCtrl"] = "(124)"
+    keymap_global["O-RCtrl"] = "(124)"
 
     # カーソルの移動と範囲選択
     for modifier in ("", "S-"):
