@@ -34,6 +34,11 @@ def configure(keymap):
 
     keymap_global = keymap.defineWindowKeymap()
 
+    # LCtrl, RCtrl を単独で押した場合は F13 を押したことにする
+    # クリップボード履歴ソフトで F13 をホットキーに指定して暴発を防ぐ
+    keymap_global["O-LCtrl"] = "(124)"
+    keymap_global["O-RCtrl"] = "(124)"
+
     # LWin でスタートメニューが開かないようにする
     # U-LWin の時点でスタートメニューが開くため
     # O-LWin を lambda: None で無効化しても効果はない
@@ -530,11 +535,6 @@ def configure(keymap):
 
     # CapsLock を RCtrl に置き換えた上で Emacs キーバインドを割り当てる
     # LCtrl は通常の Windows ショートカットが使えるようにそのまま残しておく
-
-    # LCtrl, RCtrl を単独で押した場合は F13 を押したことにする
-    # クリップボード履歴ソフトで F13 をホットキーに指定して暴発を防ぐ
-    keymap_global["O-LCtrl"] = "(124)"
-    keymap_global["O-RCtrl"] = "(124)"
 
     # カーソルの移動と範囲選択
     for modifier in ("", "S-"):
