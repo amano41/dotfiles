@@ -10,7 +10,6 @@ from keyhac import Window, getClipboardText, setClipboardText
 
 
 def configure(keymap):
-
     ###########################################################################
     # 基本設定
     ###########################################################################
@@ -230,7 +229,6 @@ def configure(keymap):
     # -------------------------------------------------------------------------
 
     def grid_alignment(pos, delta):
-
         if delta == 0:
             return 0
 
@@ -247,7 +245,6 @@ def configure(keymap):
 
     def move_window_command(dx, dy):
         def _move_window():
-
             w = keymap.getTopLevelWindow()
             if w is None or w.isMaximized() or w.isMinimized():
                 return
@@ -268,7 +265,6 @@ def configure(keymap):
 
     def resize_window_command(dw, dh):
         def _resize_window():
-
             w = keymap.getTopLevelWindow()
             if w is None or w.isMaximized() or w.isMinimized():
                 return
@@ -304,7 +300,6 @@ def configure(keymap):
     # -------------------------------------------------------------------------
 
     def upper_half_window():
-
         w = keymap.getTopLevelWindow()
         if w is None:
             return
@@ -332,7 +327,6 @@ def configure(keymap):
         w.setRect((wl, wt, wr, wb))
 
     def lower_half_window():
-
         w = keymap.getTopLevelWindow()
         if w is None:
             return
@@ -462,7 +456,6 @@ def configure(keymap):
 
     def launch_pen_command():
         def _command():
-
             names = []
 
             # すでに起動しているか検索する
@@ -524,7 +517,6 @@ def configure(keymap):
     ###########################################################################
 
     def is_emacs_target(window):
-
         proc_name = window.getProcessName()
         if proc_name in ("WindowsTerminal.exe",):
             return False
@@ -538,7 +530,6 @@ def configure(keymap):
 
     # カーソルの移動と範囲選択
     for modifier in ("", "S-"):
-
         keymap_emacs[modifier + "RC-P"] = modifier + "Up"
         keymap_emacs[modifier + "RC-N"] = modifier + "Down"
         keymap_emacs[modifier + "RC-B"] = modifier + "Left"
@@ -569,7 +560,6 @@ def configure(keymap):
     ###########################################################################
 
     def is_editor(window):
-
         editors = ("notepad.exe", "Mery.exe", "WINWORD.EXE")
 
         proc_name = window.getProcessName()
