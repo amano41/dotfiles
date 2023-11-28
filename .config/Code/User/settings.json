@@ -188,25 +188,6 @@
   "python.analysis.typeCheckingMode": "basic",
   "python.analysis.completeFunctionParens": true,
   "python.autoComplete.addBrackets": true,
-  "python.linting.pylintEnabled": false,
-  "python.linting.flake8Enabled": true,
-  "python.linting.flake8Args": [
-    "--max-line-length=119",
-    "--extend-ignore=E203"
-  ],
-  "python.formatting.provider": "none",
-  "python.formatting.blackArgs": [
-    "--line-length=119"
-  ],
-  "python.formatting.autopep8Args": [
-    "--max-line-length=119",
-    "--aggressive",
-    "--aggressive"
-  ],
-  "python.sortImports.args": [
-    "--profile=black",
-    "--line-length=119"
-  ],
   "r.rterm.windows": "${env:APPDATA}\\Python\\Python310\\Scripts\\radian.exe",
   "r.rterm.option": [
     "--quiet",
