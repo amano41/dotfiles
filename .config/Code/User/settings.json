@@ -165,6 +165,7 @@
   "code-eol.crlfCharacter": "↵",
   "git.autofetch": true,
   "git.confirmSync": false,
+  "github.copilot.editor.enableAutoCompletions": true,
   "gitlens.keymap": "none",
   "gitlens.defaultDateFormat": "YYYY-MM-DD hh:mm",
   "gitlens.defaultDateShortFormat": "YYYY-MM-DD",
