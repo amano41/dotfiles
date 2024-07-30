@@ -79,7 +79,7 @@ New-Symlink `
 ## SylphyHorn
 New-Symlink `
 	"$dotfiles\etc\sylphyhorn\Settings.xml" `
-	"$env:LOCALAPPDATA\grabacr.net\SylphyHorn\Settings.xml"
+	"$env:LOCALAPPDATA\hwtnb.net\SylphyHornPlus\Settings.xml"
 
 
 ## Scoop
