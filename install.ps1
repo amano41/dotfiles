@@ -74,12 +74,12 @@ New-Symlink "$dotfiles\.config\lsd\config.yaml" "$env:APPDATA\lsd\config.yaml"
 ## Windows Terminal
 New-Symlink `
 	"$dotfiles\etc\windows-terminal\settings.json" `
-	"$env:LOCALAPPDATA\Microsoft\Windows Terminal\settings.json"
+	"$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
 
 ## SylphyHorn
 New-Symlink `
 	"$dotfiles\etc\sylphyhorn\Settings.xml" `
-	"$env:LOCALAPPDATA\grabacr.net\SylphyHorn\Settings.xml"
+	"$env:LOCALAPPDATA\hwtnb.net\SylphyHornPlus\Settings.xml"
 
 
 ## Scoop

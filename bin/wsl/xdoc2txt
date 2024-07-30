@@ -1,5 +1,0 @@
-#!/bin/sh
-
-set -eu
-
-xdoc2txt.exe -8 $(wslpath -am $(realpath $1))
