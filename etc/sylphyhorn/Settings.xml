@@ -1,8 +1,60 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ArrayOfKeyValueOfstringanyType xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
   <KeyValueOfstringanyType>
+    <Key>GeneralSettings.AlwaysShowDesktopNotification</Key>
+    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:boolean">false</Value>
+  </KeyValueOfstringanyType>
+  <KeyValueOfstringanyType>
     <Key>GeneralSettings.Culture</Key>
     <Value i:nil="true" />
+  </KeyValueOfstringanyType>
+  <KeyValueOfstringanyType>
+    <Key>GeneralSettings.DesktopBackgroundImagePaths#Count</Key>
+    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:int">4</Value>
+  </KeyValueOfstringanyType>
+  <KeyValueOfstringanyType>
+    <Key>GeneralSettings.DesktopBackgroundImagePaths[0]</Key>
+    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string"></Value>
+  </KeyValueOfstringanyType>
+  <KeyValueOfstringanyType>
+    <Key>GeneralSettings.DesktopBackgroundImagePaths[1]</Key>
+    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string"></Value>
+  </KeyValueOfstringanyType>
+  <KeyValueOfstringanyType>
+    <Key>GeneralSettings.DesktopBackgroundImagePaths[2]</Key>
+    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string"></Value>
+  </KeyValueOfstringanyType>
+  <KeyValueOfstringanyType>
+    <Key>GeneralSettings.DesktopBackgroundImagePaths[3]</Key>
+    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string"></Value>
+  </KeyValueOfstringanyType>
+  <KeyValueOfstringanyType>
+    <Key>GeneralSettings.DesktopBackgroundPositions#Count</Key>
+    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:int">4</Value>
+  </KeyValueOfstringanyType>
+  <KeyValueOfstringanyType>
+    <Key>GeneralSettings.DesktopBackgroundPositions[0]</Key>
+    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:unsignedByte">4</Value>
+  </KeyValueOfstringanyType>
+  <KeyValueOfstringanyType>
+    <Key>GeneralSettings.DesktopNames#Count</Key>
+    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:int">4</Value>
+  </KeyValueOfstringanyType>
+  <KeyValueOfstringanyType>
+    <Key>GeneralSettings.DesktopNames[0]</Key>
+    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string"></Value>
+  </KeyValueOfstringanyType>
+  <KeyValueOfstringanyType>
+    <Key>GeneralSettings.DesktopNames[1]</Key>
+    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string"></Value>
+  </KeyValueOfstringanyType>
+  <KeyValueOfstringanyType>
+    <Key>GeneralSettings.DesktopNames[2]</Key>
+    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string"></Value>
+  </KeyValueOfstringanyType>
+  <KeyValueOfstringanyType>
+    <Key>GeneralSettings.DesktopNames[3]</Key>
+    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string"></Value>
   </KeyValueOfstringanyType>
   <KeyValueOfstringanyType>
     <Key>GeneralSettings.FirstTime</Key>
@@ -17,7 +69,15 @@
     <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">Meiryo UI</Value>
   </KeyValueOfstringanyType>
   <KeyValueOfstringanyType>
+    <Key>GeneralSettings.NotificationWhenSwitchedDesktop</Key>
+    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:boolean">false</Value>
+  </KeyValueOfstringanyType>
+  <KeyValueOfstringanyType>
     <Key>GeneralSettings.TrayShowDesktop</Key>
+    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:boolean">true</Value>
+  </KeyValueOfstringanyType>
+  <KeyValueOfstringanyType>
+    <Key>GeneralSettings.TrayShowOnlyCurrentNumber</Key>
     <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:boolean">true</Value>
   </KeyValueOfstringanyType>
   <KeyValueOfstringanyType>
@@ -35,6 +95,22 @@
   <KeyValueOfstringanyType>
     <Key>MouseShortcutSettings.MoveRightAndSwitch</Key>
     <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">(none)</Value>
+  </KeyValueOfstringanyType>
+  <KeyValueOfstringanyType>
+    <Key>MouseShortcutSettings.MoveToIndices#Count</Key>
+    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:int">4</Value>
+  </KeyValueOfstringanyType>
+  <KeyValueOfstringanyType>
+    <Key>MouseShortcutSettings.MoveToIndicesAndSwitch#Count</Key>
+    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:int">4</Value>
+  </KeyValueOfstringanyType>
+  <KeyValueOfstringanyType>
+    <Key>MouseShortcutSettings.SwapDesktopIndices#Count</Key>
+    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:int">4</Value>
+  </KeyValueOfstringanyType>
+  <KeyValueOfstringanyType>
+    <Key>MouseShortcutSettings.SwitchToIndices#Count</Key>
+    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:int">4</Value>
   </KeyValueOfstringanyType>
   <KeyValueOfstringanyType>
     <Key>MouseShortcutSettings.TogglePin</Key>
@@ -63,6 +139,22 @@
   <KeyValueOfstringanyType>
     <Key>ShortcutKeySettings.MoveRightAndSwitch</Key>
     <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:string">(none)</Value>
+  </KeyValueOfstringanyType>
+  <KeyValueOfstringanyType>
+    <Key>ShortcutKeySettings.MoveToIndices#Count</Key>
+    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:int">4</Value>
+  </KeyValueOfstringanyType>
+  <KeyValueOfstringanyType>
+    <Key>ShortcutKeySettings.MoveToIndicesAndSwitch#Count</Key>
+    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:int">4</Value>
+  </KeyValueOfstringanyType>
+  <KeyValueOfstringanyType>
+    <Key>ShortcutKeySettings.SwapDesktopIndices#Count</Key>
+    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:int">4</Value>
+  </KeyValueOfstringanyType>
+  <KeyValueOfstringanyType>
+    <Key>ShortcutKeySettings.SwitchToIndices#Count</Key>
+    <Value xmlns:d3p1="http://www.w3.org/2001/XMLSchema" i:type="d3p1:int">4</Value>
   </KeyValueOfstringanyType>
   <KeyValueOfstringanyType>
     <Key>ShortcutKeySettings.TogglePin</Key>
