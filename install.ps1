@@ -1,32 +1,62 @@
 $dotfiles = $PSScriptRoot
 
-## ヘルパー関数の読み込み
-. "$dotfiles\etc\powershell\utils.ps1"
 
+## ==================================================
 ## 管理者権限のチェック
-if (!(Test-Privilege)) {
+## ==================================================
+
+if (!([Security.Principal.WindowsPrincipal]`
+		[Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole(`
+		[Security.Principal.WindowsBuiltInRole] "Administrator")) {
 	Write-Error "This script need to be run with elevated privileges." -ErrorAction Stop
 }
 
-Write-Host "Installing dotfiles..." -ForegroundColor Magenta
+
+## ==================================================
+## シンボリックリンクを作成する関数
+## ==================================================
+
+function New-Symlink($src, $dest) {
+
+	if (!(Test-Path $src)) {
+		Write-Error "No such file or directory: $src" -ErrorAction Stop
+	}
+
+	$src = Resolve-Path $src
+
+	if (Test-Path $dest -PathType Container) {
+		$type = Get-Item $dest | Select-Object -ExpandProperty LinkType
+		if ($type -ne "SymbolicLink") {
+			$name = Split-Path -Leaf $src
+			$dest = Join-Path $dest $name
+		}
+	}
+
+	$path = Split-Path -Parent $dest
+	$name = Split-Path -Leaf $dest
+
+	if (!($path)) {
+		$path = "."
+	}
+
+	if (!(Test-Path $path)) {
+		New-Item -Path $path -ItemType Directory | Out-Null
+	}
+
+	New-Item -ItemType SymbolicLink -Path $path -Name $name -Target $src -Force | Out-Null
+	Write-Host "$src`t===>`t$path\$name"
+}
 
 
-## $USERPROFILE
+## ==================================================
+## home
+## ==================================================
 
-Get-ChildItem $dotfiles\.* -Exclude .git -Name |
-Where-Object {
-	$_ -notmatch "\.(linux|macos|cygwin|wsl)$"
-} |
+Get-ChildItem $dotfiles\home |
 ForEach-Object {
 
-	$src = Join-Path $dotfiles $_
-
-	if ($_.EndsWith(".windows")) {
-		$dest = Join-Path $env:USERPROFILE ($_ -Replace ".windows", ".os")
-	}
-	else {
-		$dest = Join-Path $env:USERPROFILE $_
-	}
+	$src = $_.FullName
+	$dest = Join-Path $env:USERPROFILE $_.Name
 
 	if (Test-Path $dest -PathType Container) {
 		$type = Get-Item $dest | Select-Object -ExpandProperty LinkType
@@ -38,71 +68,81 @@ ForEach-Object {
 	New-Symlink $src $dest
 }
 
-## R
-New-Symlink "$dotfiles\etc\r\Rconsole" "$env:USERPROFILE\Rconsole"
-New-Symlink "$dotfiles\etc\r\Rdevga"   "$env:USERPROFILE\Rdevga"
+
+## ==================================================
+## win
+## ==================================================
+
+Get-ChildItem $dotfiles\win -File |
+ForEach-Object {
+
+	$src = $_.FullName
+	$dest = Join-Path $env:USERPROFILE $_.Name
+
+	New-Symlink $src $dest
+}
 
 
-## $USERPROFILE/Documents
-
-## PowerShell Core
-New-Symlink `
-	"$dotfiles\etc\powershell\Microsoft.PowerShell_profile.ps1" `
-	"$env:USERPROFILE\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
-
-
-## $APPDATA
-
-## WSLtty
-New-Symlink "$dotfiles\.minttyrc" "$env:APPDATA\wsltty\config"
-
-## VSCode
-New-Symlink "$dotfiles\.config\Code\User" "$env:APPDATA\Code\User"
-
-## RStudio
-New-Symlink "$dotfiles\.config\rstudio" "$env:APPDATA\RStudio"
-
-## bat
-New-Symlink "$dotfiles\.config\bat\config" "$env:APPDATA\bat\config"
-
-## lsd
-New-Symlink "$dotfiles\.config\lsd\config.yaml" "$env:APPDATA\lsd\config.yaml"
-
-
-## $LOCALAPPDATA
+## ==================================================
+## AppData/Local
+## ==================================================
 
 ## Windows Terminal
 New-Symlink `
-	"$dotfiles\etc\windows-terminal\settings.json" `
+	"$dotfiles\win\AppData\Local\windows-terminal\settings.json" `
 	"$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
 
 ## SylphyHorn
 New-Symlink `
-	"$dotfiles\etc\sylphyhorn\Settings.xml" `
+	"$dotfiles\win\AppData\Local\sylphyhorn\Settings.xml" `
 	"$env:LOCALAPPDATA\hwtnb.net\SylphyHornPlus\Settings.xml"
 
 
+## ==================================================
+## AppData/Roaming
+## ==================================================
+
+## WSLtty
+New-Symlink `
+	"$dotfiles\home\.minttyrc" `
+	"$env:APPDATA\wsltty\config"
+
+## RStudio
+New-Symlink `
+	"$dotfiles\home\.config\rstudio" `
+	"$env:APPDATA\RStudio"
+
+## bat
+New-Symlink `
+	"$dotfiles\home\.config\bat\config" `
+	"$env:APPDATA\bat\config"
+
+## lsd
+New-Symlink `
+	"$dotfiles\home\.config\lsd\config.yaml" `
+	"$env:APPDATA\lsd\config.yaml"
+
+
+## ==================================================
+## Documents
+## ==================================================
+
+## PowerShell Core
+New-Symlink `
+	"$dotfiles\win\Documents\powershell\Microsoft.PowerShell_profile.ps1" `
+	"$env:USERPROFILE\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
+
+
+## ==================================================
 ## Scoop
-
-$scoop = "$env:USERPROFILE\scoop\persist"
-
-## allrename
-New-Symlink "$dotfiles\etc\allrename\allrename.ini" "$scoop\allrename\allrename.ini"
-
-## everything
-New-Symlink "$dotfiles\etc\everything\Everything.ini" "$scoop\everything\Everything.ini"
-
-## hiddex
-New-Symlink "$dotfiles\etc\hiddex\hiddex.ini" "$scoop\hiddex\hiddex.ini"
+## ==================================================
 
 ## keyhac
-New-Symlink "$dotfiles\etc\keyhac\config.py" "$scoop\keyhac\config.py"
+New-Symlink `
+	"$dotfiles\win\scoop\keyhac\config.py" `
+	"$env:USERPROFILE\scoop\persist\keyhac\config.py"
 
 ## keypirinha
-New-Symlink "$dotfiles\etc\keypirinha\User" "$scoop\keypirinha\portable\Profile\User"
-
-## strokesplus.net
-New-Symlink "$dotfiles\etc\strokesplus.net\StrokesPlus.net.json" "$scoop\strokesplus.net\StrokesPlus.net.json"
-
-## trayvolume
-New-Symlink "$dotfiles\etc\trayvolume\TrayVolume.ini" "$scoop\trayvolume\TrayVolume.ini"
+New-Symlink `
+	"$dotfiles\win\scoop\keypirinha\User" `
+	"$env:USERPROFILE\scoop\persist\keypirinha\portable\Profile\User"

@@ -2,4 +2,4 @@
 !.gitignore
 !config.json
 !rstudio-prefs.json
-!dictionaries/custon/.gitkeep
+!dictionaries/custom/.gitkeep
