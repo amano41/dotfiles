@@ -57,7 +57,7 @@ Set-PSReadLineOption -WordDelimiters ";:,.[]{}()/\|^&*-=+'`" !?@#$%&_<>「」（
 # ヘルパー関数
 ##################################################
 
-. "$env:USERPROFILE\dotfiles\etc\powershell\utils.ps1"
+. "$env:USERPROFILE\dotfiles\win\Documents\powershell\utils.ps1"
 
 
 ##################################################
