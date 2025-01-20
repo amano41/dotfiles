@@ -209,16 +209,6 @@ $env:FZF_ALT_C_OPTS = "--preview `"lsd -A --icon=never --color=always --group-di
 
 
 ##################################################
-# zoxide
-##################################################
-
-Invoke-Expression (& {
-	$hook = if ($PSVersionTable.PSVersion.Major -lt 6) { 'prompt' } else { 'pwd' }
-	(zoxide init --hook $hook powershell --cmd j) -join "`n"
-})
-
-
-##################################################
 # posh-git
 ##################################################
 
@@ -230,3 +220,10 @@ Import-Module posh-git
 ##################################################
 
 Invoke-Expression (&starship init powershell)
+
+
+##################################################
+# zoxide
+##################################################
+
+Invoke-Expression (& { (zoxide init powershell --cmd j | Out-String) })
