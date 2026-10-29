@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -eu
+
+if ! git rev-parse --is-inside-work-tree >/dev/null; then
+	exit
+fi
+
+root=$(git rev-parse --show-toplevel)
+prefix=$(git rev-parse --show-prefix)
+
+for v in "$@"
+do
+	echo "${prefix}$v" >> "${root}/.gitignore"
+done

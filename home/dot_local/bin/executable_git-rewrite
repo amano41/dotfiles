@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -eu
+
+target=$(git rev-parse ${1:-HEAD})
+
+git commit --fixup="${target}" "${@:2}"
+GIT_SEQUENCE_EDITOR=true git rebase -i --autostash --autosquash "${target}~1"
