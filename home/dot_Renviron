@@ -1,0 +1,3 @@
+R_HISTFILE="${HOME}/.Rhistory"
+R_LIBS_USER="${HOME}/lib/R/%v"
+LANG=ja_JP.UTF-8
