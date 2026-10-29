@@ -1,0 +1,32 @@
+## built-in patterns
+
+*.c diff=cpp
+*.h diff=cpp
+*.cpp diff=cpp
+*.hpp diff=cpp
+*.java diff=java
+*.html diff=html
+*.css diff=css
+*.js diff=java
+*.pl diff=perl
+*.py diff=python
+*.rb diff=ruby
+*.go diff=golang
+*.rs diff=rust
+*.sh diff=bash
+*.bash diff=bash
+*.tex diff=tex
+*.bib diff=bibtex
+*.md diff=markdown
+*.Rmd diff=markdown
+*.qmd diff=markdown
+
+
+## additional patterns
+
+*.pdf diff=pdf
+*.rtf diff=rtf
+*.doc[xm] diff=docx
+*.xls[xmb] diff=xlsx
+*.ppt[xm] diff=pptx
+*.opml diff=opml
