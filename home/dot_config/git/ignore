@@ -1,0 +1,51 @@
+## Windows
+
+Thumbs.db
+Desktop.ini
+*.lnk
+
+
+## Mac OS
+
+.DS_Store
+._*
+
+
+## Linux
+
+*~
+
+
+## MS Office
+
+~$*.doc*
+~$*.xls*
+~$*.ppt*
+
+
+## Python
+
+__pycache__/
+.venv/
+*.py[cod]
+.pytest_cache
+.ruff_cache
+.ipynb_checkpoints
+
+
+## R
+
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+
+
+## VSCode
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets

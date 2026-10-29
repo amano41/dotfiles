@@ -1,0 +1,199 @@
+[user]
+	name = {{ .name }}
+	email = {{ .email }}
+[core]
+	autocrlf = false
+	quotepath = false
+	whitespace = cr-at-eol
+	editor = vim -c 'set fenc=utf-8'
+	pager = less -FRX
+[color]
+	ui = auto
+[color "branch"]
+	current = green
+	local = normal
+	remote = red
+	upstream = magenta
+[color "diff"]
+	meta = magenta
+	frag = cyan
+	old = red
+	new = green
+[color "status"]
+	added = green
+	changed = yellow
+	unmerged = red
+	untracked = magenta
+[init]
+	defaultBranch = main
+[push]
+	default = current
+[pull]
+	rebase = merges
+[merge]
+	ff = false
+[rebase]
+	autosquash = true
+[stash]
+	showStat = false
+	showPatch = true
+[status]
+	showUntrackedFiles = all
+[pretty]
+	compact = "tformat:%C(yellow)%h%Creset %C(magenta)%cd%Creset%C(auto)%d%Creset %s %C(bold black)-%Creset %C(bold blue)%an%Creset"
+[log]
+	date = iso-local
+[diff]
+	mnemonicPrefix = true
+	renames = true
+	indentHeuristic = true
+	algorithm = histogram
+	colorMoved = dimmed-zebra
+[diff]
+	tool = vscode
+[difftool]
+	prompt = false
+[difftool "vscode"]
+	cmd = code --wait --new-window --diff $LOCAL $REMOTE
+[merge]
+	tool = vscode
+[mergetool]
+	prompt = false
+	keepBackup = false
+[mergetool "vscode"]
+	cmd = code --wait --new-window $MERGED
+[alias]
+	a = add
+	au = add -u
+	aa = add -A
+	ap = add -p
+	c = commit -v
+	cm = commit -m
+	s = status
+	sb = status -sb
+	d  = diff
+	dc = diff --cached
+	dp = diff --no-textconv
+	dpc = diff --no-textconv --cached
+	dd  = difftool --dir-diff
+	ddc = difftool --dir-diff --cached
+	dr = !"f() { r=${1:-HEAD}; git diff $r~..$r; }; f"
+	ds = !"f() { git diff HEAD...stash@{${1:-0}}; }; f"
+	b = branch
+	ba = branch -avv
+	bd = branch -D
+	co = checkout
+	cob = checkout -b
+	cop = checkout -p
+	r = reset
+	rs = reset --soft
+	rh = reset --hard
+	pl = pull
+	pp = pull --prune
+	ps = push
+	f = fetch
+	fp = fetch --prune
+	m = merge --no-edit
+	mf = merge --ff
+	ff = merge --ff
+	rb = rebase
+	rbi = rebase -i
+	rbc = rebase --continue
+	rbs = rebase --skip
+	rba = rebase --abort
+	cp = cherry-pick
+	sh = show
+	sl = stash list
+	ss = stash push --include-untracked
+	sp = !"f() { git stash pop --index stash@{${1:-0}}; }; f"
+	sa = !"f() { git stash apply --index stash@{${1:-0}}; }; f"
+	sd = !"f() { git stash drop stash@{${1:-0}}; }; f"
+	ssh = !"f() { git stash show stash@{${1:-0}}; }; f"
+	sc = stash clear
+	l  = log --graph --oneline --decorate
+	la = log --graph --oneline --decorate --all
+	ll  = log --graph --pretty=compact --date="format-local:'%F %T'"
+	lla = log --graph --pretty=compact --date="format-local:'%F %T'" --all
+	lt = log --graph --oneline --decorate --simplify-by-decoration
+	lta = log --graph --oneline --decorate --simplify-by-decoration --all
+	ln = log --name-status
+	lp = log --patch
+	g = grep -EI
+	gi = grep -EIi
+	discard = checkout --
+	untrack = rm --cache --
+	unstage = reset -q HEAD --
+	uncommit = reset --mixed HEAD~
+	recommit = commit --amend --no-edit
+	amend = commit --amend -v
+	reword = commit --amend -m
+	fixup = commit --fixup
+	squash = commit -v --squash
+	word-diff = diff --word-diff=color --unified=1
+	char-diff = diff --word-diff=color --word-diff-regex="[^\\x80-\\xBF][\\x80-\\xBF]*"
+	delete-remote-branch = !"f() { u=${2:+${1}}; b=${2:-${1}}; git push --delete ${u:-origin} $b; }; f"
+	chmod = update-index --add --chmod
+	skip = update-index --skip-worktree
+	unskip = update-index --no-skip-worktree
+	search-log = log -E --grep
+	search-diff = log --patch --pickaxe-regex -S
+	branches = branch -avv
+	tags = tag
+	stashes = stash list
+	stashed = stash list
+	remotes = remote -v
+	worktrees = worktree list
+	merged = branch --merged
+	unmerged = branch --no-merged
+[diff "opml"]
+	textconv = opml2md
+[url "git@github.com:"]
+	pushInsteadOf = https://github.com/
+	pushInsteadOf = git://github.com/
+[url "git@bitbucket.org:"]
+	pushInsteadOf = https://bitbucket.org/
+	pushInsteadOf = git://bitbucket.org/
+
+
+{{ if eq .chezmoi.os "windows" }}
+
+[core]
+	editor = code --wait
+	pager = delta --pager='less -FRX'
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	keep-plus-minus-markers = true
+	line-numbers = true
+	navigate = true
+	plus-style = syntax auto
+	plus-emph-style = syntax auto
+	minus-style = syntax auto
+	minus-emph-style = syntax auto
+	syntax-theme = Monokai Extended
+[difftool "winmerge"]
+	cmd = WinMergeU.exe -e -r -u -x -wl -wr -dl \"a/$MERGED\" -dr \"b/$MERGED\" \"$LOCAL\" \"$REMOTE\"
+	trustExitCode = false
+[mergetool "winmerge"]
+	cmd = WinMergeU.exe \"$MERGED\"
+	trustExitCode = false
+[alias]
+	windiff = difftool --dir-diff --tool=winmerge
+	winmerge = mergetool --tool=winmerge
+[diff "pdf"]
+	binary = true
+	textconv = xdoc2txt.exe -8
+[diff "rtf"]
+	binary = true
+	textconv = xdoc2txt.exe -8
+[diff "docx"]
+	binary = true
+	textconv = xdoc2txt.exe -8
+[diff "xlsx"]
+	binary = true
+	textconv = xdoc2txt.exe -8
+[diff "pptx"]
+	binary = true
+	textconv = xdoc2txt.exe -8
+
+{{ end }}
