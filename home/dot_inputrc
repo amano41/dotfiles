@@ -1,0 +1,15 @@
+set meta-flag on
+set convert-meta off
+set input-meta on
+set output-meta on
+
+set mark-directories on
+set mark-symlinked-directories on
+set completion-ignore-case on
+set show-all-if-ambiguous on
+set visible-stats on
+
+"\C-n": history-search-forward
+"\C-p": history-search-backward
+"\e[A":history-search-backward
+"\e[B":history-search-forward
