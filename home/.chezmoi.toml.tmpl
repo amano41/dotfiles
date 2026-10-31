@@ -1,0 +1,24 @@
+{{- $name := promptStringOnce . "name" "Git user name" -}}
+{{- $email := promptStringOnce . "email" "Git email address" -}}
+
+encryption = "age"
+
+[age]
+identity = "~/.config/chezmoi/key.txt"
+recipients = "age15w2n7htsysq4a8rn35wka5d6e49q87emqysr4wlgmgd3dxq6796stldpy9"
+
+[data]
+name = {{ $name | quote }}
+email = {{ $email | quote }}
+
+[edit]
+command = "code"
+args = ["--wait"]
+
+{{- if eq .chezmoi.os "windows" }}
+
+[cd]
+command = "pwsh"
+args = ["-NoLogo"]
+
+{{- end }}
