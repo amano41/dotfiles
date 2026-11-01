@@ -1,0 +1,18 @@
+# Zip で固めて暗号化した Asr/Bar を復元する
+# Bar.zip: {{ include "dot_local/share/asr/encrypted_Bar.zip.age" | sha256sum }}
+
+$ErrorActionPreference = "Stop"
+
+$archive = Join-Path $HOME ".local/share/asr/Bar.zip"
+$asrDir = Join-Path $env:LOCALAPPDATA "Asr"
+$barDir = Join-Path $asrDir "Bar"
+
+if (-not (Test-Path -LiteralPath $archive -PathType Leaf)) {
+    throw "Zip archive not found: $archive"
+}
+
+if (-not (Test-Path -LiteralPath $asrDir -PathType Container)) {
+    throw "As/R directory not found: $asrDir"
+}
+
+Expand-Archive -LiteralPath $archive -DestinationPath $barDir -Force
