@@ -9,7 +9,7 @@ Write-Host "Installing essential commands via WinGet..." -ForegroundColor Magent
 
 $packages = @(
 	@{ Id = "Git.Git"; Command = "git" }
-	@{ Id = "Microsoft.PowerShell"; Command = "pwsh" }
+	@{ Id = "Microsoft.PowerShell"; Command = "pwsh"; Options = @("--installer-type", "wix") }
 	@{ Id = "twpayne.chezmoi"; Command = "chezmoi" }
 )
 
@@ -21,14 +21,19 @@ foreach ($package in $packages) {
 	}
 
 	$arguments = @(
-		"install", "--id", $package.Id, "--exact",
+		"install", "--id", $package.Id, "--exact", "--source", "winget", "--no-upgrade",
 		"--silent", "--accept-source-agreements", "--accept-package-agreements"
 	)
+
+	if ($package.Options) {
+		$arguments += $package.Options
+	}
 
 	Write-Host "Installing $($package.Command)..."
 	& winget @arguments
 
-	if ($LASTEXITCODE -ne 0) {
+	# APPINSTALLER_CLI_ERROR_PACKAGE_ALREADY_INSTALLED = -1978335135
+	if ($LASTEXITCODE -ne 0 -and $LASTEXITCODE -ne -1978335135) {
 		throw "Failed to install $($package.Command) (exit code $LASTEXITCODE)."
 	}
 }
