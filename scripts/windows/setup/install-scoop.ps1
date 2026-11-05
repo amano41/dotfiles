@@ -115,7 +115,6 @@ foreach ($pkg in $packages) {
 # extras
 $packages = @(
 	"audacity",
-	"bitwarden",
 	"ccleaner",
 	"crystaldiskinfo",
 	"crystaldiskmark",

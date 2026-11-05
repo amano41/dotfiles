@@ -28,6 +28,8 @@ $packages = @(
 	"twpayne.chezmoi",
 
 	"7zip.7zip",
+	"Bitwarden.Bitwarden",
+	"Bitwarden.CLI",
 	"Google.Chrome",
 	"Mozilla.Firefox",
 	"Vivaldi.Vivaldi",
@@ -42,9 +44,7 @@ $packages = @(
 	"HermannSchinagl.LinkShellExtension",
 	"CodecGuide.K-LiteCodecPack.Standard",
 	"Paperpile.Paperpile",
-	"9PM860492SZD",  # PC Manager (msstore)
-	"Logitech.LogiTune",
-	"SteelSeries.GG"
+	"9PM860492SZD"  # PC Manager (msstore)
 )
 
 foreach ($package in $packages) {
