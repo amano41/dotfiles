@@ -8,6 +8,9 @@ local({
 	options(defaultPackages=c(pkgs, "tidyverse", "car", "conflicted"));
 });
 
+## dplyr::filter を優先
+conflict_prefer("filter", "dplyr")
+
 ## 零和対比をデフォルトに設定
 ## car::Anova(type="III") が SPSS と一致するようになる
 options(contrasts=c("contr.sum", "contr.sum"));
