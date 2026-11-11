@@ -7,6 +7,8 @@ def enable_emacs_keybindings(keymap, exclude_apps=None, exclude_classes=None):
         exclude_classes = []
 
     def remove_suffix(name):
+        if name is None:
+            return ""
         name = name.lower()
         if name.endswith(".exe"):
             name = name[:-4]
@@ -16,6 +18,8 @@ def enable_emacs_keybindings(keymap, exclude_apps=None, exclude_classes=None):
     exclude_classes = {cls.lower() for cls in exclude_classes}
 
     def is_emacs_target(focus):
+        if focus is None:
+            return False
         if remove_suffix(focus.app_name) in exclude_apps:
             return False
         if focus.class_name.lower() in exclude_classes:
