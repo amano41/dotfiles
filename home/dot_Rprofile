@@ -8,8 +8,12 @@ local({
 	options(defaultPackages=c(pkgs, "tidyverse", "car", "conflicted"));
 });
 
-## dplyr::filter を優先
-conflict_prefer("filter", "dplyr")
+## filter と select は dplyr を優先
+setHook(packageEvent("conflicted", "onLoad"),
+	function(...) {
+		conflicted::conflicts_prefer(dplyr::filter)
+		conflicted::conflicts_prefer(dplyr::select)
+})
 
 ## 零和対比をデフォルトに設定
 ## car::Anova(type="III") が SPSS と一致するようになる
@@ -23,17 +27,17 @@ if(capabilities("aqua")) {
 
 ## グラフィックスデバイスにフォント設定フックを追加
 setHook(packageEvent("grDevices", "onLoad"), function(...) {
-	
+
 	## Windows 環境のフォント設定
 	if (.Platform$OS.type == "windows") {
-	
+
 		## フォントデータベースはデフォルトのまま
 		grDevices::windowsFonts(
 			serif = grDevices::windowsFont("TT Times New Roman"),
 			sans  = grDevices::windowsFont("TT Arial"),
 			mono  = grDevices::windowsFont("TT Courier New")
 		);
-		
+
 		## フォントデータベースに明朝体とゴシック体を追加
 		grDevices::windowsFonts(
 			mincho = grDevices::windowsFont("TT MS Mincho"),
@@ -48,7 +52,7 @@ setHook(packageEvent("grDevices", "onLoad"), function(...) {
 			gothic = grDevices::pdfFonts()$Japan1GothicBBB
 		);
 	}
-	
+
 	## Mac OS X 環境のフォント設定
 	if (capabilities("aqua")) {
 		grDevices::quartzFonts(
