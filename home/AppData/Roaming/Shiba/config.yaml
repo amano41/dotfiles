@@ -1,0 +1,17 @@
+width: "max"
+height: "max"
+linter: "remark-lint"
+lint_options:
+    plugins:
+        - remark-preset-lint-consistent
+        - remark-preset-lint-recommended
+drawer:
+    responsive: false
+menu:
+    visible: false
+shortcuts:
+    ctrl+f: "Search"
+    ctrl+p: "Print"
+    ctrl+q: "QuitApp"
+    ctrl+w: "QuitApp"
+    f5: "Reload"
