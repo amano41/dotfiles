@@ -2,6 +2,9 @@
 ## CRAN ミラーを指定
 options(repos=list(CRAN="https://cran.rstudio.com/"));
 
+## バイナリ版のパッケージを使用する
+options(pkgType = "binary")
+
 ## 起動時にロードするパッケージを追加
 local({
 	pkgs <- getOption("defaultPackages");
